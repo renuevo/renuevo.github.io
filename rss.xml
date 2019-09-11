@@ -1,5 +1,507 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[DRcode]]></title><description><![CDATA[Deokhwa Kim's blog]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 11 Sep 2019 04:09:38 GMT</lastBuildDate><item><title><![CDATA[[DataStructure] ArrayList 내부 구조]]></title><description><![CDATA[ArrayList는 왜 LinkedList 보다 빠를까?ArrayList 내부구조 알아보기]]></description><link>https://renuevo.github.io/array_list/</link><guid isPermaLink="false">https://renuevo.github.io/array_list/</guid><pubDate>Mon, 09 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;ArrayList는 왜 LinkedList 보다 빠를까?&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;ArrayList 내부구조 알아보기&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[DesignPattern] Decorator Pattern]]></title><description><![CDATA[데코레이터 패턴 (Decorator Pattern)데코레이터 패턴은 유연한 확장을 지원하는 패턴으로 무언가를 첨가해서 계속해서 장식(decoration…]]></description><link>https://renuevo.github.io/decorator_pattern/</link><guid isPermaLink="false">https://renuevo.github.io/decorator_pattern/</guid><pubDate>Mon, 09 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;데코레이터 패턴 &lt;span class=&quot;sub_header&quot;&gt;(Decorator Pattern)&lt;/span&gt;&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[DRcode]]></title><description><![CDATA[Deokhwa Kim's blog]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 11 Sep 2019 17:28:00 GMT</lastBuildDate><item><title><![CDATA[[Kotlin] 왜 Kotlin을 써야 할까?]]></title><description><![CDATA[Why Kotlin?Kotlin을 처음 공부하고 사용하면서는 많은 불편함을 느꼈습니다하지만 계속 쓰면 쓸수록 Kotlin이 Java보다 편하다는 명확한 이점을 파악하였고 왜 Kotlin을 사용하는 지에 대해 포스팅하게 되었습니다…]]></description><link>https://renuevo.github.io/why_kotlin/</link><guid isPermaLink="false">https://renuevo.github.io/why_kotlin/</guid><pubDate>Thu, 12 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;Why Kotlin?&lt;/h1&gt;
+&lt;p&gt;Kotlin을 처음 공부하고 사용하면서는 많은 불편함을 느꼈습니다&lt;br&gt;
+하지만 계속 쓰면 쓸수록 Kotlin이 Java보다 편하다는 명확한 이점을 파악하였고 왜 Kotlin을 사용하는 지에 대해 포스팅하게 되었습니다&lt;/p&gt;
+&lt;h2&gt;1. 간결한 코드&lt;/h2&gt;
+&lt;p&gt;제가 생각하는 첫번째 장점은 간결한 코드가 가능하다는 것입니다&lt;br&gt;
+어느 lang이나 간결한 코드는 가능하겠지만, 뒤 따라오는 문제는 간결성 - 가독성은 서로 친하지 않다는 것입니다&lt;br&gt;
+하지만 koltin을 사용해보면 JetBrrains사에서 언어를 만들때 간결설과 가독성을 얼마나 고심하며 설계 했는지가 명확히 들어 납니다&lt;br&gt;
+간단한 샘플을 보면 명확히 이해되실 겁니다&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Java Code &lt;span class=&apos;sub_header&apos;&gt;(Variables Null Check)&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token class-name&quot;&gt;Person&lt;/span&gt; person &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;deokhwa&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;kim&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getFirstName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;     
+  
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;person &lt;span class=&quot;token operator&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; person&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getFirstName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//Null Check  &lt;/span&gt;&lt;/span&gt;            &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; person&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getFirstName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;strong&gt;Kotlin Code &lt;span class=&apos;sub_header&apos;&gt;(Variables Null Check)&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;kotlin&quot;&gt;&lt;pre class=&quot;language-kotlin&quot;&gt;&lt;code class=&quot;language-kotlin&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; person &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;deokhwa&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;kim&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getFirstName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; String&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; person&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;firstName &lt;span class=&quot;token operator&quot;&gt;?:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//Null Check  &lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;다음과 같이 간단하게 &lt;code class=&quot;language-text&quot;&gt;?&lt;/code&gt;만로 &lt;code class=&quot;language-text&quot;&gt;Null Check&lt;/code&gt;가 가능해서 보시는 것과 같이 단 한줄로 기능이 구현됩니다&lt;br&gt;
+그리고 &lt;code class=&quot;language-text&quot;&gt;간결성&lt;/code&gt;과 더불어서 java코드는 줄을 쭉 따라 내려가며 이해해야 하지만 kotlin코드는 한줄을 보고 단번에 이해할 수 있어서 &lt;code class=&quot;language-text&quot;&gt;가독성&lt;/code&gt;도 더 좋습니다&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;다음은 이름의 성을 대문자로 반환하는 함수를 만들어 보겠습니다&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Java Code &lt;span class=&apos;sub_header&apos;&gt;(Function)&lt;/span&gt;&lt;/strong&gt;  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token class-name&quot;&gt;Person&lt;/span&gt; person &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;deokhwa&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;kim&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getLastNameUpper&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;       
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; person&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getLastName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toUpperCase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;   &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;strong&gt;Kotlin Code &lt;span class=&apos;sub_header&apos;&gt;(Function)&lt;/span&gt;&lt;/strong&gt;  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;kotlin&quot;&gt;&lt;pre class=&quot;language-kotlin&quot;&gt;&lt;code class=&quot;language-kotlin&quot;&gt;Person person &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; new &lt;span class=&quot;token function&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;deokhwa&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;kim&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getLastNameUpper&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; person&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toUpperCase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;    &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;보이시나요?&lt;/strong&gt;&lt;br&gt;
+java코드도 간단히 구현 가능하지만 kotlin으로 구현했을 때의 더 간결함!&lt;br&gt;
+여기서 &lt;code class=&quot;language-text&quot;&gt;Null Check&lt;/code&gt;를 한번 추가해 보겠습니다  &lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;성을 대문자로 반환하지만 Null 값이면 빈 String값을 반환하는 코드&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Java Code &lt;span class=&apos;sub_header&apos;&gt;(Function &amp;#x26; Null Check)&lt;/span&gt;&lt;/strong&gt;  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token class-name&quot;&gt;Person&lt;/span&gt; person &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;deokhwa&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;kim&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getLastNameUpper&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;       
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;person &lt;span class=&quot;token operator&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; person&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;getLastName &lt;span class=&quot;token operator&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;   &lt;span class=&quot;token comment&quot;&gt;//Null Check&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;         &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; person&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getLastName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toUpperCase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;     &lt;span class=&quot;token comment&quot;&gt;//Upper&lt;/span&gt;&lt;/span&gt;    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;  
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;strong&gt;Kotlin Code &lt;span class=&apos;sub_header&apos;&gt;(Function &amp;#x26; Null Check)&lt;/span&gt;&lt;/strong&gt;  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;kotlin&quot;&gt;&lt;pre class=&quot;language-kotlin&quot;&gt;&lt;code class=&quot;language-kotlin&quot;&gt;Person person &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; new &lt;span class=&quot;token function&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;deokhwa&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;kim&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getLastNameUpper&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; person&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toUpperCase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//Null Check &amp;amp; Upper    &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이 처럼 간결함이 합쳐져서 더욱 간결해진 kotlin 코드를 만나 볼 수 있었습니다  &lt;/p&gt;
+&lt;br/&gt;
+&lt;hr&gt;
+&lt;h2&gt;2. 안전성과 호환성&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;1. 안전성&lt;/strong&gt;  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;시스템에서 가장 중요한것은 안전성입니다&lt;br&gt;
+이런 측면에서 java는 전세계인들의 사랑을 받아왔고 수년간의 노하우로 안전성에서 인정받아 지금도 가장 널리 사용되는 언어 중 하나입니다&lt;br&gt;
+kotlin은 이런 안전성을 확보하기 위해 기존 jvm 위에서 java와 같이 실행되도록 구현되었습니다   &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 960px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 36.01593625498008%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAIAAACHqfpvAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA00lEQVQY03WQuQ6DMBBE/f//RYsQDQ2i4T5jI04DJi9YiRKJTGGN1zuzOxZJkhRF0bbtsiz7vm/btq6rlLLv+67r5IV5ns87iHEcaWqaRill++q6zrIM7jhOEAS2orU2xiDgZIDl4vEGo2wJDMNgvdQF9NM0QViNNggj4cJ2m1+cfxDHseu6xPR9HwvBzpjh/a3hSpHwDIToCxAGEhBxFEUvcVmW+BHSfg/PVVWlacpWnudRR0ZmXKh8doQcxyEYQgfd5LS/wokRxmEY5nkO4ek2xRNPepDGeyy9vwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;java_and_kotlin on jvm&quot;
+        title=&quot;java_and_kotlin on jvm&quot;
+        src=&quot;/static/42775616ca86b8ce122393db2880a050/4d297/java_and_kotlin_jvm.png&quot;
+        srcset=&quot;/static/42775616ca86b8ce122393db2880a050/07e12/java_and_kotlin_jvm.png 240w,
+/static/42775616ca86b8ce122393db2880a050/5ca43/java_and_kotlin_jvm.png 480w,
+/static/42775616ca86b8ce122393db2880a050/4d297/java_and_kotlin_jvm.png 960w,
+/static/42775616ca86b8ce122393db2880a050/f7f9c/java_and_kotlin_jvm.png 1255w&quot;
+        sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;
+&lt;span class=&quot;img_caption&quot;&gt;source &lt;a href=&quot;https://subscription.packtpub.com/book/application_development/9781789349252/2/ch02lvl1sec17/introduction-to-kotlin&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Introduction to Kotlin&lt;/a&gt; &lt;/span&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;보시는 것 같이 java던 kotlin이던 각각의 컴파일러를 거쳐 class로 생성되어 jvm에서 똑같이 동작되어 &lt;code class=&quot;language-text&quot;&gt;안전성&lt;/code&gt;을 그대로 가져왔습니다&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;br/&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;2. 호환성&lt;/strong&gt;  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;kotlin은 java를 100% 호환되도록 설계되었습니다&lt;br&gt;
+그래서 사용자는 java와 kotlin을 구분없이 사용가능하고 Intellij에서는 java코드를 kotlin코드롤 자동변환해 주는 기능도 제공합니다&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 566px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 114.48763250883391%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAIAAACEf/j0AAAACXBIWXMAAA7DAAAOwwHHb6hkAAACvklEQVQ4y22US2/TUBCF80/YI6QmqYRo/L62r+/DzyRtSZMgxILuoLBsAHXH3+a7dpu6odIsRnfmzJw5M/ZE2bpZX1dNF4nUjxKpbSYVTvCqxQILY5EVaj4/nyhbdVcbAB5vebG+3iRZvggi8K9YGBPKldG2nM7mE2lKOqe5DCJXlVq6rAttQ5H9D47I09YlmB6syqa7uhE5VIUXxEOMEpkyYSLGyCBJ88IoU+qyegS/mUVv0+W7uDqL7FmoTNUQg3+UpK+OzXRSGTXQjrJCt5fSVFBIC51k0tatKWvAzz1fGtrkSs/m80l3ua6XK5FJJ1IYU8pWjcilH8Vhkg52AiaNHk7tvHRDMmquTSaLpJeEwujPiHGak3cyglNOZK4zffCYZGCYSgW4GCTVlo0e1zsYbeECwRmduRGnrVQEPEfb1G2HbLaqyUhlcbKthNd+HU4wPOj5sRhuAM2qZskmCEdpdhFEVDzyGqghJ9UfwUzljg556Sx5aJmZ4bF+Zuccx/bwcjfaI5il0YrdDmpz5xwOL+ysapdlQy0DgigS9LMokmeA4VCTUbfcOvQYwVbtIBj90RJGXn/qtMWHpujNgcn3+1dnsRimxdyRsYWXanGhtB2aO/AxsAhjsp1arMqUMKL86YU9fZIwdHseF+YVLYGxfBbC/ty1FDocnarfn3cPPp+Mv9WAs6xXpqz4XKmCPIPm4ehIMDjnhZ6OabvTYQnNGrW1rSPh9uRH9ASQnlgq9XzcGTKcXdPUssiNVWkmsCD0Ft7FYN6T43x/MZ1Nj2D+BKHQq9XXv+2Xh+bzQ/npj97eq+293R3M7qC3B7k52P0vu7t3tv99/kGMBYu9RGXdbbO9q7d37e5HfdM7+x/lx295dyvaW6I8dvuf5eb7/L0/AvNh+EEUBYb/hFUFSpvC9I7nP9OGMOYHHrT/ARSubucnoxZpAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;java_to_kotlin_convert&quot;
+        title=&quot;java_to_kotlin_convert&quot;
+        src=&quot;/static/aac9981f326d848581c3aa3683be5da2/78bd3/java_to_kotlin_convert.png&quot;
+        srcset=&quot;/static/aac9981f326d848581c3aa3683be5da2/07e12/java_to_kotlin_convert.png 240w,
+/static/aac9981f326d848581c3aa3683be5da2/5ca43/java_to_kotlin_convert.png 480w,
+/static/aac9981f326d848581c3aa3683be5da2/78bd3/java_to_kotlin_convert.png 566w&quot;
+        sizes=&quot;(max-width: 566px) 100vw, 566px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;이는 사용자와 시스템 모두에게 매우 긍정적인 측면으로 작용합니다&lt;br&gt;
+호환과 관련된 보다 자세한 사항은 &lt;a href=&quot;https://medium.com/jay-tillu/how-kotlin-provides-100-interoperability-with-java-5ee132869038&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Jay Tilu Blog&lt;/a&gt;를 참조하시면 좋을꺼 같습니다  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;java의 서드파티(lombok, kryo등등)까지 완벽히 지원되지는 않습니다&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;3. 커뮤니티의 활성화&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;예전에 XNA 프레임워크에 대해 공부한적이 있었습니다&lt;br&gt;
+남들이 많이 사용하지 않았지만, 나름대로 pc/xbox/windowMoblie을 하나로 모아 게임을 개발할 수 있다는 것에 흥미를 느끼고 공부했었습니다&lt;br&gt;
+하지만 2013년 개발 중단으로 더이상 아무도 사용하지 않는 프레임워크가 되었습니다&lt;br&gt;
+여러요인이 있겠지만 커뮤니티 활성화가 되지 않아 쓰는 사람이 없다가 제가 본 가장 큰요인 이었습니다&lt;br&gt;
+kotlin은 이런 측면에서 방대한 커뮤니티를 가지고 있습니다&lt;br&gt;
+google은 안드로이드 진형 메인 언어로 Kotlin을 채택하였고 2019년 &lt;a href=&quot;https://developers-kr.googleblog.com/2019/05/google-io-2019-empowering-developers-to-build-experiences-on-Android-Play.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;google I/O&lt;/a&gt;에서 다시 한번 언급하였스빈다
+또한 jetbrains에서의 지속적인 관리와 피드백이 이루어 졌고 빠르게 전파되어 &lt;a href=&quot;https://insights.stackoverflow.com/survey/2018&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Stack OverFlow 2018&lt;/a&gt;에서 많은 Love를 획득하였습니다&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 700px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 61.57142857142857%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsSAAALEgHS3X78AAABUklEQVQoz4WSC3ODIBCE/f9/sY9Mk7bmpfIQEDnYHhhNJk0MM19OFHZ271L5kCBMxG9L+DwEHCWh7gjbc8DmGPDdBOx5v+Fv7/WIvSCkhKerGinBeoI0hIMIED2hY84qiwc0mlET+XvexxifUgSlzaKZCGUjehfLs3YTZri+BxI7fE6lHcepDerGYddMsb9OAT/cgvf9yPuxxH7juB+8p7iSN0cGCF7tEWwL7wxsL9lEgBIt1/FyLC2suSsOc4MpXuCfEIifuRIVN9lQvJzJNb2gmkY2c13WWjjbw2p2GgdWdC+YzlT3lktArkprDEbCdltgOCE5ZljBHbhDIvcQi8gsSBxXKQ1nFEy3A3zLlxoWvsPf1KBL5oeCxhhIqVgwO9yVCw8Fb0lxnvJ13Ub2fiwTt2sOF6fdMpXq/n+0uOSh2F7ACRYczqVPuf6H349yvow/NhSrasSJd2oAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;kotlin_love_stackover&quot;
+        title=&quot;kotlin_love_stackover&quot;
+        src=&quot;/static/b749579957c56f1d4f03dc5b79649f56/e334e/kotlin_love_stackover.png&quot;
+        srcset=&quot;/static/b749579957c56f1d4f03dc5b79649f56/07e12/kotlin_love_stackover.png 240w,
+/static/b749579957c56f1d4f03dc5b79649f56/5ca43/kotlin_love_stackover.png 480w,
+/static/b749579957c56f1d4f03dc5b79649f56/e334e/kotlin_love_stackover.png 700w&quot;
+        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;br&gt;
+&lt;span class=&quot;img_caption&quot;&gt;source &lt;a href=&quot;https://insights.stackoverflow.com/survey/2018&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Stack Overflow&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;방대한 커뮤니티를 가지고 있다는 것은 많은 발전의 피드백이 이루어진다는 말이고 이는 분명한 장점으로 작용합니다&lt;br&gt;
+gradle에서 사용하는 groovy언어는 편리하지만 커뮤니티가 형성이 안되었고 개발툴등의 발전 부재로 gradle은 멀티언어로 kotlin을 채택해서 지원하기 시작했습니다&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;4. 멀티 플랫폼 지원&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;kotlin만 사용하여 java만 대체해서 개발할 수 있는게 아닙니다&lt;br&gt;
+위에서 언급했듯이 gradle도 kotlin으로 언어를 확장해서 지원하기 시작했습니다&lt;br&gt;
+또한 kotlin만으로 javascript, ios등등의 다양한 플랫폼을 구성하고 개발이 가능합니다&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 960px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 63.70056497175142%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsSAAALEgHS3X78AAACsUlEQVQ4y4WT6UtUURjG5y/oYxtYmBRlBkX1pQiiIii/BBahlWlFpVkWUUYUWdEiqJlLRlpUWGZZLrmRhbQoQlFqhEo4OuaaXp2Ze2ecuXfu/XXmjkuC1Dk8POfAe57zrhZD+oYhfSXA06EPfcZQujEAwzD+C/+yOPPW4LizHHtOKPbsZQEWcNxZgT0rhLEPV01DDJ3/Lb+opSdpC70XtjGQtp/BjAP0p0SJcwwDt2KxJaxl+HkamjBWxzyoHhXVq6FpAXi9KkPDEpI0gq4HPrS0RcbQGhmL9ewlbJdv0nk+GVvyNX4ePs6P7Tvozc/H5xcUWxMnr2C3243L5UJVVfoHBunp6cXn8wUEG8KS+LToJPVLTlG/LIm60AzqwrJ5G5xKbVAq9Ruf0JzYSEtiA9+OfMT2sH08PkwvZVlGUZSpHH6Pr6b5UCXfj1bxNbqSVwuqKJ5TTfmSWirC3lEWUkNpUDkvZ5dSYCni494G4amG0y7j8XjosnXTYe1Em/Dw76SqisGLlV8oCGrk9dYW3ka1UnegnXfR7ZSsa+Lx3EbeJ7SJwFV8qj5zUYqPeHkW66HooJene9zcX9zF/eBO8hdaebS0i4LV3eTOs5I730rmrA6qDvWhi0zKTheyCNVm+zWZP1PwwiaFc+tlLm5WSN4ik75hlAyB9PWjXF81Ql64nTdnZGpOy1TEOWl6NDbZRX4BTZsSMwVPn7CTGG8nNUUm/65C9m2FnEyFi+cdHNw3SmGhLMzdjPnceA3BmlsUwYVLVNrhcNLb1z/ZMqZgTOowUTeG2JcyzLFsibgsiaOZkrgPEXHlNw9qZNNY0wx0n4A+NRn+UP0tNFFhUzCqfJCIkgF2lQZ45zh2lw0SXtzPvSanaayPP/rXlJhV7nZpdLlUbDOgU0DyTs/R33M70/0PZYV5PPUmbtoAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;kotlin_javascript_java&quot;
+        title=&quot;kotlin_javascript_java&quot;
+        src=&quot;/static/8da93eda9f6487077dd0ea9de113126a/4d297/kotlin_javascript_java.png&quot;
+        srcset=&quot;/static/8da93eda9f6487077dd0ea9de113126a/07e12/kotlin_javascript_java.png 240w,
+/static/8da93eda9f6487077dd0ea9de113126a/5ca43/kotlin_javascript_java.png 480w,
+/static/8da93eda9f6487077dd0ea9de113126a/4d297/kotlin_javascript_java.png 960w,
+/static/8da93eda9f6487077dd0ea9de113126a/04258/kotlin_javascript_java.png 1416w&quot;
+        sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;br&gt;
+&lt;span class=&quot;img_caption&quot;&gt;source &lt;a href=&quot;https://blog.jetbrains.com/kotlin/2017/11/kotlin-1-2-released/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Kotlin Blog&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;자세한 멀티 플래폼관련 사항은 &lt;a href=&quot;https://kotlinlang.org/docs/reference/multiplatform.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Multiplatform Programming&lt;/a&gt;에서 확인 하실수 있습니다&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;5. Lambda와 Scope Functions&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;위에 여러 이유들이 있지만 제가 생각하는 kotlin을 사용하는 가장 큰 이유입니다&lt;br&gt;
+먼저 &lt;code class=&quot;language-text&quot;&gt;Lambda&lt;/code&gt;부터 살펴 보겠습니다  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;1. Lambda&lt;/strong&gt;  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;lambda는 굉장히 편리합니다&lt;br&gt;
+java8 부터 사용할 수 있고 처음에는 느리다는 평이 많았지만 컴파일러가 발전하면서 현재는 기존코드보다도 빠른 성능을 보일때도 있습니다&lt;br&gt;
+하지만 java lambda에는 명확한 제한사항이 있고 저는 이 때문에 java에서 생각보다 lambda식을 많이 사용하지 않았습니다&lt;br&gt;
+그 제한사항은 외부변수 참조에 &lt;code class=&quot;language-text&quot;&gt;final&lt;/code&gt;이 있어야지만 참조가 된다는 것입니다&lt;br&gt;
+이는 java 메모리 구조상 &lt;code class=&quot;language-text&quot;&gt;heap/stack&lt;/code&gt;으로 나뉘는 부분때문에 외부변수를 lambda내에서 copy해서 사용하게 되고 final을 유지시켜야 한다는 것인데 현재 포스팅하는 글에서 내용이 벗어나니 이만 줄이겠습니다&lt;br&gt;
+관련해서 궁금하시면 다음 글들을 참고하시기 바랍니다&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.javahabit.com/2016/06/16/understanding-java-8-lambda-final-finally-variable/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Understanding Java 8 Lambda final finally variable&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://www.baeldung.com/java-lambda-effectively-final-local-variables&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Why Do Local Variables Used in Lambdas Have to Be Final or Effectively Final?&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;br/&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;다시 돌아와서 kotlin은 이러한 제약없이 자유로운 lambda 사용이 가능합니다&lt;br&gt;
+간단한 예제와 함께 보도록 하겠습니다  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Java Code &lt;span class=&apos;sub_header&apos;&gt;(Lambda)&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; args&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;  
+  
+        &lt;span class=&quot;token class-name&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;token generics&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt; personList &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;token generics&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Arrays&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;asList&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;deokhwa Kim&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;junghoon Im&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;jikin Kim&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;        personList&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;name &lt;span class=&quot;token operator&quot;&gt;-&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;            &lt;span class=&quot;token class-name&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;person name : &quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;실행 결과&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;person name : deokhwa Kim
+person name : junghoon Im
+person name : jikin Kim&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위에 보시는 코드는 일반적으로 설명하는 java의 lambda 예제입니다&lt;br&gt;
+다음과 같이 기본적으로 personList만 가지고 println 할 상황이 얼마나 될까요.. 이런 기능이 필요나 할까요?&lt;br&gt;
+만약 이름을 한줄로 표현하고 싶어서 외부 변수를 두고 합치는 로직을 구현하면 어떻게 될까요?  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Java Code &lt;span class=&apos;sub_header&apos;&gt;(variable used in lambda expression should be final or effectively final)&lt;/span&gt;&lt;/strong&gt;  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; args&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+        &lt;span class=&quot;token class-name&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;token generics&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt; personList &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;token generics&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Arrays&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;asList&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;deokhwa Kim&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;junghoon Im&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;jikin Kim&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;        &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; allName &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;//Not Final  &lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;        personList&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;name &lt;span class=&quot;token operator&quot;&gt;-&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;            &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;allName &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;         &lt;span class=&quot;token comment&quot;&gt;//외부 참조 Error&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;                allName &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;,&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;    &lt;span class=&quot;token comment&quot;&gt;//variable used in lambda expression should be final or effectively final&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;            &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;                allName &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; name&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/span&gt;        &lt;span class=&quot;token class-name&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;person name : &quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;allName&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;다음과 외부 참조는 Error를 불러 일으킵니다&lt;/em&gt;&lt;/strong&gt;  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;원하는 결과를 보려면 이런식으로 구현해야 합니다  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Java Code &lt;span class=&apos;sub_header&apos;&gt;(lambda used final variable)&lt;/span&gt;&lt;/strong&gt;  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; args&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+        &lt;span class=&quot;token class-name&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;token generics&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt; personList &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;token generics&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Arrays&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;asList&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;deokhwa Kim&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;junghoon Im&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;jikin Kim&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;        &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; allName &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+        personList&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;name &lt;span class=&quot;token operator&quot;&gt;-&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;allName&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                allName&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;, &quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt;
+                allName&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; name&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token class-name&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;person name : &quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; allName&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;보시는 것 같이 &lt;code class=&quot;language-text&quot;&gt;forEach&lt;/code&gt;문으로 이름을 합치기 위해 불필요한 배열을 생성하고 외부변수를 썼는지 안 쓴건지 하나하나 전부 고려하며 사용해야 합니다&lt;br&gt;
+이럴꺼면 그냥 &lt;code class=&quot;language-text&quot;&gt;for(String name : personList)&lt;/code&gt;를 사용하겠습니다&lt;/p&gt;
+&lt;br/&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;실행 결과&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;person name : deokhwa Kim, junghoon Im, jikin Kim&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;p&gt;다음으로 kotlin 코드를 보겠습니다&lt;br&gt;
+코틀린은 그냥 외부참조가 가능하므로 직관적으로 사용해도 됩니다  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Kotlin Code &lt;span class=&apos;sub_header&apos;&gt;(lambda)&lt;/span&gt;&lt;/strong&gt;  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;kotlin&quot;&gt;&lt;pre class=&quot;language-kotlin&quot;&gt;&lt;code class=&quot;language-kotlin&quot;&gt;    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; static void &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;String&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; args&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+        &lt;span class=&quot;token keyword&quot;&gt;val&lt;/span&gt; personList &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;listOf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;deokhwa Kim&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;junghoon Im&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;jikin Kim&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    
+        &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; allName&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; String&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;        personList&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;forEach&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;            allName &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;allName&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;isNullOrEmpty&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; it   &lt;span class=&quot;token comment&quot;&gt;//외부 참조&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;                      &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token interpolation variable&quot;&gt;$allName&lt;/span&gt;, &lt;span class=&quot;token interpolation variable&quot;&gt;$it&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;        &lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;person name : &lt;span class=&quot;token interpolation variable&quot;&gt;$allName&lt;/span&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;kotlin lambda&lt;/code&gt;는 아무생각없이 &lt;code class=&quot;language-text&quot;&gt;forEach&lt;/code&gt;으로 간단하게 위의 기능을 구현할수 있습니다&lt;br&gt;
+여기서 또하나의 장점은 java에서 썼던 name -&gt; 같은 불필요한 인자 없이 &lt;code class=&quot;language-text&quot;&gt;it&lt;/code&gt;으로 내부에서 그냥 사용하면 된다는 것입니다&lt;br&gt;
+물론 &lt;code class=&quot;language-text&quot;&gt;name -&amp;gt;&lt;/code&gt;을 써서 내부 인자변수명을 변경할 수도 있습니다&lt;/p&gt;
+&lt;br/&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;실행 결과&lt;/strong&gt;  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;person name : deokhwa Kim, junghoon Im, jikin Kim&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;2. Scope Function&lt;/strong&gt;  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Scope Function은 Kotlin에서 제공하는 아주 유용한 6개의 함수들입니다&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;T.let  &lt;/li&gt;
+&lt;li&gt;T.run  &lt;/li&gt;
+&lt;li&gt;run  &lt;/li&gt;
+&lt;li&gt;with  &lt;/li&gt;
+&lt;li&gt;T.apply  &lt;/li&gt;
+&lt;li&gt;T.also  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Scope Function은 말그대로 Kotlin에서 범위를 묶어서 처리할때 사용하는 함수들로&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 758px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 36.675461741424805%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsSAAALEgHS3X78AAABv0lEQVQoz1WN7U+SURjGn/+w9aG11VaO5WyrD9UqV8s2t2SueFHgARUlNE1rSxDiQQXl4WWKvISYNiDEmOmay6IvBsT4dXgqZ9d27f6d6z7nOpLnymXU6924L15APn+OlZ5rLHbryBqe8sEhs22zkLcOkzIZyFuG2JGtmju8JfLcsJkN4zNtdizp7j/i6q17dN19iK63j647vVy6cZuI2UR5fIzShJOczUpIP0BalBRFVnCOsmUXn43YWTcbCQ/qSYqZl21IjoUg7lAMu1fB7gngDscYeu0lnc5wUP1EPpulUipxWK2yv7dHuVjkY6FAtVKhurvLvpiF7fdiV6EscsnpDzIbXWNsQcEx72NOsP2Nj8OjIzr6enzMr1aLf+pwo9nkrL7Xaqc7yaWozKopURYURQozkSQj3iU+H3zRLtW+/aDdap8+/nlSp37S+HNo/9dLo95E0j83YpqTGXAZOMuBiJf1zSihRIBYOkwiGyGeWdU4mgqREBz/6w6v5VTU5DKSVXmAK97Pk+mbPHb2MLrSx7jaj//dJC9XHUwtWZlctKBszuDPviC08wrvhlvLpsMyE29NeJIulkXuy0zxG9QovomqS5mxAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;scope_table&quot;
+        title=&quot;scope_table&quot;
+        src=&quot;/static/c22d0bcb1503475efd096fb8cf1eba02/23231/scope_table.png&quot;
+        srcset=&quot;/static/c22d0bcb1503475efd096fb8cf1eba02/07e12/scope_table.png 240w,
+/static/c22d0bcb1503475efd096fb8cf1eba02/5ca43/scope_table.png 480w,
+/static/c22d0bcb1503475efd096fb8cf1eba02/23231/scope_table.png 758w&quot;
+        sizes=&quot;(max-width: 758px) 100vw, 758px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;
+&lt;span class=&quot;img_caption&quot;&gt;source &lt;a href=&quot;https://medium.com/@fatihcoskun/kotlin-scoping-functions-apply-vs-with-let-also-run-816e4efb75f5&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Fatih Coşkun Blog&lt;/a&gt; &lt;/span&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;scope들은 비슷한 개념들을 가지고 있는 애들도 존재하고 각각의&lt;br&gt;
+scope에서 context object가 &lt;code class=&quot;language-text&quot;&gt;this vs it&lt;/code&gt;이냐&lt;br&gt;
+scope에서 return value가 &lt;code class=&quot;language-text&quot;&gt;object vs lambda_result&lt;/code&gt;이냐&lt;br&gt;
+다르게 사용되어 집니다  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 960px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.294596595114726%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAAsSAAALEgHS3X78AAABzElEQVQoz3WQ22oTQRzG80h9FF/BB6jigUIRvRIEBaUHtFpvWjGVlIKpF5umJaVQ8AAVTdOW2CVuMptNdjOZ887ssfrfLIo3fsywOzDf//fNV/n1f2kdCam0NnEUGx0ZbSJjoj9K07SC5I/l9q21s8XXFw+W2jffOy/wBFerVdu2kzR1EELD4dgLBJGCMslZOJNSCvwVYvx9tNVyay13ew+9/YoPIxN1Oh1KCSDJhAkupZKhBgtsXQq+cRwD+RLIzzsL6+f3n32brztrUzwtyVmWBwEeet7YDyYYU8I4gUFqRg4LMo+nX/y9T2OrWCOry06SJBkMBlJKmA33uOAgxrkKlTGmwP6NHWi3evnk49iC/O/sp0feDiG02Wy6rptlGfCwPyWYcSw4EZRywqiapS9id+nJ9cO51dM7I/Xz1dm9BtoEjmVZCA3yPIdBsEq0AEkBQYoKwpnZZt8XP197033kCnvl9PaH/jq8uVar9Xq9q/wKbjPwSQjNhQKfYLI4/kNuAfmuJ3tL7Ru7/ZeMsnq97jgOkAHnQ1cBKWOXTiVC+IuTuHzz42NvdyT7G92HB8MtSmij0YDYaZpBuZQxSsvwAnqCIiXkEQLK+w2MbBIFo6nqLAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;scope_function&quot;
+        title=&quot;scope_function&quot;
+        src=&quot;/static/d4b90d577e3770a8bfd7d63aacb157e8/4d297/scope_function.png&quot;
+        srcset=&quot;/static/d4b90d577e3770a8bfd7d63aacb157e8/07e12/scope_function.png 240w,
+/static/d4b90d577e3770a8bfd7d63aacb157e8/5ca43/scope_function.png 480w,
+/static/d4b90d577e3770a8bfd7d63aacb157e8/4d297/scope_function.png 960w,
+/static/d4b90d577e3770a8bfd7d63aacb157e8/09904/scope_function.png 1440w,
+/static/d4b90d577e3770a8bfd7d63aacb157e8/abe2a/scope_function.png 1920w,
+/static/d4b90d577e3770a8bfd7d63aacb157e8/3237b/scope_function.png 2702w&quot;
+        sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;
+&lt;span class=&quot;img_caption&quot;&gt;source &lt;a href=&quot;https://medium.com/androiddevelopers/kotlin-standard-functions-cheat-sheet-27f032dd4326&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Jose Alcérreca Blog&lt;/a&gt; &lt;/span&gt;
+해당 이미지는 한눈에 Scope를 확인할 수 있는 간단한 예제들 입니다  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;지금 부터 Scope Function에 대해 하나하나 설명해 드리겠습니다&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;1. T.let&lt;/strong&gt;&lt;br&gt;
+T.let의 &lt;strong&gt;context object&lt;/strong&gt;는 &lt;code class=&quot;language-text&quot;&gt;it&lt;/code&gt; 이고 &lt;strong&gt;return value&lt;/strong&gt;는 &lt;code class=&quot;language-text&quot;&gt;lambda result&lt;/code&gt; 입니다  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Kotlin Code &lt;span class=&apos;sub_header&apos;&gt;(let sample)&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;kotlin&quot;&gt;&lt;pre class=&quot;language-kotlin&quot;&gt;&lt;code class=&quot;language-kotlin&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;val&lt;/span&gt; numbers &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;mutableListOf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;one&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;two&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;three&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;four&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;five&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;numbers&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; it&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;filter&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; it &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;let&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;::&lt;/span&gt;println&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;//[5, 4, 4]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;보시는 것같이 앞의 lambda에 대한 마지막 기능부를 구현할 때 사용할 수 있습니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;kotlin&quot;&gt;&lt;pre class=&quot;language-kotlin&quot;&gt;&lt;code class=&quot;language-kotlin&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;val&lt;/span&gt; str&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; String&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Hello&quot;&lt;/span&gt;   
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;val&lt;/span&gt; length &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; str&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;/span&gt;    &lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;let() called on &lt;span class=&quot;token interpolation variable&quot;&gt;$it&lt;/span&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;//let() called on Hello      &lt;/span&gt;
+    it&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//5&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;?.&lt;/code&gt;으로 null check를 한뒤 null이 아닐때 기능을 구현하는 코드로도 사용 가능합니다&lt;br&gt;
+반환되는 값은 lambda로 length에는 &lt;code class=&quot;language-text&quot;&gt;&amp;quot;Hello&amp;quot;.length&lt;/code&gt;의 값이 들어가게 됩니다   &lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;2. T.run&lt;/strong&gt;&lt;br&gt;
+T.run의 &lt;strong&gt;context object&lt;/strong&gt;는 &lt;code class=&quot;language-text&quot;&gt;this&lt;/code&gt; 이고 &lt;strong&gt;return value&lt;/strong&gt;는 &lt;code class=&quot;language-text&quot;&gt;lambda result&lt;/code&gt; 입니다  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Kotlin Code &lt;span class=&apos;sub_header&apos;&gt;(T.run sample)&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;kotlin&quot;&gt;&lt;pre class=&quot;language-kotlin&quot;&gt;&lt;code class=&quot;language-kotlin&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;val&lt;/span&gt; name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;deokhwa kim&quot;&lt;/span&gt;
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;name&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;    &lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//11&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;    &lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//11&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;run은 계속해서 객체내부의 요소를 사용할때 다음과 같이 사용하실 수 있습니다&lt;br&gt;
+만약 java로 구현한다면 계속해서 &lt;code class=&quot;language-text&quot;&gt;name.&lt;/code&gt;을 써주어야 하지만 kotlin에서는 run이라는 범위로 묶어서 java의 &lt;code class=&quot;language-text&quot;&gt;class내부&lt;/code&gt;의 &lt;code class=&quot;language-text&quot;&gt;this&lt;/code&gt;처럼 간단히 사용하실 수 있습니다  &lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;3. run&lt;/strong&gt;&lt;br&gt;
+run의 &lt;strong&gt;context object&lt;/strong&gt;는 &lt;code class=&quot;language-text&quot;&gt;this&lt;/code&gt; 이고 &lt;strong&gt;return value&lt;/strong&gt;는 &lt;code class=&quot;language-text&quot;&gt;lambda result&lt;/code&gt; 입니다&lt;br&gt;
+해당 run은 위에 T.run과 달리 결과를 묶어서 처리하고 반환값을 받을 때 유용합니다  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Kotlin Code &lt;span class=&apos;sub_header&apos;&gt;(run sample)&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;kotlin&quot;&gt;&lt;pre class=&quot;language-kotlin&quot;&gt;&lt;code class=&quot;language-kotlin&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;val&lt;/span&gt; name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; run&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; 
+    &lt;span class=&quot;token keyword&quot;&gt;val&lt;/span&gt; firstName &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;deokhwa&quot;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;val&lt;/span&gt; lastName &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;kim&quot;&lt;/span&gt;
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;    &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token interpolation variable&quot;&gt;$firstName&lt;/span&gt; &lt;span class=&quot;token interpolation variable&quot;&gt;$lastName&lt;/span&gt;&quot;&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;//return  &lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//deokhwa kim&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이 예제는 run으로 묶어서 작업을 처리하고 value를 return 받는 예제입니다&lt;/p&gt;
+&lt;br/&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;kotlin&quot;&gt;&lt;pre class=&quot;language-kotlin&quot;&gt;&lt;code class=&quot;language-kotlin&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; name &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; String&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;
+    name&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;let&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;//Null이 아닐때 기능구현&lt;/span&gt;
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?:&lt;/span&gt; run&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;  &lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;        &lt;span class=&quot;token comment&quot;&gt;//name이 Null일때 기능 구현&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;   &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;let와 run을 같이 사용하여 다음과 같은 flow도 구현 가능합니다&lt;/p&gt;
+&lt;br/&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;kotlin&quot;&gt;&lt;pre class=&quot;language-kotlin&quot;&gt;&lt;code class=&quot;language-kotlin&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;val&lt;/span&gt; personList &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;listOf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;deokhwa Kim&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;junghoon Im&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;jikin Kim&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;run &lt;span class=&quot;token label symbol&quot;&gt;loop@&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;/span&gt;    personList&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;it&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//deokhwa Kim&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;it &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;deokhwa Kim&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;            &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;token label symbol&quot;&gt;@loop&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;//break run  &lt;/span&gt;&lt;/span&gt;    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;다음과 같이 forEach에서는 break문을 쓸수 없는데 &lt;code class=&quot;language-text&quot;&gt;run&lt;/code&gt;으로 묶어서 &lt;code class=&quot;language-text&quot;&gt;return@loop&lt;/code&gt;해서 &lt;code class=&quot;language-text&quot;&gt;break&lt;/code&gt;와 같은 기능을 지원하기도 합니다&lt;br&gt;
+만약 그냥 return을 하게되면 &lt;code class=&quot;language-text&quot;&gt;return@forEach&lt;/code&gt;문과 똑같이 작동하여 &lt;code class=&quot;language-text&quot;&gt;continue&lt;/code&gt;랑 같은 기능을 합니다  &lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;4. with&lt;/strong&gt;&lt;br&gt;
+with의 &lt;strong&gt;context object&lt;/strong&gt;는 &lt;code class=&quot;language-text&quot;&gt;this&lt;/code&gt; 이고 &lt;strong&gt;return value&lt;/strong&gt;는 &lt;code class=&quot;language-text&quot;&gt;lambda result&lt;/code&gt; 입니다&lt;br&gt;
+with은 T.run과 똑같지만 content object를 파라미터로 받습니다  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Kotlin Code &lt;span class=&apos;sub_header&apos;&gt;(with sample)&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;kotlin&quot;&gt;&lt;pre class=&quot;language-kotlin&quot;&gt;&lt;code class=&quot;language-kotlin&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;val&lt;/span&gt; name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;deokhwa kim&quot;&lt;/span&gt;
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;&lt;span class=&quot;token function&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;    &lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//11&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;    &lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//11&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;5. apply&lt;/strong&gt;&lt;br&gt;
+apply의 &lt;strong&gt;context object&lt;/strong&gt;는 &lt;code class=&quot;language-text&quot;&gt;this&lt;/code&gt; 이고 &lt;strong&gt;return value&lt;/strong&gt;는 &lt;code class=&quot;language-text&quot;&gt;object&lt;/code&gt; 입니다   &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Kotlin Code &lt;span class=&apos;sub_header&apos;&gt;(apply sample)&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;kotlin&quot;&gt;&lt;pre class=&quot;language-kotlin&quot;&gt;&lt;code class=&quot;language-kotlin&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; String&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; age&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Int &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; city&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; String &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//dto class&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;    &lt;span class=&quot;token keyword&quot;&gt;val&lt;/span&gt; adam &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Adam&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;apply&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;        age &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;32&lt;/span&gt;    &lt;span class=&quot;token comment&quot;&gt;//java is adma.setAge(32)&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;        city &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;London&quot;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//java is adma.setCity(&quot;London&quot;)        &lt;/span&gt;&lt;/span&gt;    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;adam&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//Person(name=Adam, age=32, city=London)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;apply이는 변수 내부의 값을 주입할때 &lt;code class=&quot;language-text&quot;&gt;object.variable&lt;/code&gt;으로 계속해서 같은 코드를 반복해야 할때 &lt;code class=&quot;language-text&quot;&gt;apply&lt;/code&gt;로 묶어서 &lt;code class=&quot;language-text&quot;&gt;variable&lt;/code&gt;만으로 값을 넣을 수 있습니다 &lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;6. also&lt;/strong&gt;&lt;br&gt;
+also의 &lt;strong&gt;context object&lt;/strong&gt;는 &lt;code class=&quot;language-text&quot;&gt;it&lt;/code&gt; 이고 &lt;strong&gt;return value&lt;/strong&gt;는 &lt;code class=&quot;language-text&quot;&gt;object&lt;/code&gt; 입니다   &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Kotlin Code &lt;span class=&apos;sub_header&apos;&gt;(apply sample)&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;kotlin&quot;&gt;&lt;pre class=&quot;language-kotlin&quot;&gt;&lt;code class=&quot;language-kotlin&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; String&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; age&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Int &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; city&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; String &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//dto class&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;    &lt;span class=&quot;token keyword&quot;&gt;val&lt;/span&gt; adam &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Adam&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;also&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;        it&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;age &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;32&lt;/span&gt;    &lt;span class=&quot;token comment&quot;&gt;//java is adma.setAge(32)&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;        it&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;city &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;London&quot;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//java is adma.setCity(&quot;London&quot;)        &lt;/span&gt;&lt;/span&gt;    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;adam&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//Person(name=Adam, age=32, city=London)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;also는 일반적으로 객체에 사용하면 apply와 같으며 content object만 this에서 it으로 바뀐형태와 같습니다&lt;/p&gt;
+&lt;br/&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;kotlin&quot;&gt;&lt;pre class=&quot;language-kotlin&quot;&gt;&lt;code class=&quot;language-kotlin&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;val&lt;/span&gt; numbers &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;mutableListOf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;one&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;two&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;three&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+numbers
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;also&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;The list elements before adding new one: &lt;span class=&quot;token interpolation variable&quot;&gt;$it&lt;/span&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;four&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;numbers&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//[one, two, three, four]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;다음과 같이 lambda로 사용하였을때, 이후 다음 과정을 추가할 수 있다는게 apply와 다른 개념입니다&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;마무리&lt;/h2&gt;
+&lt;p&gt;이외에도 kotlin의 장점은 설명하자면  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://kotlinlang.org/docs/reference/null-safety.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Null Safe Programing&lt;/a&gt;  &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://kotlinlang.org/docs/reference/control-flow.html#when-expression&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Switch기능을 확장한 When&lt;/a&gt;  &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;편리한 함수 참조의 Kclass&lt;/a&gt;  &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://kotlinlang.org/docs/reference/coding-conventions.html#default-parameter-values&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Function Default Parameter&lt;/a&gt;  &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://kotlinlang.org/docs/reference/data-classes.html#data-classes&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Data Class&lt;/a&gt;  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;등등한도 끝도 없이 많아서 이만 마무리를 하려고 합니다  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;처음에는 kotlin의 문법을 배우면서 하나하나 coding 하면서 많은 어려움을 느꼈습니다&lt;br&gt;
+java랑 완벽히 호환된다지만 &lt;code class=&quot;language-text&quot;&gt;서드파티&lt;/code&gt;들간의 호환문제도 있었고 &lt;code class=&quot;language-text&quot;&gt;Assignment not allow in while expression?&lt;/code&gt;라면서 error가 나는 부분 그리고 &lt;code class=&quot;language-text&quot;&gt;Null Safe&lt;/code&gt;조건으로 하나의 변수타입의 속성이 2가지가 존재한다는 개념으로 코딩할때 마다 red_line이 떴습니다&lt;br&gt;
+그럼에도 꾸역꾸역 kotlin으로 프로젝트를 진행하고 보니 이제는 Null Safe으로 코딩하면서 자동으로 얻게 되는 &lt;code class=&quot;language-text&quot;&gt;안정성&lt;/code&gt;과 kotlin의 &lt;code class=&quot;language-text&quot;&gt;생산성&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;간편함&lt;/code&gt;에 빠져들었습니다&lt;br&gt;
+현재는 java보다 kotlin을 사용한 기간이 압도적으로 짧음에도 불구하고 kotlin이 더욱 편합니다&lt;br&gt;
+이 처럼 많은 분들이 kotlin의 장점을 저처럼 경험하실 수 있었으면 좋겠습니다&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;부록&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;1. Lombok을 대체할 Kotlin의 사용&lt;/strong&gt;
+&lt;a href=&quot;https://www.jworks.io/migrating-from-lombok-to-kotlin/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Migrating from Lombok to Kotlin&lt;/a&gt;  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;strong&gt;Java Code &lt;span class=&apos;sub_header&apos;&gt;(@Cleanup sample)&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Cleanup&lt;/span&gt;  &lt;/span&gt;    &lt;span class=&quot;token class-name&quot;&gt;BufferedReader&lt;/span&gt; br &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BufferedReader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FileReader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;...&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;strong&gt;Kotlin Code &lt;span class=&apos;sub_header&apos;&gt;(use sample)&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;kotlin&quot;&gt;&lt;pre class=&quot;language-kotlin&quot;&gt;&lt;code class=&quot;language-kotlin&quot;&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;    &lt;span class=&quot;token function&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;...&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;bufferedReader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;  &lt;/span&gt;    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;서드파티중 가장 많은 부분에서 사용됐던 lombok을 kotlin에서 어떻게 대체하고 있는지를 보여줍니다&lt;/p&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;strong&gt;2. While안에 식으로 error가 났던 Kotlin&lt;/strong&gt;
+&lt;a href=&quot;https://discuss.kotlinlang.org/t/assignment-not-allow-in-while-expression/339&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Assignment not allow in while expression?&lt;/a&gt;  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;strong&gt;Java Code &lt;span class=&apos;sub_header&apos;&gt;(@Cleanup sample)&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Cleanup&lt;/span&gt;
+    &lt;span class=&quot;token class-name&quot;&gt;BufferedReader&lt;/span&gt; br &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BufferedReader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FileReader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;...&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; str&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;    &lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;str &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; br&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;readLine&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!=&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//kotlin error  &lt;/span&gt;&lt;/span&gt;    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Kotlin Code &lt;span class=&apos;sub_header&apos;&gt;(use sample)&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;kotlin&quot;&gt;&lt;pre class=&quot;language-kotlin&quot;&gt;&lt;code class=&quot;language-kotlin&quot;&gt;    &lt;span class=&quot;token function&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;...&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;bufferedReader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; 
+        &lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;            &lt;span class=&quot;token keyword&quot;&gt;val&lt;/span&gt; str &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; it&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;readLine&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;break&lt;/span&gt;  &lt;/span&gt;        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;while문안에 식을 썼을때 &lt;code class=&quot;language-text&quot;&gt;가독성&lt;/code&gt;이 떨어진다는 이유로 해당문법을 앞으로도 허용하지 않을꺼라고 합니다  &lt;/p&gt;</content:encoded></item><item><title><![CDATA[[DataStructure] ArrayList 내부 구조]]></title><description><![CDATA[ArrayList는 왜 LinkedList 보다 빠를까?ArrayList 내부구조 알아보기]]></description><link>https://renuevo.github.io/array_list/</link><guid isPermaLink="false">https://renuevo.github.io/array_list/</guid><pubDate>Mon, 09 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;ArrayList는 왜 LinkedList 보다 빠를까?&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;ArrayList 내부구조 알아보기&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[DesignPattern] Decorator Pattern]]></title><description><![CDATA[데코레이터 패턴 (Decorator Pattern)데코레이터 패턴은 유연한 확장을 지원하는 패턴으로 무언가를 첨가해서 계속해서 장식(decoration…]]></description><link>https://renuevo.github.io/decorator_pattern/</link><guid isPermaLink="false">https://renuevo.github.io/decorator_pattern/</guid><pubDate>Mon, 09 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;데코레이터 패턴 &lt;span class=&quot;sub_header&quot;&gt;(Decorator Pattern)&lt;/span&gt;&lt;/h1&gt;
 &lt;p&gt;데코레이터 패턴은 유연한 확장을 지원하는 패턴으로 무언가를 첨가해서 계속해서 장식(decoration)할 때 사용할 수 있는 패턴입니다&lt;br&gt;
 원리는 간단합니다 재귀적인 방법으로 클래스를 덫 씌우면서 장식을 추가 합니다&lt;/p&gt;
 &lt;p&gt;&lt;span
@@ -117,38 +619,8 @@
 &lt;h4&gt;실행화면&lt;/h4&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;가격 &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1100&lt;/span&gt;원 &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; 메뉴 &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Americano&lt;/span&gt;
 가격 &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1400&lt;/span&gt;원 &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; 메뉴 &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Americano&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 우유
-가격 &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1900&lt;/span&gt;원 &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; 메뉴 &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Americano&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 우유&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 흑당&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[[Kotlin] 왜 Kotlin을 써야 할까?]]></title><description><![CDATA[Why Kotlin?Kotlin을 처음 공부하고 사용하면서는 많은 불편함을 느꼈습니다하지만 계속 쓰면 쓸수록 Kotlin이 Java보다 편하다는 명확한 이점을 파악하였고 왜 Kotlin을 사용하는 지에 대해 포스팅하게 되었습니다…]]></description><link>https://renuevo.github.io/why_kotlin/</link><guid isPermaLink="false">https://renuevo.github.io/why_kotlin/</guid><pubDate>Mon, 09 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Why Kotlin?&lt;/h2&gt;
-&lt;p&gt;Kotlin을 처음 공부하고 사용하면서는 많은 불편함을 느꼈습니다&lt;br&gt;
-하지만 계속 쓰면 쓸수록 Kotlin이 Java보다 편하다는 명확한 이점을 파악하였고 왜 Kotlin을 사용하는 지에 대해 포스팅하게 되었습니다&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;1. 간결한 코드&lt;/strong&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;제가 생각하는 첫번째 장점은 간결한 코드가 가능하다는 것입니다&lt;br&gt;
-어느 lang이나 간결한 코드는 가능하겠지만, 뒤 따라오는 문제는 간결성 - 가독성은 서로 친하지 않다는 것입니다&lt;br&gt;
-하지만 koltin을 사용해보면 JetBrrains사에서 언어를 만들때 간결설과 가독성을 얼마나 고심하며 설계 했는지가 명확히 들어 납니다&lt;br&gt;
-간단한 샘플을 보면 명확히 이해되실 겁니다&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Java Code &lt;span class=&apos;sub_header&apos;&gt;(Variables Null Check)&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token class-name&quot;&gt;Person&lt;/span&gt; person &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;deokhwa&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;kim&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getFirstName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;/span&gt;    
-    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;person &lt;span class=&quot;token operator&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; person&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getFirstName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; person&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getFirstName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-        
-    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;br/&gt;
-&lt;p&gt;&lt;strong&gt;Kotlin Code &lt;span class=&apos;sub_header&apos;&gt;(Variables Null Check)&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;kotlin&quot;&gt;&lt;pre class=&quot;language-kotlin&quot;&gt;&lt;code class=&quot;language-kotlin&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; person &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;deokhwa&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;kim&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;token keyword&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getFirstName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; String&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; name&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toUpperCase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;다음과 같이 간단하게 ?만로 Null Check가 가능합니다&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;kotlin&quot;&gt;&lt;pre class=&quot;language-kotlin&quot;&gt;&lt;code class=&quot;language-kotlin&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getUpperName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; name&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toUpperCase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[[Algorithm] K-mean]]></title><description><![CDATA[K-평균 (K-mean cluster)데이터를 k개의 클러스터로 묶는 알고리즘이 알고리즘을 데이터를 K개의 그룹으로 묶고 싶을때 사용하는 알고리즘 중 하나입니다
-방법은 간단합니다K-means출처 : 위키피디아 K-mean 알고리즘 방식 k…]]></description><link>https://renuevo.github.io/k_mean_algorithm/</link><guid isPermaLink="false">https://renuevo.github.io/k_mean_algorithm/</guid><pubDate>Sat, 07 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;K-평균 &lt;span class=&quot;sub_header&quot;&gt;(K-mean cluster)&lt;/span&gt;&lt;/h2&gt;
+가격 &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1900&lt;/span&gt;원 &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; 메뉴 &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Americano&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 우유&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 흑당&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[[Algorithm] K-mean]]></title><description><![CDATA[K-평균 (K-mean cluster)데이터를 k개의 클러스터로 묶는 알고리즘이 알고리즘을 데이터를 K개의 그룹으로 묶고 싶을때 사용하는 알고리즘 중 하나입니다
+방법은 간단합니다K-means출처 : 위키피디아 K-mean 알고리즘 방식 k…]]></description><link>https://renuevo.github.io/k_mean_algorithm/</link><guid isPermaLink="false">https://renuevo.github.io/k_mean_algorithm/</guid><pubDate>Sat, 07 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;K-평균 &lt;span class=&quot;sub_header&quot;&gt;(K-mean cluster)&lt;/span&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;데이터를 k개의 클러스터로 묶는 알고리즘&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;이 알고리즘을 데이터를 K개의 그룹으로 묶고 싶을때 사용하는 알고리즘 중 하나입니다
 방법은 간단합니다&lt;/p&gt;
@@ -276,7 +748,7 @@ k 기준점 선정에 대해서 많은 사람들이 관련 연구를 진행하�
     &lt;/span&gt;  &lt;/p&gt;
 &lt;p&gt;위 그래프는 실제 제가 회사 데이터를 K평균으로 분류하여 유용한 데이터들입니다&lt;br&gt;
 Scikit-Learn을 사용하면 간편하고 사용해보실 수 있으니 분석하실 데이터의 군집화가 필요하시다면 사용해 보시기 바랍니다&lt;br&gt;
-그리고 만약 군집화를 정해진 개수 없이 하고 싶으시면 Label Propagation 알고리즘을 사용해 보시기 바랍니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[DesignPattern] Strategy Pattern]]></title><description><![CDATA[전략 패턴 (Strategy Pattern…]]></description><link>https://renuevo.github.io/strategy_pattern/</link><guid isPermaLink="false">https://renuevo.github.io/strategy_pattern/</guid><pubDate>Sat, 07 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;전략 패턴 &lt;span class=&quot;sub_header&quot;&gt;(Strategy Pattern)&lt;/span&gt;&lt;/h2&gt;
+그리고 만약 군집화를 정해진 개수 없이 하고 싶으시면 Label Propagation 알고리즘을 사용해 보시기 바랍니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[DesignPattern] Strategy Pattern]]></title><description><![CDATA[전략 패턴 (Strategy Pattern…]]></description><link>https://renuevo.github.io/strategy_pattern/</link><guid isPermaLink="false">https://renuevo.github.io/strategy_pattern/</guid><pubDate>Sat, 07 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;전략 패턴 &lt;span class=&quot;sub_header&quot;&gt;(Strategy Pattern)&lt;/span&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;메인 프로세스에서 상황에 맞게 전략을 선택하여 실행하는 패턴입니다&lt;/em&gt;&lt;/strong&gt;  &lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -360,7 +832,7 @@ Scikit-Learn을 사용하면 간편하고 사용해보실 수 있으니 분석�
 &lt;br/&gt;
 &lt;p&gt;위에 code를 보시면 먼저 &lt;strong&gt;StrategyInterface&lt;/strong&gt; 인터페이스를 구현합니다&lt;br&gt;
 그리고 각각의 기능을 &lt;strong&gt;ContentsStrategyA&lt;/strong&gt;, &lt;strong&gt;ContentsStrategyB&lt;/strong&gt;에서 구현하게 됩니다&lt;br&gt;
-그러면 메인프로세스는 &lt;strong&gt;StrategyInterface&lt;/strong&gt;만으로 각각의 상황에 맞춰 전략을 선택하고 실행 할 수 있습니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[동기(Synchronous)와 비동기(Asynchronous) & 블로킹(Blocking)과 논블로킹(NonBlocking)]]></title><description><![CDATA[사건의 발단얼마전 Reactive Programing을 공부하면서 백기선님의 유튜브를 보다 문득 의문이 생기는 부분이 있었습니다"asynchronous하면 당연히 non-blocking…]]></description><link>https://renuevo.github.io/blocking_nonBlocking_synchronous_asynchronous/</link><guid isPermaLink="false">https://renuevo.github.io/blocking_nonBlocking_synchronous_asynchronous/</guid><pubDate>Fri, 06 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;사건의 발단&lt;/h2&gt;
+그러면 메인프로세스는 &lt;strong&gt;StrategyInterface&lt;/strong&gt;만으로 각각의 상황에 맞춰 전략을 선택하고 실행 할 수 있습니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[동기(Synchronous)와 비동기(Asynchronous) & 블로킹(Blocking)과 논블로킹(NonBlocking)]]></title><description><![CDATA[사건의 발단얼마전 Reactive Programing을 공부하면서 백기선님의 유튜브를 보다 문득 의문이 생기는 부분이 있었습니다"asynchronous하면 당연히 non-blocking…]]></description><link>https://renuevo.github.io/blocking_nonBlocking_synchronous_asynchronous/</link><guid isPermaLink="false">https://renuevo.github.io/blocking_nonBlocking_synchronous_asynchronous/</guid><pubDate>Fri, 06 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;사건의 발단&lt;/h1&gt;
 &lt;p&gt;얼마전 Reactive Programing을 공부하면서 &lt;a href=&quot;https://www.youtube.com/channel/UCwjaZf1WggZdbczi36bWlBA&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;백기선님의 유튜브&lt;/a&gt;를 보다 문득 의문이 생기는 부분이 있었습니다&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;textbox&quot;&gt;&lt;pre class=&quot;language-textbox&quot;&gt;&lt;code class=&quot;language-textbox&quot;&gt;By being built around the core pillars of being fully asynchronous and non-blocking,  
 Reactive Programming is an alternative to the more limited ways of doing asynchronous code in the JDK: namely Callback based APIs and Future.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -670,7 +1142,7 @@ JDBC는 blocking 방식으로 DB에 접근하게 되는데 비동기 환경에�
 &lt;p&gt;위의 예시도 부분부분적으로 코드를 나눠보면 다른 개념들로 충분히 해석되어 질 수 있습니다&lt;br&gt;
 그러므로 해당 개념들을 간단히 보시고 Synchronous의 개념과 Blocking의 개념이 다르구나를 생각해 주시고&lt;br&gt;
 궁긍적으로 &lt;strong&gt;&lt;em&gt;Asynchronous_NonBlocking&lt;/em&gt;&lt;/strong&gt;으로 프로그래밍 패러다임이 이동한다는 것에 집중하시는게 더 좋을 꺼 같습니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[DesignPattern] Observer Pattern]]></title><description><![CDATA[옵저버 패턴 (Observer Pattern)옵저버 패턴은 Java 내부와 Spring Core, Reative Programming의 기본이 되는 패턴입니다
-옵저버 디자인 패턴은 기본적으로 와 를 가지고 있습니다  1. SubjectObserver…]]></description><link>https://renuevo.github.io/observer_pattern/</link><guid isPermaLink="false">https://renuevo.github.io/observer_pattern/</guid><pubDate>Thu, 05 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;옵저버 패턴 &lt;span class=&quot;sub_header&quot;&gt;(Observer Pattern)&lt;/span&gt;&lt;/h2&gt;
+옵저버 디자인 패턴은 기본적으로 와 를 가지고 있습니다  1. SubjectObserver…]]></description><link>https://renuevo.github.io/observer_pattern/</link><guid isPermaLink="false">https://renuevo.github.io/observer_pattern/</guid><pubDate>Thu, 05 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;옵저버 패턴 &lt;span class=&quot;sub_header&quot;&gt;(Observer Pattern)&lt;/span&gt;&lt;/h1&gt;
 &lt;p&gt;옵저버 패턴은 Java 내부와 Spring Core, Reative Programming의 기본이 되는 패턴입니다
 옵저버 디자인 패턴은 기본적으로 &lt;code class=&quot;language-text&quot;&gt;Subject&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;Observer&lt;/code&gt;를 가지고 있습니다  &lt;/p&gt;
 &lt;blockquote&gt;
@@ -1094,7 +1566,7 @@ AOP Object는 마치 자신인 핵심 Core Object처럼 꾸며서 흐름을 제�
       /&gt;
     &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[LTR(Learning To Rank)]]></title><description><![CDATA[LTR (Learning To Rank)스코어 정렬에 머신러닝 알고리즘을 사용
 (LTR Structure)LTR: Steps to takepoint wise (Regression) : score를 머신 러닝으로 생성
-  pair wise…]]></description><link>https://renuevo.github.io/learning_to_rank/</link><guid isPermaLink="false">https://renuevo.github.io/learning_to_rank/</guid><pubDate>Fri, 05 Oct 2018 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;LTR &lt;span class=&quot;sub_header&quot;&gt;(Learning To Rank)&lt;/span&gt;&lt;/h2&gt;
+  pair wise…]]></description><link>https://renuevo.github.io/learning_to_rank/</link><guid isPermaLink="false">https://renuevo.github.io/learning_to_rank/</guid><pubDate>Fri, 05 Oct 2018 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;LTR &lt;span class=&quot;sub_header&quot;&gt;(Learning To Rank)&lt;/span&gt;&lt;/h1&gt;
 &lt;h4&gt;스코어 정렬에 머신러닝 알고리즘을 사용&lt;/h4&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;textbox&quot;&gt;&lt;pre class=&quot;language-textbox&quot;&gt;&lt;code class=&quot;language-textbox&quot;&gt;TF-IDF와 BM25가 검색결과를 도출하는 하고 상관없는 문서를 빼는것에 초점을 둔 반면 LTR은 문서의 정렬을 하는 것에 초점을 두고 있다
 TF-IDF와 BM25와 같은 알고리즘의 고도화로 불필요한 doc는 제거가 잘되고 있으니, 무엇을 먼저 보여줄것인가로 관점이 이동했다고 보면 된다&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -1335,7 +1807,7 @@ TF-IDF와 BM25와 같은 알고리즘의 고도화로 불필요한 doc는 제거
 &lt;a href=&quot;https://www.youtube.com/watch?v=TG7aNLgzIcM&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;https://www.youtube.com/watch?v=TG7aNLgzIcM&lt;/a&gt;&lt;br&gt;
 &lt;a href=&quot;http://perpetual.tistory.com/67&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;http://perpetual.tistory.com/67&lt;/a&gt;&lt;br&gt;
 &lt;a href=&quot;http://4four.us/article/2009/10/what-is-learning-to-rank&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;http://4four.us/article/2009/10/what-is-learning-to-rank&lt;/a&gt;&lt;br&gt;
-&lt;a href=&quot;https://inyl.github.io/search_engine/2017/02/18/solr_learning_to_rank.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;https://inyl.github.io/search&lt;em&gt;engine/2017/02/18/solr&lt;/em&gt;learning&lt;em&gt;to&lt;/em&gt;rank.html&lt;/a&gt;  &lt;/p&gt;</content:encoded></item><item><title><![CDATA[RestTemplate Elastic 통신]]></title><description><![CDATA[RestTemplate Elastic 통신ElasticSearch에서 spring에 있는 RestTemplate를 사용하기 위해서는 RestTemplate의 Post…]]></description><link>https://renuevo.github.io/elastic_spring_resttemplate/</link><guid isPermaLink="false">https://renuevo.github.io/elastic_spring_resttemplate/</guid><pubDate>Thu, 04 Oct 2018 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;RestTemplate Elastic 통신&lt;/h2&gt;
+&lt;a href=&quot;https://inyl.github.io/search_engine/2017/02/18/solr_learning_to_rank.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;https://inyl.github.io/search&lt;em&gt;engine/2017/02/18/solr&lt;/em&gt;learning&lt;em&gt;to&lt;/em&gt;rank.html&lt;/a&gt;  &lt;/p&gt;</content:encoded></item><item><title><![CDATA[RestTemplate Elastic 통신]]></title><description><![CDATA[RestTemplate Elastic 통신ElasticSearch에서 spring에 있는 RestTemplate를 사용하기 위해서는 RestTemplate의 Post…]]></description><link>https://renuevo.github.io/elastic_spring_resttemplate/</link><guid isPermaLink="false">https://renuevo.github.io/elastic_spring_resttemplate/</guid><pubDate>Thu, 04 Oct 2018 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;RestTemplate Elastic 통신&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;ElasticSearch에서 spring에 있는 RestTemplate를 사용하기 위해서는 RestTemplate의 Post전달&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; exRest&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
  
@@ -1395,7 +1867,7 @@ TF-IDF와 BM25와 같은 알고리즘의 고도화로 불필요한 doc는 제거
 
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;지금은 RestTemplate말고 elastic-rest-client를 사용하고 있다 (2019-09-04 작성)&lt;/em&gt;&lt;/strong&gt;
-&lt;strong&gt;&lt;em&gt;RestTemplate 말고 WebClient에 대해 공부하세요! (2019-09-05 작성)&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Elastic] ElasticSearch Timezone 문제]]></title><description><![CDATA[Elastic Timezone Issueselastic을 쓰면서 경험한 timezone 문제에 관한 글입니다  LogstashLogstash의 timezone은 색인할때의 정보가 아닌 filter 자체의 timezone…]]></description><link>https://renuevo.github.io/elastic_timezone/</link><guid isPermaLink="false">https://renuevo.github.io/elastic_timezone/</guid><pubDate>Thu, 28 Dec 2017 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Elastic Timezone Issues&lt;/h2&gt;
+&lt;strong&gt;&lt;em&gt;RestTemplate 말고 WebClient에 대해 공부하세요! (2019-09-05 작성)&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Elastic] ElasticSearch Timezone 문제]]></title><description><![CDATA[Elastic Timezone Issueselastic을 쓰면서 경험한 timezone 문제에 관한 글입니다  LogstashLogstash의 timezone은 색인할때의 정보가 아닌 filter 자체의 timezone…]]></description><link>https://renuevo.github.io/elastic_timezone/</link><guid isPermaLink="false">https://renuevo.github.io/elastic_timezone/</guid><pubDate>Thu, 28 Dec 2017 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;Elastic Timezone Issues&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;elastic을 쓰면서 경험한 timezone 문제에 관한 글입니다&lt;/em&gt;  &lt;/p&gt;
 &lt;/blockquote&gt;
