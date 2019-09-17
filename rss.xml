@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[DRcode]]></title><description><![CDATA[Deokhwa Kim's blog]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 16 Sep 2019 01:05:36 GMT</lastBuildDate><item><title><![CDATA[[DataStructure] ArrayList 내부 구조]]></title><description><![CDATA[ArrayList는 왜 LinkedList 보다 빠를까?LinkedList와 ArrayList 내부구조 알아보기LinkedList먼저 부터 알아보겠습니다LinkedList는 Array…]]></description><link>https://renuevo.github.io/likedList_vs_arrayList/</link><guid isPermaLink="false">https://renuevo.github.io/likedList_vs_arrayList/</guid><pubDate>Sun, 15 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;ArrayList는 왜 LinkedList 보다 빠를까?&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[DRcode]]></title><description><![CDATA[Deokhwa Kim's blog]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 17 Sep 2019 05:28:30 GMT</lastBuildDate><item><title><![CDATA[[DataStructure] ArrayList 내부 구조]]></title><description><![CDATA[ArrayList는 왜 LinkedList 보다 빠를까?LinkedList와 ArrayList 내부구조 알아보기LinkedList먼저 부터 알아보겠습니다LinkedList는 Array…]]></description><link>https://renuevo.github.io/likedList_vs_arrayList/</link><guid isPermaLink="false">https://renuevo.github.io/likedList_vs_arrayList/</guid><pubDate>Sun, 15 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;ArrayList는 왜 LinkedList 보다 빠를까?&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;LinkedList와 ArrayList 내부구조 알아보기&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;LinkedList&lt;/h3&gt;
@@ -301,7 +301,7 @@ gradle에서 사용하는 groovy언어는 편리하지만 커뮤니티가 형성
 &lt;span class=&quot;img_caption&quot;&gt;source &lt;a href=&quot;https://blog.jetbrains.com/kotlin/2017/11/kotlin-1-2-released/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Kotlin Blog&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;자세한 멀티 플래폼관련 사항은 &lt;a href=&quot;https://kotlinlang.org/docs/reference/multiplatform.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Multiplatform Programming&lt;/a&gt;에서 확인 하실수 있습니다&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2&gt;5. Lambda와 Scope Functions&lt;/h2&gt;
+&lt;h2&gt;5. Lambda&amp;#x26;Closure와 Scope Functions&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;blockquote&gt;
 &lt;p&gt;위에 여러 이유들이 있지만 제가 생각하는 kotlin을 사용하는 가장 큰 이유입니다&lt;br&gt;
@@ -309,14 +309,14 @@ gradle에서 사용하는 groovy언어는 편리하지만 커뮤니티가 형성
 &lt;/blockquote&gt;
 &lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;1. Lambda&lt;/strong&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. Lambda &amp;#x26; Closure&lt;/strong&gt;  &lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;lambda는 굉장히 편리합니다&lt;br&gt;
 java8 부터 사용할 수 있고 처음에는 느리다는 평이 많았지만 컴파일러가 발전하면서 현재는 기존코드보다도 빠른 성능을 보일때도 있습니다&lt;br&gt;
-하지만 java lambda에는 명확한 제한사항이 있고 저는 이 때문에 java에서 생각보다 lambda식을 많이 사용하지 않았습니다&lt;br&gt;
+하지만 java lambda에는 Closure를 사용할때 명확한 제한사항이 있고 저는 이 때문에 java에서 생각보다 lambda식을 많이 사용하지 않았습니다&lt;br&gt;
 그 제한사항은 외부변수 참조에 &lt;code class=&quot;language-text&quot;&gt;final&lt;/code&gt;이 있어야지만 참조가 된다는 것입니다&lt;br&gt;
-이는 java 메모리 구조상 &lt;code class=&quot;language-text&quot;&gt;heap/stack&lt;/code&gt;으로 나뉘는 부분때문에 외부변수를 lambda내에서 copy해서 사용하게 되고 final을 유지시켜야 한다는 것인데 현재 포스팅하는 글에서 내용이 벗어나니 이만 줄이겠습니다&lt;br&gt;
-관련해서 궁금하시면 다음 글들을 참고하시기 바랍니다&lt;/p&gt;
+이는 java 메모리 구조상 &lt;code class=&quot;language-text&quot;&gt;heap/stack&lt;/code&gt;으로 나뉘는 부분과 익명함수의 특성을 그대로 가져와 외부변수를 lambda내에서 capture해서 사용하게 되고 memory leak과 무결성유지를 위해 final을 유지시켜야 한다는 것인데 이는 현재 포스팅하는 글에서 내용이 벗어나니 이만 줄이겠습니다&lt;br&gt;
+관련해서 궁금하시면 다음 글들을 참고하시기 바랍니다 (추후 포스팅 하겠습니다)&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/blockquote&gt;
 &lt;blockquote&gt;
