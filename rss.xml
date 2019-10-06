@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[renuevo blog]]></title><description><![CDATA[development]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 06 Oct 2019 13:16:27 GMT</lastBuildDate><item><title><![CDATA[[DesignPattern] 게시자/구독자 패턴(Publish Subscribe Pattern)이란?]]></title><description><![CDATA[Pub-Sub패턴 (또는 게시자/구독자 패턴)은 Reactive Programming…]]></description><link>https://renuevo.github.io/design-pattern/publish-subscribe-pattern/</link><guid isPermaLink="false">https://renuevo.github.io/design-pattern/publish-subscribe-pattern/</guid><pubDate>Sun, 06 Oct 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;&lt;em&gt;Pub-Sub패턴&lt;/em&gt;&lt;/strong&gt; &lt;span class=&apos;sub_header&apos;&gt;(또는 게시자/구독자 패턴)&lt;/span&gt;은 Reactive Programming을 공부하면서 많이 보게 되는 패턴입니다&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[renuevo blog]]></title><description><![CDATA[development]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 06 Oct 2019 13:36:39 GMT</lastBuildDate><item><title><![CDATA[[DesignPattern] 게시자/구독자 패턴(Publish Subscribe Pattern)이란?]]></title><description><![CDATA[Pub-Sub패턴 (또는 게시자/구독자 패턴)은 Reactive Programming…]]></description><link>https://renuevo.github.io/design-pattern/publish-subscribe-pattern/</link><guid isPermaLink="false">https://renuevo.github.io/design-pattern/publish-subscribe-pattern/</guid><pubDate>Sun, 06 Oct 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;&lt;em&gt;Pub-Sub패턴&lt;/em&gt;&lt;/strong&gt; &lt;span class=&apos;sub_header&apos;&gt;(또는 게시자/구독자 패턴)&lt;/span&gt;은 Reactive Programming을 공부하면서 많이 보게 되는 패턴입니다&lt;br&gt;
 &lt;code class=&quot;language-text&quot;&gt;Head First Design Patterns&lt;/code&gt;에서는 &lt;a href=&quot;../observer-pattern/&quot;&gt;옵저버 패턴&lt;/a&gt;과 이 패턴을 같은 패턴으로 설명하지만 엄연한 차이점을 가지고 있습니다&lt;br&gt;
 그러면 왜 &lt;code class=&quot;language-text&quot;&gt;Reactive Programming&lt;/code&gt;에서는 &lt;strong&gt;옵저버패턴&lt;/strong&gt; 대신 &lt;strong&gt;Pub-Sub패턴&lt;/strong&gt;를 사용하는지 알아보겠습니다  &lt;/p&gt;
 &lt;h2 id=&quot;pub-sub패턴을-사용하는-이유&quot;&gt;&lt;a href=&quot;#pub-sub%ED%8C%A8%ED%84%B4%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0&quot; aria-label=&quot;pub sub패턴을 사용하는 이유 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Pub-Sub패턴을 사용하는 이유?&lt;/h2&gt;
@@ -656,7 +656,29 @@ java코드도 간단히 구현 가능하지만 kotlin으로 구현했을 때의 
 이런 측면에서 java는 전세계인들의 사랑을 받아왔고 수년간의 노하우로 안전성에서 인정받아 지금도 가장 널리 사용되는 언어 중 하나입니다&lt;br&gt;
 kotlin은 이런 안전성을 확보하기 위해 기존 jvm 위에서 java와 같이 실행되도록 구현되었습니다   &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;./images/java_and_kotlin_jvm.png&quot; alt=&quot;java_and_kotlin on jvm&quot;&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 36.01593625498008%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAIAAACHqfpvAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA00lEQVQY03WQuQ6DMBBE/f//RYsQDQ2i4T5jI04DJi9YiRKJTGGN1zuzOxZJkhRF0bbtsiz7vm/btq6rlLLv+67r5IV5ns87iHEcaWqaRill++q6zrIM7jhOEAS2orU2xiDgZIDl4vEGo2wJDMNgvdQF9NM0QViNNggj4cJ2m1+cfxDHseu6xPR9HwvBzpjh/a3hSpHwDIToCxAGEhBxFEUvcVmW+BHSfg/PVVWlacpWnudRR0ZmXKh8doQcxyEYQgfd5LS/wokRxmEY5nkO4ek2xRNPepDGeyy9vwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;java_and_kotlin on jvm&quot;
+        title=&quot;java_and_kotlin on jvm&quot;
+        src=&quot;/static/42775616ca86b8ce122393db2880a050/b9e4f/java_and_kotlin_jvm.png&quot;
+        srcset=&quot;/static/42775616ca86b8ce122393db2880a050/cf440/java_and_kotlin_jvm.png 148w,
+/static/42775616ca86b8ce122393db2880a050/d2d38/java_and_kotlin_jvm.png 295w,
+/static/42775616ca86b8ce122393db2880a050/b9e4f/java_and_kotlin_jvm.png 590w,
+/static/42775616ca86b8ce122393db2880a050/f9b6a/java_and_kotlin_jvm.png 885w,
+/static/42775616ca86b8ce122393db2880a050/2d849/java_and_kotlin_jvm.png 1180w,
+/static/42775616ca86b8ce122393db2880a050/a666d/java_and_kotlin_jvm.png 1255w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;
 &lt;span class=&quot;img_caption&quot;&gt;source &lt;a href=&quot;https://subscription.packtpub.com/book/application_development/9781789349252/2/ch02lvl1sec17/introduction-to-kotlin&quot;&gt;Introduction to Kotlin&lt;/a&gt; &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt; 보시는 것 같이 java던 kotlin이던 각각의 컴파일러를 거쳐 class로 생성되어 jvm에서 똑같이 동작되어 &lt;code class=&quot;language-text&quot;&gt;안전성&lt;/code&gt;을 그대로 가져왔습니다&lt;/p&gt;
 &lt;br/&gt;
@@ -665,7 +687,26 @@ kotlin은 이런 안전성을 확보하기 위해 기존 jvm 위에서 java와 �
 kotlin은 java를 100% 호환되도록 설계되었습니다&lt;br&gt;
 그래서 사용자는 java와 kotlin을 구분없이 사용가능하고 Intellij에서는 java코드를 kotlin코드롤 자동변환해 주는 기능도 제공합니다&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;./images/java_to_kotlin_convert.png&quot; alt=&quot;java_to_kotlin_convert&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 566px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 114.48763250883391%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAIAAACEf/j0AAAACXBIWXMAAA7DAAAOwwHHb6hkAAACvklEQVQ4y22US2/TUBCF80/YI6QmqYRo/L62r+/DzyRtSZMgxILuoLBsAHXH3+a7dpu6odIsRnfmzJw5M/ZE2bpZX1dNF4nUjxKpbSYVTvCqxQILY5EVaj4/nyhbdVcbAB5vebG+3iRZvggi8K9YGBPKldG2nM7mE2lKOqe5DCJXlVq6rAttQ5H9D47I09YlmB6syqa7uhE5VIUXxEOMEpkyYSLGyCBJ88IoU+qyegS/mUVv0+W7uDqL7FmoTNUQg3+UpK+OzXRSGTXQjrJCt5fSVFBIC51k0tatKWvAzz1fGtrkSs/m80l3ua6XK5FJJ1IYU8pWjcilH8Vhkg52AiaNHk7tvHRDMmquTSaLpJeEwujPiHGak3cyglNOZK4zffCYZGCYSgW4GCTVlo0e1zsYbeECwRmduRGnrVQEPEfb1G2HbLaqyUhlcbKthNd+HU4wPOj5sRhuAM2qZskmCEdpdhFEVDzyGqghJ9UfwUzljg556Sx5aJmZ4bF+Zuccx/bwcjfaI5il0YrdDmpz5xwOL+ysapdlQy0DgigS9LMokmeA4VCTUbfcOvQYwVbtIBj90RJGXn/qtMWHpujNgcn3+1dnsRimxdyRsYWXanGhtB2aO/AxsAhjsp1arMqUMKL86YU9fZIwdHseF+YVLYGxfBbC/ty1FDocnarfn3cPPp+Mv9WAs6xXpqz4XKmCPIPm4ehIMDjnhZ6OabvTYQnNGrW1rSPh9uRH9ASQnlgq9XzcGTKcXdPUssiNVWkmsCD0Ft7FYN6T43x/MZ1Nj2D+BKHQq9XXv+2Xh+bzQ/npj97eq+293R3M7qC3B7k52P0vu7t3tv99/kGMBYu9RGXdbbO9q7d37e5HfdM7+x/lx295dyvaW6I8dvuf5eb7/L0/AvNh+EEUBYb/hFUFSpvC9I7nP9OGMOYHHrT/ARSubucnoxZpAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;java_to_kotlin_convert&quot;
+        title=&quot;java_to_kotlin_convert&quot;
+        src=&quot;/static/aac9981f326d848581c3aa3683be5da2/7b273/java_to_kotlin_convert.png&quot;
+        srcset=&quot;/static/aac9981f326d848581c3aa3683be5da2/cf440/java_to_kotlin_convert.png 148w,
+/static/aac9981f326d848581c3aa3683be5da2/d2d38/java_to_kotlin_convert.png 295w,
+/static/aac9981f326d848581c3aa3683be5da2/7b273/java_to_kotlin_convert.png 566w&quot;
+        sizes=&quot;(max-width: 566px) 100vw, 566px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt; 이는 사용자와 시스템 모두에게 매우 긍정적인 측면으로 작용합니다&lt;br&gt;
 호환과 관련된 보다 자세한 사항은 &lt;a href=&quot;https://medium.com/jay-tillu/how-kotlin-provides-100-interoperability-with-java-5ee132869038&quot;&gt;Jay Tilu Blog&lt;/a&gt;를 참조하시면 좋을꺼 같습니다  &lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;java의 서드파티(lombok, kryo등등)까지 완벽히 지원되지는 않습니다&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
