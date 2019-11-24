@@ -1,4 +1,57 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[renuevo blog]]></title><description><![CDATA[development]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 19 Nov 2019 19:22:07 GMT</lastBuildDate><item><title><![CDATA[[Spring] RestTemplate Thread Safe?]]></title><description><![CDATA[RestTemplate은 Spring에서 지원하는 http를 유용하게 쓸 수 있는 템플릿입니다 결론부터 말씀 드리자면 RestTemplate은 Thread Safe하게 설계 되어 만들어 졌습니다 Spring3 : RestTemplate…]]></description><link>https://renuevo.github.io/spring/resttemplate-thread-safe/</link><guid isPermaLink="false">https://renuevo.github.io/spring/resttemplate-thread-safe/</guid><pubDate>Thu, 07 Nov 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;&lt;em&gt;RestTemplate은&lt;/em&gt;&lt;/strong&gt; Spring에서 지원하는 http를 유용하게 쓸 수 있는 템플릿입니다&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[renuevo blog]]></title><description><![CDATA[development]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 24 Nov 2019 14:53:46 GMT</lastBuildDate><item><title><![CDATA[about]]></title><description><![CDATA[Deokhwa Kim  Deokhwa Kim 28 age BackEnd Programer SaraminHR Lab]]></description><link>https://renuevo.github.io/resume-kr/</link><guid isPermaLink="false">https://renuevo.github.io/resume-kr/</guid><pubDate>Sun, 24 Nov 2019 23:30:00 GMT</pubDate><content:encoded>&lt;h1 id=&quot;deokhwa-kim&quot;&gt;&lt;a href=&quot;#deokhwa-kim&quot; aria-label=&quot;deokhwa kim permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Deokhwa Kim&lt;/h1&gt;
+&lt;div align=&quot;center&quot;&gt;
+&lt;figure style=&quot;max-width:200px; width: 80%;&quot;&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 460px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAEz0lEQVQ4ywHEBDv7AHuZjJKqtnNpb0AuJ05APoJmUquIaayMb6+TfbOYhridibmdh72fhr2ehLeYfp6AaX9jUJJ1X5N3YX5kUgB+m5CQqbSPmKh3dm1dTEuRfXOxjXC6mn67n4rBpZDHq5TLrZXOr5XPsJTSspbWtZjVtJbUtJbSspbNrpMAiJaFiKOxlJ2vnrSkjo2L69rY0qyEwZFh0KZ54LWF5LuL6MOS6MCO6sKQ6sOR68mZ5sGU37iN2rWK0KyGAI+Qj4ufr5yitpisl42kqcW2t9KoetanbrKMYa6GXfHHj//hpPzYl/rRkfzVkfLUlOS+hPnOju3Agua4fACpqLunwN6krMSbs8GGorjMytLjvZCXa0dNLR8+IhRILx91VzzNp3P20JT805Xy0qTlx5/6z5DzyY7twIYApZaNubzApqOuucjLqsPU0MvWy6WLYTkpVTQlQykbNR8TLBMKVjcj8NOe/eey/OKw/dym/Nae/N6p+9ikAJ+Zn5eNjGxaVqqgm46LjdPLzpWAfTslIjkmIS4cFC8cEjgjFi4VCLeWb//msfjYpvrTn/rVn/jUn/rYpACcqrnf5euEeoKxsLior7jMvb1pYWYVDxMmHyQsHRszHxYzGxEpEQexjWb/2J750pj91Jz90pj4z5X/1Z4Av8K53Orwj4qWvMHIqLO+18zPkIOCYUxNlW1kwI1+pnNeo2xSlmE+ZkYxdFZCd1dAelpCeltBeltAfF1DAM3r/6/K4oeDkaSipZOUmImBhHtlY9y0q8maju+1od2egd2hgeCZaFQxID0pHEguH0kwIEQrHEwyH0MsGwCtsL2jl5RiVltPTmJRbJFxdIBeVFbqu7HxvK3fqJjpoXz9waXHiWA8JBU/JhU3IRM2IBJEKBY7IxJQLxkAioWDZ2ZsR0JMV1tjYHeIdHeBfmpexp2S9sO31ZWE2Itq7KuDgls+JRkSPSkeJhcPLBwSOiUWLx0RUDMfAEpPVD1FU09VXpSnoJarpWprb39hTpdyYMmfmcN5b8x6WcSGTrWJWlhCL25RN2ZKLVE4IXZUL2ZGKa6CTQBRWmVFS1QgIy04P0k1PUhVSUNNQD1OOzWuin22i33JhlyDTymtjmb2yY7+1Jn1zI/swYbtw4bku3zyx4kAgJSgHCEsGRogJSEoLSEiVkM6OCwsNSUji2FNtJePuIRmXjsoRDQnak80eVw/poVf8syV+tOX7ceL9M6RAFhUVEhBQkM2MUQ2My0fHiIXFywfHx0TE2E1HcGUeK+JeiseGRgNBxkNCR0QDx0PDE87LMCdcfzTlPjRmQAhFBM1JCExIR4kFhQhFBMgFRMaExIJBwgeDg1TJiUoFxgKBwUUEA4YEg8jFxYdFBIZDgwmEwyhflP/2pkAKx8eJhoYHBEPHxQSHBMTGxEQGRIQDg0NEQsOQAMHGwcGGBEQHhYUFhEOFA4MEAwKGBEOHBANMyAUwqFzAB0RDx8UEBQLCBAMCRkUFCAWFB0SERcQDQwQESkNDyMOCxsSER0SEhkSEBgPDQoHBxIOCx8TECATDyoaEQAbEAwUCwgOCAUIBQMXEREiFhUbEA4WDQsSDw8bDg8kEg4eExAcEhEcExEaEA8LCAgJCAkTDw0hFRArHBKIIAQPpy4qsAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;profile&quot;
+        title=&quot;profile&quot;
+        src=&quot;/static/3fc5562e6ad25d80970b53e8e9afab0c/a9ee3/profile.png&quot;
+        srcset=&quot;/static/3fc5562e6ad25d80970b53e8e9afab0c/cf440/profile.png 148w,
+/static/3fc5562e6ad25d80970b53e8e9afab0c/d2d38/profile.png 295w,
+/static/3fc5562e6ad25d80970b53e8e9afab0c/a9ee3/profile.png 460w&quot;
+        sizes=&quot;(max-width: 460px) 100vw, 460px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;/figure&gt;
+&lt;p&gt;Deokhwa Kim&lt;br&gt;
+28 age&lt;br&gt;
+BackEnd Programer&lt;br&gt;
+SaraminHR Lab&lt;/p&gt;
+&lt;/div&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 53.80631796996374%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABcRAAAXEQHKJvM/AAADVElEQVQoz22SeUyScRjHH9SJy0SthWRTZx6lpa5jnXb90WVmzY6lHWtzrbKc2ZYmFJUj07Is0pxUqHn0FqKFIEkBiRGDAS++QBKIhWd2m2Wtcr/AamvV95/n2b7P83mePXuARHKjAkAg+M+mwBXkBRmvx8HsQ2T4KTf4R6Rf0Z30txNA9XAfS3ISt5Dp85dNZSxcTsueu3h65qx5sWkxc6KPzFkUs3eHHxW74BXNpo8POZdNjjlxYFx43iHv0ILD5Lj07V5h9Re9onP3UwLYORDHPeVGA38nkBMxI1IfOIV6iTx+UkdYRIAYgKIIjQhyDVNfgBB0G3zFDAhCAvBtSwfKUJUzTwdPa5nT6wF3vBACBgRAG9uuqOIuhY8Jk73bP0fx+JINMQ8dcVdvSZI2yvrmrldK5/MN19d4N7+IajGVbwQpisR0lxPi22yxLOLRUq4ZW+0j+zxTZmAnBT9wrPW/PxgMRyuFHjUN0rC9VaKQM6xzS2IZ1wMbMXbkYZ6Qtu7m3YkyQriMZ8bjsZbq8JSzBdM4VeyUkob6Vaknjgfn07MiVjB5gXxCEprzWENd3YU8AZMP+O2r0FbW5zdXXsqsZSXt4TJTPSb5/j50g5ld3Wgpe5C/Y8J27kn3xNsl1woVt2pMJB9Y7rRn3uQx16MOFf/jp1H+l6G3cdBacpG8mVG6oKywIcEkVp1pFbayG4m6CrxXk+ICOt7as/rfOZSdROuubqWA3q7VyduM1qHzcpWlynasVKNskn/Qq8WDfaKiYYSosM35B1jmpqDi2tro97p21rBGxTIMyHv7P3SddgFVzz4lO7odLWikN23A3ME1qNU1+OCgUtD5dETwSCISaU0KrVHZVMrLx9IQ8oHv375RK0XS1Oo7TclMzpIwM2KQ/3y4LSeL1rHLd6apFZKMxxqtssdqKovijy64V5BY58iCAk5xRbK+vm6Vq7b6srMHjX5dmdGkHr7RbsNt1rynOuIUx2UitHuMKhYcDP+IJ87S4pZ4HNcfNFlsuNT4nFA8FPfZNc1ShfGlWmcwWId61OUIITJ8KSYmG2u0MsLyRG82mrj0Y0y/8uLsDYxrR2jwH7XI27Z2262nO+3Pc+3d/cxn70ayX73pyvv+3prrBHr+AJeclX2SU3qPAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;dev-profile&quot;
+        title=&quot;dev-profile&quot;
+        src=&quot;/static/0876b9099ff9686a8051c4468a99f432/b9e4f/dev-profile.png&quot;
+        srcset=&quot;/static/0876b9099ff9686a8051c4468a99f432/cf440/dev-profile.png 148w,
+/static/0876b9099ff9686a8051c4468a99f432/d2d38/dev-profile.png 295w,
+/static/0876b9099ff9686a8051c4468a99f432/b9e4f/dev-profile.png 590w,
+/static/0876b9099ff9686a8051c4468a99f432/f9b6a/dev-profile.png 885w,
+/static/0876b9099ff9686a8051c4468a99f432/2d849/dev-profile.png 1180w,
+/static/0876b9099ff9686a8051c4468a99f432/26086/dev-profile.png 1931w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Spring] RestTemplate Thread Safe?]]></title><description><![CDATA[RestTemplate은 Spring에서 지원하는 http를 유용하게 쓸 수 있는 템플릿입니다 결론부터 말씀 드리자면 RestTemplate은 Thread Safe하게 설계 되어 만들어 졌습니다 Spring3 : RestTemplate…]]></description><link>https://renuevo.github.io/spring/resttemplate-thread-safe/</link><guid isPermaLink="false">https://renuevo.github.io/spring/resttemplate-thread-safe/</guid><pubDate>Thu, 07 Nov 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;&lt;em&gt;RestTemplate은&lt;/em&gt;&lt;/strong&gt; Spring에서 지원하는 http를 유용하게 쓸 수 있는 템플릿입니다&lt;br&gt;
 결론부터 말씀 드리자면 RestTemplate은 Thread Safe하게 설계 되어 만들어 졌습니다 &lt;a href=&quot;https://spring.io/blog/2009/03/27/rest-in-spring-3-resttemplate&quot;&gt;Spring3 : RestTemplate&lt;/a&gt;&lt;br&gt;
 하지만 프로젝트에서 한번씩의 호출은 문제가 없었지만 연속적인 호출이 있을때 제대로 Connection을 맺지 못하고 &lt;span class=&apos;red_font&apos;&gt;Error&lt;/span&gt;가 나는 상황이 있었습니다&lt;br&gt;
 그래서 간단하게 해당 이슈에 관해 알아본 내용을 정리한 포스팅 입니다    &lt;/p&gt;
@@ -2153,10 +2206,7 @@ AOP Object는 마치 자신인 핵심 Core Object처럼 꾸며서 흐름을 제�
     
     &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;em&gt;annotation을 구현해서 pointcut에 예외처리 지정하기&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[about]]></title><description><![CDATA[Your name Thank you for reading my resume. If you want to contact me, Please send me an email.]]></description><link>https://renuevo.github.io/resume-kr/</link><guid isPermaLink="false">https://renuevo.github.io/resume-kr/</guid><pubDate>Sun, 27 Jan 2019 16:21:13 GMT</pubDate><content:encoded>&lt;h1 id=&quot;your-name&quot;&gt;&lt;a href=&quot;#your-name&quot; aria-label=&quot;your name permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Your name&lt;/h1&gt;
-&lt;div align=&quot;center&quot;&gt;
-&lt;p&gt;&lt;em&gt;Thank you for reading my resume. If you want to contact me, Please send me an email.&lt;/em&gt;&lt;/p&gt;
-&lt;/div&gt;</content:encoded></item><item><title><![CDATA[[DataScience] LTR(Learning To Rank)]]></title><description><![CDATA[스코어 정렬에 머신러닝 알고리즘을 사용 
+&lt;p&gt;&lt;em&gt;annotation을 구현해서 pointcut에 예외처리 지정하기&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[DataScience] LTR(Learning To Rank)]]></title><description><![CDATA[스코어 정렬에 머신러닝 알고리즘을 사용 
 (LTR Structure) LTR: Steps to take point wise (Regression) : score를 머신 러닝으로 생성
    pair wise (RankNet, LambdaMART) :…]]></description><link>https://renuevo.github.io/data-science/learning-to-rank/</link><guid isPermaLink="false">https://renuevo.github.io/data-science/learning-to-rank/</guid><pubDate>Fri, 05 Oct 2018 00:00:00 GMT</pubDate><content:encoded>&lt;h4 id=&quot;스코어-정렬에-머신러닝-알고리즘을-사용&quot;&gt;&lt;a href=&quot;#%EC%8A%A4%EC%BD%94%EC%96%B4-%EC%A0%95%EB%A0%AC%EC%97%90-%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%EC%82%AC%EC%9A%A9&quot; aria-label=&quot;스코어 정렬에 머신러닝 알고리즘을 사용 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;스코어 정렬에 머신러닝 알고리즘을 사용&lt;/h4&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;textbox&quot;&gt;&lt;pre class=&quot;language-textbox&quot;&gt;&lt;code class=&quot;language-textbox&quot;&gt;TF-IDF와 BM25가 검색결과를 도출하는 하고 상관없는 문서를 빼는것에 초점을 둔 반면 LTR은 문서의 정렬을 하는 것에 초점을 두고 있다
