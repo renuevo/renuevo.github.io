@@ -1,4 +1,516 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[renuevo blog]]></title><description><![CDATA[development]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 10 Dec 2019 12:09:47 GMT</lastBuildDate><item><title><![CDATA[[Notion] 페이스북을 활용한 트럼프의 대선 전략과 LSA 알고리즘]]></title><description><![CDATA[해당 포스팅은 이전에 속에 사용된 을 조사한 자료가 있어서 포스팅 하게 되었습니다   이 포스팅은 확실한 명확한 해답이 아니며 여러 의견을 분석한 자료를 토대로 작성되었습니다   사건 요약 2014년 심리학 박사 알렉산더 코겐 교수(Dr…]]></description><link>https://renuevo.github.io/data-science/facebook-cambridge-analytica/</link><guid isPermaLink="false">https://renuevo.github.io/data-science/facebook-cambridge-analytica/</guid><pubDate>Tue, 10 Dec 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;해당 포스팅은 이전에 &lt;code class=&quot;language-text&quot;&gt;2016년 트럼프 대선 당시 사용된 전략&lt;/code&gt;속에 사용된 &lt;code class=&quot;language-text&quot;&gt;IT기술&lt;/code&gt;을 조사한 자료가 있어서 포스팅 하게 되었습니다  &lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[renuevo blog]]></title><description><![CDATA[development]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 20 Dec 2019 14:51:50 GMT</lastBuildDate><item><title><![CDATA[[Spring] Spring의 Scope와 ProxyMode 알아보기]]></title><description><![CDATA[Spring Scope Spring Bean을 생성시 적용되는 Scope에 대해 알아보려 합니다
+아래 모든 소스의 제 Github에서 확인 하실 수 있습니다   해당 포스팅은 내부적 구현 요소의 대해 설명에 집중하며 Scope…]]></description><link>https://renuevo.github.io/spring/scope/spring-scope/</link><guid isPermaLink="false">https://renuevo.github.io/spring/scope/spring-scope/</guid><pubDate>Fri, 20 Dec 2019 00:00:00 GMT</pubDate><content:encoded>&lt;h1 id=&quot;spring-scope&quot;&gt;&lt;a href=&quot;#spring-scope&quot; aria-label=&quot;spring scope permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Spring Scope&lt;/h1&gt;
+&lt;p&gt;&lt;em&gt;Spring Bean을 생성시 적용되는 Scope에 대해 알아보려 합니다&lt;/em&gt;
+아래 모든 소스의 제 &lt;a href=&quot;https://github.com/renuevo/spring-boot-in-action/tree/master/spring-boot-scope-in-action&quot;&gt;Github&lt;/a&gt;에서 확인 하실 수 있습니다  &lt;/p&gt;
+&lt;p&gt;해당 포스팅은 내부적 구현 요소의 대해 설명에 집중하며 Scope의 일반적인 사용법을 보시려면
+👉 &lt;a href=&quot;https://www.baeldung.com/spring-bean-scopes&quot;&gt;baeldung - spring-bean-scopes&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;Spring Bean의 Scope는 크게 2가지가 존재합니다&lt;br&gt;
+Spring의 내부 &lt;code class=&quot;language-text&quot;&gt;ConfigurableBeanFactory&lt;/code&gt;를 보면 &lt;code class=&quot;language-text&quot;&gt;singleton&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;prototype&lt;/code&gt; 2가지 속성을 나타내고 있습니다  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ConfigurableBeanFactory&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;HierarchicalBeanFactory&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;SingletonBeanRegistry&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+	&lt;span class=&quot;token comment&quot;&gt;/**
+	 * Scope identifier for the standard singleton scope: &quot;singleton&quot;.
+	 * Custom scopes can be added via {@code registerScope}.
+	 * @see #registerScope
+	 */&lt;/span&gt;
+	&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; SCOPE_SINGLETON &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;singleton&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;token comment&quot;&gt;/**
+	 * Scope identifier for the standard prototype scope: &quot;prototype&quot;.
+	 * Custom scopes can be added via {@code registerScope}.
+	 * @see #registerScope
+	 */&lt;/span&gt;
+	&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; SCOPE_PROTOTYPE &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;prototype&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;p&gt;일반적으로 생성되는 빈들은 모두 &lt;code class=&quot;language-text&quot;&gt;Singleton&lt;/code&gt;으로 생성되게 됩니다&lt;br&gt;
+즉 아래 두개의 Bean들은 서로 동일하게 Singleton으로 생성되게 됩니다  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Component&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Single&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Component&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Scope&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;singleton&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Single&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Singleton&lt;/code&gt;으로 생성하게 되면 어디서나 1개의 인스턴스를 참조하여 사용하게 됩니다&lt;br&gt;
+&lt;br/&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Component&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Single&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;예를 들어 다음 같이 Singleton Bean을 하나 만들고  &lt;/p&gt;
+&lt;br/&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Component&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@AllArgsConstructor&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ScopeWrapper&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Getter&lt;/span&gt;
+    &lt;span class=&quot;token class-name&quot;&gt;Single&lt;/span&gt; single&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;WrapperClass를 하나 만들어서 해당 Bean을 Autowired DI 해줍니다&lt;/p&gt;
+&lt;br/&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Slf4j&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Service&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@AllArgsConstructor&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ScopeService&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ScopeWrapper&lt;/span&gt; scopeWrapper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Single&lt;/span&gt; single&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;scopeTest&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;[============== Singleton Bean ==============]&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Scope Service Single : &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; single&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Scope Wrapper Single : &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; scopeWrapper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getSingle&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그 후 ScopeService 만들어서 각각의 Bean을 DI하고 각각의 Single 인스턴스를 출력하면 다음과 같습니다  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 9.144385026737968%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAZ0lEQVQI1zVMSQ6AIBDzO4qCMMxiPBv//6JaSDw00+m2RATiCphnqChSSqjnieqOVRXbDzPspcB4jZ4Tozu40b9FcLeGpfcOpdDkQKsyBwuLhfrK0PaD/57zzI5R6TKHlNzpPcTL3AcGHT/rj+ysPQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;singleton-bean&quot;
+        title=&quot;singleton-bean&quot;
+        src=&quot;/static/c040bc5cc8d218d7fab901e730fa382f/db2b8/singleton-bean.png&quot;
+        srcset=&quot;/static/c040bc5cc8d218d7fab901e730fa382f/1df8f/singleton-bean.png 273w,
+/static/c040bc5cc8d218d7fab901e730fa382f/53236/singleton-bean.png 545w,
+/static/c040bc5cc8d218d7fab901e730fa382f/db2b8/singleton-bean.png 1090w,
+/static/c040bc5cc8d218d7fab901e730fa382f/90122/singleton-bean.png 1635w,
+/static/c040bc5cc8d218d7fab901e730fa382f/fa891/singleton-bean.png 1870w&quot;
+        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;
+&lt;code class=&quot;language-text&quot;&gt;Singleton&lt;/code&gt;으로 당연하게 같은 Instance를 확인 할 수 있습니다  &lt;/p&gt;
+&lt;h2 id=&quot;br&quot;&gt;&lt;a href=&quot;#br&quot; aria-label=&quot;br permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;br/&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Prototype&lt;/code&gt;은 매번 새로운 Instance를 생성하여 Bean의 생명주기가 필요할 때 사용되게 됩니다  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Component&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Scope&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;prototype&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Proto&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Prototype Bean을 하나 생성하고&lt;/p&gt;
+&lt;br/&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Component&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@AllArgsConstructor&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ScopeWrapper&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Getter&lt;/span&gt;
+    &lt;span class=&quot;token class-name&quot;&gt;Proto&lt;/span&gt; proto&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;아까와 같이 WrapperClass에 Propotype Bean을 DI해줍니다  &lt;/p&gt;
+&lt;br/&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Slf4j&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Service&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@AllArgsConstructor&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ScopeService&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ScopeWrapper&lt;/span&gt; scopeWrapper&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Proto&lt;/span&gt; proto&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;scopeTest&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;[============== Prototype Bean ==============]&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Scope Service Proto : &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; proto&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Scope Wrapper Proto : &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; scopeWrapper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getProto&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;ScopeService 아까와 같이 구성해서 출력하면 다음과 같습니다&lt;br&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 8.32414553472988%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAbUlEQVQI1zWMaw4CIQwG9zhuSbBAyUJhE+9/qbEa/THpfH0de90ML/hoVDUkCdbCffK4LmQM5FPdObuhpbCWM+f8su+Nx2wGu3cOs05tmVaVZ1ZSSqiGm3HWivyJLNHPOdPj0CKXeG4/b8Er9t4qjz//yCmxZQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;prototype-bean&quot;
+        title=&quot;prototype-bean&quot;
+        src=&quot;/static/1f32f2741075eed9ae82f5adfa66824a/db2b8/prototype-bean.png&quot;
+        srcset=&quot;/static/1f32f2741075eed9ae82f5adfa66824a/1df8f/prototype-bean.png 273w,
+/static/1f32f2741075eed9ae82f5adfa66824a/53236/prototype-bean.png 545w,
+/static/1f32f2741075eed9ae82f5adfa66824a/db2b8/prototype-bean.png 1090w,
+/static/1f32f2741075eed9ae82f5adfa66824a/90122/prototype-bean.png 1635w,
+/static/1f32f2741075eed9ae82f5adfa66824a/1842b/prototype-bean.png 1814w&quot;
+        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;
+&lt;code class=&quot;language-text&quot;&gt;Prototype&lt;/code&gt;으로 서로 다른 Instance를 확인 할 수 있습니다   &lt;/p&gt;
+&lt;br/&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Slf4j&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Service&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@AllArgsConstructor&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ScopeService&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ApplicationContext&lt;/span&gt; ctx&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;scopeTest&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;[============== Prototype getBean ==============]&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;getBean Case 1 : &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; ctx&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getBean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;proto&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;getBean Case 2 : &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; ctx&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getBean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;proto&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 7.721796276013143%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAb0lEQVQI1yXNWQ7DMAgE0Fyn8SbVbI6tfuf+F5pM3I8RQsDj8FDEqNDuKKUgpQQzR1bFacawquB0x0cEtTVEBLp07hnGGJhzQjn7sT/MBOYV8jWC+Q/yOG+MeeE3G+xoBNdaEALKZ9e4Nhqc39x7AAPdQCMxGHdSAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;prototype-bean&quot;
+        title=&quot;prototype-bean&quot;
+        src=&quot;/static/286bc8a9d72b702475c23bd782d44a28/db2b8/prototype-getbean.png&quot;
+        srcset=&quot;/static/286bc8a9d72b702475c23bd782d44a28/1df8f/prototype-getbean.png 273w,
+/static/286bc8a9d72b702475c23bd782d44a28/53236/prototype-getbean.png 545w,
+/static/286bc8a9d72b702475c23bd782d44a28/db2b8/prototype-getbean.png 1090w,
+/static/286bc8a9d72b702475c23bd782d44a28/90122/prototype-getbean.png 1635w,
+/static/286bc8a9d72b702475c23bd782d44a28/7bc83/prototype-getbean.png 1826w&quot;
+        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;
+&lt;code class=&quot;language-text&quot;&gt;ApplicationContext&lt;/code&gt;를 통해 getBean으로 Proto를 가져와도 다른 Instance를 가져오는 것을 확인 할 수 있습니다  &lt;/p&gt;
+&lt;br/&gt;
+&lt;hr&gt;
+&lt;p&gt;위에 예제들을 통해 &lt;code class=&quot;language-text&quot;&gt;Singleton&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;Prototype&lt;/code&gt;의 특성을 살펴 보았습니다&lt;br&gt;
+이 스코프 특성들은 각각 사용하거나 Prototype에서 Singleton을 가지고 사용하는 것에는 문제가 없습니다  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 840px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 65.95238095238095%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAABcRAAAXEQHKJvM/AAACmklEQVQ4y2OIbzvzL6blzL8oEG4+8yey5eJ/oNiF////MzMAQfG0SwwkgYCq43/jW0/9TW0/+Tej6+Tv5K6L/4NqT52HGZjSeYo0A/O6j/8/15P9/+rMqv83ZpT9Pzah+n9E1c7ri2/9ZwXJt238T5qBHfPPeb7cPMnzw8FFnp8OLvS4s2mOd27bVjsuPiFeoDSHuoE9XC0jlAa6nuHjgkyGD9OjGT7MjIVgIPvjggwGhsvP/3MJzPjPzdvxn0uw5z+X0bL/3EANHCBNQMAOxGCDYYZycnLhd2FU0+mPEU2nf0Q2n/ke3njma3Ddqf+RTadO/f//iQUkbxtQzAg1EGQwGwPClYxAzISOGQJrjv9Oajv5P639+P/MjqP/M3sv/gcaegksiQoYudhYeIA0n4t3ANe7CQFL3nU4nwfiY++6XE+863A68X6C/wmG7PbDf672JP+/Oz3v//3pOf8vTCz8H1G57aq+ewIfyIdsHNzcQBqEuUR52UFBwCOroKT0rMHm5f/Z/v//z4v6/39B9P//07z//5/g/J+he/Flq+d7Ftt8OLfT+uP53db39qy2rZp00FDdzB3kZWY2dk5mmAu52Vk5QZZMXLKB5cOkoEnvOl13vu/z2fS+12szkL35/cTAzQyztz6S9Z/wViaw57FMYPcjmdjpr2WX7nsthuZddvQwxAnCGk79iQTlECCOaDrzK7Tx/P+IxtMnQIEOlGZlYeNEiWUQ4OYXYrgCpM8B8UUoPgfFDMG1J/8ntpz4n9x67H9m57F/KZ3n/gdUHjrvZGMACkMONWMvRnRHgJLUp1WVDJ8W5zJ8WpIPwYtyGT4DxRjy2/b8u9cZ8u/p9LR/L6fG/7ncm/4/pGzrmaZdr8DJ5v5/0nIKAOtEUcQlod0aAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;prototype-in-singleton&quot;
+        title=&quot;prototype-in-singleton&quot;
+        src=&quot;/static/0960ab756dfd4f678c1f30edd0f890e2/04a72/prototype-in-singleton.png&quot;
+        srcset=&quot;/static/0960ab756dfd4f678c1f30edd0f890e2/1df8f/prototype-in-singleton.png 273w,
+/static/0960ab756dfd4f678c1f30edd0f890e2/53236/prototype-in-singleton.png 545w,
+/static/0960ab756dfd4f678c1f30edd0f890e2/04a72/prototype-in-singleton.png 840w&quot;
+        sizes=&quot;(max-width: 840px) 100vw, 840px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;  &lt;/p&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;strong&gt;반대로 Singleton에서 Prototype을 가지고 있는 경우에는 의도한 것과 다른 결과를 낼 수 있습니다&lt;/strong&gt;&lt;br&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 764px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 41.88481675392669%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABcRAAAXEQHKJvM/AAACHklEQVQoz31R4UsTcRj+5eZM0FhEFDSoT31Z9Q80IQZSW9IHqX0pQgbGRHTIwKh9kCKy9G6hJoPOOZda7uZut9utu1u01giUxThKsCQCZWsYzpajnN5sb3dGGX3wgYfn5ffjeXheXsQwDISoIITpEFDBYEWey4LAAy8I7UgGy7JqRQsJL/qAfuOb+7KqgJ9XF1xNO8RM6rURqwqRJFkOMFw5IsTLbCxeDvPxUohhgY0wbYpZFEUV+oOaLkTXod3xIsZBZtIJy2QPLFO98GWiG8SID8bIcLfy73A4NP97ikSLZRVvup3vN93I3z/rzPedu7mKmXvWPK1X0HOOxYuj1/CNJ534D/I6/tNn7Z+ddA3jj8aNsrdKp9Ptk7Wutqa6/rjcUQlcuWtMAmECIJoBRi0AIxcBHhrh68CFFEq9SRumUouG8dcfDRPJecPjmcXTL9Pvz2Q/LRz+p9SeIwe1ai1CWqRpOJC71cDnsEswN2jfnB/q3Hr3oF1autcMxTuNCRSm6e2jRKOszCjQoRDwPK/MHUqSzWZTWtXu1VTXH5JVeSsNmCk35oNW7O26c2hm0+YSN9y93kqlwzyHAoEABP1PIUpPwzOZDEVuRcI0+P2kXTHr9fr9smjsLZa/db9z2NEs5zm1EKP02QR1IvOK1n/mPCdLSeIYYqhpaWnYKuWINinj7ZJW3FfXk2N9MOid2g4EgKqdzVUo3bj7kX8BlNMZvN77C4AAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;singleton-in-prototype&quot;
+        title=&quot;singleton-in-prototype&quot;
+        src=&quot;/static/266c2b65e173fd9cad227a9bd6e94aa8/578a5/singleton-in-prototype.png&quot;
+        srcset=&quot;/static/266c2b65e173fd9cad227a9bd6e94aa8/1df8f/singleton-in-prototype.png 273w,
+/static/266c2b65e173fd9cad227a9bd6e94aa8/53236/singleton-in-prototype.png 545w,
+/static/266c2b65e173fd9cad227a9bd6e94aa8/578a5/singleton-in-prototype.png 764w&quot;
+        sizes=&quot;(max-width: 764px) 100vw, 764px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;  &lt;/p&gt;
+&lt;p&gt;이미 Singleton으로 생성되는 시점에 Prototype이 생성되어 들어 오기 때문에&lt;br&gt;
+&lt;strong&gt;Singleton 내부의 Prototype을 호출해게 되면 매번 같은 값을 가져오게 됩니다&lt;/strong&gt;  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Slf4j&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Service&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@AllArgsConstructor&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ScopeService&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ApplicationContext&lt;/span&gt; ctx&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;scopeTest&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;[============== Singleton getBean And getPrototype ==============]&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;ScopeWrapper getBean Proto Case 1 : &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; ctx&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getBean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;ScopeWrapper&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getProto&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;ScopeWrapper getBean Proto Case 2 : &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; ctx&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getBean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;ScopeWrapper&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getProto&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 7.672764227642276%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAb0lEQVQI1z2MQRYCIQxD5zoWGVpAmAFE7n+pGFy4+C9N8pojpoBEwmlwzuH0JzQlSDSIEVXI9ryf3sOoyizn/Cex36qmOO4W0UiywkH5Pbx6x+O6IDepFbJ9LQgcWmthzjf5oI+OUgo6+zkn2hj4Ar/HQAv27VSJAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;singleton-getbean-and-getPrototype&quot;
+        title=&quot;singleton-getbean-and-getPrototype&quot;
+        src=&quot;/static/ed716db35766e0c25d8cbecc1093cb08/db2b8/singleton-getbean-and-getPrototype.png&quot;
+        srcset=&quot;/static/ed716db35766e0c25d8cbecc1093cb08/1df8f/singleton-getbean-and-getPrototype.png 273w,
+/static/ed716db35766e0c25d8cbecc1093cb08/53236/singleton-getbean-and-getPrototype.png 545w,
+/static/ed716db35766e0c25d8cbecc1093cb08/db2b8/singleton-getbean-and-getPrototype.png 1090w,
+/static/ed716db35766e0c25d8cbecc1093cb08/90122/singleton-getbean-and-getPrototype.png 1635w,
+/static/ed716db35766e0c25d8cbecc1093cb08/66f1a/singleton-getbean-and-getPrototype.png 1968w&quot;
+        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;br&gt;
+다음과 같이 같은 Instance가 return 된걸 확인 할 수 있습니다&lt;br&gt;
+&lt;strong&gt;그럼 원래 처럼 매번 다른 Instance를 받아 오려면 어떻게 해야 할까요?&lt;/strong&gt;  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;이러한 문제를 해결하기 위해 Spring에서는 &lt;code class=&quot;language-text&quot;&gt;ProxyMode&lt;/code&gt;를 제시하고 있습니다  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Component&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Scope&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;value &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;prototype&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; proxyMode &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ScopedProxyMode&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;TARGET_CLASS&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ProtoProxy&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Component&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@AllArgsConstructor&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ScopeWrapper&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Getter&lt;/span&gt;
+    &lt;span class=&quot;token class-name&quot;&gt;ProtoProxy&lt;/span&gt; protoProxy&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위와 같이 Prototype에 &lt;code class=&quot;language-text&quot;&gt;ProxyMode&lt;/code&gt;를 추가 하고 Wrapper에 DI 후 출력해 봅니다   &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Slf4j&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Service&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@AllArgsConstructor&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ScopeService&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ApplicationContext&lt;/span&gt; ctx&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;scopeTest&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;[============== Singleton getBean And getProxyPrototype ==============]&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;ScopeWrapper getBean Proxy Proto Case 1 : &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; ctx&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getBean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;ScopeWrapper&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getProtoProxy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;ScopeWrapper getBean Proxy Proto Case 2 : &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; ctx&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getBean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;ScopeWrapper&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getProtoProxy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 7.250000000000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAR0lEQVQI1w3Luw2AMAwAUdaBgHD8iaNQULH/SIerJ510m7njHngIvQutnYgIV/XDjKPcy7vaWovMJCJQ1fqcnJOn/MbgNeUH65sf+tR0sSEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;prototype-proxy-bean&quot;
+        title=&quot;prototype-proxy-bean&quot;
+        src=&quot;/static/93465e05d35f2e9d5ca48b03a1a75baf/db2b8/prototype-proxy-bean.png&quot;
+        srcset=&quot;/static/93465e05d35f2e9d5ca48b03a1a75baf/1df8f/prototype-proxy-bean.png 273w,
+/static/93465e05d35f2e9d5ca48b03a1a75baf/53236/prototype-proxy-bean.png 545w,
+/static/93465e05d35f2e9d5ca48b03a1a75baf/db2b8/prototype-proxy-bean.png 1090w,
+/static/93465e05d35f2e9d5ca48b03a1a75baf/90122/prototype-proxy-bean.png 1635w,
+/static/93465e05d35f2e9d5ca48b03a1a75baf/d40c8/prototype-proxy-bean.png 2000w&quot;
+        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;br&gt;
+&lt;strong&gt;&lt;code class=&quot;language-text&quot;&gt;ProxyMode&lt;/code&gt;로 우회해서 다음과 같이 원하는 값을 얻어 낼 수 있었습니다&lt;/strong&gt;  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;참고로 &lt;code class=&quot;language-text&quot;&gt;request&lt;/code&gt; or &lt;code class=&quot;language-text&quot;&gt;session&lt;/code&gt;과 같은 scope도 이런 &lt;code class=&quot;language-text&quot;&gt;ProxyMode&lt;/code&gt;를 구현되어 있습니다  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Target&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;ElementType&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;TYPE&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ElementType&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;METHOD&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Retention&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;RetentionPolicy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;RUNTIME&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Documented&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Scope&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;WebApplicationContext&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;SCOPE_SESSION&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token annotation punctuation&quot;&gt;@interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;SessionScope&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+	&lt;span class=&quot;token comment&quot;&gt;/**
+	 * Alias for {@link Scope#proxyMode}.
+	 * &amp;lt;p&gt;Defaults to {@link ScopedProxyMode#TARGET_CLASS}.
+	 */&lt;/span&gt;
+	&lt;span class=&quot;token annotation punctuation&quot;&gt;@AliasFor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;annotation &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Scope&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;token class-name&quot;&gt;ScopedProxyMode&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;proxyMode&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ScopedProxyMode&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;TARGET_CLASS&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Target&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;ElementType&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;TYPE&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ElementType&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;METHOD&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Retention&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;RetentionPolicy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;RUNTIME&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Documented&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Scope&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;WebApplicationContext&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;SCOPE_REQUEST&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token annotation punctuation&quot;&gt;@interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;RequestScope&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+	&lt;span class=&quot;token comment&quot;&gt;/**
+	 * Alias for {@link Scope#proxyMode}.
+	 * &amp;lt;p&gt;Defaults to {@link ScopedProxyMode#TARGET_CLASS}.
+	 */&lt;/span&gt;
+	&lt;span class=&quot;token annotation punctuation&quot;&gt;@AliasFor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;annotation &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Scope&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;token class-name&quot;&gt;ScopedProxyMode&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;proxyMode&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ScopedProxyMode&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;TARGET_CLASS&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;다음은 마지막으로 &lt;code class=&quot;language-text&quot;&gt;Interface&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;ProxyMode&lt;/code&gt;를 통한 &lt;code class=&quot;language-text&quot;&gt;Bean 생성시&lt;/code&gt; 유의해야할 사항에 대해 알아 보겠습니다  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ProtoInterface&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ProtoInterfaceImpl&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ProtoInterface&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Getter&lt;/span&gt;
+    &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; name&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ProtoInterfaceImpl&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ProtoInterfaceImpl&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; name&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; name&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Interface&lt;/code&gt;를 생성하고 구현체인 &lt;code class=&quot;language-text&quot;&gt;ProfoInterfaceImpl&lt;/code&gt;을 생성하였습니다&lt;br&gt;
+&lt;br/&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Configuration&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ProtoInterFaceBean&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Bean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;ProtoInterfaceProxy&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Scope&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;value &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;prototype&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; proxyMode &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ScopedProxyMode&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;TARGET_CLASS&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ProtoInterface&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getProtoInterfaceProxyBean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ProtoInterfaceImpl&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Bean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;ProtoInterface&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Scope&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;value &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;prototype&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ProtoInterface&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getProtoInterfaceBean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ProtoInterfaceImpl&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그리고 다음과 같이 각각 일반 Prototype Bean 한개와 ProxyMode의 Bean을 생성합니다&lt;br&gt;
+&lt;strong&gt;Bean에서는 return은 Interface로 하지만 실제적으론 구현체인 ProtoInterfaceImpl을 생성하여 return 하였습니다&lt;/strong&gt;  &lt;/p&gt;
+&lt;br/&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Slf4j&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Service&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ScopeService&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Autowired&lt;/span&gt;
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Qualifier&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;ProtoInterface&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt;  &lt;span class=&quot;token class-name&quot;&gt;ProtoInterface&lt;/span&gt; protoInterface&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Autowired&lt;/span&gt;
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Qualifier&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;ProtoInterfaceProxy&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt;  &lt;span class=&quot;token class-name&quot;&gt;ProtoInterface&lt;/span&gt; protoInterfaceProxy&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;scopeTest&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;[============== ProtoInterfaceImpl Prototype Bean Return ProtoInterface ==============]&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Bean Is ProtoInterface Instranceof : &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;protoInterface &lt;span class=&quot;token keyword&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ProtoInterface&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Bean Is ProtoInterfaceImpl Instranceof : &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;protoInterface &lt;span class=&quot;token keyword&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ProtoInterfaceImpl&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;token class-name&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        
+                log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;[============== ProtoInterfaceImpl Prototype Proxy Bean Return ProtoInterface ==============]&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Proxy Bean Is ProtoInterface Instranceof : &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;protoInterfaceProxy &lt;span class=&quot;token keyword&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ProtoInterface&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Proxy Bean Is ProtoInterfaceImpl Instranceof : &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;protoInterfaceProxy &lt;span class=&quot;token keyword&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ProtoInterfaceImpl&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;token class-name&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그 다음 다음과 같이 각각의 Bean을 DI 받아서 &lt;code class=&quot;language-text&quot;&gt;instanceof&lt;/code&gt;로 확인하면 어떻게 될까요?  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 7.3%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAQUlEQVQI1zXIOw6AMAwEUY6DnRRx4o/E/e81mILiabR7eTgR2YxtizEmZsZ0R89Bu9L7+6qyFZHBs42lyi2Cdn8v5csfPzNzuPAAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;interface-bean&quot;
+        title=&quot;interface-bean&quot;
+        src=&quot;/static/71c473744e3d05c500b60e25f1304cb8/db2b8/interface-bean.png&quot;
+        srcset=&quot;/static/71c473744e3d05c500b60e25f1304cb8/1df8f/interface-bean.png 273w,
+/static/71c473744e3d05c500b60e25f1304cb8/53236/interface-bean.png 545w,
+/static/71c473744e3d05c500b60e25f1304cb8/db2b8/interface-bean.png 1090w,
+/static/71c473744e3d05c500b60e25f1304cb8/90122/interface-bean.png 1635w,
+/static/71c473744e3d05c500b60e25f1304cb8/d40c8/interface-bean.png 2000w&quot;
+        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;br&gt;
+일반적으로 생성된 Bean의 경우 당연하게도 interface와 구현체 모두 &lt;code class=&quot;language-text&quot;&gt;true&lt;/code&gt;로 확인이 가능합니다  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 6.75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAN0lEQVQI103KQQoAIBBC0a6TYjOL7n81EyJo8RA+jqryJUsySWstMw1ZZJn+ft3tip3WgGfgcwDAch6BugKowwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;interface-proxy-bean&quot;
+        title=&quot;interface-proxy-bean&quot;
+        src=&quot;/static/fdf8727cb7d63613e91af484bbdd7326/db2b8/interface-proxy-bean.png&quot;
+        srcset=&quot;/static/fdf8727cb7d63613e91af484bbdd7326/1df8f/interface-proxy-bean.png 273w,
+/static/fdf8727cb7d63613e91af484bbdd7326/53236/interface-proxy-bean.png 545w,
+/static/fdf8727cb7d63613e91af484bbdd7326/db2b8/interface-proxy-bean.png 1090w,
+/static/fdf8727cb7d63613e91af484bbdd7326/90122/interface-proxy-bean.png 1635w,
+/static/fdf8727cb7d63613e91af484bbdd7326/d40c8/interface-proxy-bean.png 2000w&quot;
+        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;br&gt;
+하지만 Proxy의 한번 경유하는 특성으로 &lt;code class=&quot;language-text&quot;&gt;Return Type&lt;/code&gt;과 같은 interface에서만 &lt;code class=&quot;language-text&quot;&gt;true&lt;/code&gt;로 나온 것을 확인할 수 있습니다  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;이러한 문제로 ProxyMode가 걸린 Bean의 경우 주의가 필요합니다  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Configuration&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ProtoInterFaceBean&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Bean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;ProtoInterfaceProxySafe&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Scope&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;value &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;prototype&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ProtoInterfaceImpl&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getProtoInterfaceProxySafeBean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ProtoInterfaceImpl&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Safe Bean&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;다음과 같이 간단하게 &lt;code class=&quot;language-text&quot;&gt;Return Type&lt;/code&gt;을 맞춰 주는 것으로 해결 할 수 있습니다  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 8.05%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAbklEQVQI1y2NSw7DQAhDcx1olPkDM1VS9f6Hcp0qi7cwth6be0KvHaqK1hoOd4gN6CDh0FLQe0dEINi910LMiZP5y31jXx5SStjMEo/tL6y14jCDDD64cYPmjEH5WhMfii+SS0Yltu94iUAebscP/Ms/UXXIG7IAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;interface-proxy-bean-safe&quot;
+        title=&quot;interface-proxy-bean-safe&quot;
+        src=&quot;/static/517ec546dca4dd99b7bd7e5a1381714e/db2b8/interface-proxy-bean-safe.png&quot;
+        srcset=&quot;/static/517ec546dca4dd99b7bd7e5a1381714e/1df8f/interface-proxy-bean-safe.png 273w,
+/static/517ec546dca4dd99b7bd7e5a1381714e/53236/interface-proxy-bean-safe.png 545w,
+/static/517ec546dca4dd99b7bd7e5a1381714e/db2b8/interface-proxy-bean-safe.png 1090w,
+/static/517ec546dca4dd99b7bd7e5a1381714e/90122/interface-proxy-bean-safe.png 1635w,
+/static/517ec546dca4dd99b7bd7e5a1381714e/d40c8/interface-proxy-bean-safe.png 2000w&quot;
+        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;  &lt;/p&gt;
+&lt;br/&gt;
+&lt;hr&gt;
+&lt;p&gt;이것으로 Bean의 생명주기 Scope의 대한 포스팅을 마무리 합니다  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 498px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75.3012048192771%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAwACBP/EABUBAQEAAAAAAAAAAAAAAAAAAAIB/9oADAMBAAIQAxAAAAEWyhnPPFf/xAAZEAADAQEBAAAAAAAAAAAAAAAAAQIDEQT/2gAIAQEAAQUC8/WWrR3UnaZHrTXVJ//EABYRAQEBAAAAAAAAAAAAAAAAAAAREv/aAAgBAwEBPwGMv//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAECAQE/Aar/xAAbEAADAAIDAAAAAAAAAAAAAAAAARECITFBkf/aAAgBAQAGPwKQUxOjjcgqjbXh/8QAGxAAAwEAAwEAAAAAAAAAAAAAAREhABAxQVH/2gAIAQEAAT8hZMlWfcOoiZ4NNidR4MIH/BkAHO5n/9oADAMBAAIAAwAAABCk/wD/xAAWEQADAAAAAAAAAAAAAAAAAAAAARH/2gAIAQMBAT8QmCQ//8QAFhEAAwAAAAAAAAAAAAAAAAAAARBR/9oACAECAQE/EDS//8QAGxABAQACAwEAAAAAAAAAAAAAAREAITFBYVH/2gAIAQEAAT8QacgbDa4nmNShqXd68xQNJKMPjhApmI7obctAiDSL7hZdKrNtz//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;good&quot;
+        title=&quot;good&quot;
+        src=&quot;/static/7ee67e2b0778a2bed4f1e40c32f08b4d/58a9f/good-image.jpg&quot;
+        srcset=&quot;/static/7ee67e2b0778a2bed4f1e40c32f08b4d/0076f/good-image.jpg 273w,
+/static/7ee67e2b0778a2bed4f1e40c32f08b4d/58a9f/good-image.jpg 498w&quot;
+        sizes=&quot;(max-width: 498px) 100vw, 498px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;  &lt;/p&gt;
+&lt;p&gt;Scope와 관련해서 이것저것 애매한 사항이 많았는데&lt;br&gt;
+이렇게 한번 정리하면서 소스를 짜고 보니 맘속까지 후련해 졌습니다&lt;br&gt;
+이 포스팅이 저와 같은 궁금증을 가지신 분들에서 도움이 되길 바립니다  &lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Notion] 페이스북을 활용한 트럼프의 대선 전략과 LSA 알고리즘]]></title><description><![CDATA[해당 포스팅은 이전에 속에 사용된 을 조사한 자료가 있어서 포스팅 하게 되었습니다   이 포스팅은 확실한 명확한 해답이 아니며 여러 의견을 분석한 자료를 토대로 작성되었습니다   사건 요약 2014년 심리학 박사 알렉산더 코겐 교수(Dr…]]></description><link>https://renuevo.github.io/data-science/facebook-cambridge-analytica/</link><guid isPermaLink="false">https://renuevo.github.io/data-science/facebook-cambridge-analytica/</guid><pubDate>Tue, 10 Dec 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;해당 포스팅은 이전에 &lt;code class=&quot;language-text&quot;&gt;2016년 트럼프 대선 당시 사용된 전략&lt;/code&gt;속에 사용된 &lt;code class=&quot;language-text&quot;&gt;IT기술&lt;/code&gt;을 조사한 자료가 있어서 포스팅 하게 되었습니다  &lt;/p&gt;
 &lt;br/&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;이 포스팅은 확실한 명확한 해답이 아니며 여러 의견을 분석한 자료를 토대로 작성되었습니다&lt;/em&gt;&lt;/strong&gt;  &lt;/p&gt;
 &lt;h2 id=&quot;사건-요약&quot;&gt;&lt;a href=&quot;#%EC%82%AC%EA%B1%B4-%EC%9A%94%EC%95%BD&quot; aria-label=&quot;사건 요약 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;사건 요약&lt;/h2&gt;
@@ -16,7 +528,7 @@
 &lt;/ol&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 773px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -26,12 +538,11 @@
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;cambridge.png&quot;
         title=&quot;cambridge.png&quot;
-        src=&quot;/static/71868dfd05a5db63e6f2a90c055eed43/b9e4f/cambridge.png&quot;
-        srcset=&quot;/static/71868dfd05a5db63e6f2a90c055eed43/cf440/cambridge.png 148w,
-/static/71868dfd05a5db63e6f2a90c055eed43/d2d38/cambridge.png 295w,
-/static/71868dfd05a5db63e6f2a90c055eed43/b9e4f/cambridge.png 590w,
+        src=&quot;/static/71868dfd05a5db63e6f2a90c055eed43/6ca41/cambridge.png&quot;
+        srcset=&quot;/static/71868dfd05a5db63e6f2a90c055eed43/1df8f/cambridge.png 273w,
+/static/71868dfd05a5db63e6f2a90c055eed43/53236/cambridge.png 545w,
 /static/71868dfd05a5db63e6f2a90c055eed43/6ca41/cambridge.png 773w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 773px) 100vw, 773px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;
@@ -68,7 +579,7 @@ LSA는 기본적으로 DTM이나 TF-IDF 행렬에 절단된 SVD(truncated SVD)�
     &lt;span class=&quot;token class-name&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;token generics&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt; trainDataList &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; dataRepository&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createTrainDataSet&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;45&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -78,14 +589,12 @@ LSA는 기본적으로 DTM이나 TF-IDF 행렬에 절단된 SVD(truncated SVD)�
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;LSA Train Data Set&quot;
         title=&quot;LSA Train Data Set&quot;
-        src=&quot;/static/6aa42185c63f126c3f1478c110a28df0/b9e4f/LSA-Train-Data.png&quot;
-        srcset=&quot;/static/6aa42185c63f126c3f1478c110a28df0/cf440/LSA-Train-Data.png 148w,
-/static/6aa42185c63f126c3f1478c110a28df0/d2d38/LSA-Train-Data.png 295w,
-/static/6aa42185c63f126c3f1478c110a28df0/b9e4f/LSA-Train-Data.png 590w,
-/static/6aa42185c63f126c3f1478c110a28df0/f9b6a/LSA-Train-Data.png 885w,
-/static/6aa42185c63f126c3f1478c110a28df0/2d849/LSA-Train-Data.png 1180w,
+        src=&quot;/static/6aa42185c63f126c3f1478c110a28df0/db2b8/LSA-Train-Data.png&quot;
+        srcset=&quot;/static/6aa42185c63f126c3f1478c110a28df0/1df8f/LSA-Train-Data.png 273w,
+/static/6aa42185c63f126c3f1478c110a28df0/53236/LSA-Train-Data.png 545w,
+/static/6aa42185c63f126c3f1478c110a28df0/db2b8/LSA-Train-Data.png 1090w,
 /static/6aa42185c63f126c3f1478c110a28df0/c6a5f/LSA-Train-Data.png 1628w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;
@@ -99,7 +608,7 @@ Matrix는 Row를 데이터 쌍의 개수로 생성하고 N개의 Item을 Column�
     &lt;span class=&quot;token class-name&quot;&gt;Matrix&lt;/span&gt; matrix &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; lsaModelComponent&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createMatrix&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;trainDataList&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -109,14 +618,14 @@ Matrix는 Row를 데이터 쌍의 개수로 생성하고 N개의 Item을 Column�
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;LSA Data Matrix&quot;
         title=&quot;LSA Data Matrix&quot;
-        src=&quot;/static/2ae6a17f7099527d2b3e290c92b8d0fb/b9e4f/Data-Matrix.png&quot;
-        srcset=&quot;/static/2ae6a17f7099527d2b3e290c92b8d0fb/cf440/Data-Matrix.png 148w,
-/static/2ae6a17f7099527d2b3e290c92b8d0fb/d2d38/Data-Matrix.png 295w,
-/static/2ae6a17f7099527d2b3e290c92b8d0fb/b9e4f/Data-Matrix.png 590w,
-/static/2ae6a17f7099527d2b3e290c92b8d0fb/f9b6a/Data-Matrix.png 885w,
-/static/2ae6a17f7099527d2b3e290c92b8d0fb/2d849/Data-Matrix.png 1180w,
+        src=&quot;/static/2ae6a17f7099527d2b3e290c92b8d0fb/db2b8/Data-Matrix.png&quot;
+        srcset=&quot;/static/2ae6a17f7099527d2b3e290c92b8d0fb/1df8f/Data-Matrix.png 273w,
+/static/2ae6a17f7099527d2b3e290c92b8d0fb/53236/Data-Matrix.png 545w,
+/static/2ae6a17f7099527d2b3e290c92b8d0fb/db2b8/Data-Matrix.png 1090w,
+/static/2ae6a17f7099527d2b3e290c92b8d0fb/90122/Data-Matrix.png 1635w,
+/static/2ae6a17f7099527d2b3e290c92b8d0fb/f8628/Data-Matrix.png 2180w,
 /static/2ae6a17f7099527d2b3e290c92b8d0fb/002c2/Data-Matrix.png 2504w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;br&gt;
@@ -128,7 +637,7 @@ Matrix는 Row를 데이터 쌍의 개수로 생성하고 N개의 Item을 Column�
 SVD에 대해 자세한 방법을 알고 싶으시면 👉 &lt;a href=&quot;https://www.youtube.com/watch?v=cq5qlYtnLoY&amp;#x26;feature=emb_logo&quot;&gt;공돌이의 수학정리노트&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -138,14 +647,12 @@ SVD에 대해 자세한 방법을 알고 싶으시면 👉 &lt;a href=&quot;http
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;SVD Matrix&quot;
         title=&quot;SVD Matrix&quot;
-        src=&quot;/static/e9100bb3e6ec5ce2efa2b4bb7a9a553c/b9e4f/svd-image.png&quot;
-        srcset=&quot;/static/e9100bb3e6ec5ce2efa2b4bb7a9a553c/cf440/svd-image.png 148w,
-/static/e9100bb3e6ec5ce2efa2b4bb7a9a553c/d2d38/svd-image.png 295w,
-/static/e9100bb3e6ec5ce2efa2b4bb7a9a553c/b9e4f/svd-image.png 590w,
-/static/e9100bb3e6ec5ce2efa2b4bb7a9a553c/f9b6a/svd-image.png 885w,
-/static/e9100bb3e6ec5ce2efa2b4bb7a9a553c/2d849/svd-image.png 1180w,
+        src=&quot;/static/e9100bb3e6ec5ce2efa2b4bb7a9a553c/db2b8/svd-image.png&quot;
+        srcset=&quot;/static/e9100bb3e6ec5ce2efa2b4bb7a9a553c/1df8f/svd-image.png 273w,
+/static/e9100bb3e6ec5ce2efa2b4bb7a9a553c/53236/svd-image.png 545w,
+/static/e9100bb3e6ec5ce2efa2b4bb7a9a553c/db2b8/svd-image.png 1090w,
 /static/e9100bb3e6ec5ce2efa2b4bb7a9a553c/59300/svd-image.png 1533w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;  &lt;/p&gt;
@@ -158,7 +665,7 @@ V : 차원의 중요도를 나타내는 대각행렬  &lt;/code&gt;&lt;/pre&gt;&
 &lt;p&gt;이후 S(대각 행렬)과 U와 V 모두 각가의 대응되는 행과 열을 제거하여 차원을 축소해 줍니다  &lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -168,14 +675,12 @@ V : 차원의 중요도를 나타내는 대각행렬  &lt;/code&gt;&lt;/pre&gt;&
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;SVD Matrix&quot;
         title=&quot;SVD Matrix&quot;
-        src=&quot;/static/3dab53b65b4b788b1095b81870b1b999/b9e4f/svd-reduction-image.png&quot;
-        srcset=&quot;/static/3dab53b65b4b788b1095b81870b1b999/cf440/svd-reduction-image.png 148w,
-/static/3dab53b65b4b788b1095b81870b1b999/d2d38/svd-reduction-image.png 295w,
-/static/3dab53b65b4b788b1095b81870b1b999/b9e4f/svd-reduction-image.png 590w,
-/static/3dab53b65b4b788b1095b81870b1b999/f9b6a/svd-reduction-image.png 885w,
-/static/3dab53b65b4b788b1095b81870b1b999/2d849/svd-reduction-image.png 1180w,
+        src=&quot;/static/3dab53b65b4b788b1095b81870b1b999/db2b8/svd-reduction-image.png&quot;
+        srcset=&quot;/static/3dab53b65b4b788b1095b81870b1b999/1df8f/svd-reduction-image.png 273w,
+/static/3dab53b65b4b788b1095b81870b1b999/53236/svd-reduction-image.png 545w,
+/static/3dab53b65b4b788b1095b81870b1b999/db2b8/svd-reduction-image.png 1090w,
 /static/3dab53b65b4b788b1095b81870b1b999/146f2/svd-reduction-image.png 1535w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;   &lt;/p&gt;
@@ -187,7 +692,7 @@ V : 차원의 중요도를 나타내는 대각행렬  &lt;/code&gt;&lt;/pre&gt;&
 &lt;br/&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -197,14 +702,12 @@ V : 차원의 중요도를 나타내는 대각행렬  &lt;/code&gt;&lt;/pre&gt;&
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;SVD Matrix&quot;
         title=&quot;SVD Matrix&quot;
-        src=&quot;/static/c36422b156b3f50819e9fb99b05e5e46/b9e4f/SVD.png&quot;
-        srcset=&quot;/static/c36422b156b3f50819e9fb99b05e5e46/cf440/SVD.png 148w,
-/static/c36422b156b3f50819e9fb99b05e5e46/d2d38/SVD.png 295w,
-/static/c36422b156b3f50819e9fb99b05e5e46/b9e4f/SVD.png 590w,
-/static/c36422b156b3f50819e9fb99b05e5e46/f9b6a/SVD.png 885w,
-/static/c36422b156b3f50819e9fb99b05e5e46/2d849/SVD.png 1180w,
+        src=&quot;/static/c36422b156b3f50819e9fb99b05e5e46/db2b8/SVD.png&quot;
+        srcset=&quot;/static/c36422b156b3f50819e9fb99b05e5e46/1df8f/SVD.png 273w,
+/static/c36422b156b3f50819e9fb99b05e5e46/53236/SVD.png 545w,
+/static/c36422b156b3f50819e9fb99b05e5e46/db2b8/SVD.png 1090w,
 /static/c36422b156b3f50819e9fb99b05e5e46/50151/SVD.png 1346w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;br&gt;
@@ -214,7 +717,7 @@ V : 차원의 중요도를 나타내는 대각행렬  &lt;/code&gt;&lt;/pre&gt;&
 &lt;p&gt;이후 알고 싶은 각 Matrix를 조합하여 &lt;code class=&quot;language-text&quot;&gt;Cosine 유사도&lt;/code&gt;를 구하면 각각의 데이터의 유사도를 찾아 낼 수 있습니다  &lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -224,14 +727,12 @@ V : 차원의 중요도를 나타내는 대각행렬  &lt;/code&gt;&lt;/pre&gt;&
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;Column Similarity&quot;
         title=&quot;Column Similarity&quot;
-        src=&quot;/static/fbff878b5f814441349883ce169e3e9d/b9e4f/LSA-Column-Similarity.png&quot;
-        srcset=&quot;/static/fbff878b5f814441349883ce169e3e9d/cf440/LSA-Column-Similarity.png 148w,
-/static/fbff878b5f814441349883ce169e3e9d/d2d38/LSA-Column-Similarity.png 295w,
-/static/fbff878b5f814441349883ce169e3e9d/b9e4f/LSA-Column-Similarity.png 590w,
-/static/fbff878b5f814441349883ce169e3e9d/f9b6a/LSA-Column-Similarity.png 885w,
-/static/fbff878b5f814441349883ce169e3e9d/2d849/LSA-Column-Similarity.png 1180w,
+        src=&quot;/static/fbff878b5f814441349883ce169e3e9d/db2b8/LSA-Column-Similarity.png&quot;
+        srcset=&quot;/static/fbff878b5f814441349883ce169e3e9d/1df8f/LSA-Column-Similarity.png 273w,
+/static/fbff878b5f814441349883ce169e3e9d/53236/LSA-Column-Similarity.png 545w,
+/static/fbff878b5f814441349883ce169e3e9d/db2b8/LSA-Column-Similarity.png 1090w,
 /static/fbff878b5f814441349883ce169e3e9d/f688a/LSA-Column-Similarity.png 1575w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;br&gt;
@@ -257,8 +758,7 @@ V : 차원의 중요도를 나타내는 대각행렬  &lt;/code&gt;&lt;/pre&gt;&
         alt=&quot;profile&quot;
         title=&quot;profile&quot;
         src=&quot;/static/3fc5562e6ad25d80970b53e8e9afab0c/a9ee3/profile.png&quot;
-        srcset=&quot;/static/3fc5562e6ad25d80970b53e8e9afab0c/cf440/profile.png 148w,
-/static/3fc5562e6ad25d80970b53e8e9afab0c/d2d38/profile.png 295w,
+        srcset=&quot;/static/3fc5562e6ad25d80970b53e8e9afab0c/1df8f/profile.png 273w,
 /static/3fc5562e6ad25d80970b53e8e9afab0c/a9ee3/profile.png 460w&quot;
         sizes=&quot;(max-width: 460px) 100vw, 460px&quot;
         loading=&quot;lazy&quot;
@@ -274,7 +774,7 @@ SaraminHR Lab&lt;/p&gt;
 &lt;br/&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -284,14 +784,13 @@ SaraminHR Lab&lt;/p&gt;
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;dev-profile&quot;
         title=&quot;dev-profile&quot;
-        src=&quot;/static/0876b9099ff9686a8051c4468a99f432/b9e4f/dev-flow.png&quot;
-        srcset=&quot;/static/0876b9099ff9686a8051c4468a99f432/cf440/dev-flow.png 148w,
-/static/0876b9099ff9686a8051c4468a99f432/d2d38/dev-flow.png 295w,
-/static/0876b9099ff9686a8051c4468a99f432/b9e4f/dev-flow.png 590w,
-/static/0876b9099ff9686a8051c4468a99f432/f9b6a/dev-flow.png 885w,
-/static/0876b9099ff9686a8051c4468a99f432/2d849/dev-flow.png 1180w,
+        src=&quot;/static/0876b9099ff9686a8051c4468a99f432/db2b8/dev-flow.png&quot;
+        srcset=&quot;/static/0876b9099ff9686a8051c4468a99f432/1df8f/dev-flow.png 273w,
+/static/0876b9099ff9686a8051c4468a99f432/53236/dev-flow.png 545w,
+/static/0876b9099ff9686a8051c4468a99f432/db2b8/dev-flow.png 1090w,
+/static/0876b9099ff9686a8051c4468a99f432/90122/dev-flow.png 1635w,
 /static/0876b9099ff9686a8051c4468a99f432/26086/dev-flow.png 1931w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Spring] RestTemplate Thread Safe?]]></title><description><![CDATA[RestTemplate은 Spring에서 지원하는 http를 유용하게 쓸 수 있는 템플릿입니다 결론부터 말씀 드리자면 RestTemplate은 Thread Safe하게 설계 되어 만들어 졌습니다 Spring3 : RestTemplate…]]></description><link>https://renuevo.github.io/spring/resttemplate-thread-safe/</link><guid isPermaLink="false">https://renuevo.github.io/spring/resttemplate-thread-safe/</guid><pubDate>Thu, 07 Nov 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;&lt;em&gt;RestTemplate은&lt;/em&gt;&lt;/strong&gt; Spring에서 지원하는 http를 유용하게 쓸 수 있는 템플릿입니다&lt;br&gt;
@@ -359,7 +858,7 @@ SaraminHR Lab&lt;/p&gt;
 Connection을 유지하면서 빠르게 처리하는 Http의 connection 방법을 &lt;code class=&quot;language-text&quot;&gt;Keep-Alive&lt;/code&gt;라고 합니다  &lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 820px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -369,12 +868,11 @@ Connection을 유지하면서 빠르게 처리하는 Http의 connection 방법�
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;keep-alive&quot;
         title=&quot;keep-alive&quot;
-        src=&quot;/static/58143b62db6aff38af6510f532070bed/c739e/keep-alive.jpg&quot;
-        srcset=&quot;/static/58143b62db6aff38af6510f532070bed/8ee9c/keep-alive.jpg 148w,
-/static/58143b62db6aff38af6510f532070bed/ebbe7/keep-alive.jpg 295w,
-/static/58143b62db6aff38af6510f532070bed/c739e/keep-alive.jpg 590w,
+        src=&quot;/static/58143b62db6aff38af6510f532070bed/1b844/keep-alive.jpg&quot;
+        srcset=&quot;/static/58143b62db6aff38af6510f532070bed/0076f/keep-alive.jpg 273w,
+/static/58143b62db6aff38af6510f532070bed/1c045/keep-alive.jpg 545w,
 /static/58143b62db6aff38af6510f532070bed/1b844/keep-alive.jpg 820w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 820px) 100vw, 820px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;
@@ -410,8 +908,7 @@ Connection을 유지하면서 빠르게 처리하는 Http의 connection 방법�
         alt=&quot;publish-subscribe and observer&quot;
         title=&quot;publish-subscribe and observer&quot;
         src=&quot;/static/61ff3d3772c195aa02e3e134abbb554c/ab422/publish_subscribe.jpg&quot;
-        srcset=&quot;/static/61ff3d3772c195aa02e3e134abbb554c/8ee9c/publish_subscribe.jpg 148w,
-/static/61ff3d3772c195aa02e3e134abbb554c/ebbe7/publish_subscribe.jpg 295w,
+        srcset=&quot;/static/61ff3d3772c195aa02e3e134abbb554c/0076f/publish_subscribe.jpg 273w,
 /static/61ff3d3772c195aa02e3e134abbb554c/ab422/publish_subscribe.jpg 512w&quot;
         sizes=&quot;(max-width: 512px) 100vw, 512px&quot;
         loading=&quot;lazy&quot;
@@ -421,7 +918,7 @@ Connection을 유지하면서 빠르게 처리하는 Http의 connection 방법�
 &lt;p&gt;이렇게 하므로써 Subject와 Observer 사이의 서로를 알아야 했던 결합이 풀어지고 Subject의 역할이었던 &lt;code class=&quot;language-text&quot;&gt;Observer 이벤트 전파&lt;/code&gt; 및 &lt;code class=&quot;language-text&quot;&gt;작업 수행&lt;/code&gt;도 나누어서 각각의 핵심 기능에 집중할 수 있게 됩니다  &lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -431,14 +928,12 @@ Connection을 유지하면서 빠르게 처리하는 Http의 connection 방법�
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;publish-subscribe&quot;
         title=&quot;publish-subscribe&quot;
-        src=&quot;/static/5565c152436a5930cad104f844562698/b9e4f/publish-subscribe.png&quot;
-        srcset=&quot;/static/5565c152436a5930cad104f844562698/cf440/publish-subscribe.png 148w,
-/static/5565c152436a5930cad104f844562698/d2d38/publish-subscribe.png 295w,
-/static/5565c152436a5930cad104f844562698/b9e4f/publish-subscribe.png 590w,
-/static/5565c152436a5930cad104f844562698/f9b6a/publish-subscribe.png 885w,
-/static/5565c152436a5930cad104f844562698/2d849/publish-subscribe.png 1180w,
+        src=&quot;/static/5565c152436a5930cad104f844562698/db2b8/publish-subscribe.png&quot;
+        srcset=&quot;/static/5565c152436a5930cad104f844562698/1df8f/publish-subscribe.png 273w,
+/static/5565c152436a5930cad104f844562698/53236/publish-subscribe.png 545w,
+/static/5565c152436a5930cad104f844562698/db2b8/publish-subscribe.png 1090w,
 /static/5565c152436a5930cad104f844562698/d7a62/publish-subscribe.png 1531w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;
@@ -466,7 +961,7 @@ C++같은 언어들에 비해 JVM기반 언어들은 GC가 알아서 메모리 �
 &lt;h3 id=&quot;jvm-메모리-영역&quot;&gt;&lt;a href=&quot;#jvm-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%98%81%EC%97%AD&quot; aria-label=&quot;jvm 메모리 영역 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;JVM 메모리 영역&lt;/h3&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 618px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -476,12 +971,11 @@ C++같은 언어들에 비해 JVM기반 언어들은 GC가 알아서 메모리 �
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;jvm_memory&quot;
         title=&quot;jvm_memory&quot;
-        src=&quot;/static/2c79409f6b1bbcf8d7d026ef336db283/b9e4f/jvm_memory.png&quot;
-        srcset=&quot;/static/2c79409f6b1bbcf8d7d026ef336db283/cf440/jvm_memory.png 148w,
-/static/2c79409f6b1bbcf8d7d026ef336db283/d2d38/jvm_memory.png 295w,
-/static/2c79409f6b1bbcf8d7d026ef336db283/b9e4f/jvm_memory.png 590w,
+        src=&quot;/static/2c79409f6b1bbcf8d7d026ef336db283/ae9bf/jvm_memory.png&quot;
+        srcset=&quot;/static/2c79409f6b1bbcf8d7d026ef336db283/1df8f/jvm_memory.png 273w,
+/static/2c79409f6b1bbcf8d7d026ef336db283/53236/jvm_memory.png 545w,
 /static/2c79409f6b1bbcf8d7d026ef336db283/ae9bf/jvm_memory.png 618w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 618px) 100vw, 618px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;br&gt;
@@ -507,7 +1001,7 @@ C++같은 언어들에 비해 JVM기반 언어들은 GC가 알아서 메모리 �
 &lt;h3 id=&quot;heap-메모리-구조-jdk8까지&quot;&gt;&lt;a href=&quot;#heap-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B5%AC%EC%A1%B0-jdk8%EA%B9%8C%EC%A7%80&quot; aria-label=&quot;heap 메모리 구조 jdk8까지 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Heap 메모리 구조 (JDK8까지)&lt;/h3&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 960px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -517,13 +1011,11 @@ C++같은 언어들에 비해 JVM기반 언어들은 GC가 알아서 메모리 �
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;jdk8_heap&quot;
         title=&quot;jdk8_heap&quot;
-        src=&quot;/static/cb1574dfa7c192ac8243964adcefcb54/b9e4f/Java_heap.png&quot;
-        srcset=&quot;/static/cb1574dfa7c192ac8243964adcefcb54/cf440/Java_heap.png 148w,
-/static/cb1574dfa7c192ac8243964adcefcb54/d2d38/Java_heap.png 295w,
-/static/cb1574dfa7c192ac8243964adcefcb54/b9e4f/Java_heap.png 590w,
-/static/cb1574dfa7c192ac8243964adcefcb54/f9b6a/Java_heap.png 885w,
+        src=&quot;/static/cb1574dfa7c192ac8243964adcefcb54/f570d/Java_heap.png&quot;
+        srcset=&quot;/static/cb1574dfa7c192ac8243964adcefcb54/1df8f/Java_heap.png 273w,
+/static/cb1574dfa7c192ac8243964adcefcb54/53236/Java_heap.png 545w,
 /static/cb1574dfa7c192ac8243964adcefcb54/f570d/Java_heap.png 960w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;
@@ -583,8 +1075,7 @@ C++같은 언어들에 비해 JVM기반 언어들은 GC가 알아서 메모리 �
         alt=&quot;Java Heap&quot;
         title=&quot;Java Heap&quot;
         src=&quot;/static/9a70a64d916e81165e93bd1f5b256c7e/3abf2/jdk9_heap.png&quot;
-        srcset=&quot;/static/9a70a64d916e81165e93bd1f5b256c7e/cf440/jdk9_heap.png 148w,
-/static/9a70a64d916e81165e93bd1f5b256c7e/d2d38/jdk9_heap.png 295w,
+        srcset=&quot;/static/9a70a64d916e81165e93bd1f5b256c7e/1df8f/jdk9_heap.png 273w,
 /static/9a70a64d916e81165e93bd1f5b256c7e/3abf2/jdk9_heap.png 456w&quot;
         sizes=&quot;(max-width: 456px) 100vw, 456px&quot;
         loading=&quot;lazy&quot;
@@ -635,7 +1126,7 @@ C++같은 언어들에 비해 JVM기반 언어들은 GC가 알아서 메모리 �
 ZGC는 처럼 Region 구조를 가져가지만 G1GC와는 다른 메모리 구조를 가져 가게됩니다  &lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -645,14 +1136,12 @@ ZGC는 처럼 Region 구조를 가져가지만 G1GC와는 다른 메모리 구�
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;ZGC Heap&quot;
         title=&quot;ZGC Heap&quot;
-        src=&quot;/static/147a2d7091baaa008da781a0cdc57523/b9e4f/zgc_heap.png&quot;
-        srcset=&quot;/static/147a2d7091baaa008da781a0cdc57523/cf440/zgc_heap.png 148w,
-/static/147a2d7091baaa008da781a0cdc57523/d2d38/zgc_heap.png 295w,
-/static/147a2d7091baaa008da781a0cdc57523/b9e4f/zgc_heap.png 590w,
-/static/147a2d7091baaa008da781a0cdc57523/f9b6a/zgc_heap.png 885w,
-/static/147a2d7091baaa008da781a0cdc57523/2d849/zgc_heap.png 1180w,
+        src=&quot;/static/147a2d7091baaa008da781a0cdc57523/db2b8/zgc_heap.png&quot;
+        srcset=&quot;/static/147a2d7091baaa008da781a0cdc57523/1df8f/zgc_heap.png 273w,
+/static/147a2d7091baaa008da781a0cdc57523/53236/zgc_heap.png 545w,
+/static/147a2d7091baaa008da781a0cdc57523/db2b8/zgc_heap.png 1090w,
 /static/147a2d7091baaa008da781a0cdc57523/a65e2/zgc_heap.png 1501w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;
@@ -663,7 +1152,7 @@ ZGC는 처럼 Region 구조를 가져가지만 G1GC와는 다른 메모리 구�
 Colored pointers는 객체를 가리키는 변수의 포인터에서 64bit라는 메모리를 활용하여 Mark를 진행하여 객체의 상태값을 저장하여 사용하는 방식입니다  &lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -673,13 +1162,12 @@ Colored pointers는 객체를 가리키는 변수의 포인터에서 64bit라는
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;colored pointers&quot;
         title=&quot;colored pointers&quot;
-        src=&quot;/static/fa61612bb6ea395ae4c437f00bdfcd8f/b9e4f/colored%20pointers.png&quot;
-        srcset=&quot;/static/fa61612bb6ea395ae4c437f00bdfcd8f/cf440/colored%20pointers.png 148w,
-/static/fa61612bb6ea395ae4c437f00bdfcd8f/d2d38/colored%20pointers.png 295w,
-/static/fa61612bb6ea395ae4c437f00bdfcd8f/b9e4f/colored%20pointers.png 590w,
-/static/fa61612bb6ea395ae4c437f00bdfcd8f/f9b6a/colored%20pointers.png 885w,
+        src=&quot;/static/fa61612bb6ea395ae4c437f00bdfcd8f/db2b8/colored%20pointers.png&quot;
+        srcset=&quot;/static/fa61612bb6ea395ae4c437f00bdfcd8f/1df8f/colored%20pointers.png 273w,
+/static/fa61612bb6ea395ae4c437f00bdfcd8f/53236/colored%20pointers.png 545w,
+/static/fa61612bb6ea395ae4c437f00bdfcd8f/db2b8/colored%20pointers.png 1090w,
 /static/fa61612bb6ea395ae4c437f00bdfcd8f/0e0c1/colored%20pointers.png 1097w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;
@@ -701,7 +1189,7 @@ ZGC는 재배치에 대해서 STW없이 동시적으로 재배치를 실행하�
 이때 Load barriers가 RemapMark와 RelocationSet을 확인하며 참조와 Mark를 업데이트하고 올바른 참조값으로 인도해줍니다  &lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 666px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -711,12 +1199,11 @@ ZGC는 재배치에 대해서 STW없이 동시적으로 재배치를 실행하�
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;zgc-remap-flow&quot;
         title=&quot;zgc-remap-flow&quot;
-        src=&quot;/static/9d8a5eca92ca56c5bac3e3231c8ff677/b9e4f/zgc-remap-flow.png&quot;
-        srcset=&quot;/static/9d8a5eca92ca56c5bac3e3231c8ff677/cf440/zgc-remap-flow.png 148w,
-/static/9d8a5eca92ca56c5bac3e3231c8ff677/d2d38/zgc-remap-flow.png 295w,
-/static/9d8a5eca92ca56c5bac3e3231c8ff677/b9e4f/zgc-remap-flow.png 590w,
+        src=&quot;/static/9d8a5eca92ca56c5bac3e3231c8ff677/1478c/zgc-remap-flow.png&quot;
+        srcset=&quot;/static/9d8a5eca92ca56c5bac3e3231c8ff677/1df8f/zgc-remap-flow.png 273w,
+/static/9d8a5eca92ca56c5bac3e3231c8ff677/53236/zgc-remap-flow.png 545w,
 /static/9d8a5eca92ca56c5bac3e3231c8ff677/1478c/zgc-remap-flow.png 666w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 666px) 100vw, 666px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;
@@ -738,7 +1225,7 @@ ZGC는 재배치에 대해서 STW없이 동시적으로 재배치를 실행하�
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Shenandoah GC는 JDK 12에서 정식으로 추가되었으며  JDK8/JDK11에서도 추가되어 있어 사용이 가능합니다&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -748,14 +1235,13 @@ ZGC는 재배치에 대해서 STW없이 동시적으로 재배치를 실행하�
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;shenandoah-gc-cycle&quot;
         title=&quot;shenandoah-gc-cycle&quot;
-        src=&quot;/static/6a39666233856f7ae1396fdecdee0444/b9e4f/shenandoah-gc-cycle.png&quot;
-        srcset=&quot;/static/6a39666233856f7ae1396fdecdee0444/cf440/shenandoah-gc-cycle.png 148w,
-/static/6a39666233856f7ae1396fdecdee0444/d2d38/shenandoah-gc-cycle.png 295w,
-/static/6a39666233856f7ae1396fdecdee0444/b9e4f/shenandoah-gc-cycle.png 590w,
-/static/6a39666233856f7ae1396fdecdee0444/f9b6a/shenandoah-gc-cycle.png 885w,
-/static/6a39666233856f7ae1396fdecdee0444/2d849/shenandoah-gc-cycle.png 1180w,
+        src=&quot;/static/6a39666233856f7ae1396fdecdee0444/db2b8/shenandoah-gc-cycle.png&quot;
+        srcset=&quot;/static/6a39666233856f7ae1396fdecdee0444/1df8f/shenandoah-gc-cycle.png 273w,
+/static/6a39666233856f7ae1396fdecdee0444/53236/shenandoah-gc-cycle.png 545w,
+/static/6a39666233856f7ae1396fdecdee0444/db2b8/shenandoah-gc-cycle.png 1090w,
+/static/6a39666233856f7ae1396fdecdee0444/90122/shenandoah-gc-cycle.png 1635w,
 /static/6a39666233856f7ae1396fdecdee0444/f3d76/shenandoah-gc-cycle.png 1852w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;
@@ -885,7 +1371,7 @@ LinkedList는 Array가 사이즈를 지정해서 생성해야하는 한계점을
 각각의 Node가 다음값을 참조하게 해서 계속해서 값을 이어나갈수 있는 구조를 가지고 있습니다  &lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -895,14 +1381,13 @@ LinkedList는 Array가 사이즈를 지정해서 생성해야하는 한계점을
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;LinkedList&quot;
         title=&quot;LinkedList&quot;
-        src=&quot;/static/97b0240c9da04ee59d9c677c4403f016/b9e4f/LinkedList.png&quot;
-        srcset=&quot;/static/97b0240c9da04ee59d9c677c4403f016/cf440/LinkedList.png 148w,
-/static/97b0240c9da04ee59d9c677c4403f016/d2d38/LinkedList.png 295w,
-/static/97b0240c9da04ee59d9c677c4403f016/b9e4f/LinkedList.png 590w,
-/static/97b0240c9da04ee59d9c677c4403f016/f9b6a/LinkedList.png 885w,
-/static/97b0240c9da04ee59d9c677c4403f016/2d849/LinkedList.png 1180w,
+        src=&quot;/static/97b0240c9da04ee59d9c677c4403f016/db2b8/LinkedList.png&quot;
+        srcset=&quot;/static/97b0240c9da04ee59d9c677c4403f016/1df8f/LinkedList.png 273w,
+/static/97b0240c9da04ee59d9c677c4403f016/53236/LinkedList.png 545w,
+/static/97b0240c9da04ee59d9c677c4403f016/db2b8/LinkedList.png 1090w,
+/static/97b0240c9da04ee59d9c677c4403f016/90122/LinkedList.png 1635w,
 /static/97b0240c9da04ee59d9c677c4403f016/c5272/LinkedList.png 1837w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;br&gt;
@@ -971,8 +1456,7 @@ ArrayList는 내부의 배열을 사용하여 Array의 이점을 가져오는 �
         alt=&quot;arraylist-vs-linkedlist-complexity&quot;
         title=&quot;arraylist-vs-linkedlist-complexity&quot;
         src=&quot;/static/45df6e1f3af4807f069e3ea9678c58d4/f570f/arraylist-vs-linkedlist-complexity.png&quot;
-        srcset=&quot;/static/45df6e1f3af4807f069e3ea9678c58d4/cf440/arraylist-vs-linkedlist-complexity.png 148w,
-/static/45df6e1f3af4807f069e3ea9678c58d4/d2d38/arraylist-vs-linkedlist-complexity.png 295w,
+        srcset=&quot;/static/45df6e1f3af4807f069e3ea9678c58d4/1df8f/arraylist-vs-linkedlist-complexity.png 273w,
 /static/45df6e1f3af4807f069e3ea9678c58d4/f570f/arraylist-vs-linkedlist-complexity.png 341w&quot;
         sizes=&quot;(max-width: 341px) 100vw, 341px&quot;
         loading=&quot;lazy&quot;
@@ -1050,7 +1534,7 @@ kotlin은 이런 안전성을 확보하기 위해 기존 jvm 위에서 java와 �
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -1060,14 +1544,12 @@ kotlin은 이런 안전성을 확보하기 위해 기존 jvm 위에서 java와 �
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;java_and_kotlin on jvm&quot;
         title=&quot;java_and_kotlin on jvm&quot;
-        src=&quot;/static/42775616ca86b8ce122393db2880a050/b9e4f/java_and_kotlin_jvm.png&quot;
-        srcset=&quot;/static/42775616ca86b8ce122393db2880a050/cf440/java_and_kotlin_jvm.png 148w,
-/static/42775616ca86b8ce122393db2880a050/d2d38/java_and_kotlin_jvm.png 295w,
-/static/42775616ca86b8ce122393db2880a050/b9e4f/java_and_kotlin_jvm.png 590w,
-/static/42775616ca86b8ce122393db2880a050/f9b6a/java_and_kotlin_jvm.png 885w,
-/static/42775616ca86b8ce122393db2880a050/2d849/java_and_kotlin_jvm.png 1180w,
+        src=&quot;/static/42775616ca86b8ce122393db2880a050/db2b8/java_and_kotlin_jvm.png&quot;
+        srcset=&quot;/static/42775616ca86b8ce122393db2880a050/1df8f/java_and_kotlin_jvm.png 273w,
+/static/42775616ca86b8ce122393db2880a050/53236/java_and_kotlin_jvm.png 545w,
+/static/42775616ca86b8ce122393db2880a050/db2b8/java_and_kotlin_jvm.png 1090w,
 /static/42775616ca86b8ce122393db2880a050/a666d/java_and_kotlin_jvm.png 1255w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;
@@ -1092,8 +1574,8 @@ kotlin은 java를 100% 호환되도록 설계되었습니다&lt;br&gt;
         alt=&quot;java_to_kotlin_convert&quot;
         title=&quot;java_to_kotlin_convert&quot;
         src=&quot;/static/aac9981f326d848581c3aa3683be5da2/7b273/java_to_kotlin_convert.png&quot;
-        srcset=&quot;/static/aac9981f326d848581c3aa3683be5da2/cf440/java_to_kotlin_convert.png 148w,
-/static/aac9981f326d848581c3aa3683be5da2/d2d38/java_to_kotlin_convert.png 295w,
+        srcset=&quot;/static/aac9981f326d848581c3aa3683be5da2/1df8f/java_to_kotlin_convert.png 273w,
+/static/aac9981f326d848581c3aa3683be5da2/53236/java_to_kotlin_convert.png 545w,
 /static/aac9981f326d848581c3aa3683be5da2/7b273/java_to_kotlin_convert.png 566w&quot;
         sizes=&quot;(max-width: 566px) 100vw, 566px&quot;
         loading=&quot;lazy&quot;
@@ -1113,7 +1595,7 @@ google은 안드로이드 진형 메인 언어로 Kotlin을 채택하였고 2019
 또한 jetbrains에서의 지속적인 관리와 피드백이 이루어 졌고 빠르게 전파되어 &lt;a href=&quot;https://insights.stackoverflow.com/survey/2018&quot;&gt;Stack OverFlow 2018&lt;/a&gt;에서 많은 Love를 획득하였습니다&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 700px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -1123,12 +1605,11 @@ google은 안드로이드 진형 메인 언어로 Kotlin을 채택하였고 2019
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;kotlin_love_stackover&quot;
         title=&quot;kotlin_love_stackover&quot;
-        src=&quot;/static/b749579957c56f1d4f03dc5b79649f56/b9e4f/kotlin_love_stackover.png&quot;
-        srcset=&quot;/static/b749579957c56f1d4f03dc5b79649f56/cf440/kotlin_love_stackover.png 148w,
-/static/b749579957c56f1d4f03dc5b79649f56/d2d38/kotlin_love_stackover.png 295w,
-/static/b749579957c56f1d4f03dc5b79649f56/b9e4f/kotlin_love_stackover.png 590w,
+        src=&quot;/static/b749579957c56f1d4f03dc5b79649f56/a8200/kotlin_love_stackover.png&quot;
+        srcset=&quot;/static/b749579957c56f1d4f03dc5b79649f56/1df8f/kotlin_love_stackover.png 273w,
+/static/b749579957c56f1d4f03dc5b79649f56/53236/kotlin_love_stackover.png 545w,
 /static/b749579957c56f1d4f03dc5b79649f56/a8200/kotlin_love_stackover.png 700w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;br&gt;
@@ -1142,7 +1623,7 @@ gradle에서 사용하는 groovy언어는 편리하지만 커뮤니티가 형성
 또한 kotlin만으로 javascript, ios등등의 다양한 플랫폼을 구성하고 개발이 가능합니다&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -1152,14 +1633,12 @@ gradle에서 사용하는 groovy언어는 편리하지만 커뮤니티가 형성
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;kotlin_javascript_java&quot;
         title=&quot;kotlin_javascript_java&quot;
-        src=&quot;/static/8da93eda9f6487077dd0ea9de113126a/b9e4f/kotlin_javascript_java.png&quot;
-        srcset=&quot;/static/8da93eda9f6487077dd0ea9de113126a/cf440/kotlin_javascript_java.png 148w,
-/static/8da93eda9f6487077dd0ea9de113126a/d2d38/kotlin_javascript_java.png 295w,
-/static/8da93eda9f6487077dd0ea9de113126a/b9e4f/kotlin_javascript_java.png 590w,
-/static/8da93eda9f6487077dd0ea9de113126a/f9b6a/kotlin_javascript_java.png 885w,
-/static/8da93eda9f6487077dd0ea9de113126a/2d849/kotlin_javascript_java.png 1180w,
+        src=&quot;/static/8da93eda9f6487077dd0ea9de113126a/db2b8/kotlin_javascript_java.png&quot;
+        srcset=&quot;/static/8da93eda9f6487077dd0ea9de113126a/1df8f/kotlin_javascript_java.png 273w,
+/static/8da93eda9f6487077dd0ea9de113126a/53236/kotlin_javascript_java.png 545w,
+/static/8da93eda9f6487077dd0ea9de113126a/db2b8/kotlin_javascript_java.png 1090w,
 /static/8da93eda9f6487077dd0ea9de113126a/774fc/kotlin_javascript_java.png 1416w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;br&gt;
@@ -1262,7 +1741,7 @@ Scope Function은 Kotlin에서 제공하는 아주 유용한 6개의 함수들�
 &lt;p&gt; Scope Function은 말그대로 Kotlin에서 범위를 묶어서 처리할때 사용하는 함수들로&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 758px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -1272,12 +1751,11 @@ Scope Function은 Kotlin에서 제공하는 아주 유용한 6개의 함수들�
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;scope_table&quot;
         title=&quot;scope_table&quot;
-        src=&quot;/static/c22d0bcb1503475efd096fb8cf1eba02/b9e4f/scope_table.png&quot;
-        srcset=&quot;/static/c22d0bcb1503475efd096fb8cf1eba02/cf440/scope_table.png 148w,
-/static/c22d0bcb1503475efd096fb8cf1eba02/d2d38/scope_table.png 295w,
-/static/c22d0bcb1503475efd096fb8cf1eba02/b9e4f/scope_table.png 590w,
+        src=&quot;/static/c22d0bcb1503475efd096fb8cf1eba02/9f7a2/scope_table.png&quot;
+        srcset=&quot;/static/c22d0bcb1503475efd096fb8cf1eba02/1df8f/scope_table.png 273w,
+/static/c22d0bcb1503475efd096fb8cf1eba02/53236/scope_table.png 545w,
 /static/c22d0bcb1503475efd096fb8cf1eba02/9f7a2/scope_table.png 758w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 758px) 100vw, 758px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;
@@ -1288,7 +1766,7 @@ scope에서 return value가 &lt;code class=&quot;language-text&quot;&gt;object v
 다르게 사용되어 집니다  &lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -1298,14 +1776,14 @@ scope에서 return value가 &lt;code class=&quot;language-text&quot;&gt;object v
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;scope_function&quot;
         title=&quot;scope_function&quot;
-        src=&quot;/static/d4b90d577e3770a8bfd7d63aacb157e8/b9e4f/scope_function.png&quot;
-        srcset=&quot;/static/d4b90d577e3770a8bfd7d63aacb157e8/cf440/scope_function.png 148w,
-/static/d4b90d577e3770a8bfd7d63aacb157e8/d2d38/scope_function.png 295w,
-/static/d4b90d577e3770a8bfd7d63aacb157e8/b9e4f/scope_function.png 590w,
-/static/d4b90d577e3770a8bfd7d63aacb157e8/f9b6a/scope_function.png 885w,
-/static/d4b90d577e3770a8bfd7d63aacb157e8/2d849/scope_function.png 1180w,
+        src=&quot;/static/d4b90d577e3770a8bfd7d63aacb157e8/db2b8/scope_function.png&quot;
+        srcset=&quot;/static/d4b90d577e3770a8bfd7d63aacb157e8/1df8f/scope_function.png 273w,
+/static/d4b90d577e3770a8bfd7d63aacb157e8/53236/scope_function.png 545w,
+/static/d4b90d577e3770a8bfd7d63aacb157e8/db2b8/scope_function.png 1090w,
+/static/d4b90d577e3770a8bfd7d63aacb157e8/90122/scope_function.png 1635w,
+/static/d4b90d577e3770a8bfd7d63aacb157e8/f8628/scope_function.png 2180w,
 /static/d4b90d577e3770a8bfd7d63aacb157e8/31c3c/scope_function.png 2702w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;
@@ -1453,8 +1931,7 @@ java랑 완벽히 호환된다지만 &lt;code class=&quot;language-text&quot;&gt
         alt=&quot;decorator_pattern&quot;
         title=&quot;decorator_pattern&quot;
         src=&quot;/static/cb141f1a40928fcf2764f26a3bd1e7f1/c7805/decorator_pattern.png&quot;
-        srcset=&quot;/static/cb141f1a40928fcf2764f26a3bd1e7f1/cf440/decorator_pattern.png 148w,
-/static/cb141f1a40928fcf2764f26a3bd1e7f1/d2d38/decorator_pattern.png 295w,
+        srcset=&quot;/static/cb141f1a40928fcf2764f26a3bd1e7f1/1df8f/decorator_pattern.png 273w,
 /static/cb141f1a40928fcf2764f26a3bd1e7f1/c7805/decorator_pattern.png 400w&quot;
         sizes=&quot;(max-width: 400px) 100vw, 400px&quot;
         loading=&quot;lazy&quot;
@@ -1608,7 +2085,7 @@ X &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; np&lt;span class=&
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;[1 1 1 1 2 0 0 0 2 0]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -1618,12 +2095,11 @@ X &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; np&lt;span class=&
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;kmean_result&quot;
         title=&quot;kmean_result&quot;
-        src=&quot;/static/1eac3068537afecf2c7e734959f32537/b9e4f/kmean_show.png&quot;
-        srcset=&quot;/static/1eac3068537afecf2c7e734959f32537/cf440/kmean_show.png 148w,
-/static/1eac3068537afecf2c7e734959f32537/d2d38/kmean_show.png 295w,
-/static/1eac3068537afecf2c7e734959f32537/b9e4f/kmean_show.png 590w,
+        src=&quot;/static/1eac3068537afecf2c7e734959f32537/e49a9/kmean_show.png&quot;
+        srcset=&quot;/static/1eac3068537afecf2c7e734959f32537/1df8f/kmean_show.png 273w,
+/static/1eac3068537afecf2c7e734959f32537/53236/kmean_show.png 545w,
 /static/1eac3068537afecf2c7e734959f32537/e49a9/kmean_show.png 640w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -1635,7 +2111,7 @@ X &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; np&lt;span class=&
 &lt;h4 id=&quot;실행화면-1&quot;&gt;&lt;a href=&quot;#%EC%8B%A4%ED%96%89%ED%99%94%EB%A9%B4-1&quot; aria-label=&quot;실행화면 1 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;실행화면&lt;/h4&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -1645,12 +2121,11 @@ X &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; np&lt;span class=&
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;kmean_result2&quot;
         title=&quot;kmean_result2&quot;
-        src=&quot;/static/3ef6ef5d6cbe6f01c58c275a0cdfd9de/b9e4f/kmean_show2.png&quot;
-        srcset=&quot;/static/3ef6ef5d6cbe6f01c58c275a0cdfd9de/cf440/kmean_show2.png 148w,
-/static/3ef6ef5d6cbe6f01c58c275a0cdfd9de/d2d38/kmean_show2.png 295w,
-/static/3ef6ef5d6cbe6f01c58c275a0cdfd9de/b9e4f/kmean_show2.png 590w,
+        src=&quot;/static/3ef6ef5d6cbe6f01c58c275a0cdfd9de/e49a9/kmean_show2.png&quot;
+        srcset=&quot;/static/3ef6ef5d6cbe6f01c58c275a0cdfd9de/1df8f/kmean_show2.png 273w,
+/static/3ef6ef5d6cbe6f01c58c275a0cdfd9de/53236/kmean_show2.png 545w,
 /static/3ef6ef5d6cbe6f01c58c275a0cdfd9de/e49a9/kmean_show2.png 640w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -1663,7 +2138,7 @@ k 기준점 선정에 대해서 많은 사람들이 관련 연구를 진행하�
 &lt;p&gt;대규모 데이터와 같은 곳에서 사용하면 이쁘고 유용한 결과를 얻을 수 있습니다&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -1673,14 +2148,13 @@ k 기준점 선정에 대해서 많은 사람들이 관련 연구를 진행하�
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;k평균&quot;
         title=&quot;k평균&quot;
-        src=&quot;/static/a7a64f870b195603835528979cdbabdb/b9e4f/k-mean.png&quot;
-        srcset=&quot;/static/a7a64f870b195603835528979cdbabdb/cf440/k-mean.png 148w,
-/static/a7a64f870b195603835528979cdbabdb/d2d38/k-mean.png 295w,
-/static/a7a64f870b195603835528979cdbabdb/b9e4f/k-mean.png 590w,
-/static/a7a64f870b195603835528979cdbabdb/f9b6a/k-mean.png 885w,
-/static/a7a64f870b195603835528979cdbabdb/2d849/k-mean.png 1180w,
+        src=&quot;/static/a7a64f870b195603835528979cdbabdb/db2b8/k-mean.png&quot;
+        srcset=&quot;/static/a7a64f870b195603835528979cdbabdb/1df8f/k-mean.png 273w,
+/static/a7a64f870b195603835528979cdbabdb/53236/k-mean.png 545w,
+/static/a7a64f870b195603835528979cdbabdb/db2b8/k-mean.png 1090w,
+/static/a7a64f870b195603835528979cdbabdb/90122/k-mean.png 1635w,
 /static/a7a64f870b195603835528979cdbabdb/79a4a/k-mean.png 1800w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;  &lt;/p&gt;
@@ -1700,8 +2174,7 @@ Scikit-Learn을 사용하면 간편하고 사용해보실 수 있으니 분석�
         alt=&quot;strategy_pattern&quot;
         title=&quot;strategy_pattern&quot;
         src=&quot;/static/01c3a1b7d7027a3139ef025546f18c8d/00397/Strategy_Pattern.png&quot;
-        srcset=&quot;/static/01c3a1b7d7027a3139ef025546f18c8d/cf440/Strategy_Pattern.png 148w,
-/static/01c3a1b7d7027a3139ef025546f18c8d/00397/Strategy_Pattern.png 256w&quot;
+        srcset=&quot;/static/01c3a1b7d7027a3139ef025546f18c8d/00397/Strategy_Pattern.png 256w&quot;
         sizes=&quot;(max-width: 256px) 100vw, 256px&quot;
         loading=&quot;lazy&quot;
       /&gt;
@@ -1811,7 +2284,7 @@ Reactive Programming is an alternative to the more limited ways of doing asynchr
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;이제 동기와 비동기 &amp;#x26; 블로킹과 논블로킹을 같이 생각해 보겠습니다&lt;/em&gt;&lt;/strong&gt;  &lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -1821,14 +2294,12 @@ Reactive Programming is an alternative to the more limited ways of doing asynchr
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;developer_works_metrix&quot;
         title=&quot;developer_works_metrix&quot;
-        src=&quot;/static/9dd3ba94b99f3150cb3ca0e9681119bc/b9e4f/developer_works_metrix.png&quot;
-        srcset=&quot;/static/9dd3ba94b99f3150cb3ca0e9681119bc/cf440/developer_works_metrix.png 148w,
-/static/9dd3ba94b99f3150cb3ca0e9681119bc/d2d38/developer_works_metrix.png 295w,
-/static/9dd3ba94b99f3150cb3ca0e9681119bc/b9e4f/developer_works_metrix.png 590w,
-/static/9dd3ba94b99f3150cb3ca0e9681119bc/f9b6a/developer_works_metrix.png 885w,
-/static/9dd3ba94b99f3150cb3ca0e9681119bc/2d849/developer_works_metrix.png 1180w,
+        src=&quot;/static/9dd3ba94b99f3150cb3ca0e9681119bc/db2b8/developer_works_metrix.png&quot;
+        srcset=&quot;/static/9dd3ba94b99f3150cb3ca0e9681119bc/1df8f/developer_works_metrix.png 273w,
+/static/9dd3ba94b99f3150cb3ca0e9681119bc/53236/developer_works_metrix.png 545w,
+/static/9dd3ba94b99f3150cb3ca0e9681119bc/db2b8/developer_works_metrix.png 1090w,
 /static/9dd3ba94b99f3150cb3ca0e9681119bc/72be8/developer_works_metrix.png 1249w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -1875,7 +2346,7 @@ Reactive Programming is an alternative to the more limited ways of doing asynchr
 &lt;p&gt;&lt;strong&gt;그림을 다시한번 보시겠습니다&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 803px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -1885,12 +2356,11 @@ Reactive Programming is an alternative to the more limited ways of doing asynchr
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;sync_nonBlocking&quot;
         title=&quot;sync_nonBlocking&quot;
-        src=&quot;/static/e4fb3a3bc9f924ae606d591d5d6f68f6/b9e4f/sync_nonBlocking.png&quot;
-        srcset=&quot;/static/e4fb3a3bc9f924ae606d591d5d6f68f6/cf440/sync_nonBlocking.png 148w,
-/static/e4fb3a3bc9f924ae606d591d5d6f68f6/d2d38/sync_nonBlocking.png 295w,
-/static/e4fb3a3bc9f924ae606d591d5d6f68f6/b9e4f/sync_nonBlocking.png 590w,
+        src=&quot;/static/e4fb3a3bc9f924ae606d591d5d6f68f6/d5c82/sync_nonBlocking.png&quot;
+        srcset=&quot;/static/e4fb3a3bc9f924ae606d591d5d6f68f6/1df8f/sync_nonBlocking.png 273w,
+/static/e4fb3a3bc9f924ae606d591d5d6f68f6/53236/sync_nonBlocking.png 545w,
 /static/e4fb3a3bc9f924ae606d591d5d6f68f6/d5c82/sync_nonBlocking.png 803w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 803px) 100vw, 803px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -1996,7 +2466,7 @@ Reactive Programming is an alternative to the more limited ways of doing asynchr
 &lt;p&gt;&lt;strong&gt;그림을 다시한번 보시겠습니다&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 805px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -2006,12 +2476,11 @@ Reactive Programming is an alternative to the more limited ways of doing asynchr
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;async_blocking&quot;
         title=&quot;async_blocking&quot;
-        src=&quot;/static/0aedf1acf6f8825b5b6d97bb40012bb2/b9e4f/async_blocking.png&quot;
-        srcset=&quot;/static/0aedf1acf6f8825b5b6d97bb40012bb2/cf440/async_blocking.png 148w,
-/static/0aedf1acf6f8825b5b6d97bb40012bb2/d2d38/async_blocking.png 295w,
-/static/0aedf1acf6f8825b5b6d97bb40012bb2/b9e4f/async_blocking.png 590w,
+        src=&quot;/static/0aedf1acf6f8825b5b6d97bb40012bb2/8d35d/async_blocking.png&quot;
+        srcset=&quot;/static/0aedf1acf6f8825b5b6d97bb40012bb2/1df8f/async_blocking.png 273w,
+/static/0aedf1acf6f8825b5b6d97bb40012bb2/53236/async_blocking.png 545w,
 /static/0aedf1acf6f8825b5b6d97bb40012bb2/8d35d/async_blocking.png 805w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 805px) 100vw, 805px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -2093,7 +2562,7 @@ JDBC는 blocking 방식으로 DB에 접근하게 되는데 비동기 환경에�
 &lt;br/&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 854px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -2103,12 +2572,11 @@ JDBC는 blocking 방식으로 DB에 접근하게 되는데 비동기 환경에�
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;observer_pattern&quot;
         title=&quot;observer_pattern&quot;
-        src=&quot;/static/1b9096c3cb052b595e5153464847fe52/b9e4f/Observer.png&quot;
-        srcset=&quot;/static/1b9096c3cb052b595e5153464847fe52/cf440/Observer.png 148w,
-/static/1b9096c3cb052b595e5153464847fe52/d2d38/Observer.png 295w,
-/static/1b9096c3cb052b595e5153464847fe52/b9e4f/Observer.png 590w,
+        src=&quot;/static/1b9096c3cb052b595e5153464847fe52/4b160/Observer.png&quot;
+        srcset=&quot;/static/1b9096c3cb052b595e5153464847fe52/1df8f/Observer.png 273w,
+/static/1b9096c3cb052b595e5153464847fe52/53236/Observer.png 545w,
 /static/1b9096c3cb052b595e5153464847fe52/4b160/Observer.png 854w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 854px) 100vw, 854px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -2224,7 +2692,7 @@ Observer Run&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -2234,13 +2702,12 @@ Observer Run&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;spring_aop_proxy&quot;
         title=&quot;spring_aop_proxy&quot;
-        src=&quot;/static/bdd6ef8e0389d76e961c019dedca0915/b9e4f/spring_aop_proxy.png&quot;
-        srcset=&quot;/static/bdd6ef8e0389d76e961c019dedca0915/cf440/spring_aop_proxy.png 148w,
-/static/bdd6ef8e0389d76e961c019dedca0915/d2d38/spring_aop_proxy.png 295w,
-/static/bdd6ef8e0389d76e961c019dedca0915/b9e4f/spring_aop_proxy.png 590w,
-/static/bdd6ef8e0389d76e961c019dedca0915/f9b6a/spring_aop_proxy.png 885w,
+        src=&quot;/static/bdd6ef8e0389d76e961c019dedca0915/db2b8/spring_aop_proxy.png&quot;
+        srcset=&quot;/static/bdd6ef8e0389d76e961c019dedca0915/1df8f/spring_aop_proxy.png 273w,
+/static/bdd6ef8e0389d76e961c019dedca0915/53236/spring_aop_proxy.png 545w,
+/static/bdd6ef8e0389d76e961c019dedca0915/db2b8/spring_aop_proxy.png 1090w,
 /static/bdd6ef8e0389d76e961c019dedca0915/20783/spring_aop_proxy.png 1130w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;br&gt;
@@ -2468,8 +2935,7 @@ TF-IDF와 BM25와 같은 알고리즘의 고도화로 불필요한 doc는 제거
         alt=&quot;LTR Structure&quot;
         title=&quot;LTR Structure&quot;
         src=&quot;/static/9b9a4a98571637a3b665ebeecfef7caa/5039d/MLR-search-engine-example.png&quot;
-        srcset=&quot;/static/9b9a4a98571637a3b665ebeecfef7caa/cf440/MLR-search-engine-example.png 148w,
-/static/9b9a4a98571637a3b665ebeecfef7caa/5039d/MLR-search-engine-example.png 250w&quot;
+        srcset=&quot;/static/9b9a4a98571637a3b665ebeecfef7caa/5039d/MLR-search-engine-example.png 250w&quot;
         sizes=&quot;(max-width: 250px) 100vw, 250px&quot;
         loading=&quot;lazy&quot;
       /&gt;
@@ -2488,7 +2954,7 @@ TF-IDF와 BM25와 같은 알고리즘의 고도화로 불필요한 doc는 제거
 &lt;li&gt;&lt;strong&gt;point wise (Regression)&lt;/strong&gt; : score를 머신 러닝으로 생성
 &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 641px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -2498,12 +2964,11 @@ TF-IDF와 BM25와 같은 알고리즘의 고도화로 불필요한 doc는 제거
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;point_wise&quot;
         title=&quot;point_wise&quot;
-        src=&quot;/static/53563b9a7bff3ef3290c34d8e160b944/b9e4f/point_wise.png&quot;
-        srcset=&quot;/static/53563b9a7bff3ef3290c34d8e160b944/cf440/point_wise.png 148w,
-/static/53563b9a7bff3ef3290c34d8e160b944/d2d38/point_wise.png 295w,
-/static/53563b9a7bff3ef3290c34d8e160b944/b9e4f/point_wise.png 590w,
+        src=&quot;/static/53563b9a7bff3ef3290c34d8e160b944/4bc72/point_wise.png&quot;
+        srcset=&quot;/static/53563b9a7bff3ef3290c34d8e160b944/1df8f/point_wise.png 273w,
+/static/53563b9a7bff3ef3290c34d8e160b944/53236/point_wise.png 545w,
 /static/53563b9a7bff3ef3290c34d8e160b944/4bc72/point_wise.png 641w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 641px) 100vw, 641px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;  &lt;/li&gt;
@@ -2513,7 +2978,7 @@ TF-IDF와 BM25와 같은 알고리즘의 고도화로 불필요한 doc는 제거
 &lt;li&gt;&lt;strong&gt;pair wise (RankNet, LambdaMART)&lt;/strong&gt; : 2개씩 비교하며 order를 분류
 &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -2523,12 +2988,11 @@ TF-IDF와 BM25와 같은 알고리즘의 고도화로 불필요한 doc는 제거
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;pair_wise&quot;
         title=&quot;pair_wise&quot;
-        src=&quot;/static/a6534d3f399119aece48020115b62289/b9e4f/pair_wise.png&quot;
-        srcset=&quot;/static/a6534d3f399119aece48020115b62289/cf440/pair_wise.png 148w,
-/static/a6534d3f399119aece48020115b62289/d2d38/pair_wise.png 295w,
-/static/a6534d3f399119aece48020115b62289/b9e4f/pair_wise.png 590w,
+        src=&quot;/static/a6534d3f399119aece48020115b62289/e49a9/pair_wise.png&quot;
+        srcset=&quot;/static/a6534d3f399119aece48020115b62289/1df8f/pair_wise.png 273w,
+/static/a6534d3f399119aece48020115b62289/53236/pair_wise.png 545w,
 /static/a6534d3f399119aece48020115b62289/e49a9/pair_wise.png 640w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;  &lt;/li&gt;
@@ -2538,7 +3002,7 @@ TF-IDF와 BM25와 같은 알고리즘의 고도화로 불필요한 doc는 제거
 &lt;li&gt;&lt;strong&gt;list wise (List Net)&lt;/strong&gt; : 전체리스트를 한번에 분류
 &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 634px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -2548,12 +3012,11 @@ TF-IDF와 BM25와 같은 알고리즘의 고도화로 불필요한 doc는 제거
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;list_wise&quot;
         title=&quot;list_wise&quot;
-        src=&quot;/static/50494b7d84a17514b2336bd89d3ec05b/b9e4f/list_wise.png&quot;
-        srcset=&quot;/static/50494b7d84a17514b2336bd89d3ec05b/cf440/list_wise.png 148w,
-/static/50494b7d84a17514b2336bd89d3ec05b/d2d38/list_wise.png 295w,
-/static/50494b7d84a17514b2336bd89d3ec05b/b9e4f/list_wise.png 590w,
+        src=&quot;/static/50494b7d84a17514b2336bd89d3ec05b/24a49/list_wise.png&quot;
+        srcset=&quot;/static/50494b7d84a17514b2336bd89d3ec05b/1df8f/list_wise.png 273w,
+/static/50494b7d84a17514b2336bd89d3ec05b/53236/list_wise.png 545w,
 /static/50494b7d84a17514b2336bd89d3ec05b/24a49/list_wise.png 634w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 634px) 100vw, 634px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;  &lt;/li&gt;
@@ -2669,7 +3132,7 @@ TF-IDF와 BM25와 같은 알고리즘의 고도화로 불필요한 doc는 제거
 &lt;h3 id=&quot;training-results&quot;&gt;&lt;a href=&quot;#training-results&quot; aria-label=&quot;training results permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Training results&lt;/h3&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 866px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -2679,12 +3142,11 @@ TF-IDF와 BM25와 같은 알고리즘의 고도화로 불필요한 doc는 제거
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;LTR_traning_result&quot;
         title=&quot;LTR_traning_result&quot;
-        src=&quot;/static/d59914f622d612614677f283ff078ecd/b9e4f/LTR_traning_result.png&quot;
-        srcset=&quot;/static/d59914f622d612614677f283ff078ecd/cf440/LTR_traning_result.png 148w,
-/static/d59914f622d612614677f283ff078ecd/d2d38/LTR_traning_result.png 295w,
-/static/d59914f622d612614677f283ff078ecd/b9e4f/LTR_traning_result.png 590w,
+        src=&quot;/static/d59914f622d612614677f283ff078ecd/843d0/LTR_traning_result.png&quot;
+        srcset=&quot;/static/d59914f622d612614677f283ff078ecd/1df8f/LTR_traning_result.png 273w,
+/static/d59914f622d612614677f283ff078ecd/53236/LTR_traning_result.png 545w,
 /static/d59914f622d612614677f283ff078ecd/843d0/LTR_traning_result.png 866w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 866px) 100vw, 866px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;

@@ -1,0 +1,580 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="google-site-verification" content="_rVJuueG9dPQsjnBpN7bhY8QW5HU9HQz-7xYVzRUBaM"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, minimum-scale=1, maximum-scale=2"/><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:100%/1.625 -apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.8);font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:normal;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}h1{margin-left:0;margin-right:0;margin-top:2.4375rem;padding-bottom:calc(0.40625rem - 1px);padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.21875rem;color:inherit;font-family:Catamaran;font-weight:800;text-rendering:optimizeLegibility;font-size:2rem;line-height:1.2;border-bottom:1px solid hsla(0,0%,0%,0.07);}h2{margin-left:0;margin-right:0;margin-top:56px;padding-bottom:calc(0.40625rem - 1px);padding-left:0;padding-right:0;padding-top:0;margin-bottom:20px;color:inherit;font-family:Catamaran;font-weight:700;text-rendering:optimizeLegibility;font-size:1.51572rem;line-height:1.2;border-bottom:1px solid hsla(0,0%,0%,0.07);}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1.31951rem;line-height:1.1;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.1;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:0.87055rem;line-height:1.1;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:hsla(0,0%,0%,0.53);font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:0.81225rem;line-height:1.1;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}ul{margin-left:1.625rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:6px;list-style-position:outside;list-style-image:none;}ol{margin-left:1.625rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;font-size:0.85rem;line-height:1.625rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;font-size:1rem;line-height:1.625rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}blockquote{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:calc(0.8125rem - 1px);padding-right:0;padding-top:0;margin-bottom:0.8125rem;border-left:4px solid hsla(0,0%,0%,0.13);color:hsla(0,0%,0%,0.53);}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(0.8125rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}b{font-weight:600;}strong{font-weight:600;}dt{font-weight:600;}th{font-weight:600;}li{margin-bottom:2px;}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.625rem;margin-bottom:calc(0.8125rem / 2);margin-top:calc(0.8125rem / 2);}li > ul{margin-left:1.625rem;margin-bottom:calc(0.8125rem / 2);margin-top:calc(0.8125rem / 2);}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:calc(0.8125rem / 2);}code{font-size:0.85rem;line-height:1.625rem;}kbd{font-size:0.85rem;line-height:1.625rem;}samp{font-size:0.85rem;line-height:1.625rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:1.08333rem;padding-right:1.08333rem;padding-top:0.8125rem;padding-bottom:calc(0.8125rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}h3,h4,h5,h6{margin-bottom:0.8125rem;margin-top:1.625rem;}ol,ul{margin-left:2.03125rem;}li>ol,li>ul{margin-left:2.03125rem;}a{color:#0687f0;text-decoration:none;box-shadow:none;}a:hover,a:active{text-decoration:underline;}a.gatsby-resp-image-link{box-shadow:none;text-decoration:none;}a:hover{text-decoration:none;}</style><style data-href="/styles.91d814501749c3d73b50.css">@import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css);@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:100;src:local("Noto Sans KR Thin "),local("Noto Sans KR-Thin"),url(/static/noto-sans-kr-latin-100-2de137ca3e12ea146ee47485a97f1e78.woff2) format("woff2"),url(/static/noto-sans-kr-latin-100-b965647685dd9fc531d1f8a1cc25e024.woff) format("woff")}@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:300;src:local("Noto Sans KR Light "),local("Noto Sans KR-Light"),url(/static/noto-sans-kr-latin-300-4f773a0fce88aa857d70b56c5b0a1d26.woff2) format("woff2"),url(/static/noto-sans-kr-latin-300-ee87751dac814562bac316d848e35748.woff) format("woff")}@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:400;src:local("Noto Sans KR Regular "),local("Noto Sans KR-Regular"),url(/static/noto-sans-kr-latin-400-be09f2ced7ff9fa6eda5f0416e2fc840.woff2) format("woff2"),url(/static/noto-sans-kr-latin-400-4c50be0fe5b21a153b8e40a392c2d3fe.woff) format("woff")}@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:500;src:local("Noto Sans KR Medium "),local("Noto Sans KR-Medium"),url(/static/noto-sans-kr-latin-500-416698c2fc4b3951f8d63d3d2ae23900.woff2) format("woff2"),url(/static/noto-sans-kr-latin-500-28601458e118110e494903a1fcd6dcf5.woff) format("woff")}@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:700;src:local("Noto Sans KR Bold "),local("Noto Sans KR-Bold"),url(/static/noto-sans-kr-latin-700-04e782e08729f3725ae5a9c95da0c8ba.woff2) format("woff2"),url(/static/noto-sans-kr-latin-700-b9e989a96027f839a9569d2d011e0b71.woff) format("woff")}@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:900;src:local("Noto Sans KR Black "),local("Noto Sans KR-Black"),url(/static/noto-sans-kr-latin-900-c41f1395489a117ca36d550142a1695f.woff2) format("woff2"),url(/static/noto-sans-kr-latin-900-589f5fbf84d9dc9984a969bae969fd60.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:100;src:local("Catamaran Thin "),local("Catamaran-Thin"),url(/static/catamaran-latin-100-6473cfe10b779f968c3d41708e4dfa70.woff2) format("woff2"),url(/static/catamaran-latin-100-a2eb4ef6ac1cc8ff5a51d62c01fe2fea.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:200;src:local("Catamaran Extra Light "),local("Catamaran-Extra Light"),url(/static/catamaran-latin-200-d005aac0ee52a3cb2261ea79a93d4e04.woff2) format("woff2"),url(/static/catamaran-latin-200-fbc8307e859bc6f8866a36e084fdcb3b.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:300;src:local("Catamaran Light "),local("Catamaran-Light"),url(/static/catamaran-latin-300-62b414e71a1f15fa797f91bbf8a3f124.woff2) format("woff2"),url(/static/catamaran-latin-300-7c000b951ef8e9a2b791e70d678dd263.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:400;src:local("Catamaran Regular "),local("Catamaran-Regular"),url(/static/catamaran-latin-400-2175f69a7b7f93cc707ffb96264af4aa.woff2) format("woff2"),url(/static/catamaran-latin-400-2de7e6f54ec70b29a1b4541beba00c89.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:500;src:local("Catamaran Medium "),local("Catamaran-Medium"),url(/static/catamaran-latin-500-f1dd472e80352ac073661af4c1f612dc.woff2) format("woff2"),url(/static/catamaran-latin-500-b7668eb8c9c0df2d0cbe5f77616a8ea8.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:600;src:local("Catamaran SemiBold "),local("Catamaran-SemiBold"),url(/static/catamaran-latin-600-15d0af50791a8286c40ffd0e51bd94c7.woff2) format("woff2"),url(/static/catamaran-latin-600-10467dab56671e7aa6f043987d44dcb8.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:700;src:local("Catamaran Bold "),local("Catamaran-Bold"),url(/static/catamaran-latin-700-4a133d839202a1733fd3e50dab1597dc.woff2) format("woff2"),url(/static/catamaran-latin-700-09314a5449726c9e36e6453e9661fe46.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:800;src:local("Catamaran ExtraBold "),local("Catamaran-ExtraBold"),url(/static/catamaran-latin-800-f6053867cb0122b6897b017da49d0009.woff2) format("woff2"),url(/static/catamaran-latin-800-cb812de767a624c9d405058e05731b3f.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:900;src:local("Catamaran Black "),local("Catamaran-Black"),url(/static/catamaran-latin-900-0e80350f234f47318f42c4ef8f4f47b9.woff2) format("woff2"),url(/static/catamaran-latin-900-6f7344e59325277678d79578eb0a2554.woff) format("woff")}.custom-hr{margin:64px;background:linear-gradient(72deg,#86e3ce,#d0e6a5);border:none;height:2px}.post-date{text-align:right;font-size:12px;font-style:italic}.resp-sharing-button--facebook:hover{background-color:#2d4373}.resp-sharing-button--facebook{background-color:#3b5998;border-color:#3b5998}.resp-sharing-button--facebook:active,.resp-sharing-button--facebook:hover{background-color:#2d4373;border-color:#2d4373}.resp-sharing-button--twitter:hover{background-color:#2795e9}.resp-sharing-button--twitter{background-color:#55acee;border-color:#55acee}.resp-sharing-button--twitter:active,.resp-sharing-button--twitter:hover{background-color:#2795e9;border-color:#2795e9}.social-share{text-align:right;height:100%}.resp-sharing-button__icon,.resp-sharing-button__link{display:inline-block;vertical-align:middle;border:none}.resp-sharing-button__link{text-decoration:none;color:#fff;margin:4px;height:33px}.resp-sharing-button__link .service-label{font-size:12px;padding-right:4px}.resp-sharing-button{height:33px;border-radius:6px;-webkit-transition:25ms ease-out;transition:25ms ease-out;padding:3px 8px 3px 10px;font-family:Helvetica Neue,Helvetica,Arial,sans-serif}.resp-sharing-button__icon svg{width:1em;height:1.5em;margin-right:.4em;vertical-align:top}.resp-sharing-button__icon{stroke:#fff;fill:none}.resp-sharing-button__icon--solid{fill:#fff;stroke:none}.sponsor-button{text-align:right;margin:4px}.sponsor-button .bmc-button{display:inline-block;padding:0 7px;width:133px;height:33px;text-decoration:none;background-color:#bb5794;color:#fff;border:1px solid transparent;border-radius:6px;letter-spacing:-.08px;box-sizing:border-box;font-size:12px;line-height:30px;text-align:left}.sponsor-button .bmc-button:active,.sponsor-button .bmc-button:hover{background-color:#a0457d}.sponsor-button .bmc-button img{width:20px;margin-bottom:1px;box-shadow:none;border:none;vertical-align:middle}.sponsor-button .bmc-button span{margin-left:6px}.bio{margin-bottom:24px}.bio .author-description{display:flex}.bio .author-image{margin-top:12px;margin-right:12px;margin-bottom:0;min-width:72px}.bio .author-name-prefix{font-size:90%;margin-right:4px}.bio .author-name-content{display:inline-block;font-size:95%;padding:2px 6px;font-weight:bolder;border-radius:8px;-webkit-transform-origin:center;transform-origin:center;-webkit-animation:flutter 2s linear infinite;animation:flutter 2s linear infinite}.bio .author-introduction{margin-top:4px;font-size:80%;line-height:1.4}.bio .author-socials{margin-top:4px}.bio a{margin-right:8px;font-size:80%}.bio a.visited{text-decoration:none}@-webkit-keyframes flutter{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}35%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}40%{-webkit-transform:rotate(-5deg);transform:rotate(-5deg)}60%{-webkit-transform:rotate(5deg);transform:rotate(5deg)}65%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(0deg);transform:rotate(0deg)}}@keyframes flutter{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}35%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}40%{-webkit-transform:rotate(-5deg);transform:rotate(-5deg)}60%{-webkit-transform:rotate(5deg);transform:rotate(5deg)}65%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(0deg);transform:rotate(0deg)}}.navigator{margin:40px 0;display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0}.navigator li{margin-bottom:12px}.navigator a{padding:7px 16px 8px;border-radius:6px;font-size:12px;opacity:.8}.gatsby-highlight-code-line{background-color:#022a4b;display:block;margin-right:-1.2em;margin-left:-1.2em;padding-right:1em;padding-left:.75em;border-left:.35em solid #ff609a}.gatsby-highlight .language-textbox code{border-radius:5px;color:#383838}.gatsby-highlight pre[class*=language-textbox]{background-color:#f8f8f8;border:1px solid #ccc}.gatsby-highlight pre[class*=language-]{border-radius:5px;display:flex}.gatsby-highlight pre[class*=language-] code[class*=language-]{flex:1 1}code[class*=language-],pre[class*=language-]{color:#e0e0e0;background:none;font-family:Fira Code,Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.6;font-size:13px;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none;-ms-overflow-style:none;overflow:-moz-scrollbars-none}li code[class*=language-text],p code[class*=language-text]{font-weight:600}pre[class*=language-]::-webkit-scrollbar{display:none}pre[class*=language-]{padding:1.2em;margin:1.5em 0;overflow:auto;border-radius:.6em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#212121}:not(pre)>code[class*=language-]{padding:.1em .6em;border-radius:.2em;white-space:normal;background:#e0ecde;color:#205072;border:1px solid}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#616161}.token.punctuation{color:#e0e0e0}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#ff9100}.token.class-name,.token.constant,.token.property,.token.symbol{color:#ff0}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#b388ff}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#00e676}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}.category-container{display:flex;top:0;line-height:0;white-space:nowrap;-ms-overflow-style:none;overflow:-moz-scrollbars-none;z-index:1;padding:6px 20px;box-sizing:content-box;margin-top:50px}.category-container .filter-button{width:15rem;background:linear-gradient(45deg,#fe6b8b 30%,#ff8e53 90%);border-radius:3px;border:0;color:#fff;height:40px;padding:0 30px;box-shadow:0 3px 5px 2px rgba(255,105,135,.3)}.category-container .search-filter{margin-top:5px;margin-bottom:0;margin-left:5vw}.category-container .search-filter>label{top:-13px}.category-container .search-filter>div{margin-top:5px}.category-container .search-filter .MuiFormLabel-root.Mui-focused{color:#fe6b8b}.category-container .search-filter .MuiInput-underline:after{border-bottom:2px solid #fe6b8b}.category-container .search-filter .MuiInputLabel-shrink{-webkit-transform:translateY(8px) scale(.7);transform:translateY(8px) scale(.7)}.category-container .search-filter .MuiInputBase-input{padding:6px 0 5px}.category-container .search-filter .MuiAppBar.root{box-sizing:border-box}.category-container::-webkit-scrollbar{display:none}.thumbnail-container{min-height:calc(100vh - 3.5rem)}.thumbnail{display:block;margin-bottom:12px;padding:4px 4px 12px;box-shadow:none;-webkit-transition:text-shadow .3s,opacity .4s;transition:text-shadow .3s,opacity .4s;opacity:0}.thumbnail p{font-size:90%;line-height:1.4}.thumbnail.visible{opacity:1}</style><style data-href="/commons.34bbe11e8b04db79004a.css">.github{float:right;padding:14px;opacity:.6}.top{position:relative;width:100%;height:60px;background:linear-gradient(72deg,#86e3ce,#d0e6a5)}.top .link{display:inline-block;font-size:28px;padding-top:8px;color:#fff;opacity:.7;margin-left:20px;font-family:Catamaran;font-weight:800}.home-header{margin-top:0;border-bottom:none;font-weight:900;font-size:48px;letter-spacing:-2px}.link{box-shadow:none;text-decoration:none;color:inherit}.switch-container{text-align:right}.switch-container .icon{text-align:center;color:#222;font-size:14px;font-weight:900}.footer{padding-top:52px;text-align:center;font-size:12px}.footer a{text-decoration:none!important}body.light{background-color:#fff;text-shadow:0 0 .1px rgba(0,0,0,.3);padding-right:0!important}body.light .home-header{color:#333}body.light .bio .author-name-content{background-color:#ecf0f2}body.light .bio .author-introduction{color:#7d7d7d}body.light .bio a{color:navy}body.light .thumbnail h3{color:#333}body.light .thumbnail p{color:#7d7d7d}body.light .thumbnail:hover{text-shadow:0 0 6px rgba(0,0,0,.2)}body.light .footer{color:#aaa}body.light .footer a{color:#333}body.light .navigator a{background-color:#fceff7;color:#cc007a}body.light blockquote{color:rgba(0,0,0,.8)}body.light .red_font{color:#cc007a;font-weight:700}body.dark{background-color:#282c35;text-shadow:0 0 .1px hsla(0,0%,100%,.3);padding-right:0!important}body.dark,body.dark .home-header{color:#eee}body.dark .bio .author-name-content{background-color:#383636}body.dark .bio .author-introduction{color:#d8d7d7}body.dark .bio a{color:#bb72ec}body.dark .category-container .MuiInputBase-input{color:#eee}body.dark .category-container .MuiFormLabel-root{color:#fff}body.dark .category-container .MuiInput-underline:before{border-bottom:1px solid #fff}body.dark .thumbnail h3{color:#eee}body.dark .thumbnail p{color:#d8d7d7}body.dark .thumbnail:hover{text-shadow:0 0 6px hsla(0,0%,100%,.2)}body.dark .footer{color:#d8d7d7}body.dark .footer a{color:#fff}body.dark blockquote{border-left:4px solid hsla(0,0%,100%,.822);color:#d8d7d7}body.dark h1,body.dark h2{border-bottom-color:hsla(0,0%,100%,.3)}body.dark .navigator a{background-color:#fceff7;color:#cc007a}body.dark .red_font{color:#cc007a;font-weight:700}body{font-family:Noto Sans KR,sans-serif;background-color:#fff;-webkit-text-size-adjust:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-transition:background-color .3s,color .3s;transition:background-color .3s,color .3s}body .main-container{max-width:60vw}@media screen and (max-width:50em){body .main-container{max-width:39rem}}body .main-container .sub_header{font-size:.8rem}body .main-container .img_caption{font-style:normal;display:inherit;text-align:center;font-size:90%}body .main-container .category-container{margin-bottom:1.5rem}body .main-container .category-container .MuiInputBase-input{padding:6px 0 5px}</style><meta name="generator" content="Gatsby 2.15.28"/><style type="text/css">.gatsby-resp-image-image{width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;color:transparent;}</style><style type="text/css">
+    .anchor {
+      float: left;
+      padding-right: 4px;
+      margin-left: -20px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var offset = element.offsetTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="preconnect dns-prefetch" href="https://www.google-analytics.com"/><link rel="shortcut icon" href="/icons/icon-48x48.png?v=f081fa739c9c8df01963bc93e8c99786"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=f081fa739c9c8df01963bc93e8c99786"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=f081fa739c9c8df01963bc93e8c99786"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=f081fa739c9c8df01963bc93e8c99786"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=f081fa739c9c8df01963bc93e8c99786"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=f081fa739c9c8df01963bc93e8c99786"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=f081fa739c9c8df01963bc93e8c99786"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=f081fa739c9c8df01963bc93e8c99786"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=f081fa739c9c8df01963bc93e8c99786"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">[Spring] Spring의 Scope와 ProxyMode 알아보기 | renuevo blog</title><meta data-react-helmet="true" name="description" content="Spring Scope Spring Bean을 생성시 적용되는 Scope에 대해 알아보려 합니다
+아래 모든 소스의 제 Github에서 확인 하실 수 있습니다   해당 포스팅은 내부적 구현 요소의 대해 설명에 집중하며 Scope의 일반적인 사용법을 보시려면 
+👉 baeldung - spring-bean-scopes   Spring Bean의 Scope는 크게 2가지가 존재합니다 Spring의 내부 를 보면 과…"/><meta data-react-helmet="true" property="og:title" content="[Spring] Spring의 Scope와 ProxyMode 알아보기"/><meta data-react-helmet="true" property="og:description" content="Spring Scope Spring Bean을 생성시 적용되는 Scope에 대해 알아보려 합니다
+아래 모든 소스의 제 Github에서 확인 하실 수 있습니다   해당 포스팅은 내부적 구현 요소의 대해 설명에 집중하며 Scope의 일반적인 사용법을 보시려면 
+👉 baeldung - spring-bean-scopes   Spring Bean의 Scope는 크게 2가지가 존재합니다 Spring의 내부 를 보면 과…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="deokhwa kim"/><meta data-react-helmet="true" name="twitter:title" content="[Spring] Spring의 Scope와 ProxyMode 알아보기"/><meta data-react-helmet="true" name="twitter:description" content="Spring Scope Spring Bean을 생성시 적용되는 Scope에 대해 알아보려 합니다
+아래 모든 소스의 제 Github에서 확인 하실 수 있습니다   해당 포스팅은 내부적 구현 요소의 대해 설명에 집중하며 Scope의 일반적인 사용법을 보시려면 
+👉 baeldung - spring-bean-scopes   Spring Bean의 Scope는 크게 2가지가 존재합니다 Spring의 내부 를 보면 과…"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/webpack-runtime-db7c9e59d855b4322330.js"/><link as="script" rel="preload" href="/app-41361b996b071ccacf46.js"/><link as="script" rel="preload" href="/commons-e3839588b8ec4f06d1d2.js"/><link as="script" rel="preload" href="/styles-a61f89ff58cea193353c.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-2047161ab81a7fa0cbea.js"/><link as="fetch" rel="preload" href="/page-data\spring\scope\spring-scope\page-data.json" crossorigin="anonymous"/></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><div class="top"><a class="link" href="/">renuevo blog</a><a href="https://github.com/renuevo" class="github" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg></a></div><div style="margin-left:auto;margin-right:auto;padding:2.4375rem 1.21875rem" class="main-container"><div class="switch-container"><label for="normal-switch"><div style="position:relative;display:inline-block;text-align:left;opacity:1;direction:ltr;border-radius:12px;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s;touch-action:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none"><div class="react-switch-bg" style="height:24px;width:48px;margin:0;position:relative;background:#d9dfe2;border-radius:12px;cursor:pointer;-webkit-transition:background 0.25s;-moz-transition:background 0.25s;transition:background 0.25s"><div style="height:24px;width:26px;position:relative;opacity:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon checkedIcon">D</div></div><div style="height:24px;width:26px;position:absolute;opacity:1;right:0;top:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon uncheckedIcon">L</div></div></div><div class="react-switch-handle" style="height:22px;width:22px;background:#ffffff;display:inline-block;cursor:pointer;border-radius:50%;position:absolute;transform:translateX(1px);top:1px;outline:0;border:0;-webkit-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;-moz-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s"></div><input type="checkbox" role="switch" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px" id="normal-switch"/></div></label></div><h1>[Spring] Spring의 Scope와 ProxyMode 알아보기</h1><p class="post-date">December 20, 2019</p><div><h1 id="spring-scope"><a href="#spring-scope" aria-label="spring scope permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Spring Scope</h1>
+<p><em>Spring Bean을 생성시 적용되는 Scope에 대해 알아보려 합니다</em>
+아래 모든 소스의 제 <a href="https://github.com/renuevo/spring-boot-in-action/tree/master/spring-boot-scope-in-action">Github</a>에서 확인 하실 수 있습니다  </p>
+<p>해당 포스팅은 내부적 구현 요소의 대해 설명에 집중하며 Scope의 일반적인 사용법을 보시려면
+👉 <a href="https://www.baeldung.com/spring-bean-scopes">baeldung - spring-bean-scopes</a>  </p>
+<p>Spring Bean의 Scope는 크게 2가지가 존재합니다<br>
+Spring의 내부 <code class="language-text">ConfigurableBeanFactory</code>를 보면 <code class="language-text">singleton</code>과 <code class="language-text">prototype</code> 2가지 속성을 나타내고 있습니다  </p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">ConfigurableBeanFactory</span> <span class="token keyword">extends</span> <span class="token class-name">HierarchicalBeanFactory</span><span class="token punctuation">,</span> <span class="token class-name">SingletonBeanRegistry</span> <span class="token punctuation">{</span>
+
+	<span class="token comment">/**
+	 * Scope identifier for the standard singleton scope: "singleton".
+	 * Custom scopes can be added via {@code registerScope}.
+	 * @see #registerScope
+	 */</span>
+	<span class="token class-name">String</span> SCOPE_SINGLETON <span class="token operator">=</span> <span class="token string">"singleton"</span><span class="token punctuation">;</span>
+
+	<span class="token comment">/**
+	 * Scope identifier for the standard prototype scope: "prototype".
+	 * Custom scopes can be added via {@code registerScope}.
+	 * @see #registerScope
+	 */</span>
+	<span class="token class-name">String</span> SCOPE_PROTOTYPE <span class="token operator">=</span> <span class="token string">"prototype"</span><span class="token punctuation">;</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span></code></pre></div>
+<br/>
+<p>일반적으로 생성되는 빈들은 모두 <code class="language-text">Singleton</code>으로 생성되게 됩니다<br>
+즉 아래 두개의 Bean들은 서로 동일하게 Singleton으로 생성되게 됩니다  </p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Single</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+
+<span class="token annotation punctuation">@Component</span>
+<span class="token annotation punctuation">@Scope</span><span class="token punctuation">(</span><span class="token string">"singleton"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Single</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></code></pre></div>
+<p><code class="language-text">Singleton</code>으로 생성하게 되면 어디서나 1개의 인스턴스를 참조하여 사용하게 됩니다<br>
+<br/></p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Single</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></code></pre></div>
+<p>예를 들어 다음 같이 Singleton Bean을 하나 만들고  </p>
+<br/>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
+<span class="token annotation punctuation">@AllArgsConstructor</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ScopeWrapper</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Getter</span>
+    <span class="token class-name">Single</span> single<span class="token punctuation">;</span>
+
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>WrapperClass를 하나 만들어서 해당 Bean을 Autowired DI 해줍니다</p>
+<br/>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@Service</span>
+<span class="token annotation punctuation">@AllArgsConstructor</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ScopeService</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">ScopeWrapper</span> scopeWrapper<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">Single</span> single<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">scopeTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"[============== Singleton Bean ==============]"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"Scope Service Single : "</span> <span class="token operator">+</span> single<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"Scope Wrapper Single : "</span> <span class="token operator">+</span> scopeWrapper<span class="token punctuation">.</span><span class="token function">getSingle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>그 후 ScopeService 만들어서 각각의 Bean을 DI하고 각각의 Single 인스턴스를 출력하면 다음과 같습니다  </p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 9.144385026737968%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAZ0lEQVQI1zVMSQ6AIBDzO4qCMMxiPBv//6JaSDw00+m2RATiCphnqChSSqjnieqOVRXbDzPspcB4jZ4Tozu40b9FcLeGpfcOpdDkQKsyBwuLhfrK0PaD/57zzI5R6TKHlNzpPcTL3AcGHT/rj+ysPQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="singleton-bean"
+        title="singleton-bean"
+        src="/static/c040bc5cc8d218d7fab901e730fa382f/db2b8/singleton-bean.png"
+        srcset="/static/c040bc5cc8d218d7fab901e730fa382f/1df8f/singleton-bean.png 273w,
+/static/c040bc5cc8d218d7fab901e730fa382f/53236/singleton-bean.png 545w,
+/static/c040bc5cc8d218d7fab901e730fa382f/db2b8/singleton-bean.png 1090w,
+/static/c040bc5cc8d218d7fab901e730fa382f/90122/singleton-bean.png 1635w,
+/static/c040bc5cc8d218d7fab901e730fa382f/fa891/singleton-bean.png 1870w"
+        sizes="(max-width: 1090px) 100vw, 1090px"
+        loading="lazy"
+      />
+    </span>
+<code class="language-text">Singleton</code>으로 당연하게 같은 Instance를 확인 할 수 있습니다  </p>
+<h2 id="br"><a href="#br" aria-label="br permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><br/></h2>
+<p><code class="language-text">Prototype</code>은 매번 새로운 Instance를 생성하여 Bean의 생명주기가 필요할 때 사용되게 됩니다  </p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
+<span class="token annotation punctuation">@Scope</span><span class="token punctuation">(</span><span class="token string">"prototype"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Proto</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></code></pre></div>
+<p>Prototype Bean을 하나 생성하고</p>
+<br/>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
+<span class="token annotation punctuation">@AllArgsConstructor</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ScopeWrapper</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Getter</span>
+    <span class="token class-name">Proto</span> proto<span class="token punctuation">;</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>아까와 같이 WrapperClass에 Propotype Bean을 DI해줍니다  </p>
+<br/>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@Service</span>
+<span class="token annotation punctuation">@AllArgsConstructor</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ScopeService</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">ScopeWrapper</span> scopeWrapper<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">Proto</span> proto<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">scopeTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"[============== Prototype Bean ==============]"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"Scope Service Proto : "</span> <span class="token operator">+</span> proto<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"Scope Wrapper Proto : "</span> <span class="token operator">+</span> scopeWrapper<span class="token punctuation">.</span><span class="token function">getProto</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>ScopeService 아까와 같이 구성해서 출력하면 다음과 같습니다<br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 8.32414553472988%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAbUlEQVQI1zWMaw4CIQwG9zhuSbBAyUJhE+9/qbEa/THpfH0de90ML/hoVDUkCdbCffK4LmQM5FPdObuhpbCWM+f8su+Nx2wGu3cOs05tmVaVZ1ZSSqiGm3HWivyJLNHPOdPj0CKXeG4/b8Er9t4qjz//yCmxZQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="prototype-bean"
+        title="prototype-bean"
+        src="/static/1f32f2741075eed9ae82f5adfa66824a/db2b8/prototype-bean.png"
+        srcset="/static/1f32f2741075eed9ae82f5adfa66824a/1df8f/prototype-bean.png 273w,
+/static/1f32f2741075eed9ae82f5adfa66824a/53236/prototype-bean.png 545w,
+/static/1f32f2741075eed9ae82f5adfa66824a/db2b8/prototype-bean.png 1090w,
+/static/1f32f2741075eed9ae82f5adfa66824a/90122/prototype-bean.png 1635w,
+/static/1f32f2741075eed9ae82f5adfa66824a/1842b/prototype-bean.png 1814w"
+        sizes="(max-width: 1090px) 100vw, 1090px"
+        loading="lazy"
+      />
+    </span>
+<code class="language-text">Prototype</code>으로 서로 다른 Instance를 확인 할 수 있습니다   </p>
+<br/>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@Service</span>
+<span class="token annotation punctuation">@AllArgsConstructor</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ScopeService</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">ApplicationContext</span> ctx<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">scopeTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"[============== Prototype getBean ==============]"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"getBean Case 1 : "</span> <span class="token operator">+</span> ctx<span class="token punctuation">.</span><span class="token function">getBean</span><span class="token punctuation">(</span><span class="token string">"proto"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"getBean Case 2 : "</span> <span class="token operator">+</span> ctx<span class="token punctuation">.</span><span class="token function">getBean</span><span class="token punctuation">(</span><span class="token string">"proto"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 7.721796276013143%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAb0lEQVQI1yXNWQ7DMAgE0Fyn8SbVbI6tfuf+F5pM3I8RQsDj8FDEqNDuKKUgpQQzR1bFacawquB0x0cEtTVEBLp07hnGGJhzQjn7sT/MBOYV8jWC+Q/yOG+MeeE3G+xoBNdaEALKZ9e4Nhqc39x7AAPdQCMxGHdSAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="prototype-bean"
+        title="prototype-bean"
+        src="/static/286bc8a9d72b702475c23bd782d44a28/db2b8/prototype-getbean.png"
+        srcset="/static/286bc8a9d72b702475c23bd782d44a28/1df8f/prototype-getbean.png 273w,
+/static/286bc8a9d72b702475c23bd782d44a28/53236/prototype-getbean.png 545w,
+/static/286bc8a9d72b702475c23bd782d44a28/db2b8/prototype-getbean.png 1090w,
+/static/286bc8a9d72b702475c23bd782d44a28/90122/prototype-getbean.png 1635w,
+/static/286bc8a9d72b702475c23bd782d44a28/7bc83/prototype-getbean.png 1826w"
+        sizes="(max-width: 1090px) 100vw, 1090px"
+        loading="lazy"
+      />
+    </span>
+<code class="language-text">ApplicationContext</code>를 통해 getBean으로 Proto를 가져와도 다른 Instance를 가져오는 것을 확인 할 수 있습니다  </p>
+<br/>
+<hr>
+<p>위에 예제들을 통해 <code class="language-text">Singleton</code>과 <code class="language-text">Prototype</code>의 특성을 살펴 보았습니다<br>
+이 스코프 특성들은 각각 사용하거나 Prototype에서 Singleton을 가지고 사용하는 것에는 문제가 없습니다  </p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 840px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 65.95238095238095%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAABcRAAAXEQHKJvM/AAACmklEQVQ4y2OIbzvzL6blzL8oEG4+8yey5eJ/oNiF////MzMAQfG0SwwkgYCq43/jW0/9TW0/+Tej6+Tv5K6L/4NqT52HGZjSeYo0A/O6j/8/15P9/+rMqv83ZpT9Pzah+n9E1c7ri2/9ZwXJt238T5qBHfPPeb7cPMnzw8FFnp8OLvS4s2mOd27bVjsuPiFeoDSHuoE9XC0jlAa6nuHjgkyGD9OjGT7MjIVgIPvjggwGhsvP/3MJzPjPzdvxn0uw5z+X0bL/3EANHCBNQMAOxGCDYYZycnLhd2FU0+mPEU2nf0Q2n/ke3njma3Ddqf+RTadO/f//iQUkbxtQzAg1EGQwGwPClYxAzISOGQJrjv9Oajv5P639+P/MjqP/M3sv/gcaegksiQoYudhYeIA0n4t3ANe7CQFL3nU4nwfiY++6XE+863A68X6C/wmG7PbDf672JP+/Oz3v//3pOf8vTCz8H1G57aq+ewIfyIdsHNzcQBqEuUR52UFBwCOroKT0rMHm5f/Z/v//z4v6/39B9P//07z//5/g/J+he/Flq+d7Ftt8OLfT+uP53db39qy2rZp00FDdzB3kZWY2dk5mmAu52Vk5QZZMXLKB5cOkoEnvOl13vu/z2fS+12szkL35/cTAzQyztz6S9Z/wViaw57FMYPcjmdjpr2WX7nsthuZddvQwxAnCGk79iQTlECCOaDrzK7Tx/P+IxtMnQIEOlGZlYeNEiWUQ4OYXYrgCpM8B8UUoPgfFDMG1J/8ntpz4n9x67H9m57F/KZ3n/gdUHjrvZGMACkMONWMvRnRHgJLUp1WVDJ8W5zJ8WpIPwYtyGT4DxRjy2/b8u9cZ8u/p9LR/L6fG/7ncm/4/pGzrmaZdr8DJ5v5/0nIKAOtEUcQlod0aAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="prototype-in-singleton"
+        title="prototype-in-singleton"
+        src="/static/0960ab756dfd4f678c1f30edd0f890e2/04a72/prototype-in-singleton.png"
+        srcset="/static/0960ab756dfd4f678c1f30edd0f890e2/1df8f/prototype-in-singleton.png 273w,
+/static/0960ab756dfd4f678c1f30edd0f890e2/53236/prototype-in-singleton.png 545w,
+/static/0960ab756dfd4f678c1f30edd0f890e2/04a72/prototype-in-singleton.png 840w"
+        sizes="(max-width: 840px) 100vw, 840px"
+        loading="lazy"
+      />
+    </span>  </p>
+<br/>
+<br/>
+<p><strong>반대로 Singleton에서 Prototype을 가지고 있는 경우에는 의도한 것과 다른 결과를 낼 수 있습니다</strong><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 764px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 41.88481675392669%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABcRAAAXEQHKJvM/AAACHklEQVQoz31R4UsTcRj+5eZM0FhEFDSoT31Z9Q80IQZSW9IHqX0pQgbGRHTIwKh9kCKy9G6hJoPOOZda7uZut9utu1u01giUxThKsCQCZWsYzpajnN5sb3dGGX3wgYfn5ffjeXheXsQwDISoIITpEFDBYEWey4LAAy8I7UgGy7JqRQsJL/qAfuOb+7KqgJ9XF1xNO8RM6rURqwqRJFkOMFw5IsTLbCxeDvPxUohhgY0wbYpZFEUV+oOaLkTXod3xIsZBZtIJy2QPLFO98GWiG8SID8bIcLfy73A4NP97ikSLZRVvup3vN93I3z/rzPedu7mKmXvWPK1X0HOOxYuj1/CNJ534D/I6/tNn7Z+ddA3jj8aNsrdKp9Ptk7Wutqa6/rjcUQlcuWtMAmECIJoBRi0AIxcBHhrh68CFFEq9SRumUouG8dcfDRPJecPjmcXTL9Pvz2Q/LRz+p9SeIwe1ai1CWqRpOJC71cDnsEswN2jfnB/q3Hr3oF1autcMxTuNCRSm6e2jRKOszCjQoRDwPK/MHUqSzWZTWtXu1VTXH5JVeSsNmCk35oNW7O26c2hm0+YSN9y93kqlwzyHAoEABP1PIUpPwzOZDEVuRcI0+P2kXTHr9fr9smjsLZa/db9z2NEs5zm1EKP02QR1IvOK1n/mPCdLSeIYYqhpaWnYKuWINinj7ZJW3FfXk2N9MOid2g4EgKqdzVUo3bj7kX8BlNMZvN77C4AAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="singleton-in-prototype"
+        title="singleton-in-prototype"
+        src="/static/266c2b65e173fd9cad227a9bd6e94aa8/578a5/singleton-in-prototype.png"
+        srcset="/static/266c2b65e173fd9cad227a9bd6e94aa8/1df8f/singleton-in-prototype.png 273w,
+/static/266c2b65e173fd9cad227a9bd6e94aa8/53236/singleton-in-prototype.png 545w,
+/static/266c2b65e173fd9cad227a9bd6e94aa8/578a5/singleton-in-prototype.png 764w"
+        sizes="(max-width: 764px) 100vw, 764px"
+        loading="lazy"
+      />
+    </span>  </p>
+<p>이미 Singleton으로 생성되는 시점에 Prototype이 생성되어 들어 오기 때문에<br>
+<strong>Singleton 내부의 Prototype을 호출해게 되면 매번 같은 값을 가져오게 됩니다</strong>  </p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@Service</span>
+<span class="token annotation punctuation">@AllArgsConstructor</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ScopeService</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">ApplicationContext</span> ctx<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">scopeTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"[============== Singleton getBean And getPrototype ==============]"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"ScopeWrapper getBean Proto Case 1 : "</span> <span class="token operator">+</span> ctx<span class="token punctuation">.</span><span class="token function">getBean</span><span class="token punctuation">(</span><span class="token class-name">ScopeWrapper</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getProto</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"ScopeWrapper getBean Proto Case 2 : "</span> <span class="token operator">+</span> ctx<span class="token punctuation">.</span><span class="token function">getBean</span><span class="token punctuation">(</span><span class="token class-name">ScopeWrapper</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getProto</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 7.672764227642276%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAb0lEQVQI1z2MQRYCIQxD5zoWGVpAmAFE7n+pGFy4+C9N8pojpoBEwmlwzuH0JzQlSDSIEVXI9ryf3sOoyizn/Cex36qmOO4W0UiywkH5Pbx6x+O6IDepFbJ9LQgcWmthzjf5oI+OUgo6+zkn2hj4Ar/HQAv27VSJAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="singleton-getbean-and-getPrototype"
+        title="singleton-getbean-and-getPrototype"
+        src="/static/ed716db35766e0c25d8cbecc1093cb08/db2b8/singleton-getbean-and-getPrototype.png"
+        srcset="/static/ed716db35766e0c25d8cbecc1093cb08/1df8f/singleton-getbean-and-getPrototype.png 273w,
+/static/ed716db35766e0c25d8cbecc1093cb08/53236/singleton-getbean-and-getPrototype.png 545w,
+/static/ed716db35766e0c25d8cbecc1093cb08/db2b8/singleton-getbean-and-getPrototype.png 1090w,
+/static/ed716db35766e0c25d8cbecc1093cb08/90122/singleton-getbean-and-getPrototype.png 1635w,
+/static/ed716db35766e0c25d8cbecc1093cb08/66f1a/singleton-getbean-and-getPrototype.png 1968w"
+        sizes="(max-width: 1090px) 100vw, 1090px"
+        loading="lazy"
+      />
+    </span><br>
+다음과 같이 같은 Instance가 return 된걸 확인 할 수 있습니다<br>
+<strong>그럼 원래 처럼 매번 다른 Instance를 받아 오려면 어떻게 해야 할까요?</strong>  </p>
+<br/>
+<p>이러한 문제를 해결하기 위해 Spring에서는 <code class="language-text">ProxyMode</code>를 제시하고 있습니다  </p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
+<span class="token annotation punctuation">@Scope</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"prototype"</span><span class="token punctuation">,</span> proxyMode <span class="token operator">=</span> <span class="token class-name">ScopedProxyMode</span><span class="token punctuation">.</span>TARGET_CLASS<span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ProtoProxy</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+
+<span class="token annotation punctuation">@Component</span>
+<span class="token annotation punctuation">@AllArgsConstructor</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ScopeWrapper</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+    <span class="token annotation punctuation">@Getter</span>
+    <span class="token class-name">ProtoProxy</span> protoProxy<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>위와 같이 Prototype에 <code class="language-text">ProxyMode</code>를 추가 하고 Wrapper에 DI 후 출력해 봅니다   </p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@Service</span>
+<span class="token annotation punctuation">@AllArgsConstructor</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ScopeService</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">ApplicationContext</span> ctx<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">scopeTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"[============== Singleton getBean And getProxyPrototype ==============]"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"ScopeWrapper getBean Proxy Proto Case 1 : "</span> <span class="token operator">+</span> ctx<span class="token punctuation">.</span><span class="token function">getBean</span><span class="token punctuation">(</span><span class="token class-name">ScopeWrapper</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getProtoProxy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"ScopeWrapper getBean Proxy Proto Case 2 : "</span> <span class="token operator">+</span> ctx<span class="token punctuation">.</span><span class="token function">getBean</span><span class="token punctuation">(</span><span class="token class-name">ScopeWrapper</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getProtoProxy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 7.250000000000001%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAR0lEQVQI1w3Luw2AMAwAUdaBgHD8iaNQULH/SIerJ510m7njHngIvQutnYgIV/XDjKPcy7vaWovMJCJQ1fqcnJOn/MbgNeUH65sf+tR0sSEAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="prototype-proxy-bean"
+        title="prototype-proxy-bean"
+        src="/static/93465e05d35f2e9d5ca48b03a1a75baf/db2b8/prototype-proxy-bean.png"
+        srcset="/static/93465e05d35f2e9d5ca48b03a1a75baf/1df8f/prototype-proxy-bean.png 273w,
+/static/93465e05d35f2e9d5ca48b03a1a75baf/53236/prototype-proxy-bean.png 545w,
+/static/93465e05d35f2e9d5ca48b03a1a75baf/db2b8/prototype-proxy-bean.png 1090w,
+/static/93465e05d35f2e9d5ca48b03a1a75baf/90122/prototype-proxy-bean.png 1635w,
+/static/93465e05d35f2e9d5ca48b03a1a75baf/d40c8/prototype-proxy-bean.png 2000w"
+        sizes="(max-width: 1090px) 100vw, 1090px"
+        loading="lazy"
+      />
+    </span><br>
+<strong><code class="language-text">ProxyMode</code>로 우회해서 다음과 같이 원하는 값을 얻어 낼 수 있었습니다</strong>  </p>
+<br/>
+<p>참고로 <code class="language-text">request</code> or <code class="language-text">session</code>과 같은 scope도 이런 <code class="language-text">ProxyMode</code>를 구현되어 있습니다  </p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Target</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token class-name">ElementType</span><span class="token punctuation">.</span>TYPE<span class="token punctuation">,</span> <span class="token class-name">ElementType</span><span class="token punctuation">.</span>METHOD<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Retention</span><span class="token punctuation">(</span><span class="token class-name">RetentionPolicy</span><span class="token punctuation">.</span>RUNTIME<span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Documented</span>
+<span class="token annotation punctuation">@Scope</span><span class="token punctuation">(</span><span class="token class-name">WebApplicationContext</span><span class="token punctuation">.</span>SCOPE_SESSION<span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token annotation punctuation">@interface</span> <span class="token class-name">SessionScope</span> <span class="token punctuation">{</span>
+
+	<span class="token comment">/**
+	 * Alias for {@link Scope#proxyMode}.
+	 * &lt;p>Defaults to {@link ScopedProxyMode#TARGET_CLASS}.
+	 */</span>
+	<span class="token annotation punctuation">@AliasFor</span><span class="token punctuation">(</span>annotation <span class="token operator">=</span> <span class="token class-name">Scope</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+	<span class="token class-name">ScopedProxyMode</span> <span class="token function">proxyMode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token class-name">ScopedProxyMode</span><span class="token punctuation">.</span>TARGET_CLASS<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Target</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token class-name">ElementType</span><span class="token punctuation">.</span>TYPE<span class="token punctuation">,</span> <span class="token class-name">ElementType</span><span class="token punctuation">.</span>METHOD<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Retention</span><span class="token punctuation">(</span><span class="token class-name">RetentionPolicy</span><span class="token punctuation">.</span>RUNTIME<span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Documented</span>
+<span class="token annotation punctuation">@Scope</span><span class="token punctuation">(</span><span class="token class-name">WebApplicationContext</span><span class="token punctuation">.</span>SCOPE_REQUEST<span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token annotation punctuation">@interface</span> <span class="token class-name">RequestScope</span> <span class="token punctuation">{</span>
+
+	<span class="token comment">/**
+	 * Alias for {@link Scope#proxyMode}.
+	 * &lt;p>Defaults to {@link ScopedProxyMode#TARGET_CLASS}.
+	 */</span>
+	<span class="token annotation punctuation">@AliasFor</span><span class="token punctuation">(</span>annotation <span class="token operator">=</span> <span class="token class-name">Scope</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+	<span class="token class-name">ScopedProxyMode</span> <span class="token function">proxyMode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token class-name">ScopedProxyMode</span><span class="token punctuation">.</span>TARGET_CLASS<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span></code></pre></div>
+<hr>
+<p>다음은 마지막으로 <code class="language-text">Interface</code>와 <code class="language-text">ProxyMode</code>를 통한 <code class="language-text">Bean 생성시</code> 유의해야할 사항에 대해 알아 보겠습니다  </p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">ProtoInterface</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ProtoInterfaceImpl</span> <span class="token keyword">implements</span> <span class="token class-name">ProtoInterface</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Getter</span>
+    <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">ProtoInterfaceImpl</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">ProtoInterfaceImpl</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><code class="language-text">Interface</code>를 생성하고 구현체인 <code class="language-text">ProfoInterfaceImpl</code>을 생성하였습니다<br>
+<br/></p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ProtoInterFaceBean</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Bean</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"ProtoInterfaceProxy"</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@Scope</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"prototype"</span><span class="token punctuation">,</span> proxyMode <span class="token operator">=</span> <span class="token class-name">ScopedProxyMode</span><span class="token punctuation">.</span>TARGET_CLASS<span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">ProtoInterface</span> <span class="token function">getProtoInterfaceProxyBean</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ProtoInterfaceImpl</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Bean</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"ProtoInterface"</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@Scope</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"prototype"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">ProtoInterface</span> <span class="token function">getProtoInterfaceBean</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ProtoInterfaceImpl</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>그리고 다음과 같이 각각 일반 Prototype Bean 한개와 ProxyMode의 Bean을 생성합니다<br>
+<strong>Bean에서는 return은 Interface로 하지만 실제적으론 구현체인 ProtoInterfaceImpl을 생성하여 return 하였습니다</strong>  </p>
+<br/>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@Service</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ScopeService</span> <span class="token punctuation">{</span>
+    
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token annotation punctuation">@Qualifier</span><span class="token punctuation">(</span><span class="token string">"ProtoInterface"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span>  <span class="token class-name">ProtoInterface</span> protoInterface<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token annotation punctuation">@Qualifier</span><span class="token punctuation">(</span><span class="token string">"ProtoInterfaceProxy"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span>  <span class="token class-name">ProtoInterface</span> protoInterfaceProxy<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">scopeTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"[============== ProtoInterfaceImpl Prototype Bean Return ProtoInterface ==============]"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"Bean Is ProtoInterface Instranceof : "</span> <span class="token operator">+</span> <span class="token punctuation">(</span>protoInterface <span class="token keyword">instanceof</span> <span class="token class-name">ProtoInterface</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"Bean Is ProtoInterfaceImpl Instranceof : "</span> <span class="token operator">+</span> <span class="token punctuation">(</span>protoInterface <span class="token keyword">instanceof</span> <span class="token class-name">ProtoInterfaceImpl</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+                log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"[============== ProtoInterfaceImpl Prototype Proxy Bean Return ProtoInterface ==============]"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"Proxy Bean Is ProtoInterface Instranceof : "</span> <span class="token operator">+</span> <span class="token punctuation">(</span>protoInterfaceProxy <span class="token keyword">instanceof</span> <span class="token class-name">ProtoInterface</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"Proxy Bean Is ProtoInterfaceImpl Instranceof : "</span> <span class="token operator">+</span> <span class="token punctuation">(</span>protoInterfaceProxy <span class="token keyword">instanceof</span> <span class="token class-name">ProtoInterfaceImpl</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>그 다음 다음과 같이 각각의 Bean을 DI 받아서 <code class="language-text">instanceof</code>로 확인하면 어떻게 될까요?  </p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 7.3%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAQUlEQVQI1zXIOw6AMAwEUY6DnRRx4o/E/e81mILiabR7eTgR2YxtizEmZsZ0R89Bu9L7+6qyFZHBs42lyi2Cdn8v5csfPzNzuPAAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="interface-bean"
+        title="interface-bean"
+        src="/static/71c473744e3d05c500b60e25f1304cb8/db2b8/interface-bean.png"
+        srcset="/static/71c473744e3d05c500b60e25f1304cb8/1df8f/interface-bean.png 273w,
+/static/71c473744e3d05c500b60e25f1304cb8/53236/interface-bean.png 545w,
+/static/71c473744e3d05c500b60e25f1304cb8/db2b8/interface-bean.png 1090w,
+/static/71c473744e3d05c500b60e25f1304cb8/90122/interface-bean.png 1635w,
+/static/71c473744e3d05c500b60e25f1304cb8/d40c8/interface-bean.png 2000w"
+        sizes="(max-width: 1090px) 100vw, 1090px"
+        loading="lazy"
+      />
+    </span><br>
+일반적으로 생성된 Bean의 경우 당연하게도 interface와 구현체 모두 <code class="language-text">true</code>로 확인이 가능합니다  </p>
+<br/>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 6.75%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAN0lEQVQI103KQQoAIBBC0a6TYjOL7n81EyJo8RA+jqryJUsySWstMw1ZZJn+ft3tip3WgGfgcwDAch6BugKowwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="interface-proxy-bean"
+        title="interface-proxy-bean"
+        src="/static/fdf8727cb7d63613e91af484bbdd7326/db2b8/interface-proxy-bean.png"
+        srcset="/static/fdf8727cb7d63613e91af484bbdd7326/1df8f/interface-proxy-bean.png 273w,
+/static/fdf8727cb7d63613e91af484bbdd7326/53236/interface-proxy-bean.png 545w,
+/static/fdf8727cb7d63613e91af484bbdd7326/db2b8/interface-proxy-bean.png 1090w,
+/static/fdf8727cb7d63613e91af484bbdd7326/90122/interface-proxy-bean.png 1635w,
+/static/fdf8727cb7d63613e91af484bbdd7326/d40c8/interface-proxy-bean.png 2000w"
+        sizes="(max-width: 1090px) 100vw, 1090px"
+        loading="lazy"
+      />
+    </span><br>
+하지만 Proxy의 한번 경유하는 특성으로 <code class="language-text">Return Type</code>과 같은 interface에서만 <code class="language-text">true</code>로 나온 것을 확인할 수 있습니다  </p>
+<br/>
+<p>이러한 문제로 ProxyMode가 걸린 Bean의 경우 주의가 필요합니다  </p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ProtoInterFaceBean</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+    <span class="token annotation punctuation">@Bean</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"ProtoInterfaceProxySafe"</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@Scope</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"prototype"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">ProtoInterfaceImpl</span> <span class="token function">getProtoInterfaceProxySafeBean</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ProtoInterfaceImpl</span><span class="token punctuation">(</span><span class="token string">"Safe Bean"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>다음과 같이 간단하게 <code class="language-text">Return Type</code>을 맞춰 주는 것으로 해결 할 수 있습니다  </p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 8.05%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAbklEQVQI1y2NSw7DQAhDcx1olPkDM1VS9f6Hcp0qi7cwth6be0KvHaqK1hoOd4gN6CDh0FLQe0dEINi910LMiZP5y31jXx5SStjMEo/tL6y14jCDDD64cYPmjEH5WhMfii+SS0Yltu94iUAebscP/Ms/UXXIG7IAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="interface-proxy-bean-safe"
+        title="interface-proxy-bean-safe"
+        src="/static/517ec546dca4dd99b7bd7e5a1381714e/db2b8/interface-proxy-bean-safe.png"
+        srcset="/static/517ec546dca4dd99b7bd7e5a1381714e/1df8f/interface-proxy-bean-safe.png 273w,
+/static/517ec546dca4dd99b7bd7e5a1381714e/53236/interface-proxy-bean-safe.png 545w,
+/static/517ec546dca4dd99b7bd7e5a1381714e/db2b8/interface-proxy-bean-safe.png 1090w,
+/static/517ec546dca4dd99b7bd7e5a1381714e/90122/interface-proxy-bean-safe.png 1635w,
+/static/517ec546dca4dd99b7bd7e5a1381714e/d40c8/interface-proxy-bean-safe.png 2000w"
+        sizes="(max-width: 1090px) 100vw, 1090px"
+        loading="lazy"
+      />
+    </span>  </p>
+<br/>
+<hr>
+<p>이것으로 Bean의 생명주기 Scope의 대한 포스팅을 마무리 합니다  </p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 498px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 75.3012048192771%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAwACBP/EABUBAQEAAAAAAAAAAAAAAAAAAAIB/9oADAMBAAIQAxAAAAEWyhnPPFf/xAAZEAADAQEBAAAAAAAAAAAAAAAAAQIDEQT/2gAIAQEAAQUC8/WWrR3UnaZHrTXVJ//EABYRAQEBAAAAAAAAAAAAAAAAAAAREv/aAAgBAwEBPwGMv//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAECAQE/Aar/xAAbEAADAAIDAAAAAAAAAAAAAAAAARECITFBkf/aAAgBAQAGPwKQUxOjjcgqjbXh/8QAGxAAAwEAAwEAAAAAAAAAAAAAAREhABAxQVH/2gAIAQEAAT8hZMlWfcOoiZ4NNidR4MIH/BkAHO5n/9oADAMBAAIAAwAAABCk/wD/xAAWEQADAAAAAAAAAAAAAAAAAAAAARH/2gAIAQMBAT8QmCQ//8QAFhEAAwAAAAAAAAAAAAAAAAAAARBR/9oACAECAQE/EDS//8QAGxABAQACAwEAAAAAAAAAAAAAAREAITFBYVH/2gAIAQEAAT8QacgbDa4nmNShqXd68xQNJKMPjhApmI7obctAiDSL7hZdKrNtz//Z'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="good"
+        title="good"
+        src="/static/7ee67e2b0778a2bed4f1e40c32f08b4d/58a9f/good-image.jpg"
+        srcset="/static/7ee67e2b0778a2bed4f1e40c32f08b4d/0076f/good-image.jpg 273w,
+/static/7ee67e2b0778a2bed4f1e40c32f08b4d/58a9f/good-image.jpg 498w"
+        sizes="(max-width: 498px) 100vw, 498px"
+        loading="lazy"
+      />
+    </span>  </p>
+<p>Scope와 관련해서 이것저것 애매한 사항이 많았는데<br>
+이렇게 한번 정리하면서 소스를 짜고 보니 맘속까지 후련해 졌습니다<br>
+이 포스팅이 저와 같은 궁금증을 가지신 분들에서 도움이 되길 바립니다  </p></div><div class="social-share"><a class="resp-sharing-button__link" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook"><div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"></path></svg></div><span class="service-label">Share on Facebook</span></div></a><a class="resp-sharing-button__link" href="#" rel="noopener" aria-label="Share on Twitter"><div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"></path></svg></div><span class="service-label">Share on Twitter</span></div></a></div><hr class="custom-hr"/><div class="bio"><div class="author"><div class="author-description"><div class="author-image gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:72px;height:72px;border-radius:100%"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAEz0lEQVQ4ywHEBDv7AHuZjJKqtnNpb0AuJ05APoJmUquIaayMb6+TfbOYhridibmdh72fhr2ehLeYfp6AaX9jUJJ1X5N3YX5kUgB+m5CQqbSPmKh3dm1dTEuRfXOxjXC6mn67n4rBpZDHq5TLrZXOr5XPsJTSspbWtZjVtJbUtJbSspbNrpMAiJaFiKOxlJ2vnrSkjo2L69rY0qyEwZFh0KZ54LWF5LuL6MOS6MCO6sKQ6sOR68mZ5sGU37iN2rWK0KyGAI+Qj4ufr5yitpisl42kqcW2t9KoetanbrKMYa6GXfHHj//hpPzYl/rRkfzVkfLUlOS+hPnOju3Agua4fACpqLunwN6krMSbs8GGorjMytLjvZCXa0dNLR8+IhRILx91VzzNp3P20JT805Xy0qTlx5/6z5DzyY7twIYApZaNubzApqOuucjLqsPU0MvWy6WLYTkpVTQlQykbNR8TLBMKVjcj8NOe/eey/OKw/dym/Nae/N6p+9ikAJ+Zn5eNjGxaVqqgm46LjdPLzpWAfTslIjkmIS4cFC8cEjgjFi4VCLeWb//msfjYpvrTn/rVn/jUn/rYpACcqrnf5euEeoKxsLior7jMvb1pYWYVDxMmHyQsHRszHxYzGxEpEQexjWb/2J750pj91Jz90pj4z5X/1Z4Av8K53Orwj4qWvMHIqLO+18zPkIOCYUxNlW1kwI1+pnNeo2xSlmE+ZkYxdFZCd1dAelpCeltBeltAfF1DAM3r/6/K4oeDkaSipZOUmImBhHtlY9y0q8maju+1od2egd2hgeCZaFQxID0pHEguH0kwIEQrHEwyH0MsGwCtsL2jl5RiVltPTmJRbJFxdIBeVFbqu7HxvK3fqJjpoXz9waXHiWA8JBU/JhU3IRM2IBJEKBY7IxJQLxkAioWDZ2ZsR0JMV1tjYHeIdHeBfmpexp2S9sO31ZWE2Itq7KuDgls+JRkSPSkeJhcPLBwSOiUWLx0RUDMfAEpPVD1FU09VXpSnoJarpWprb39hTpdyYMmfmcN5b8x6WcSGTrWJWlhCL25RN2ZKLVE4IXZUL2ZGKa6CTQBRWmVFS1QgIy04P0k1PUhVSUNNQD1OOzWuin22i33JhlyDTymtjmb2yY7+1Jn1zI/swYbtw4bku3zyx4kAgJSgHCEsGRogJSEoLSEiVkM6OCwsNSUji2FNtJePuIRmXjsoRDQnak80eVw/poVf8syV+tOX7ceL9M6RAFhUVEhBQkM2MUQ2My0fHiIXFywfHx0TE2E1HcGUeK+JeiseGRgNBxkNCR0QDx0PDE87LMCdcfzTlPjRmQAhFBM1JCExIR4kFhQhFBMgFRMaExIJBwgeDg1TJiUoFxgKBwUUEA4YEg8jFxYdFBIZDgwmEwyhflP/2pkAKx8eJhoYHBEPHxQSHBMTGxEQGRIQDg0NEQsOQAMHGwcGGBEQHhYUFhEOFA4MEAwKGBEOHBANMyAUwqFzAB0RDx8UEBQLCBAMCRkUFCAWFB0SERcQDQwQESkNDyMOCxsSER0SEhkSEBgPDQoHBxIOCx8TECATDyoaEQAbEAwUCwgOCAUIBQMXEREiFhUbEA4WDQsSDw8bDg8kEg4eExAcEhEcExEaEA8LCAgJCAkTDw0hFRArHBKIIAQPpy4qsAAAAABJRU5ErkJggg==" alt="deokhwa kim" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/3fc5562e6ad25d80970b53e8e9afab0c/f4007/profile.png 1x,
+/static/3fc5562e6ad25d80970b53e8e9afab0c/c608d/profile.png 1.5x,
+/static/3fc5562e6ad25d80970b53e8e9afab0c/d10ce/profile.png 2x" /><img loading="lazy" width="72" height="72" srcset="/static/3fc5562e6ad25d80970b53e8e9afab0c/f4007/profile.png 1x,
+/static/3fc5562e6ad25d80970b53e8e9afab0c/c608d/profile.png 1.5x,
+/static/3fc5562e6ad25d80970b53e8e9afab0c/d10ce/profile.png 2x" src="/static/3fc5562e6ad25d80970b53e8e9afab0c/f4007/profile.png" alt="deokhwa kim" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><div class="author-name"><span class="author-name-prefix">Written by</span><a class="author-name-content" href="/about"><span>@<!-- -->deokhwa kim</span></a><div class="author-introduction">검색엔진 &amp; Spring &amp; Data를 다루고 있습니다 / 요즘은 Kotlin, Reactive Programing에 관심이 많습니다</div><p class="author-socials"><a href="https://github.com/renuevo">GitHub</a><a href="https://www.facebook.com/deokhwa.kim.75">Facebook</a></p></div></div></div></div><ul class="navigator"><li><a rel="prev" href="/data-science/facebook-cambridge-analytica/">← <!-- -->[Notion] 페이스북을 활용한 트럼프의 대선 전략과 LSA 알고리즘</a></li><li></li></ul><div><div id="disqus_thread"></div></div><footer class="footer">©<a href="https://github.com/renuevo">renuevo</a>, Built with<!-- --> <a href="https://github.com/JaeYeopHan/gatsby-starter-bee">Gatsby-starter-bee</a></footer></div></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-147163050-1', 'auto', {});
+      
+      
+      
+      
+      
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/spring/scope/spring-scope/";window.webpackCompilationHash="ad5f8d65f0ae6e79aaae";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-41361b996b071ccacf46.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-d8ff3142cebda72f471f.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-2047161ab81a7fa0cbea.js"],"component---src-pages-404-js":["/component---src-pages-404-js-3ef9908c8ca2bbec57a2.js"],"component---src-pages-about-js":["/component---src-pages-about-js-00cc2684b605b19b0688.js"],"component---src-pages-index-js":["/component---src-pages-index-js-c844c12cd7f5589a4a4b.js"]};/*]]>*/</script><script src="/component---src-templates-blog-post-js-2047161ab81a7fa0cbea.js" async=""></script><script src="/styles-a61f89ff58cea193353c.js" async=""></script><script src="/commons-e3839588b8ec4f06d1d2.js" async=""></script><script src="/app-41361b996b071ccacf46.js" async=""></script><script src="/webpack-runtime-db7c9e59d855b4322330.js" async=""></script></body></html>
