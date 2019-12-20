@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[renuevo blog]]></title><description><![CDATA[development]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 20 Dec 2019 14:51:50 GMT</lastBuildDate><item><title><![CDATA[[Spring] Spring의 Scope와 ProxyMode 알아보기]]></title><description><![CDATA[Spring Scope Spring Bean을 생성시 적용되는 Scope에 대해 알아보려 합니다
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[renuevo blog]]></title><description><![CDATA[development]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 20 Dec 2019 15:06:28 GMT</lastBuildDate><item><title><![CDATA[[Spring] Spring의 Scope와 ProxyMode 알아보기]]></title><description><![CDATA[Spring Scope Spring Bean을 생성시 적용되는 Scope에 대해 알아보려 합니다
 아래 모든 소스의 제 Github에서 확인 하실 수 있습니다   해당 포스팅은 내부적 구현 요소의 대해 설명에 집중하며 Scope…]]></description><link>https://renuevo.github.io/spring/scope/spring-scope/</link><guid isPermaLink="false">https://renuevo.github.io/spring/scope/spring-scope/</guid><pubDate>Fri, 20 Dec 2019 00:00:00 GMT</pubDate><content:encoded>&lt;h1 id=&quot;spring-scope&quot;&gt;&lt;a href=&quot;#spring-scope&quot; aria-label=&quot;spring scope permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Spring Scope&lt;/h1&gt;
 &lt;p&gt;&lt;em&gt;Spring Bean을 생성시 적용되는 Scope에 대해 알아보려 합니다&lt;/em&gt;
 아래 모든 소스의 제 &lt;a href=&quot;https://github.com/renuevo/spring-boot-in-action/tree/master/spring-boot-scope-in-action&quot;&gt;Github&lt;/a&gt;에서 확인 하실 수 있습니다  &lt;/p&gt;
@@ -66,23 +66,22 @@ Spring의 내부 &lt;code class=&quot;language-text&quot;&gt;ConfigurableBeanFac
 &lt;p&gt;그 후 ScopeService 만들어서 각각의 Bean을 DI하고 각각의 Single 인스턴스를 출력하면 다음과 같습니다  &lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 9.144385026737968%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAZ0lEQVQI1zVMSQ6AIBDzO4qCMMxiPBv//6JaSDw00+m2RATiCphnqChSSqjnieqOVRXbDzPspcB4jZ4Tozu40b9FcLeGpfcOpdDkQKsyBwuLhfrK0PaD/57zzI5R6TKHlNzpPcTL3AcGHT/rj+ysPQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 16.699410609037326%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAABbqAAAW6gHljkMQAAAAmUlEQVQI1z2OQQ6DIBREPQ58tIBRQIGaNE3TTVdd9P4nGQcSu3iBGYY/fxDn0PEeYi2MMbA8Hb2LZVkwzzM8M5fXMiIaWilorXmX/neQfUfnXiExYpwm7NSlFOScUWv96+M4uteh/oSIL99+zDztDYpDB2F7JwQItzDjiHVdsW0bUkoI9Nt2zWs6srQRyIPei7l3YQE31hx4Aud9YFzsntkaAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;singleton-bean&quot;
         title=&quot;singleton-bean&quot;
-        src=&quot;/static/c040bc5cc8d218d7fab901e730fa382f/db2b8/singleton-bean.png&quot;
-        srcset=&quot;/static/c040bc5cc8d218d7fab901e730fa382f/1df8f/singleton-bean.png 273w,
-/static/c040bc5cc8d218d7fab901e730fa382f/53236/singleton-bean.png 545w,
-/static/c040bc5cc8d218d7fab901e730fa382f/db2b8/singleton-bean.png 1090w,
-/static/c040bc5cc8d218d7fab901e730fa382f/90122/singleton-bean.png 1635w,
-/static/c040bc5cc8d218d7fab901e730fa382f/fa891/singleton-bean.png 1870w&quot;
-        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        src=&quot;/static/821cd584b57621f69915b0f0e69cae81/36727/singleton-bean.png&quot;
+        srcset=&quot;/static/821cd584b57621f69915b0f0e69cae81/acf4b/singleton-bean.png 173w,
+/static/821cd584b57621f69915b0f0e69cae81/fc834/singleton-bean.png 345w,
+/static/821cd584b57621f69915b0f0e69cae81/36727/singleton-bean.png 690w,
+/static/821cd584b57621f69915b0f0e69cae81/59fbd/singleton-bean.png 1018w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;
@@ -120,23 +119,22 @@ Spring의 내부 &lt;code class=&quot;language-text&quot;&gt;ConfigurableBeanFac
 &lt;p&gt;ScopeService 아까와 같이 구성해서 출력하면 다음과 같습니다&lt;br&gt;
 &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 8.32414553472988%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAbUlEQVQI1zWMaw4CIQwG9zhuSbBAyUJhE+9/qbEa/THpfH0de90ML/hoVDUkCdbCffK4LmQM5FPdObuhpbCWM+f8su+Nx2wGu3cOs05tmVaVZ1ZSSqiGm3HWivyJLNHPOdPj0CKXeG4/b8Er9t4qjz//yCmxZQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 15.560165975103734%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAABbqAAAW6gHljkMQAAAAkklEQVQI1zVOQRKDIBDzOwWcEVwEBB3toV9op///R5pFe8gkJLthByOCjpQuHh38NEGo53nuWJYFiXnO+falszBzzl0YR1hrMRgOmVJgtg2qHwy0YN93bPRqrSjMU044jqN7ipX+2RreMeJD/W0VL+4OJgR06HXK/M1730v/FwW+p9uLLFCWKMjUT155ckZRWPgDiZRhDksNTjAAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;prototype-bean&quot;
         title=&quot;prototype-bean&quot;
-        src=&quot;/static/1f32f2741075eed9ae82f5adfa66824a/db2b8/prototype-bean.png&quot;
-        srcset=&quot;/static/1f32f2741075eed9ae82f5adfa66824a/1df8f/prototype-bean.png 273w,
-/static/1f32f2741075eed9ae82f5adfa66824a/53236/prototype-bean.png 545w,
-/static/1f32f2741075eed9ae82f5adfa66824a/db2b8/prototype-bean.png 1090w,
-/static/1f32f2741075eed9ae82f5adfa66824a/90122/prototype-bean.png 1635w,
-/static/1f32f2741075eed9ae82f5adfa66824a/1842b/prototype-bean.png 1814w&quot;
-        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        src=&quot;/static/bfbb6a315a27a000b66514d1170bd3fc/36727/prototype-bean.png&quot;
+        srcset=&quot;/static/bfbb6a315a27a000b66514d1170bd3fc/acf4b/prototype-bean.png 173w,
+/static/bfbb6a315a27a000b66514d1170bd3fc/fc834/prototype-bean.png 345w,
+/static/bfbb6a315a27a000b66514d1170bd3fc/36727/prototype-bean.png 690w,
+/static/bfbb6a315a27a000b66514d1170bd3fc/d4d70/prototype-bean.png 964w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;
@@ -157,23 +155,22 @@ Spring의 내부 &lt;code class=&quot;language-text&quot;&gt;ConfigurableBeanFac
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 7.721796276013143%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAb0lEQVQI1yXNWQ7DMAgE0Fyn8SbVbI6tfuf+F5pM3I8RQsDj8FDEqNDuKKUgpQQzR1bFacawquB0x0cEtTVEBLp07hnGGJhzQjn7sT/MBOYV8jWC+Q/yOG+MeeE3G+xoBNdaEALKZ9e4Nhqc39x7AAPdQCMxGHdSAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 14.418125643666324%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAABbqAAAW6gHljkMQAAAAoUlEQVQI10WOwQ7CIBBE+ztdrIUChWKhlWg8e9H//5JxiiYeNkOG3ZfXibWQeYY4BxkGjOMIy26aJhhj4NjHGDFzJ6XEv29/7DjOmTdKBEopCLOTZYHkDElMwpx1qLUisztAzjvs+xXbtrUpJSOtK568e10ueJfCd8TQ9xBCu7+hbYZGm2YSwtwstNYIBIcQaOlbeu5Xmt+ZD4Jv3uP0A34Aia9hDktqpgcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;prototype-bean&quot;
         title=&quot;prototype-bean&quot;
-        src=&quot;/static/286bc8a9d72b702475c23bd782d44a28/db2b8/prototype-getbean.png&quot;
-        srcset=&quot;/static/286bc8a9d72b702475c23bd782d44a28/1df8f/prototype-getbean.png 273w,
-/static/286bc8a9d72b702475c23bd782d44a28/53236/prototype-getbean.png 545w,
-/static/286bc8a9d72b702475c23bd782d44a28/db2b8/prototype-getbean.png 1090w,
-/static/286bc8a9d72b702475c23bd782d44a28/90122/prototype-getbean.png 1635w,
-/static/286bc8a9d72b702475c23bd782d44a28/7bc83/prototype-getbean.png 1826w&quot;
-        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        src=&quot;/static/c3da605c201130bf54fb1011f84cf71a/36727/prototype-getbean.png&quot;
+        srcset=&quot;/static/c3da605c201130bf54fb1011f84cf71a/acf4b/prototype-getbean.png 173w,
+/static/c3da605c201130bf54fb1011f84cf71a/fc834/prototype-getbean.png 345w,
+/static/c3da605c201130bf54fb1011f84cf71a/36727/prototype-getbean.png 690w,
+/static/c3da605c201130bf54fb1011f84cf71a/4c710/prototype-getbean.png 971w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;
@@ -184,7 +181,7 @@ Spring의 내부 &lt;code class=&quot;language-text&quot;&gt;ConfigurableBeanFac
 이 스코프 특성들은 각각 사용하거나 Prototype에서 Singleton을 가지고 사용하는 것에는 문제가 없습니다  &lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 840px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -194,11 +191,12 @@ Spring의 내부 &lt;code class=&quot;language-text&quot;&gt;ConfigurableBeanFac
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;prototype-in-singleton&quot;
         title=&quot;prototype-in-singleton&quot;
-        src=&quot;/static/0960ab756dfd4f678c1f30edd0f890e2/04a72/prototype-in-singleton.png&quot;
-        srcset=&quot;/static/0960ab756dfd4f678c1f30edd0f890e2/1df8f/prototype-in-singleton.png 273w,
-/static/0960ab756dfd4f678c1f30edd0f890e2/53236/prototype-in-singleton.png 545w,
+        src=&quot;/static/0960ab756dfd4f678c1f30edd0f890e2/36727/prototype-in-singleton.png&quot;
+        srcset=&quot;/static/0960ab756dfd4f678c1f30edd0f890e2/acf4b/prototype-in-singleton.png 173w,
+/static/0960ab756dfd4f678c1f30edd0f890e2/fc834/prototype-in-singleton.png 345w,
+/static/0960ab756dfd4f678c1f30edd0f890e2/36727/prototype-in-singleton.png 690w,
 /static/0960ab756dfd4f678c1f30edd0f890e2/04a72/prototype-in-singleton.png 840w&quot;
-        sizes=&quot;(max-width: 840px) 100vw, 840px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;  &lt;/p&gt;
@@ -207,7 +205,7 @@ Spring의 내부 &lt;code class=&quot;language-text&quot;&gt;ConfigurableBeanFac
 &lt;p&gt;&lt;strong&gt;반대로 Singleton에서 Prototype을 가지고 있는 경우에는 의도한 것과 다른 결과를 낼 수 있습니다&lt;/strong&gt;&lt;br&gt;
 &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 764px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -217,11 +215,12 @@ Spring의 내부 &lt;code class=&quot;language-text&quot;&gt;ConfigurableBeanFac
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;singleton-in-prototype&quot;
         title=&quot;singleton-in-prototype&quot;
-        src=&quot;/static/266c2b65e173fd9cad227a9bd6e94aa8/578a5/singleton-in-prototype.png&quot;
-        srcset=&quot;/static/266c2b65e173fd9cad227a9bd6e94aa8/1df8f/singleton-in-prototype.png 273w,
-/static/266c2b65e173fd9cad227a9bd6e94aa8/53236/singleton-in-prototype.png 545w,
+        src=&quot;/static/266c2b65e173fd9cad227a9bd6e94aa8/36727/singleton-in-prototype.png&quot;
+        srcset=&quot;/static/266c2b65e173fd9cad227a9bd6e94aa8/acf4b/singleton-in-prototype.png 173w,
+/static/266c2b65e173fd9cad227a9bd6e94aa8/fc834/singleton-in-prototype.png 345w,
+/static/266c2b65e173fd9cad227a9bd6e94aa8/36727/singleton-in-prototype.png 690w,
 /static/266c2b65e173fd9cad227a9bd6e94aa8/578a5/singleton-in-prototype.png 764w&quot;
-        sizes=&quot;(max-width: 764px) 100vw, 764px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;  &lt;/p&gt;
@@ -242,23 +241,23 @@ Spring의 내부 &lt;code class=&quot;language-text&quot;&gt;ConfigurableBeanFac
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 7.672764227642276%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAb0lEQVQI1z2MQRYCIQxD5zoWGVpAmAFE7n+pGFy4+C9N8pojpoBEwmlwzuH0JzQlSDSIEVXI9ryf3sOoyizn/Cex36qmOO4W0UiywkH5Pbx6x+O6IDepFbJ9LQgcWmthzjf5oI+OUgo6+zkn2hj4Ar/HQAv27VSJAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 13.550135501355015%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAABbqAAAW6gHljkMQAAAAm0lEQVQI1zVOWw6DMAzjOKwVhZa+WxBI077Y7n8bz+3YR+TYcSwPYp4htEZDKSWUUpi5/0drg2VZYO2K1RhyDXNj9/DW7mqa8BhHDKJkiH2HSBGSYkwJ53mi1oKd+m+vOI4DIXiUUrrW+LZV5JzxihEfei5mDcJZiBAg2KA1dM71oMzgzOdIs/eeYeFuantI0xM9gfjkz0V8k38BWqBhn4+MKd0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;singleton-getbean-and-getPrototype&quot;
         title=&quot;singleton-getbean-and-getPrototype&quot;
-        src=&quot;/static/ed716db35766e0c25d8cbecc1093cb08/db2b8/singleton-getbean-and-getPrototype.png&quot;
-        srcset=&quot;/static/ed716db35766e0c25d8cbecc1093cb08/1df8f/singleton-getbean-and-getPrototype.png 273w,
-/static/ed716db35766e0c25d8cbecc1093cb08/53236/singleton-getbean-and-getPrototype.png 545w,
-/static/ed716db35766e0c25d8cbecc1093cb08/db2b8/singleton-getbean-and-getPrototype.png 1090w,
-/static/ed716db35766e0c25d8cbecc1093cb08/90122/singleton-getbean-and-getPrototype.png 1635w,
-/static/ed716db35766e0c25d8cbecc1093cb08/66f1a/singleton-getbean-and-getPrototype.png 1968w&quot;
-        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        src=&quot;/static/d0f2c302e63760cdce23db5d929623b8/36727/singleton-getbean-and-getPrototype.png&quot;
+        srcset=&quot;/static/d0f2c302e63760cdce23db5d929623b8/acf4b/singleton-getbean-and-getPrototype.png 173w,
+/static/d0f2c302e63760cdce23db5d929623b8/fc834/singleton-getbean-and-getPrototype.png 345w,
+/static/d0f2c302e63760cdce23db5d929623b8/36727/singleton-getbean-and-getPrototype.png 690w,
+/static/d0f2c302e63760cdce23db5d929623b8/17fa4/singleton-getbean-and-getPrototype.png 1035w,
+/static/d0f2c302e63760cdce23db5d929623b8/38e05/singleton-getbean-and-getPrototype.png 1107w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;br&gt;
@@ -295,23 +294,23 @@ Spring의 내부 &lt;code class=&quot;language-text&quot;&gt;ConfigurableBeanFac
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 7.250000000000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAR0lEQVQI1w3Luw2AMAwAUdaBgHD8iaNQULH/SIerJ510m7njHngIvQutnYgIV/XDjKPcy7vaWovMJCJQ1fqcnJOn/MbgNeUH65sf+tR0sSEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 12.244897959183675%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABbqAAAW6gHljkMQAAAAc0lEQVQI1x1LOQ6DMBDkPRtw8LURyGfhig4pRf7/kMmYYjT3Is5BQoB4j9e2wVoLT+2YxxgRNUJVyfr4qZXZ7CcC9zt/73WFIRY5T0jOkJQgxiCRxxiotaL3jlIK8oMM/Sgas9Yayuz5u48DX35+3FzB4w8srUHZPMgO7wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;prototype-proxy-bean&quot;
         title=&quot;prototype-proxy-bean&quot;
-        src=&quot;/static/93465e05d35f2e9d5ca48b03a1a75baf/db2b8/prototype-proxy-bean.png&quot;
-        srcset=&quot;/static/93465e05d35f2e9d5ca48b03a1a75baf/1df8f/prototype-proxy-bean.png 273w,
-/static/93465e05d35f2e9d5ca48b03a1a75baf/53236/prototype-proxy-bean.png 545w,
-/static/93465e05d35f2e9d5ca48b03a1a75baf/db2b8/prototype-proxy-bean.png 1090w,
-/static/93465e05d35f2e9d5ca48b03a1a75baf/90122/prototype-proxy-bean.png 1635w,
-/static/93465e05d35f2e9d5ca48b03a1a75baf/d40c8/prototype-proxy-bean.png 2000w&quot;
-        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        src=&quot;/static/6bad3e48c746c95e745dd2c885e88857/36727/prototype-proxy-bean.png&quot;
+        srcset=&quot;/static/6bad3e48c746c95e745dd2c885e88857/acf4b/prototype-proxy-bean.png 173w,
+/static/6bad3e48c746c95e745dd2c885e88857/fc834/prototype-proxy-bean.png 345w,
+/static/6bad3e48c746c95e745dd2c885e88857/36727/prototype-proxy-bean.png 690w,
+/static/6bad3e48c746c95e745dd2c885e88857/17fa4/prototype-proxy-bean.png 1035w,
+/static/6bad3e48c746c95e745dd2c885e88857/a300b/prototype-proxy-bean.png 1176w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;br&gt;
@@ -406,23 +405,23 @@ Spring의 내부 &lt;code class=&quot;language-text&quot;&gt;ConfigurableBeanFac
 &lt;p&gt;그 다음 다음과 같이 각각의 Bean을 DI 받아서 &lt;code class=&quot;language-text&quot;&gt;instanceof&lt;/code&gt;로 확인하면 어떻게 될까요?  &lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 7.3%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAQUlEQVQI1zXIOw6AMAwEUY6DnRRx4o/E/e81mILiabR7eTgR2YxtizEmZsZ0R89Bu9L7+6qyFZHBs42lyi2Cdn8v5csfPzNzuPAAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 12.133891213389122%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABbqAAAW6gHljkMQAAAAbklEQVQI1zXNWw6FIAwEUNdTikB5RFGQH3P3v6K59fVx0nQyaScSAaUEihHGWkgIEM0uOWeUUp6pnayi9j5J96B97/2NmTHRuoL2HbRVsHNoraHWit47xhg4jo6mfsuCUwLcPIP1sX1dRz7GGPwBAS0/zqUAktEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;interface-bean&quot;
         title=&quot;interface-bean&quot;
-        src=&quot;/static/71c473744e3d05c500b60e25f1304cb8/db2b8/interface-bean.png&quot;
-        srcset=&quot;/static/71c473744e3d05c500b60e25f1304cb8/1df8f/interface-bean.png 273w,
-/static/71c473744e3d05c500b60e25f1304cb8/53236/interface-bean.png 545w,
-/static/71c473744e3d05c500b60e25f1304cb8/db2b8/interface-bean.png 1090w,
-/static/71c473744e3d05c500b60e25f1304cb8/90122/interface-bean.png 1635w,
-/static/71c473744e3d05c500b60e25f1304cb8/d40c8/interface-bean.png 2000w&quot;
-        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        src=&quot;/static/d39297ac0f81d66d39fc719c111f9b66/36727/interface-bean.png&quot;
+        srcset=&quot;/static/d39297ac0f81d66d39fc719c111f9b66/acf4b/interface-bean.png 173w,
+/static/d39297ac0f81d66d39fc719c111f9b66/fc834/interface-bean.png 345w,
+/static/d39297ac0f81d66d39fc719c111f9b66/36727/interface-bean.png 690w,
+/static/d39297ac0f81d66d39fc719c111f9b66/17fa4/interface-bean.png 1035w,
+/static/d39297ac0f81d66d39fc719c111f9b66/d248c/interface-bean.png 1195w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;br&gt;
@@ -430,23 +429,23 @@ Spring의 내부 &lt;code class=&quot;language-text&quot;&gt;ConfigurableBeanFac
 &lt;br/&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 6.75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAN0lEQVQI103KQQoAIBBC0a6TYjOL7n81EyJo8RA+jqryJUsySWstMw1ZZJn+ft3tip3WgGfgcwDAch6BugKowwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 10.992616899097621%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABbqAAAW6gHljkMQAAAAbUlEQVQI1z2OSw7EIAxDe50GaIEEVQzfbe9/IE/KqLN4suREtjcKAcQCigHWWsQY/6SUFqJczPjoL6sy/+4igqCe935hjMFGOYNqxa7qjgO9d7TWUErBnBNjjOX1WnBrQD5PGC12D86tES9P4Bf6ID/JgqCTQgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;interface-proxy-bean&quot;
         title=&quot;interface-proxy-bean&quot;
-        src=&quot;/static/fdf8727cb7d63613e91af484bbdd7326/db2b8/interface-proxy-bean.png&quot;
-        srcset=&quot;/static/fdf8727cb7d63613e91af484bbdd7326/1df8f/interface-proxy-bean.png 273w,
-/static/fdf8727cb7d63613e91af484bbdd7326/53236/interface-proxy-bean.png 545w,
-/static/fdf8727cb7d63613e91af484bbdd7326/db2b8/interface-proxy-bean.png 1090w,
-/static/fdf8727cb7d63613e91af484bbdd7326/90122/interface-proxy-bean.png 1635w,
-/static/fdf8727cb7d63613e91af484bbdd7326/d40c8/interface-proxy-bean.png 2000w&quot;
-        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        src=&quot;/static/4b2a5794a8f7ba770d0768d80255eafe/36727/interface-proxy-bean.png&quot;
+        srcset=&quot;/static/4b2a5794a8f7ba770d0768d80255eafe/acf4b/interface-proxy-bean.png 173w,
+/static/4b2a5794a8f7ba770d0768d80255eafe/fc834/interface-proxy-bean.png 345w,
+/static/4b2a5794a8f7ba770d0768d80255eafe/36727/interface-proxy-bean.png 690w,
+/static/4b2a5794a8f7ba770d0768d80255eafe/17fa4/interface-proxy-bean.png 1035w,
+/static/4b2a5794a8f7ba770d0768d80255eafe/53d32/interface-proxy-bean.png 1219w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;br&gt;
@@ -466,23 +465,23 @@ Spring의 내부 &lt;code class=&quot;language-text&quot;&gt;ConfigurableBeanFac
 &lt;p&gt;다음과 같이 간단하게 &lt;code class=&quot;language-text&quot;&gt;Return Type&lt;/code&gt;을 맞춰 주는 것으로 해결 할 수 있습니다  &lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 8.05%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAbklEQVQI1y2NSw7DQAhDcx1olPkDM1VS9f6Hcp0qi7cwth6be0KvHaqK1hoOd4gN6CDh0FLQe0dEINi910LMiZP5y31jXx5SStjMEo/tL6y14jCDDD64cYPmjEH5WhMfii+SS0Yltu94iUAebscP/Ms/UXXIG7IAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 12.965964343598054%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAABbqAAAW6gHljkMQAAAAk0lEQVQI13WOSw6DMAxEuQ4mIT8SVKABorZZ9P7nmU5YVN108TS25bGnkxAgWsFaC+89nHMInMWUkOaEOE3UGTfOMgnsJ3LtxHhp8zaftQad7Dt6Y7CtK2qtKOVEvm94PR8oJ+ucsR8HyrLg3Y6PI5TW0D8opb50wlTCon1ITBWDR6aptqTDgJ4MIhCqoTb61v/hA31NXywOxdByAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;interface-proxy-bean-safe&quot;
         title=&quot;interface-proxy-bean-safe&quot;
-        src=&quot;/static/517ec546dca4dd99b7bd7e5a1381714e/db2b8/interface-proxy-bean-safe.png&quot;
-        srcset=&quot;/static/517ec546dca4dd99b7bd7e5a1381714e/1df8f/interface-proxy-bean-safe.png 273w,
-/static/517ec546dca4dd99b7bd7e5a1381714e/53236/interface-proxy-bean-safe.png 545w,
-/static/517ec546dca4dd99b7bd7e5a1381714e/db2b8/interface-proxy-bean-safe.png 1090w,
-/static/517ec546dca4dd99b7bd7e5a1381714e/90122/interface-proxy-bean-safe.png 1635w,
-/static/517ec546dca4dd99b7bd7e5a1381714e/d40c8/interface-proxy-bean-safe.png 2000w&quot;
-        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        src=&quot;/static/e05de13c5365acf351560c78982c3759/36727/interface-proxy-bean-safe.png&quot;
+        srcset=&quot;/static/e05de13c5365acf351560c78982c3759/acf4b/interface-proxy-bean-safe.png 173w,
+/static/e05de13c5365acf351560c78982c3759/fc834/interface-proxy-bean-safe.png 345w,
+/static/e05de13c5365acf351560c78982c3759/36727/interface-proxy-bean-safe.png 690w,
+/static/e05de13c5365acf351560c78982c3759/17fa4/interface-proxy-bean-safe.png 1035w,
+/static/e05de13c5365acf351560c78982c3759/67bc9/interface-proxy-bean-safe.png 1234w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;  &lt;/p&gt;
@@ -502,7 +501,8 @@ Spring의 내부 &lt;code class=&quot;language-text&quot;&gt;ConfigurableBeanFac
         alt=&quot;good&quot;
         title=&quot;good&quot;
         src=&quot;/static/7ee67e2b0778a2bed4f1e40c32f08b4d/58a9f/good-image.jpg&quot;
-        srcset=&quot;/static/7ee67e2b0778a2bed4f1e40c32f08b4d/0076f/good-image.jpg 273w,
+        srcset=&quot;/static/7ee67e2b0778a2bed4f1e40c32f08b4d/6f483/good-image.jpg 173w,
+/static/7ee67e2b0778a2bed4f1e40c32f08b4d/0fa0d/good-image.jpg 345w,
 /static/7ee67e2b0778a2bed4f1e40c32f08b4d/58a9f/good-image.jpg 498w&quot;
         sizes=&quot;(max-width: 498px) 100vw, 498px&quot;
         loading=&quot;lazy&quot;
@@ -528,7 +528,7 @@ Spring의 내부 &lt;code class=&quot;language-text&quot;&gt;ConfigurableBeanFac
 &lt;/ol&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 773px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -538,11 +538,12 @@ Spring의 내부 &lt;code class=&quot;language-text&quot;&gt;ConfigurableBeanFac
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;cambridge.png&quot;
         title=&quot;cambridge.png&quot;
-        src=&quot;/static/71868dfd05a5db63e6f2a90c055eed43/6ca41/cambridge.png&quot;
-        srcset=&quot;/static/71868dfd05a5db63e6f2a90c055eed43/1df8f/cambridge.png 273w,
-/static/71868dfd05a5db63e6f2a90c055eed43/53236/cambridge.png 545w,
+        src=&quot;/static/71868dfd05a5db63e6f2a90c055eed43/36727/cambridge.png&quot;
+        srcset=&quot;/static/71868dfd05a5db63e6f2a90c055eed43/acf4b/cambridge.png 173w,
+/static/71868dfd05a5db63e6f2a90c055eed43/fc834/cambridge.png 345w,
+/static/71868dfd05a5db63e6f2a90c055eed43/36727/cambridge.png 690w,
 /static/71868dfd05a5db63e6f2a90c055eed43/6ca41/cambridge.png 773w&quot;
-        sizes=&quot;(max-width: 773px) 100vw, 773px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;
@@ -579,7 +580,7 @@ LSA는 기본적으로 DTM이나 TF-IDF 행렬에 절단된 SVD(truncated SVD)�
     &lt;span class=&quot;token class-name&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;token generics&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt; trainDataList &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; dataRepository&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createTrainDataSet&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;45&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -589,12 +590,14 @@ LSA는 기본적으로 DTM이나 TF-IDF 행렬에 절단된 SVD(truncated SVD)�
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;LSA Train Data Set&quot;
         title=&quot;LSA Train Data Set&quot;
-        src=&quot;/static/6aa42185c63f126c3f1478c110a28df0/db2b8/LSA-Train-Data.png&quot;
-        srcset=&quot;/static/6aa42185c63f126c3f1478c110a28df0/1df8f/LSA-Train-Data.png 273w,
-/static/6aa42185c63f126c3f1478c110a28df0/53236/LSA-Train-Data.png 545w,
-/static/6aa42185c63f126c3f1478c110a28df0/db2b8/LSA-Train-Data.png 1090w,
+        src=&quot;/static/6aa42185c63f126c3f1478c110a28df0/36727/LSA-Train-Data.png&quot;
+        srcset=&quot;/static/6aa42185c63f126c3f1478c110a28df0/acf4b/LSA-Train-Data.png 173w,
+/static/6aa42185c63f126c3f1478c110a28df0/fc834/LSA-Train-Data.png 345w,
+/static/6aa42185c63f126c3f1478c110a28df0/36727/LSA-Train-Data.png 690w,
+/static/6aa42185c63f126c3f1478c110a28df0/17fa4/LSA-Train-Data.png 1035w,
+/static/6aa42185c63f126c3f1478c110a28df0/a5044/LSA-Train-Data.png 1380w,
 /static/6aa42185c63f126c3f1478c110a28df0/c6a5f/LSA-Train-Data.png 1628w&quot;
-        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;
@@ -608,7 +611,7 @@ Matrix는 Row를 데이터 쌍의 개수로 생성하고 N개의 Item을 Column�
     &lt;span class=&quot;token class-name&quot;&gt;Matrix&lt;/span&gt; matrix &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; lsaModelComponent&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createMatrix&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;trainDataList&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -618,14 +621,14 @@ Matrix는 Row를 데이터 쌍의 개수로 생성하고 N개의 Item을 Column�
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;LSA Data Matrix&quot;
         title=&quot;LSA Data Matrix&quot;
-        src=&quot;/static/2ae6a17f7099527d2b3e290c92b8d0fb/db2b8/Data-Matrix.png&quot;
-        srcset=&quot;/static/2ae6a17f7099527d2b3e290c92b8d0fb/1df8f/Data-Matrix.png 273w,
-/static/2ae6a17f7099527d2b3e290c92b8d0fb/53236/Data-Matrix.png 545w,
-/static/2ae6a17f7099527d2b3e290c92b8d0fb/db2b8/Data-Matrix.png 1090w,
-/static/2ae6a17f7099527d2b3e290c92b8d0fb/90122/Data-Matrix.png 1635w,
-/static/2ae6a17f7099527d2b3e290c92b8d0fb/f8628/Data-Matrix.png 2180w,
+        src=&quot;/static/2ae6a17f7099527d2b3e290c92b8d0fb/36727/Data-Matrix.png&quot;
+        srcset=&quot;/static/2ae6a17f7099527d2b3e290c92b8d0fb/acf4b/Data-Matrix.png 173w,
+/static/2ae6a17f7099527d2b3e290c92b8d0fb/fc834/Data-Matrix.png 345w,
+/static/2ae6a17f7099527d2b3e290c92b8d0fb/36727/Data-Matrix.png 690w,
+/static/2ae6a17f7099527d2b3e290c92b8d0fb/17fa4/Data-Matrix.png 1035w,
+/static/2ae6a17f7099527d2b3e290c92b8d0fb/a5044/Data-Matrix.png 1380w,
 /static/2ae6a17f7099527d2b3e290c92b8d0fb/002c2/Data-Matrix.png 2504w&quot;
-        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;br&gt;
@@ -637,7 +640,7 @@ Matrix는 Row를 데이터 쌍의 개수로 생성하고 N개의 Item을 Column�
 SVD에 대해 자세한 방법을 알고 싶으시면 👉 &lt;a href=&quot;https://www.youtube.com/watch?v=cq5qlYtnLoY&amp;#x26;feature=emb_logo&quot;&gt;공돌이의 수학정리노트&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -647,12 +650,14 @@ SVD에 대해 자세한 방법을 알고 싶으시면 👉 &lt;a href=&quot;http
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;SVD Matrix&quot;
         title=&quot;SVD Matrix&quot;
-        src=&quot;/static/e9100bb3e6ec5ce2efa2b4bb7a9a553c/db2b8/svd-image.png&quot;
-        srcset=&quot;/static/e9100bb3e6ec5ce2efa2b4bb7a9a553c/1df8f/svd-image.png 273w,
-/static/e9100bb3e6ec5ce2efa2b4bb7a9a553c/53236/svd-image.png 545w,
-/static/e9100bb3e6ec5ce2efa2b4bb7a9a553c/db2b8/svd-image.png 1090w,
+        src=&quot;/static/e9100bb3e6ec5ce2efa2b4bb7a9a553c/36727/svd-image.png&quot;
+        srcset=&quot;/static/e9100bb3e6ec5ce2efa2b4bb7a9a553c/acf4b/svd-image.png 173w,
+/static/e9100bb3e6ec5ce2efa2b4bb7a9a553c/fc834/svd-image.png 345w,
+/static/e9100bb3e6ec5ce2efa2b4bb7a9a553c/36727/svd-image.png 690w,
+/static/e9100bb3e6ec5ce2efa2b4bb7a9a553c/17fa4/svd-image.png 1035w,
+/static/e9100bb3e6ec5ce2efa2b4bb7a9a553c/a5044/svd-image.png 1380w,
 /static/e9100bb3e6ec5ce2efa2b4bb7a9a553c/59300/svd-image.png 1533w&quot;
-        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;  &lt;/p&gt;
@@ -665,7 +670,7 @@ V : 차원의 중요도를 나타내는 대각행렬  &lt;/code&gt;&lt;/pre&gt;&
 &lt;p&gt;이후 S(대각 행렬)과 U와 V 모두 각가의 대응되는 행과 열을 제거하여 차원을 축소해 줍니다  &lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -675,12 +680,14 @@ V : 차원의 중요도를 나타내는 대각행렬  &lt;/code&gt;&lt;/pre&gt;&
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;SVD Matrix&quot;
         title=&quot;SVD Matrix&quot;
-        src=&quot;/static/3dab53b65b4b788b1095b81870b1b999/db2b8/svd-reduction-image.png&quot;
-        srcset=&quot;/static/3dab53b65b4b788b1095b81870b1b999/1df8f/svd-reduction-image.png 273w,
-/static/3dab53b65b4b788b1095b81870b1b999/53236/svd-reduction-image.png 545w,
-/static/3dab53b65b4b788b1095b81870b1b999/db2b8/svd-reduction-image.png 1090w,
+        src=&quot;/static/3dab53b65b4b788b1095b81870b1b999/36727/svd-reduction-image.png&quot;
+        srcset=&quot;/static/3dab53b65b4b788b1095b81870b1b999/acf4b/svd-reduction-image.png 173w,
+/static/3dab53b65b4b788b1095b81870b1b999/fc834/svd-reduction-image.png 345w,
+/static/3dab53b65b4b788b1095b81870b1b999/36727/svd-reduction-image.png 690w,
+/static/3dab53b65b4b788b1095b81870b1b999/17fa4/svd-reduction-image.png 1035w,
+/static/3dab53b65b4b788b1095b81870b1b999/a5044/svd-reduction-image.png 1380w,
 /static/3dab53b65b4b788b1095b81870b1b999/146f2/svd-reduction-image.png 1535w&quot;
-        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;   &lt;/p&gt;
@@ -692,7 +699,7 @@ V : 차원의 중요도를 나타내는 대각행렬  &lt;/code&gt;&lt;/pre&gt;&
 &lt;br/&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -702,12 +709,13 @@ V : 차원의 중요도를 나타내는 대각행렬  &lt;/code&gt;&lt;/pre&gt;&
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;SVD Matrix&quot;
         title=&quot;SVD Matrix&quot;
-        src=&quot;/static/c36422b156b3f50819e9fb99b05e5e46/db2b8/SVD.png&quot;
-        srcset=&quot;/static/c36422b156b3f50819e9fb99b05e5e46/1df8f/SVD.png 273w,
-/static/c36422b156b3f50819e9fb99b05e5e46/53236/SVD.png 545w,
-/static/c36422b156b3f50819e9fb99b05e5e46/db2b8/SVD.png 1090w,
+        src=&quot;/static/c36422b156b3f50819e9fb99b05e5e46/36727/SVD.png&quot;
+        srcset=&quot;/static/c36422b156b3f50819e9fb99b05e5e46/acf4b/SVD.png 173w,
+/static/c36422b156b3f50819e9fb99b05e5e46/fc834/SVD.png 345w,
+/static/c36422b156b3f50819e9fb99b05e5e46/36727/SVD.png 690w,
+/static/c36422b156b3f50819e9fb99b05e5e46/17fa4/SVD.png 1035w,
 /static/c36422b156b3f50819e9fb99b05e5e46/50151/SVD.png 1346w&quot;
-        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;br&gt;
@@ -717,7 +725,7 @@ V : 차원의 중요도를 나타내는 대각행렬  &lt;/code&gt;&lt;/pre&gt;&
 &lt;p&gt;이후 알고 싶은 각 Matrix를 조합하여 &lt;code class=&quot;language-text&quot;&gt;Cosine 유사도&lt;/code&gt;를 구하면 각각의 데이터의 유사도를 찾아 낼 수 있습니다  &lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -727,12 +735,14 @@ V : 차원의 중요도를 나타내는 대각행렬  &lt;/code&gt;&lt;/pre&gt;&
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;Column Similarity&quot;
         title=&quot;Column Similarity&quot;
-        src=&quot;/static/fbff878b5f814441349883ce169e3e9d/db2b8/LSA-Column-Similarity.png&quot;
-        srcset=&quot;/static/fbff878b5f814441349883ce169e3e9d/1df8f/LSA-Column-Similarity.png 273w,
-/static/fbff878b5f814441349883ce169e3e9d/53236/LSA-Column-Similarity.png 545w,
-/static/fbff878b5f814441349883ce169e3e9d/db2b8/LSA-Column-Similarity.png 1090w,
+        src=&quot;/static/fbff878b5f814441349883ce169e3e9d/36727/LSA-Column-Similarity.png&quot;
+        srcset=&quot;/static/fbff878b5f814441349883ce169e3e9d/acf4b/LSA-Column-Similarity.png 173w,
+/static/fbff878b5f814441349883ce169e3e9d/fc834/LSA-Column-Similarity.png 345w,
+/static/fbff878b5f814441349883ce169e3e9d/36727/LSA-Column-Similarity.png 690w,
+/static/fbff878b5f814441349883ce169e3e9d/17fa4/LSA-Column-Similarity.png 1035w,
+/static/fbff878b5f814441349883ce169e3e9d/a5044/LSA-Column-Similarity.png 1380w,
 /static/fbff878b5f814441349883ce169e3e9d/f688a/LSA-Column-Similarity.png 1575w&quot;
-        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;br&gt;
@@ -758,7 +768,8 @@ V : 차원의 중요도를 나타내는 대각행렬  &lt;/code&gt;&lt;/pre&gt;&
         alt=&quot;profile&quot;
         title=&quot;profile&quot;
         src=&quot;/static/3fc5562e6ad25d80970b53e8e9afab0c/a9ee3/profile.png&quot;
-        srcset=&quot;/static/3fc5562e6ad25d80970b53e8e9afab0c/1df8f/profile.png 273w,
+        srcset=&quot;/static/3fc5562e6ad25d80970b53e8e9afab0c/acf4b/profile.png 173w,
+/static/3fc5562e6ad25d80970b53e8e9afab0c/fc834/profile.png 345w,
 /static/3fc5562e6ad25d80970b53e8e9afab0c/a9ee3/profile.png 460w&quot;
         sizes=&quot;(max-width: 460px) 100vw, 460px&quot;
         loading=&quot;lazy&quot;
@@ -774,7 +785,7 @@ SaraminHR Lab&lt;/p&gt;
 &lt;br/&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -784,13 +795,14 @@ SaraminHR Lab&lt;/p&gt;
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;dev-profile&quot;
         title=&quot;dev-profile&quot;
-        src=&quot;/static/0876b9099ff9686a8051c4468a99f432/db2b8/dev-flow.png&quot;
-        srcset=&quot;/static/0876b9099ff9686a8051c4468a99f432/1df8f/dev-flow.png 273w,
-/static/0876b9099ff9686a8051c4468a99f432/53236/dev-flow.png 545w,
-/static/0876b9099ff9686a8051c4468a99f432/db2b8/dev-flow.png 1090w,
-/static/0876b9099ff9686a8051c4468a99f432/90122/dev-flow.png 1635w,
+        src=&quot;/static/0876b9099ff9686a8051c4468a99f432/36727/dev-flow.png&quot;
+        srcset=&quot;/static/0876b9099ff9686a8051c4468a99f432/acf4b/dev-flow.png 173w,
+/static/0876b9099ff9686a8051c4468a99f432/fc834/dev-flow.png 345w,
+/static/0876b9099ff9686a8051c4468a99f432/36727/dev-flow.png 690w,
+/static/0876b9099ff9686a8051c4468a99f432/17fa4/dev-flow.png 1035w,
+/static/0876b9099ff9686a8051c4468a99f432/a5044/dev-flow.png 1380w,
 /static/0876b9099ff9686a8051c4468a99f432/26086/dev-flow.png 1931w&quot;
-        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Spring] RestTemplate Thread Safe?]]></title><description><![CDATA[RestTemplate은 Spring에서 지원하는 http를 유용하게 쓸 수 있는 템플릿입니다 결론부터 말씀 드리자면 RestTemplate은 Thread Safe하게 설계 되어 만들어 졌습니다 Spring3 : RestTemplate…]]></description><link>https://renuevo.github.io/spring/resttemplate-thread-safe/</link><guid isPermaLink="false">https://renuevo.github.io/spring/resttemplate-thread-safe/</guid><pubDate>Thu, 07 Nov 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;&lt;em&gt;RestTemplate은&lt;/em&gt;&lt;/strong&gt; Spring에서 지원하는 http를 유용하게 쓸 수 있는 템플릿입니다&lt;br&gt;
@@ -858,7 +870,7 @@ SaraminHR Lab&lt;/p&gt;
 Connection을 유지하면서 빠르게 처리하는 Http의 connection 방법을 &lt;code class=&quot;language-text&quot;&gt;Keep-Alive&lt;/code&gt;라고 합니다  &lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 820px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -868,11 +880,12 @@ Connection을 유지하면서 빠르게 처리하는 Http의 connection 방법�
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;keep-alive&quot;
         title=&quot;keep-alive&quot;
-        src=&quot;/static/58143b62db6aff38af6510f532070bed/1b844/keep-alive.jpg&quot;
-        srcset=&quot;/static/58143b62db6aff38af6510f532070bed/0076f/keep-alive.jpg 273w,
-/static/58143b62db6aff38af6510f532070bed/1c045/keep-alive.jpg 545w,
+        src=&quot;/static/58143b62db6aff38af6510f532070bed/8c996/keep-alive.jpg&quot;
+        srcset=&quot;/static/58143b62db6aff38af6510f532070bed/6f483/keep-alive.jpg 173w,
+/static/58143b62db6aff38af6510f532070bed/0fa0d/keep-alive.jpg 345w,
+/static/58143b62db6aff38af6510f532070bed/8c996/keep-alive.jpg 690w,
 /static/58143b62db6aff38af6510f532070bed/1b844/keep-alive.jpg 820w&quot;
-        sizes=&quot;(max-width: 820px) 100vw, 820px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;
@@ -908,7 +921,8 @@ Connection을 유지하면서 빠르게 처리하는 Http의 connection 방법�
         alt=&quot;publish-subscribe and observer&quot;
         title=&quot;publish-subscribe and observer&quot;
         src=&quot;/static/61ff3d3772c195aa02e3e134abbb554c/ab422/publish_subscribe.jpg&quot;
-        srcset=&quot;/static/61ff3d3772c195aa02e3e134abbb554c/0076f/publish_subscribe.jpg 273w,
+        srcset=&quot;/static/61ff3d3772c195aa02e3e134abbb554c/6f483/publish_subscribe.jpg 173w,
+/static/61ff3d3772c195aa02e3e134abbb554c/0fa0d/publish_subscribe.jpg 345w,
 /static/61ff3d3772c195aa02e3e134abbb554c/ab422/publish_subscribe.jpg 512w&quot;
         sizes=&quot;(max-width: 512px) 100vw, 512px&quot;
         loading=&quot;lazy&quot;
@@ -918,7 +932,7 @@ Connection을 유지하면서 빠르게 처리하는 Http의 connection 방법�
 &lt;p&gt;이렇게 하므로써 Subject와 Observer 사이의 서로를 알아야 했던 결합이 풀어지고 Subject의 역할이었던 &lt;code class=&quot;language-text&quot;&gt;Observer 이벤트 전파&lt;/code&gt; 및 &lt;code class=&quot;language-text&quot;&gt;작업 수행&lt;/code&gt;도 나누어서 각각의 핵심 기능에 집중할 수 있게 됩니다  &lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -928,12 +942,14 @@ Connection을 유지하면서 빠르게 처리하는 Http의 connection 방법�
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;publish-subscribe&quot;
         title=&quot;publish-subscribe&quot;
-        src=&quot;/static/5565c152436a5930cad104f844562698/db2b8/publish-subscribe.png&quot;
-        srcset=&quot;/static/5565c152436a5930cad104f844562698/1df8f/publish-subscribe.png 273w,
-/static/5565c152436a5930cad104f844562698/53236/publish-subscribe.png 545w,
-/static/5565c152436a5930cad104f844562698/db2b8/publish-subscribe.png 1090w,
+        src=&quot;/static/5565c152436a5930cad104f844562698/36727/publish-subscribe.png&quot;
+        srcset=&quot;/static/5565c152436a5930cad104f844562698/acf4b/publish-subscribe.png 173w,
+/static/5565c152436a5930cad104f844562698/fc834/publish-subscribe.png 345w,
+/static/5565c152436a5930cad104f844562698/36727/publish-subscribe.png 690w,
+/static/5565c152436a5930cad104f844562698/17fa4/publish-subscribe.png 1035w,
+/static/5565c152436a5930cad104f844562698/a5044/publish-subscribe.png 1380w,
 /static/5565c152436a5930cad104f844562698/d7a62/publish-subscribe.png 1531w&quot;
-        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;
@@ -972,8 +988,8 @@ C++같은 언어들에 비해 JVM기반 언어들은 GC가 알아서 메모리 �
         alt=&quot;jvm_memory&quot;
         title=&quot;jvm_memory&quot;
         src=&quot;/static/2c79409f6b1bbcf8d7d026ef336db283/ae9bf/jvm_memory.png&quot;
-        srcset=&quot;/static/2c79409f6b1bbcf8d7d026ef336db283/1df8f/jvm_memory.png 273w,
-/static/2c79409f6b1bbcf8d7d026ef336db283/53236/jvm_memory.png 545w,
+        srcset=&quot;/static/2c79409f6b1bbcf8d7d026ef336db283/acf4b/jvm_memory.png 173w,
+/static/2c79409f6b1bbcf8d7d026ef336db283/fc834/jvm_memory.png 345w,
 /static/2c79409f6b1bbcf8d7d026ef336db283/ae9bf/jvm_memory.png 618w&quot;
         sizes=&quot;(max-width: 618px) 100vw, 618px&quot;
         loading=&quot;lazy&quot;
@@ -1001,7 +1017,7 @@ C++같은 언어들에 비해 JVM기반 언어들은 GC가 알아서 메모리 �
 &lt;h3 id=&quot;heap-메모리-구조-jdk8까지&quot;&gt;&lt;a href=&quot;#heap-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B5%AC%EC%A1%B0-jdk8%EA%B9%8C%EC%A7%80&quot; aria-label=&quot;heap 메모리 구조 jdk8까지 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Heap 메모리 구조 (JDK8까지)&lt;/h3&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 960px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -1011,11 +1027,12 @@ C++같은 언어들에 비해 JVM기반 언어들은 GC가 알아서 메모리 �
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;jdk8_heap&quot;
         title=&quot;jdk8_heap&quot;
-        src=&quot;/static/cb1574dfa7c192ac8243964adcefcb54/f570d/Java_heap.png&quot;
-        srcset=&quot;/static/cb1574dfa7c192ac8243964adcefcb54/1df8f/Java_heap.png 273w,
-/static/cb1574dfa7c192ac8243964adcefcb54/53236/Java_heap.png 545w,
+        src=&quot;/static/cb1574dfa7c192ac8243964adcefcb54/36727/Java_heap.png&quot;
+        srcset=&quot;/static/cb1574dfa7c192ac8243964adcefcb54/acf4b/Java_heap.png 173w,
+/static/cb1574dfa7c192ac8243964adcefcb54/fc834/Java_heap.png 345w,
+/static/cb1574dfa7c192ac8243964adcefcb54/36727/Java_heap.png 690w,
 /static/cb1574dfa7c192ac8243964adcefcb54/f570d/Java_heap.png 960w&quot;
-        sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;
@@ -1075,7 +1092,8 @@ C++같은 언어들에 비해 JVM기반 언어들은 GC가 알아서 메모리 �
         alt=&quot;Java Heap&quot;
         title=&quot;Java Heap&quot;
         src=&quot;/static/9a70a64d916e81165e93bd1f5b256c7e/3abf2/jdk9_heap.png&quot;
-        srcset=&quot;/static/9a70a64d916e81165e93bd1f5b256c7e/1df8f/jdk9_heap.png 273w,
+        srcset=&quot;/static/9a70a64d916e81165e93bd1f5b256c7e/acf4b/jdk9_heap.png 173w,
+/static/9a70a64d916e81165e93bd1f5b256c7e/fc834/jdk9_heap.png 345w,
 /static/9a70a64d916e81165e93bd1f5b256c7e/3abf2/jdk9_heap.png 456w&quot;
         sizes=&quot;(max-width: 456px) 100vw, 456px&quot;
         loading=&quot;lazy&quot;
@@ -1126,7 +1144,7 @@ C++같은 언어들에 비해 JVM기반 언어들은 GC가 알아서 메모리 �
 ZGC는 처럼 Region 구조를 가져가지만 G1GC와는 다른 메모리 구조를 가져 가게됩니다  &lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -1136,12 +1154,14 @@ ZGC는 처럼 Region 구조를 가져가지만 G1GC와는 다른 메모리 구�
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;ZGC Heap&quot;
         title=&quot;ZGC Heap&quot;
-        src=&quot;/static/147a2d7091baaa008da781a0cdc57523/db2b8/zgc_heap.png&quot;
-        srcset=&quot;/static/147a2d7091baaa008da781a0cdc57523/1df8f/zgc_heap.png 273w,
-/static/147a2d7091baaa008da781a0cdc57523/53236/zgc_heap.png 545w,
-/static/147a2d7091baaa008da781a0cdc57523/db2b8/zgc_heap.png 1090w,
+        src=&quot;/static/147a2d7091baaa008da781a0cdc57523/36727/zgc_heap.png&quot;
+        srcset=&quot;/static/147a2d7091baaa008da781a0cdc57523/acf4b/zgc_heap.png 173w,
+/static/147a2d7091baaa008da781a0cdc57523/fc834/zgc_heap.png 345w,
+/static/147a2d7091baaa008da781a0cdc57523/36727/zgc_heap.png 690w,
+/static/147a2d7091baaa008da781a0cdc57523/17fa4/zgc_heap.png 1035w,
+/static/147a2d7091baaa008da781a0cdc57523/a5044/zgc_heap.png 1380w,
 /static/147a2d7091baaa008da781a0cdc57523/a65e2/zgc_heap.png 1501w&quot;
-        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;
@@ -1152,7 +1172,7 @@ ZGC는 처럼 Region 구조를 가져가지만 G1GC와는 다른 메모리 구�
 Colored pointers는 객체를 가리키는 변수의 포인터에서 64bit라는 메모리를 활용하여 Mark를 진행하여 객체의 상태값을 저장하여 사용하는 방식입니다  &lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -1162,12 +1182,13 @@ Colored pointers는 객체를 가리키는 변수의 포인터에서 64bit라는
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;colored pointers&quot;
         title=&quot;colored pointers&quot;
-        src=&quot;/static/fa61612bb6ea395ae4c437f00bdfcd8f/db2b8/colored%20pointers.png&quot;
-        srcset=&quot;/static/fa61612bb6ea395ae4c437f00bdfcd8f/1df8f/colored%20pointers.png 273w,
-/static/fa61612bb6ea395ae4c437f00bdfcd8f/53236/colored%20pointers.png 545w,
-/static/fa61612bb6ea395ae4c437f00bdfcd8f/db2b8/colored%20pointers.png 1090w,
+        src=&quot;/static/fa61612bb6ea395ae4c437f00bdfcd8f/36727/colored%20pointers.png&quot;
+        srcset=&quot;/static/fa61612bb6ea395ae4c437f00bdfcd8f/acf4b/colored%20pointers.png 173w,
+/static/fa61612bb6ea395ae4c437f00bdfcd8f/fc834/colored%20pointers.png 345w,
+/static/fa61612bb6ea395ae4c437f00bdfcd8f/36727/colored%20pointers.png 690w,
+/static/fa61612bb6ea395ae4c437f00bdfcd8f/17fa4/colored%20pointers.png 1035w,
 /static/fa61612bb6ea395ae4c437f00bdfcd8f/0e0c1/colored%20pointers.png 1097w&quot;
-        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;
@@ -1200,8 +1221,8 @@ ZGC는 재배치에 대해서 STW없이 동시적으로 재배치를 실행하�
         alt=&quot;zgc-remap-flow&quot;
         title=&quot;zgc-remap-flow&quot;
         src=&quot;/static/9d8a5eca92ca56c5bac3e3231c8ff677/1478c/zgc-remap-flow.png&quot;
-        srcset=&quot;/static/9d8a5eca92ca56c5bac3e3231c8ff677/1df8f/zgc-remap-flow.png 273w,
-/static/9d8a5eca92ca56c5bac3e3231c8ff677/53236/zgc-remap-flow.png 545w,
+        srcset=&quot;/static/9d8a5eca92ca56c5bac3e3231c8ff677/acf4b/zgc-remap-flow.png 173w,
+/static/9d8a5eca92ca56c5bac3e3231c8ff677/fc834/zgc-remap-flow.png 345w,
 /static/9d8a5eca92ca56c5bac3e3231c8ff677/1478c/zgc-remap-flow.png 666w&quot;
         sizes=&quot;(max-width: 666px) 100vw, 666px&quot;
         loading=&quot;lazy&quot;
@@ -1225,7 +1246,7 @@ ZGC는 재배치에 대해서 STW없이 동시적으로 재배치를 실행하�
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Shenandoah GC는 JDK 12에서 정식으로 추가되었으며  JDK8/JDK11에서도 추가되어 있어 사용이 가능합니다&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -1235,13 +1256,14 @@ ZGC는 재배치에 대해서 STW없이 동시적으로 재배치를 실행하�
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;shenandoah-gc-cycle&quot;
         title=&quot;shenandoah-gc-cycle&quot;
-        src=&quot;/static/6a39666233856f7ae1396fdecdee0444/db2b8/shenandoah-gc-cycle.png&quot;
-        srcset=&quot;/static/6a39666233856f7ae1396fdecdee0444/1df8f/shenandoah-gc-cycle.png 273w,
-/static/6a39666233856f7ae1396fdecdee0444/53236/shenandoah-gc-cycle.png 545w,
-/static/6a39666233856f7ae1396fdecdee0444/db2b8/shenandoah-gc-cycle.png 1090w,
-/static/6a39666233856f7ae1396fdecdee0444/90122/shenandoah-gc-cycle.png 1635w,
+        src=&quot;/static/6a39666233856f7ae1396fdecdee0444/36727/shenandoah-gc-cycle.png&quot;
+        srcset=&quot;/static/6a39666233856f7ae1396fdecdee0444/acf4b/shenandoah-gc-cycle.png 173w,
+/static/6a39666233856f7ae1396fdecdee0444/fc834/shenandoah-gc-cycle.png 345w,
+/static/6a39666233856f7ae1396fdecdee0444/36727/shenandoah-gc-cycle.png 690w,
+/static/6a39666233856f7ae1396fdecdee0444/17fa4/shenandoah-gc-cycle.png 1035w,
+/static/6a39666233856f7ae1396fdecdee0444/a5044/shenandoah-gc-cycle.png 1380w,
 /static/6a39666233856f7ae1396fdecdee0444/f3d76/shenandoah-gc-cycle.png 1852w&quot;
-        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;
@@ -1371,7 +1393,7 @@ LinkedList는 Array가 사이즈를 지정해서 생성해야하는 한계점을
 각각의 Node가 다음값을 참조하게 해서 계속해서 값을 이어나갈수 있는 구조를 가지고 있습니다  &lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -1381,13 +1403,14 @@ LinkedList는 Array가 사이즈를 지정해서 생성해야하는 한계점을
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;LinkedList&quot;
         title=&quot;LinkedList&quot;
-        src=&quot;/static/97b0240c9da04ee59d9c677c4403f016/db2b8/LinkedList.png&quot;
-        srcset=&quot;/static/97b0240c9da04ee59d9c677c4403f016/1df8f/LinkedList.png 273w,
-/static/97b0240c9da04ee59d9c677c4403f016/53236/LinkedList.png 545w,
-/static/97b0240c9da04ee59d9c677c4403f016/db2b8/LinkedList.png 1090w,
-/static/97b0240c9da04ee59d9c677c4403f016/90122/LinkedList.png 1635w,
+        src=&quot;/static/97b0240c9da04ee59d9c677c4403f016/36727/LinkedList.png&quot;
+        srcset=&quot;/static/97b0240c9da04ee59d9c677c4403f016/acf4b/LinkedList.png 173w,
+/static/97b0240c9da04ee59d9c677c4403f016/fc834/LinkedList.png 345w,
+/static/97b0240c9da04ee59d9c677c4403f016/36727/LinkedList.png 690w,
+/static/97b0240c9da04ee59d9c677c4403f016/17fa4/LinkedList.png 1035w,
+/static/97b0240c9da04ee59d9c677c4403f016/a5044/LinkedList.png 1380w,
 /static/97b0240c9da04ee59d9c677c4403f016/c5272/LinkedList.png 1837w&quot;
-        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;br&gt;
@@ -1456,7 +1479,7 @@ ArrayList는 내부의 배열을 사용하여 Array의 이점을 가져오는 �
         alt=&quot;arraylist-vs-linkedlist-complexity&quot;
         title=&quot;arraylist-vs-linkedlist-complexity&quot;
         src=&quot;/static/45df6e1f3af4807f069e3ea9678c58d4/f570f/arraylist-vs-linkedlist-complexity.png&quot;
-        srcset=&quot;/static/45df6e1f3af4807f069e3ea9678c58d4/1df8f/arraylist-vs-linkedlist-complexity.png 273w,
+        srcset=&quot;/static/45df6e1f3af4807f069e3ea9678c58d4/acf4b/arraylist-vs-linkedlist-complexity.png 173w,
 /static/45df6e1f3af4807f069e3ea9678c58d4/f570f/arraylist-vs-linkedlist-complexity.png 341w&quot;
         sizes=&quot;(max-width: 341px) 100vw, 341px&quot;
         loading=&quot;lazy&quot;
@@ -1534,7 +1557,7 @@ kotlin은 이런 안전성을 확보하기 위해 기존 jvm 위에서 java와 �
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -1544,12 +1567,13 @@ kotlin은 이런 안전성을 확보하기 위해 기존 jvm 위에서 java와 �
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;java_and_kotlin on jvm&quot;
         title=&quot;java_and_kotlin on jvm&quot;
-        src=&quot;/static/42775616ca86b8ce122393db2880a050/db2b8/java_and_kotlin_jvm.png&quot;
-        srcset=&quot;/static/42775616ca86b8ce122393db2880a050/1df8f/java_and_kotlin_jvm.png 273w,
-/static/42775616ca86b8ce122393db2880a050/53236/java_and_kotlin_jvm.png 545w,
-/static/42775616ca86b8ce122393db2880a050/db2b8/java_and_kotlin_jvm.png 1090w,
+        src=&quot;/static/42775616ca86b8ce122393db2880a050/36727/java_and_kotlin_jvm.png&quot;
+        srcset=&quot;/static/42775616ca86b8ce122393db2880a050/acf4b/java_and_kotlin_jvm.png 173w,
+/static/42775616ca86b8ce122393db2880a050/fc834/java_and_kotlin_jvm.png 345w,
+/static/42775616ca86b8ce122393db2880a050/36727/java_and_kotlin_jvm.png 690w,
+/static/42775616ca86b8ce122393db2880a050/17fa4/java_and_kotlin_jvm.png 1035w,
 /static/42775616ca86b8ce122393db2880a050/a666d/java_and_kotlin_jvm.png 1255w&quot;
-        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;
@@ -1574,8 +1598,8 @@ kotlin은 java를 100% 호환되도록 설계되었습니다&lt;br&gt;
         alt=&quot;java_to_kotlin_convert&quot;
         title=&quot;java_to_kotlin_convert&quot;
         src=&quot;/static/aac9981f326d848581c3aa3683be5da2/7b273/java_to_kotlin_convert.png&quot;
-        srcset=&quot;/static/aac9981f326d848581c3aa3683be5da2/1df8f/java_to_kotlin_convert.png 273w,
-/static/aac9981f326d848581c3aa3683be5da2/53236/java_to_kotlin_convert.png 545w,
+        srcset=&quot;/static/aac9981f326d848581c3aa3683be5da2/acf4b/java_to_kotlin_convert.png 173w,
+/static/aac9981f326d848581c3aa3683be5da2/fc834/java_to_kotlin_convert.png 345w,
 /static/aac9981f326d848581c3aa3683be5da2/7b273/java_to_kotlin_convert.png 566w&quot;
         sizes=&quot;(max-width: 566px) 100vw, 566px&quot;
         loading=&quot;lazy&quot;
@@ -1595,7 +1619,7 @@ google은 안드로이드 진형 메인 언어로 Kotlin을 채택하였고 2019
 또한 jetbrains에서의 지속적인 관리와 피드백이 이루어 졌고 빠르게 전파되어 &lt;a href=&quot;https://insights.stackoverflow.com/survey/2018&quot;&gt;Stack OverFlow 2018&lt;/a&gt;에서 많은 Love를 획득하였습니다&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 700px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -1605,11 +1629,12 @@ google은 안드로이드 진형 메인 언어로 Kotlin을 채택하였고 2019
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;kotlin_love_stackover&quot;
         title=&quot;kotlin_love_stackover&quot;
-        src=&quot;/static/b749579957c56f1d4f03dc5b79649f56/a8200/kotlin_love_stackover.png&quot;
-        srcset=&quot;/static/b749579957c56f1d4f03dc5b79649f56/1df8f/kotlin_love_stackover.png 273w,
-/static/b749579957c56f1d4f03dc5b79649f56/53236/kotlin_love_stackover.png 545w,
+        src=&quot;/static/b749579957c56f1d4f03dc5b79649f56/36727/kotlin_love_stackover.png&quot;
+        srcset=&quot;/static/b749579957c56f1d4f03dc5b79649f56/acf4b/kotlin_love_stackover.png 173w,
+/static/b749579957c56f1d4f03dc5b79649f56/fc834/kotlin_love_stackover.png 345w,
+/static/b749579957c56f1d4f03dc5b79649f56/36727/kotlin_love_stackover.png 690w,
 /static/b749579957c56f1d4f03dc5b79649f56/a8200/kotlin_love_stackover.png 700w&quot;
-        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;br&gt;
@@ -1623,7 +1648,7 @@ gradle에서 사용하는 groovy언어는 편리하지만 커뮤니티가 형성
 또한 kotlin만으로 javascript, ios등등의 다양한 플랫폼을 구성하고 개발이 가능합니다&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -1633,12 +1658,14 @@ gradle에서 사용하는 groovy언어는 편리하지만 커뮤니티가 형성
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;kotlin_javascript_java&quot;
         title=&quot;kotlin_javascript_java&quot;
-        src=&quot;/static/8da93eda9f6487077dd0ea9de113126a/db2b8/kotlin_javascript_java.png&quot;
-        srcset=&quot;/static/8da93eda9f6487077dd0ea9de113126a/1df8f/kotlin_javascript_java.png 273w,
-/static/8da93eda9f6487077dd0ea9de113126a/53236/kotlin_javascript_java.png 545w,
-/static/8da93eda9f6487077dd0ea9de113126a/db2b8/kotlin_javascript_java.png 1090w,
+        src=&quot;/static/8da93eda9f6487077dd0ea9de113126a/36727/kotlin_javascript_java.png&quot;
+        srcset=&quot;/static/8da93eda9f6487077dd0ea9de113126a/acf4b/kotlin_javascript_java.png 173w,
+/static/8da93eda9f6487077dd0ea9de113126a/fc834/kotlin_javascript_java.png 345w,
+/static/8da93eda9f6487077dd0ea9de113126a/36727/kotlin_javascript_java.png 690w,
+/static/8da93eda9f6487077dd0ea9de113126a/17fa4/kotlin_javascript_java.png 1035w,
+/static/8da93eda9f6487077dd0ea9de113126a/a5044/kotlin_javascript_java.png 1380w,
 /static/8da93eda9f6487077dd0ea9de113126a/774fc/kotlin_javascript_java.png 1416w&quot;
-        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;br&gt;
@@ -1741,7 +1768,7 @@ Scope Function은 Kotlin에서 제공하는 아주 유용한 6개의 함수들�
 &lt;p&gt; Scope Function은 말그대로 Kotlin에서 범위를 묶어서 처리할때 사용하는 함수들로&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 758px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -1751,11 +1778,12 @@ Scope Function은 Kotlin에서 제공하는 아주 유용한 6개의 함수들�
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;scope_table&quot;
         title=&quot;scope_table&quot;
-        src=&quot;/static/c22d0bcb1503475efd096fb8cf1eba02/9f7a2/scope_table.png&quot;
-        srcset=&quot;/static/c22d0bcb1503475efd096fb8cf1eba02/1df8f/scope_table.png 273w,
-/static/c22d0bcb1503475efd096fb8cf1eba02/53236/scope_table.png 545w,
+        src=&quot;/static/c22d0bcb1503475efd096fb8cf1eba02/36727/scope_table.png&quot;
+        srcset=&quot;/static/c22d0bcb1503475efd096fb8cf1eba02/acf4b/scope_table.png 173w,
+/static/c22d0bcb1503475efd096fb8cf1eba02/fc834/scope_table.png 345w,
+/static/c22d0bcb1503475efd096fb8cf1eba02/36727/scope_table.png 690w,
 /static/c22d0bcb1503475efd096fb8cf1eba02/9f7a2/scope_table.png 758w&quot;
-        sizes=&quot;(max-width: 758px) 100vw, 758px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;
@@ -1766,7 +1794,7 @@ scope에서 return value가 &lt;code class=&quot;language-text&quot;&gt;object v
 다르게 사용되어 집니다  &lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -1776,14 +1804,14 @@ scope에서 return value가 &lt;code class=&quot;language-text&quot;&gt;object v
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;scope_function&quot;
         title=&quot;scope_function&quot;
-        src=&quot;/static/d4b90d577e3770a8bfd7d63aacb157e8/db2b8/scope_function.png&quot;
-        srcset=&quot;/static/d4b90d577e3770a8bfd7d63aacb157e8/1df8f/scope_function.png 273w,
-/static/d4b90d577e3770a8bfd7d63aacb157e8/53236/scope_function.png 545w,
-/static/d4b90d577e3770a8bfd7d63aacb157e8/db2b8/scope_function.png 1090w,
-/static/d4b90d577e3770a8bfd7d63aacb157e8/90122/scope_function.png 1635w,
-/static/d4b90d577e3770a8bfd7d63aacb157e8/f8628/scope_function.png 2180w,
+        src=&quot;/static/d4b90d577e3770a8bfd7d63aacb157e8/36727/scope_function.png&quot;
+        srcset=&quot;/static/d4b90d577e3770a8bfd7d63aacb157e8/acf4b/scope_function.png 173w,
+/static/d4b90d577e3770a8bfd7d63aacb157e8/fc834/scope_function.png 345w,
+/static/d4b90d577e3770a8bfd7d63aacb157e8/36727/scope_function.png 690w,
+/static/d4b90d577e3770a8bfd7d63aacb157e8/17fa4/scope_function.png 1035w,
+/static/d4b90d577e3770a8bfd7d63aacb157e8/a5044/scope_function.png 1380w,
 /static/d4b90d577e3770a8bfd7d63aacb157e8/31c3c/scope_function.png 2702w&quot;
-        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;
@@ -1931,7 +1959,8 @@ java랑 완벽히 호환된다지만 &lt;code class=&quot;language-text&quot;&gt
         alt=&quot;decorator_pattern&quot;
         title=&quot;decorator_pattern&quot;
         src=&quot;/static/cb141f1a40928fcf2764f26a3bd1e7f1/c7805/decorator_pattern.png&quot;
-        srcset=&quot;/static/cb141f1a40928fcf2764f26a3bd1e7f1/1df8f/decorator_pattern.png 273w,
+        srcset=&quot;/static/cb141f1a40928fcf2764f26a3bd1e7f1/acf4b/decorator_pattern.png 173w,
+/static/cb141f1a40928fcf2764f26a3bd1e7f1/fc834/decorator_pattern.png 345w,
 /static/cb141f1a40928fcf2764f26a3bd1e7f1/c7805/decorator_pattern.png 400w&quot;
         sizes=&quot;(max-width: 400px) 100vw, 400px&quot;
         loading=&quot;lazy&quot;
@@ -2096,8 +2125,8 @@ X &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; np&lt;span class=&
         alt=&quot;kmean_result&quot;
         title=&quot;kmean_result&quot;
         src=&quot;/static/1eac3068537afecf2c7e734959f32537/e49a9/kmean_show.png&quot;
-        srcset=&quot;/static/1eac3068537afecf2c7e734959f32537/1df8f/kmean_show.png 273w,
-/static/1eac3068537afecf2c7e734959f32537/53236/kmean_show.png 545w,
+        srcset=&quot;/static/1eac3068537afecf2c7e734959f32537/acf4b/kmean_show.png 173w,
+/static/1eac3068537afecf2c7e734959f32537/fc834/kmean_show.png 345w,
 /static/1eac3068537afecf2c7e734959f32537/e49a9/kmean_show.png 640w&quot;
         sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
         loading=&quot;lazy&quot;
@@ -2122,8 +2151,8 @@ X &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; np&lt;span class=&
         alt=&quot;kmean_result2&quot;
         title=&quot;kmean_result2&quot;
         src=&quot;/static/3ef6ef5d6cbe6f01c58c275a0cdfd9de/e49a9/kmean_show2.png&quot;
-        srcset=&quot;/static/3ef6ef5d6cbe6f01c58c275a0cdfd9de/1df8f/kmean_show2.png 273w,
-/static/3ef6ef5d6cbe6f01c58c275a0cdfd9de/53236/kmean_show2.png 545w,
+        srcset=&quot;/static/3ef6ef5d6cbe6f01c58c275a0cdfd9de/acf4b/kmean_show2.png 173w,
+/static/3ef6ef5d6cbe6f01c58c275a0cdfd9de/fc834/kmean_show2.png 345w,
 /static/3ef6ef5d6cbe6f01c58c275a0cdfd9de/e49a9/kmean_show2.png 640w&quot;
         sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
         loading=&quot;lazy&quot;
@@ -2138,7 +2167,7 @@ k 기준점 선정에 대해서 많은 사람들이 관련 연구를 진행하�
 &lt;p&gt;대규모 데이터와 같은 곳에서 사용하면 이쁘고 유용한 결과를 얻을 수 있습니다&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -2148,13 +2177,14 @@ k 기준점 선정에 대해서 많은 사람들이 관련 연구를 진행하�
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;k평균&quot;
         title=&quot;k평균&quot;
-        src=&quot;/static/a7a64f870b195603835528979cdbabdb/db2b8/k-mean.png&quot;
-        srcset=&quot;/static/a7a64f870b195603835528979cdbabdb/1df8f/k-mean.png 273w,
-/static/a7a64f870b195603835528979cdbabdb/53236/k-mean.png 545w,
-/static/a7a64f870b195603835528979cdbabdb/db2b8/k-mean.png 1090w,
-/static/a7a64f870b195603835528979cdbabdb/90122/k-mean.png 1635w,
+        src=&quot;/static/a7a64f870b195603835528979cdbabdb/36727/k-mean.png&quot;
+        srcset=&quot;/static/a7a64f870b195603835528979cdbabdb/acf4b/k-mean.png 173w,
+/static/a7a64f870b195603835528979cdbabdb/fc834/k-mean.png 345w,
+/static/a7a64f870b195603835528979cdbabdb/36727/k-mean.png 690w,
+/static/a7a64f870b195603835528979cdbabdb/17fa4/k-mean.png 1035w,
+/static/a7a64f870b195603835528979cdbabdb/a5044/k-mean.png 1380w,
 /static/a7a64f870b195603835528979cdbabdb/79a4a/k-mean.png 1800w&quot;
-        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;  &lt;/p&gt;
@@ -2174,7 +2204,8 @@ Scikit-Learn을 사용하면 간편하고 사용해보실 수 있으니 분석�
         alt=&quot;strategy_pattern&quot;
         title=&quot;strategy_pattern&quot;
         src=&quot;/static/01c3a1b7d7027a3139ef025546f18c8d/00397/Strategy_Pattern.png&quot;
-        srcset=&quot;/static/01c3a1b7d7027a3139ef025546f18c8d/00397/Strategy_Pattern.png 256w&quot;
+        srcset=&quot;/static/01c3a1b7d7027a3139ef025546f18c8d/acf4b/Strategy_Pattern.png 173w,
+/static/01c3a1b7d7027a3139ef025546f18c8d/00397/Strategy_Pattern.png 256w&quot;
         sizes=&quot;(max-width: 256px) 100vw, 256px&quot;
         loading=&quot;lazy&quot;
       /&gt;
@@ -2284,7 +2315,7 @@ Reactive Programming is an alternative to the more limited ways of doing asynchr
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;이제 동기와 비동기 &amp;#x26; 블로킹과 논블로킹을 같이 생각해 보겠습니다&lt;/em&gt;&lt;/strong&gt;  &lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -2294,12 +2325,13 @@ Reactive Programming is an alternative to the more limited ways of doing asynchr
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;developer_works_metrix&quot;
         title=&quot;developer_works_metrix&quot;
-        src=&quot;/static/9dd3ba94b99f3150cb3ca0e9681119bc/db2b8/developer_works_metrix.png&quot;
-        srcset=&quot;/static/9dd3ba94b99f3150cb3ca0e9681119bc/1df8f/developer_works_metrix.png 273w,
-/static/9dd3ba94b99f3150cb3ca0e9681119bc/53236/developer_works_metrix.png 545w,
-/static/9dd3ba94b99f3150cb3ca0e9681119bc/db2b8/developer_works_metrix.png 1090w,
+        src=&quot;/static/9dd3ba94b99f3150cb3ca0e9681119bc/36727/developer_works_metrix.png&quot;
+        srcset=&quot;/static/9dd3ba94b99f3150cb3ca0e9681119bc/acf4b/developer_works_metrix.png 173w,
+/static/9dd3ba94b99f3150cb3ca0e9681119bc/fc834/developer_works_metrix.png 345w,
+/static/9dd3ba94b99f3150cb3ca0e9681119bc/36727/developer_works_metrix.png 690w,
+/static/9dd3ba94b99f3150cb3ca0e9681119bc/17fa4/developer_works_metrix.png 1035w,
 /static/9dd3ba94b99f3150cb3ca0e9681119bc/72be8/developer_works_metrix.png 1249w&quot;
-        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -2346,7 +2378,7 @@ Reactive Programming is an alternative to the more limited ways of doing asynchr
 &lt;p&gt;&lt;strong&gt;그림을 다시한번 보시겠습니다&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 803px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -2356,11 +2388,12 @@ Reactive Programming is an alternative to the more limited ways of doing asynchr
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;sync_nonBlocking&quot;
         title=&quot;sync_nonBlocking&quot;
-        src=&quot;/static/e4fb3a3bc9f924ae606d591d5d6f68f6/d5c82/sync_nonBlocking.png&quot;
-        srcset=&quot;/static/e4fb3a3bc9f924ae606d591d5d6f68f6/1df8f/sync_nonBlocking.png 273w,
-/static/e4fb3a3bc9f924ae606d591d5d6f68f6/53236/sync_nonBlocking.png 545w,
+        src=&quot;/static/e4fb3a3bc9f924ae606d591d5d6f68f6/36727/sync_nonBlocking.png&quot;
+        srcset=&quot;/static/e4fb3a3bc9f924ae606d591d5d6f68f6/acf4b/sync_nonBlocking.png 173w,
+/static/e4fb3a3bc9f924ae606d591d5d6f68f6/fc834/sync_nonBlocking.png 345w,
+/static/e4fb3a3bc9f924ae606d591d5d6f68f6/36727/sync_nonBlocking.png 690w,
 /static/e4fb3a3bc9f924ae606d591d5d6f68f6/d5c82/sync_nonBlocking.png 803w&quot;
-        sizes=&quot;(max-width: 803px) 100vw, 803px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -2466,7 +2499,7 @@ Reactive Programming is an alternative to the more limited ways of doing asynchr
 &lt;p&gt;&lt;strong&gt;그림을 다시한번 보시겠습니다&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 805px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -2476,11 +2509,12 @@ Reactive Programming is an alternative to the more limited ways of doing asynchr
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;async_blocking&quot;
         title=&quot;async_blocking&quot;
-        src=&quot;/static/0aedf1acf6f8825b5b6d97bb40012bb2/8d35d/async_blocking.png&quot;
-        srcset=&quot;/static/0aedf1acf6f8825b5b6d97bb40012bb2/1df8f/async_blocking.png 273w,
-/static/0aedf1acf6f8825b5b6d97bb40012bb2/53236/async_blocking.png 545w,
+        src=&quot;/static/0aedf1acf6f8825b5b6d97bb40012bb2/36727/async_blocking.png&quot;
+        srcset=&quot;/static/0aedf1acf6f8825b5b6d97bb40012bb2/acf4b/async_blocking.png 173w,
+/static/0aedf1acf6f8825b5b6d97bb40012bb2/fc834/async_blocking.png 345w,
+/static/0aedf1acf6f8825b5b6d97bb40012bb2/36727/async_blocking.png 690w,
 /static/0aedf1acf6f8825b5b6d97bb40012bb2/8d35d/async_blocking.png 805w&quot;
-        sizes=&quot;(max-width: 805px) 100vw, 805px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -2562,7 +2596,7 @@ JDBC는 blocking 방식으로 DB에 접근하게 되는데 비동기 환경에�
 &lt;br/&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 854px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -2572,11 +2606,12 @@ JDBC는 blocking 방식으로 DB에 접근하게 되는데 비동기 환경에�
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;observer_pattern&quot;
         title=&quot;observer_pattern&quot;
-        src=&quot;/static/1b9096c3cb052b595e5153464847fe52/4b160/Observer.png&quot;
-        srcset=&quot;/static/1b9096c3cb052b595e5153464847fe52/1df8f/Observer.png 273w,
-/static/1b9096c3cb052b595e5153464847fe52/53236/Observer.png 545w,
+        src=&quot;/static/1b9096c3cb052b595e5153464847fe52/36727/Observer.png&quot;
+        srcset=&quot;/static/1b9096c3cb052b595e5153464847fe52/acf4b/Observer.png 173w,
+/static/1b9096c3cb052b595e5153464847fe52/fc834/Observer.png 345w,
+/static/1b9096c3cb052b595e5153464847fe52/36727/Observer.png 690w,
 /static/1b9096c3cb052b595e5153464847fe52/4b160/Observer.png 854w&quot;
-        sizes=&quot;(max-width: 854px) 100vw, 854px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -2692,7 +2727,7 @@ Observer Run&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -2702,12 +2737,13 @@ Observer Run&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;spring_aop_proxy&quot;
         title=&quot;spring_aop_proxy&quot;
-        src=&quot;/static/bdd6ef8e0389d76e961c019dedca0915/db2b8/spring_aop_proxy.png&quot;
-        srcset=&quot;/static/bdd6ef8e0389d76e961c019dedca0915/1df8f/spring_aop_proxy.png 273w,
-/static/bdd6ef8e0389d76e961c019dedca0915/53236/spring_aop_proxy.png 545w,
-/static/bdd6ef8e0389d76e961c019dedca0915/db2b8/spring_aop_proxy.png 1090w,
+        src=&quot;/static/bdd6ef8e0389d76e961c019dedca0915/36727/spring_aop_proxy.png&quot;
+        srcset=&quot;/static/bdd6ef8e0389d76e961c019dedca0915/acf4b/spring_aop_proxy.png 173w,
+/static/bdd6ef8e0389d76e961c019dedca0915/fc834/spring_aop_proxy.png 345w,
+/static/bdd6ef8e0389d76e961c019dedca0915/36727/spring_aop_proxy.png 690w,
+/static/bdd6ef8e0389d76e961c019dedca0915/17fa4/spring_aop_proxy.png 1035w,
 /static/bdd6ef8e0389d76e961c019dedca0915/20783/spring_aop_proxy.png 1130w&quot;
-        sizes=&quot;(max-width: 1090px) 100vw, 1090px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;br&gt;
@@ -2935,7 +2971,8 @@ TF-IDF와 BM25와 같은 알고리즘의 고도화로 불필요한 doc는 제거
         alt=&quot;LTR Structure&quot;
         title=&quot;LTR Structure&quot;
         src=&quot;/static/9b9a4a98571637a3b665ebeecfef7caa/5039d/MLR-search-engine-example.png&quot;
-        srcset=&quot;/static/9b9a4a98571637a3b665ebeecfef7caa/5039d/MLR-search-engine-example.png 250w&quot;
+        srcset=&quot;/static/9b9a4a98571637a3b665ebeecfef7caa/acf4b/MLR-search-engine-example.png 173w,
+/static/9b9a4a98571637a3b665ebeecfef7caa/5039d/MLR-search-engine-example.png 250w&quot;
         sizes=&quot;(max-width: 250px) 100vw, 250px&quot;
         loading=&quot;lazy&quot;
       /&gt;
@@ -2965,8 +3002,8 @@ TF-IDF와 BM25와 같은 알고리즘의 고도화로 불필요한 doc는 제거
         alt=&quot;point_wise&quot;
         title=&quot;point_wise&quot;
         src=&quot;/static/53563b9a7bff3ef3290c34d8e160b944/4bc72/point_wise.png&quot;
-        srcset=&quot;/static/53563b9a7bff3ef3290c34d8e160b944/1df8f/point_wise.png 273w,
-/static/53563b9a7bff3ef3290c34d8e160b944/53236/point_wise.png 545w,
+        srcset=&quot;/static/53563b9a7bff3ef3290c34d8e160b944/acf4b/point_wise.png 173w,
+/static/53563b9a7bff3ef3290c34d8e160b944/fc834/point_wise.png 345w,
 /static/53563b9a7bff3ef3290c34d8e160b944/4bc72/point_wise.png 641w&quot;
         sizes=&quot;(max-width: 641px) 100vw, 641px&quot;
         loading=&quot;lazy&quot;
@@ -2989,8 +3026,8 @@ TF-IDF와 BM25와 같은 알고리즘의 고도화로 불필요한 doc는 제거
         alt=&quot;pair_wise&quot;
         title=&quot;pair_wise&quot;
         src=&quot;/static/a6534d3f399119aece48020115b62289/e49a9/pair_wise.png&quot;
-        srcset=&quot;/static/a6534d3f399119aece48020115b62289/1df8f/pair_wise.png 273w,
-/static/a6534d3f399119aece48020115b62289/53236/pair_wise.png 545w,
+        srcset=&quot;/static/a6534d3f399119aece48020115b62289/acf4b/pair_wise.png 173w,
+/static/a6534d3f399119aece48020115b62289/fc834/pair_wise.png 345w,
 /static/a6534d3f399119aece48020115b62289/e49a9/pair_wise.png 640w&quot;
         sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
         loading=&quot;lazy&quot;
@@ -3013,8 +3050,8 @@ TF-IDF와 BM25와 같은 알고리즘의 고도화로 불필요한 doc는 제거
         alt=&quot;list_wise&quot;
         title=&quot;list_wise&quot;
         src=&quot;/static/50494b7d84a17514b2336bd89d3ec05b/24a49/list_wise.png&quot;
-        srcset=&quot;/static/50494b7d84a17514b2336bd89d3ec05b/1df8f/list_wise.png 273w,
-/static/50494b7d84a17514b2336bd89d3ec05b/53236/list_wise.png 545w,
+        srcset=&quot;/static/50494b7d84a17514b2336bd89d3ec05b/acf4b/list_wise.png 173w,
+/static/50494b7d84a17514b2336bd89d3ec05b/fc834/list_wise.png 345w,
 /static/50494b7d84a17514b2336bd89d3ec05b/24a49/list_wise.png 634w&quot;
         sizes=&quot;(max-width: 634px) 100vw, 634px&quot;
         loading=&quot;lazy&quot;
@@ -3132,7 +3169,7 @@ TF-IDF와 BM25와 같은 알고리즘의 고도화로 불필요한 doc는 제거
 &lt;h3 id=&quot;training-results&quot;&gt;&lt;a href=&quot;#training-results&quot; aria-label=&quot;training results permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Training results&lt;/h3&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 866px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -3142,11 +3179,12 @@ TF-IDF와 BM25와 같은 알고리즘의 고도화로 불필요한 doc는 제거
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;LTR_traning_result&quot;
         title=&quot;LTR_traning_result&quot;
-        src=&quot;/static/d59914f622d612614677f283ff078ecd/843d0/LTR_traning_result.png&quot;
-        srcset=&quot;/static/d59914f622d612614677f283ff078ecd/1df8f/LTR_traning_result.png 273w,
-/static/d59914f622d612614677f283ff078ecd/53236/LTR_traning_result.png 545w,
+        src=&quot;/static/d59914f622d612614677f283ff078ecd/36727/LTR_traning_result.png&quot;
+        srcset=&quot;/static/d59914f622d612614677f283ff078ecd/acf4b/LTR_traning_result.png 173w,
+/static/d59914f622d612614677f283ff078ecd/fc834/LTR_traning_result.png 345w,
+/static/d59914f622d612614677f283ff078ecd/36727/LTR_traning_result.png 690w,
 /static/d59914f622d612614677f283ff078ecd/843d0/LTR_traning_result.png 866w&quot;
-        sizes=&quot;(max-width: 866px) 100vw, 866px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;

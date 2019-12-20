@@ -46,7 +46,7 @@
 아래 모든 소스의 제 Github에서 확인 하실 수 있습니다   해당 포스팅은 내부적 구현 요소의 대해 설명에 집중하며 Scope의 일반적인 사용법을 보시려면 
 👉 baeldung - spring-bean-scopes   Spring Bean의 Scope는 크게 2가지가 존재합니다 Spring의 내부 를 보면 과…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="deokhwa kim"/><meta data-react-helmet="true" name="twitter:title" content="[Spring] Spring의 Scope와 ProxyMode 알아보기"/><meta data-react-helmet="true" name="twitter:description" content="Spring Scope Spring Bean을 생성시 적용되는 Scope에 대해 알아보려 합니다
 아래 모든 소스의 제 Github에서 확인 하실 수 있습니다   해당 포스팅은 내부적 구현 요소의 대해 설명에 집중하며 Scope의 일반적인 사용법을 보시려면 
-👉 baeldung - spring-bean-scopes   Spring Bean의 Scope는 크게 2가지가 존재합니다 Spring의 내부 를 보면 과…"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/webpack-runtime-db7c9e59d855b4322330.js"/><link as="script" rel="preload" href="/app-41361b996b071ccacf46.js"/><link as="script" rel="preload" href="/commons-e3839588b8ec4f06d1d2.js"/><link as="script" rel="preload" href="/styles-a61f89ff58cea193353c.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-2047161ab81a7fa0cbea.js"/><link as="fetch" rel="preload" href="/page-data\spring\scope\spring-scope\page-data.json" crossorigin="anonymous"/></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><div class="top"><a class="link" href="/">renuevo blog</a><a href="https://github.com/renuevo" class="github" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg></a></div><div style="margin-left:auto;margin-right:auto;padding:2.4375rem 1.21875rem" class="main-container"><div class="switch-container"><label for="normal-switch"><div style="position:relative;display:inline-block;text-align:left;opacity:1;direction:ltr;border-radius:12px;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s;touch-action:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none"><div class="react-switch-bg" style="height:24px;width:48px;margin:0;position:relative;background:#d9dfe2;border-radius:12px;cursor:pointer;-webkit-transition:background 0.25s;-moz-transition:background 0.25s;transition:background 0.25s"><div style="height:24px;width:26px;position:relative;opacity:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon checkedIcon">D</div></div><div style="height:24px;width:26px;position:absolute;opacity:1;right:0;top:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon uncheckedIcon">L</div></div></div><div class="react-switch-handle" style="height:22px;width:22px;background:#ffffff;display:inline-block;cursor:pointer;border-radius:50%;position:absolute;transform:translateX(1px);top:1px;outline:0;border:0;-webkit-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;-moz-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s"></div><input type="checkbox" role="switch" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px" id="normal-switch"/></div></label></div><h1>[Spring] Spring의 Scope와 ProxyMode 알아보기</h1><p class="post-date">December 20, 2019</p><div><h1 id="spring-scope"><a href="#spring-scope" aria-label="spring scope permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Spring Scope</h1>
+👉 baeldung - spring-bean-scopes   Spring Bean의 Scope는 크게 2가지가 존재합니다 Spring의 내부 를 보면 과…"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/webpack-runtime-db7c9e59d855b4322330.js"/><link as="script" rel="preload" href="/app-3ef2d9e26c0a65fb468a.js"/><link as="script" rel="preload" href="/commons-e3839588b8ec4f06d1d2.js"/><link as="script" rel="preload" href="/styles-3abeaeb3bbc3533521fb.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-2047161ab81a7fa0cbea.js"/><link as="fetch" rel="preload" href="/page-data\spring\scope\spring-scope\page-data.json" crossorigin="anonymous"/></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><div class="top"><a class="link" href="/">renuevo blog</a><a href="https://github.com/renuevo" class="github" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg></a></div><div style="margin-left:auto;margin-right:auto;padding:2.4375rem 1.21875rem" class="main-container"><div class="switch-container"><label for="normal-switch"><div style="position:relative;display:inline-block;text-align:left;opacity:1;direction:ltr;border-radius:12px;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s;touch-action:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none"><div class="react-switch-bg" style="height:24px;width:48px;margin:0;position:relative;background:#d9dfe2;border-radius:12px;cursor:pointer;-webkit-transition:background 0.25s;-moz-transition:background 0.25s;transition:background 0.25s"><div style="height:24px;width:26px;position:relative;opacity:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon checkedIcon">D</div></div><div style="height:24px;width:26px;position:absolute;opacity:1;right:0;top:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon uncheckedIcon">L</div></div></div><div class="react-switch-handle" style="height:22px;width:22px;background:#ffffff;display:inline-block;cursor:pointer;border-radius:50%;position:absolute;transform:translateX(1px);top:1px;outline:0;border:0;-webkit-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;-moz-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s"></div><input type="checkbox" role="switch" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px" id="normal-switch"/></div></label></div><h1>[Spring] Spring의 Scope와 ProxyMode 알아보기</h1><p class="post-date">December 20, 2019</p><div><h1 id="spring-scope"><a href="#spring-scope" aria-label="spring scope permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Spring Scope</h1>
 <p><em>Spring Bean을 생성시 적용되는 Scope에 대해 알아보려 합니다</em>
 아래 모든 소스의 제 <a href="https://github.com/renuevo/spring-boot-in-action/tree/master/spring-boot-scope-in-action">Github</a>에서 확인 하실 수 있습니다  </p>
 <p>해당 포스팅은 내부적 구현 요소의 대해 설명에 집중하며 Scope의 일반적인 사용법을 보시려면
@@ -113,23 +113,22 @@ Spring의 내부 <code class="language-text">ConfigurableBeanFactory</code>를 �
 <p>그 후 ScopeService 만들어서 각각의 Bean을 DI하고 각각의 Single 인스턴스를 출력하면 다음과 같습니다  </p>
 <p><span
       class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;"
     >
       <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 9.144385026737968%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAZ0lEQVQI1zVMSQ6AIBDzO4qCMMxiPBv//6JaSDw00+m2RATiCphnqChSSqjnieqOVRXbDzPspcB4jZ4Tozu40b9FcLeGpfcOpdDkQKsyBwuLhfrK0PaD/57zzI5R6TKHlNzpPcTL3AcGHT/rj+ysPQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+    style="padding-bottom: 16.699410609037326%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAABbqAAAW6gHljkMQAAAAmUlEQVQI1z2OQQ6DIBREPQ58tIBRQIGaNE3TTVdd9P4nGQcSu3iBGYY/fxDn0PEeYi2MMbA8Hb2LZVkwzzM8M5fXMiIaWilorXmX/neQfUfnXiExYpwm7NSlFOScUWv96+M4uteh/oSIL99+zDztDYpDB2F7JwQItzDjiHVdsW0bUkoI9Nt2zWs6srQRyIPei7l3YQE31hx4Aud9YFzsntkaAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
   ></span>
   <img
         class="gatsby-resp-image-image"
         alt="singleton-bean"
         title="singleton-bean"
-        src="/static/c040bc5cc8d218d7fab901e730fa382f/db2b8/singleton-bean.png"
-        srcset="/static/c040bc5cc8d218d7fab901e730fa382f/1df8f/singleton-bean.png 273w,
-/static/c040bc5cc8d218d7fab901e730fa382f/53236/singleton-bean.png 545w,
-/static/c040bc5cc8d218d7fab901e730fa382f/db2b8/singleton-bean.png 1090w,
-/static/c040bc5cc8d218d7fab901e730fa382f/90122/singleton-bean.png 1635w,
-/static/c040bc5cc8d218d7fab901e730fa382f/fa891/singleton-bean.png 1870w"
-        sizes="(max-width: 1090px) 100vw, 1090px"
+        src="/static/821cd584b57621f69915b0f0e69cae81/36727/singleton-bean.png"
+        srcset="/static/821cd584b57621f69915b0f0e69cae81/acf4b/singleton-bean.png 173w,
+/static/821cd584b57621f69915b0f0e69cae81/fc834/singleton-bean.png 345w,
+/static/821cd584b57621f69915b0f0e69cae81/36727/singleton-bean.png 690w,
+/static/821cd584b57621f69915b0f0e69cae81/59fbd/singleton-bean.png 1018w"
+        sizes="(max-width: 690px) 100vw, 690px"
         loading="lazy"
       />
     </span>
@@ -167,23 +166,22 @@ Spring의 내부 <code class="language-text">ConfigurableBeanFactory</code>를 �
 <p>ScopeService 아까와 같이 구성해서 출력하면 다음과 같습니다<br>
 <span
       class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;"
     >
       <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 8.32414553472988%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAbUlEQVQI1zWMaw4CIQwG9zhuSbBAyUJhE+9/qbEa/THpfH0de90ML/hoVDUkCdbCffK4LmQM5FPdObuhpbCWM+f8su+Nx2wGu3cOs05tmVaVZ1ZSSqiGm3HWivyJLNHPOdPj0CKXeG4/b8Er9t4qjz//yCmxZQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+    style="padding-bottom: 15.560165975103734%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAABbqAAAW6gHljkMQAAAAkklEQVQI1zVOQRKDIBDzOwWcEVwEBB3toV9op///R5pFe8gkJLthByOCjpQuHh38NEGo53nuWJYFiXnO+falszBzzl0YR1hrMRgOmVJgtg2qHwy0YN93bPRqrSjMU044jqN7ipX+2RreMeJD/W0VL+4OJgR06HXK/M1730v/FwW+p9uLLFCWKMjUT155ckZRWPgDiZRhDksNTjAAAAAASUVORK5CYII='); background-size: cover; display: block;"
   ></span>
   <img
         class="gatsby-resp-image-image"
         alt="prototype-bean"
         title="prototype-bean"
-        src="/static/1f32f2741075eed9ae82f5adfa66824a/db2b8/prototype-bean.png"
-        srcset="/static/1f32f2741075eed9ae82f5adfa66824a/1df8f/prototype-bean.png 273w,
-/static/1f32f2741075eed9ae82f5adfa66824a/53236/prototype-bean.png 545w,
-/static/1f32f2741075eed9ae82f5adfa66824a/db2b8/prototype-bean.png 1090w,
-/static/1f32f2741075eed9ae82f5adfa66824a/90122/prototype-bean.png 1635w,
-/static/1f32f2741075eed9ae82f5adfa66824a/1842b/prototype-bean.png 1814w"
-        sizes="(max-width: 1090px) 100vw, 1090px"
+        src="/static/bfbb6a315a27a000b66514d1170bd3fc/36727/prototype-bean.png"
+        srcset="/static/bfbb6a315a27a000b66514d1170bd3fc/acf4b/prototype-bean.png 173w,
+/static/bfbb6a315a27a000b66514d1170bd3fc/fc834/prototype-bean.png 345w,
+/static/bfbb6a315a27a000b66514d1170bd3fc/36727/prototype-bean.png 690w,
+/static/bfbb6a315a27a000b66514d1170bd3fc/d4d70/prototype-bean.png 964w"
+        sizes="(max-width: 690px) 100vw, 690px"
         loading="lazy"
       />
     </span>
@@ -204,23 +202,22 @@ Spring의 내부 <code class="language-text">ConfigurableBeanFactory</code>를 �
 <span class="token punctuation">}</span></code></pre></div>
 <p><span
       class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;"
     >
       <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 7.721796276013143%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAb0lEQVQI1yXNWQ7DMAgE0Fyn8SbVbI6tfuf+F5pM3I8RQsDj8FDEqNDuKKUgpQQzR1bFacawquB0x0cEtTVEBLp07hnGGJhzQjn7sT/MBOYV8jWC+Q/yOG+MeeE3G+xoBNdaEALKZ9e4Nhqc39x7AAPdQCMxGHdSAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+    style="padding-bottom: 14.418125643666324%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAABbqAAAW6gHljkMQAAAAoUlEQVQI10WOwQ7CIBBE+ztdrIUChWKhlWg8e9H//5JxiiYeNkOG3ZfXibWQeYY4BxkGjOMIy26aJhhj4NjHGDFzJ6XEv29/7DjOmTdKBEopCLOTZYHkDElMwpx1qLUisztAzjvs+xXbtrUpJSOtK568e10ueJfCd8TQ9xBCu7+hbYZGm2YSwtwstNYIBIcQaOlbeu5Xmt+ZD4Jv3uP0A34Aia9hDktqpgcAAAAASUVORK5CYII='); background-size: cover; display: block;"
   ></span>
   <img
         class="gatsby-resp-image-image"
         alt="prototype-bean"
         title="prototype-bean"
-        src="/static/286bc8a9d72b702475c23bd782d44a28/db2b8/prototype-getbean.png"
-        srcset="/static/286bc8a9d72b702475c23bd782d44a28/1df8f/prototype-getbean.png 273w,
-/static/286bc8a9d72b702475c23bd782d44a28/53236/prototype-getbean.png 545w,
-/static/286bc8a9d72b702475c23bd782d44a28/db2b8/prototype-getbean.png 1090w,
-/static/286bc8a9d72b702475c23bd782d44a28/90122/prototype-getbean.png 1635w,
-/static/286bc8a9d72b702475c23bd782d44a28/7bc83/prototype-getbean.png 1826w"
-        sizes="(max-width: 1090px) 100vw, 1090px"
+        src="/static/c3da605c201130bf54fb1011f84cf71a/36727/prototype-getbean.png"
+        srcset="/static/c3da605c201130bf54fb1011f84cf71a/acf4b/prototype-getbean.png 173w,
+/static/c3da605c201130bf54fb1011f84cf71a/fc834/prototype-getbean.png 345w,
+/static/c3da605c201130bf54fb1011f84cf71a/36727/prototype-getbean.png 690w,
+/static/c3da605c201130bf54fb1011f84cf71a/4c710/prototype-getbean.png 971w"
+        sizes="(max-width: 690px) 100vw, 690px"
         loading="lazy"
       />
     </span>
@@ -231,7 +228,7 @@ Spring의 내부 <code class="language-text">ConfigurableBeanFactory</code>를 �
 이 스코프 특성들은 각각 사용하거나 Prototype에서 Singleton을 가지고 사용하는 것에는 문제가 없습니다  </p>
 <p><span
       class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 840px;"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;"
     >
       <span
     class="gatsby-resp-image-background-image"
@@ -241,11 +238,12 @@ Spring의 내부 <code class="language-text">ConfigurableBeanFactory</code>를 �
         class="gatsby-resp-image-image"
         alt="prototype-in-singleton"
         title="prototype-in-singleton"
-        src="/static/0960ab756dfd4f678c1f30edd0f890e2/04a72/prototype-in-singleton.png"
-        srcset="/static/0960ab756dfd4f678c1f30edd0f890e2/1df8f/prototype-in-singleton.png 273w,
-/static/0960ab756dfd4f678c1f30edd0f890e2/53236/prototype-in-singleton.png 545w,
+        src="/static/0960ab756dfd4f678c1f30edd0f890e2/36727/prototype-in-singleton.png"
+        srcset="/static/0960ab756dfd4f678c1f30edd0f890e2/acf4b/prototype-in-singleton.png 173w,
+/static/0960ab756dfd4f678c1f30edd0f890e2/fc834/prototype-in-singleton.png 345w,
+/static/0960ab756dfd4f678c1f30edd0f890e2/36727/prototype-in-singleton.png 690w,
 /static/0960ab756dfd4f678c1f30edd0f890e2/04a72/prototype-in-singleton.png 840w"
-        sizes="(max-width: 840px) 100vw, 840px"
+        sizes="(max-width: 690px) 100vw, 690px"
         loading="lazy"
       />
     </span>  </p>
@@ -254,7 +252,7 @@ Spring의 내부 <code class="language-text">ConfigurableBeanFactory</code>를 �
 <p><strong>반대로 Singleton에서 Prototype을 가지고 있는 경우에는 의도한 것과 다른 결과를 낼 수 있습니다</strong><br>
 <span
       class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 764px;"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;"
     >
       <span
     class="gatsby-resp-image-background-image"
@@ -264,11 +262,12 @@ Spring의 내부 <code class="language-text">ConfigurableBeanFactory</code>를 �
         class="gatsby-resp-image-image"
         alt="singleton-in-prototype"
         title="singleton-in-prototype"
-        src="/static/266c2b65e173fd9cad227a9bd6e94aa8/578a5/singleton-in-prototype.png"
-        srcset="/static/266c2b65e173fd9cad227a9bd6e94aa8/1df8f/singleton-in-prototype.png 273w,
-/static/266c2b65e173fd9cad227a9bd6e94aa8/53236/singleton-in-prototype.png 545w,
+        src="/static/266c2b65e173fd9cad227a9bd6e94aa8/36727/singleton-in-prototype.png"
+        srcset="/static/266c2b65e173fd9cad227a9bd6e94aa8/acf4b/singleton-in-prototype.png 173w,
+/static/266c2b65e173fd9cad227a9bd6e94aa8/fc834/singleton-in-prototype.png 345w,
+/static/266c2b65e173fd9cad227a9bd6e94aa8/36727/singleton-in-prototype.png 690w,
 /static/266c2b65e173fd9cad227a9bd6e94aa8/578a5/singleton-in-prototype.png 764w"
-        sizes="(max-width: 764px) 100vw, 764px"
+        sizes="(max-width: 690px) 100vw, 690px"
         loading="lazy"
       />
     </span>  </p>
@@ -289,23 +288,23 @@ Spring의 내부 <code class="language-text">ConfigurableBeanFactory</code>를 �
 <span class="token punctuation">}</span></code></pre></div>
 <p><span
       class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;"
     >
       <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 7.672764227642276%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAb0lEQVQI1z2MQRYCIQxD5zoWGVpAmAFE7n+pGFy4+C9N8pojpoBEwmlwzuH0JzQlSDSIEVXI9ryf3sOoyizn/Cex36qmOO4W0UiywkH5Pbx6x+O6IDepFbJ9LQgcWmthzjf5oI+OUgo6+zkn2hj4Ar/HQAv27VSJAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+    style="padding-bottom: 13.550135501355015%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAABbqAAAW6gHljkMQAAAAm0lEQVQI1zVOWw6DMAzjOKwVhZa+WxBI077Y7n8bz+3YR+TYcSwPYp4htEZDKSWUUpi5/0drg2VZYO2K1RhyDXNj9/DW7mqa8BhHDKJkiH2HSBGSYkwJ53mi1oKd+m+vOI4DIXiUUrrW+LZV5JzxihEfei5mDcJZiBAg2KA1dM71oMzgzOdIs/eeYeFuantI0xM9gfjkz0V8k38BWqBhn4+MKd0AAAAASUVORK5CYII='); background-size: cover; display: block;"
   ></span>
   <img
         class="gatsby-resp-image-image"
         alt="singleton-getbean-and-getPrototype"
         title="singleton-getbean-and-getPrototype"
-        src="/static/ed716db35766e0c25d8cbecc1093cb08/db2b8/singleton-getbean-and-getPrototype.png"
-        srcset="/static/ed716db35766e0c25d8cbecc1093cb08/1df8f/singleton-getbean-and-getPrototype.png 273w,
-/static/ed716db35766e0c25d8cbecc1093cb08/53236/singleton-getbean-and-getPrototype.png 545w,
-/static/ed716db35766e0c25d8cbecc1093cb08/db2b8/singleton-getbean-and-getPrototype.png 1090w,
-/static/ed716db35766e0c25d8cbecc1093cb08/90122/singleton-getbean-and-getPrototype.png 1635w,
-/static/ed716db35766e0c25d8cbecc1093cb08/66f1a/singleton-getbean-and-getPrototype.png 1968w"
-        sizes="(max-width: 1090px) 100vw, 1090px"
+        src="/static/d0f2c302e63760cdce23db5d929623b8/36727/singleton-getbean-and-getPrototype.png"
+        srcset="/static/d0f2c302e63760cdce23db5d929623b8/acf4b/singleton-getbean-and-getPrototype.png 173w,
+/static/d0f2c302e63760cdce23db5d929623b8/fc834/singleton-getbean-and-getPrototype.png 345w,
+/static/d0f2c302e63760cdce23db5d929623b8/36727/singleton-getbean-and-getPrototype.png 690w,
+/static/d0f2c302e63760cdce23db5d929623b8/17fa4/singleton-getbean-and-getPrototype.png 1035w,
+/static/d0f2c302e63760cdce23db5d929623b8/38e05/singleton-getbean-and-getPrototype.png 1107w"
+        sizes="(max-width: 690px) 100vw, 690px"
         loading="lazy"
       />
     </span><br>
@@ -342,23 +341,23 @@ Spring의 내부 <code class="language-text">ConfigurableBeanFactory</code>를 �
 <span class="token punctuation">}</span></code></pre></div>
 <p><span
       class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;"
     >
       <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 7.250000000000001%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAR0lEQVQI1w3Luw2AMAwAUdaBgHD8iaNQULH/SIerJ510m7njHngIvQutnYgIV/XDjKPcy7vaWovMJCJQ1fqcnJOn/MbgNeUH65sf+tR0sSEAAAAASUVORK5CYII='); background-size: cover; display: block;"
+    style="padding-bottom: 12.244897959183675%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABbqAAAW6gHljkMQAAAAc0lEQVQI1x1LOQ6DMBDkPRtw8LURyGfhig4pRf7/kMmYYjT3Is5BQoB4j9e2wVoLT+2YxxgRNUJVyfr4qZXZ7CcC9zt/73WFIRY5T0jOkJQgxiCRxxiotaL3jlIK8oMM/Sgas9Yayuz5u48DX35+3FzB4w8srUHZPMgO7wAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
   ></span>
   <img
         class="gatsby-resp-image-image"
         alt="prototype-proxy-bean"
         title="prototype-proxy-bean"
-        src="/static/93465e05d35f2e9d5ca48b03a1a75baf/db2b8/prototype-proxy-bean.png"
-        srcset="/static/93465e05d35f2e9d5ca48b03a1a75baf/1df8f/prototype-proxy-bean.png 273w,
-/static/93465e05d35f2e9d5ca48b03a1a75baf/53236/prototype-proxy-bean.png 545w,
-/static/93465e05d35f2e9d5ca48b03a1a75baf/db2b8/prototype-proxy-bean.png 1090w,
-/static/93465e05d35f2e9d5ca48b03a1a75baf/90122/prototype-proxy-bean.png 1635w,
-/static/93465e05d35f2e9d5ca48b03a1a75baf/d40c8/prototype-proxy-bean.png 2000w"
-        sizes="(max-width: 1090px) 100vw, 1090px"
+        src="/static/6bad3e48c746c95e745dd2c885e88857/36727/prototype-proxy-bean.png"
+        srcset="/static/6bad3e48c746c95e745dd2c885e88857/acf4b/prototype-proxy-bean.png 173w,
+/static/6bad3e48c746c95e745dd2c885e88857/fc834/prototype-proxy-bean.png 345w,
+/static/6bad3e48c746c95e745dd2c885e88857/36727/prototype-proxy-bean.png 690w,
+/static/6bad3e48c746c95e745dd2c885e88857/17fa4/prototype-proxy-bean.png 1035w,
+/static/6bad3e48c746c95e745dd2c885e88857/a300b/prototype-proxy-bean.png 1176w"
+        sizes="(max-width: 690px) 100vw, 690px"
         loading="lazy"
       />
     </span><br>
@@ -453,23 +452,23 @@ Spring의 내부 <code class="language-text">ConfigurableBeanFactory</code>를 �
 <p>그 다음 다음과 같이 각각의 Bean을 DI 받아서 <code class="language-text">instanceof</code>로 확인하면 어떻게 될까요?  </p>
 <p><span
       class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;"
     >
       <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 7.3%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAQUlEQVQI1zXIOw6AMAwEUY6DnRRx4o/E/e81mILiabR7eTgR2YxtizEmZsZ0R89Bu9L7+6qyFZHBs42lyi2Cdn8v5csfPzNzuPAAAAAASUVORK5CYII='); background-size: cover; display: block;"
+    style="padding-bottom: 12.133891213389122%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABbqAAAW6gHljkMQAAAAbklEQVQI1zXNWw6FIAwEUNdTikB5RFGQH3P3v6K59fVx0nQyaScSAaUEihHGWkgIEM0uOWeUUp6pnayi9j5J96B97/2NmTHRuoL2HbRVsHNoraHWit47xhg4jo6mfsuCUwLcPIP1sX1dRz7GGPwBAS0/zqUAktEAAAAASUVORK5CYII='); background-size: cover; display: block;"
   ></span>
   <img
         class="gatsby-resp-image-image"
         alt="interface-bean"
         title="interface-bean"
-        src="/static/71c473744e3d05c500b60e25f1304cb8/db2b8/interface-bean.png"
-        srcset="/static/71c473744e3d05c500b60e25f1304cb8/1df8f/interface-bean.png 273w,
-/static/71c473744e3d05c500b60e25f1304cb8/53236/interface-bean.png 545w,
-/static/71c473744e3d05c500b60e25f1304cb8/db2b8/interface-bean.png 1090w,
-/static/71c473744e3d05c500b60e25f1304cb8/90122/interface-bean.png 1635w,
-/static/71c473744e3d05c500b60e25f1304cb8/d40c8/interface-bean.png 2000w"
-        sizes="(max-width: 1090px) 100vw, 1090px"
+        src="/static/d39297ac0f81d66d39fc719c111f9b66/36727/interface-bean.png"
+        srcset="/static/d39297ac0f81d66d39fc719c111f9b66/acf4b/interface-bean.png 173w,
+/static/d39297ac0f81d66d39fc719c111f9b66/fc834/interface-bean.png 345w,
+/static/d39297ac0f81d66d39fc719c111f9b66/36727/interface-bean.png 690w,
+/static/d39297ac0f81d66d39fc719c111f9b66/17fa4/interface-bean.png 1035w,
+/static/d39297ac0f81d66d39fc719c111f9b66/d248c/interface-bean.png 1195w"
+        sizes="(max-width: 690px) 100vw, 690px"
         loading="lazy"
       />
     </span><br>
@@ -477,23 +476,23 @@ Spring의 내부 <code class="language-text">ConfigurableBeanFactory</code>를 �
 <br/>
 <p><span
       class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;"
     >
       <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 6.75%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAN0lEQVQI103KQQoAIBBC0a6TYjOL7n81EyJo8RA+jqryJUsySWstMw1ZZJn+ft3tip3WgGfgcwDAch6BugKowwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+    style="padding-bottom: 10.992616899097621%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABbqAAAW6gHljkMQAAAAbUlEQVQI1z2OSw7EIAxDe50GaIEEVQzfbe9/IE/KqLN4suREtjcKAcQCigHWWsQY/6SUFqJczPjoL6sy/+4igqCe935hjMFGOYNqxa7qjgO9d7TWUErBnBNjjOX1WnBrQD5PGC12D86tES9P4Bf6ID/JgqCTQgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
   ></span>
   <img
         class="gatsby-resp-image-image"
         alt="interface-proxy-bean"
         title="interface-proxy-bean"
-        src="/static/fdf8727cb7d63613e91af484bbdd7326/db2b8/interface-proxy-bean.png"
-        srcset="/static/fdf8727cb7d63613e91af484bbdd7326/1df8f/interface-proxy-bean.png 273w,
-/static/fdf8727cb7d63613e91af484bbdd7326/53236/interface-proxy-bean.png 545w,
-/static/fdf8727cb7d63613e91af484bbdd7326/db2b8/interface-proxy-bean.png 1090w,
-/static/fdf8727cb7d63613e91af484bbdd7326/90122/interface-proxy-bean.png 1635w,
-/static/fdf8727cb7d63613e91af484bbdd7326/d40c8/interface-proxy-bean.png 2000w"
-        sizes="(max-width: 1090px) 100vw, 1090px"
+        src="/static/4b2a5794a8f7ba770d0768d80255eafe/36727/interface-proxy-bean.png"
+        srcset="/static/4b2a5794a8f7ba770d0768d80255eafe/acf4b/interface-proxy-bean.png 173w,
+/static/4b2a5794a8f7ba770d0768d80255eafe/fc834/interface-proxy-bean.png 345w,
+/static/4b2a5794a8f7ba770d0768d80255eafe/36727/interface-proxy-bean.png 690w,
+/static/4b2a5794a8f7ba770d0768d80255eafe/17fa4/interface-proxy-bean.png 1035w,
+/static/4b2a5794a8f7ba770d0768d80255eafe/53d32/interface-proxy-bean.png 1219w"
+        sizes="(max-width: 690px) 100vw, 690px"
         loading="lazy"
       />
     </span><br>
@@ -513,23 +512,23 @@ Spring의 내부 <code class="language-text">ConfigurableBeanFactory</code>를 �
 <p>다음과 같이 간단하게 <code class="language-text">Return Type</code>을 맞춰 주는 것으로 해결 할 수 있습니다  </p>
 <p><span
       class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1090px;"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;"
     >
       <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 8.05%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAbklEQVQI1y2NSw7DQAhDcx1olPkDM1VS9f6Hcp0qi7cwth6be0KvHaqK1hoOd4gN6CDh0FLQe0dEINi910LMiZP5y31jXx5SStjMEo/tL6y14jCDDD64cYPmjEH5WhMfii+SS0Yltu94iUAebscP/Ms/UXXIG7IAAAAASUVORK5CYII='); background-size: cover; display: block;"
+    style="padding-bottom: 12.965964343598054%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAABbqAAAW6gHljkMQAAAAk0lEQVQI13WOSw6DMAxEuQ4mIT8SVKABorZZ9P7nmU5YVN108TS25bGnkxAgWsFaC+89nHMInMWUkOaEOE3UGTfOMgnsJ3LtxHhp8zaftQad7Dt6Y7CtK2qtKOVEvm94PR8oJ+ucsR8HyrLg3Y6PI5TW0D8opb50wlTCon1ITBWDR6aptqTDgJ4MIhCqoTb61v/hA31NXywOxdByAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
   ></span>
   <img
         class="gatsby-resp-image-image"
         alt="interface-proxy-bean-safe"
         title="interface-proxy-bean-safe"
-        src="/static/517ec546dca4dd99b7bd7e5a1381714e/db2b8/interface-proxy-bean-safe.png"
-        srcset="/static/517ec546dca4dd99b7bd7e5a1381714e/1df8f/interface-proxy-bean-safe.png 273w,
-/static/517ec546dca4dd99b7bd7e5a1381714e/53236/interface-proxy-bean-safe.png 545w,
-/static/517ec546dca4dd99b7bd7e5a1381714e/db2b8/interface-proxy-bean-safe.png 1090w,
-/static/517ec546dca4dd99b7bd7e5a1381714e/90122/interface-proxy-bean-safe.png 1635w,
-/static/517ec546dca4dd99b7bd7e5a1381714e/d40c8/interface-proxy-bean-safe.png 2000w"
-        sizes="(max-width: 1090px) 100vw, 1090px"
+        src="/static/e05de13c5365acf351560c78982c3759/36727/interface-proxy-bean-safe.png"
+        srcset="/static/e05de13c5365acf351560c78982c3759/acf4b/interface-proxy-bean-safe.png 173w,
+/static/e05de13c5365acf351560c78982c3759/fc834/interface-proxy-bean-safe.png 345w,
+/static/e05de13c5365acf351560c78982c3759/36727/interface-proxy-bean-safe.png 690w,
+/static/e05de13c5365acf351560c78982c3759/17fa4/interface-proxy-bean-safe.png 1035w,
+/static/e05de13c5365acf351560c78982c3759/67bc9/interface-proxy-bean-safe.png 1234w"
+        sizes="(max-width: 690px) 100vw, 690px"
         loading="lazy"
       />
     </span>  </p>
@@ -549,7 +548,8 @@ Spring의 내부 <code class="language-text">ConfigurableBeanFactory</code>를 �
         alt="good"
         title="good"
         src="/static/7ee67e2b0778a2bed4f1e40c32f08b4d/58a9f/good-image.jpg"
-        srcset="/static/7ee67e2b0778a2bed4f1e40c32f08b4d/0076f/good-image.jpg 273w,
+        srcset="/static/7ee67e2b0778a2bed4f1e40c32f08b4d/6f483/good-image.jpg 173w,
+/static/7ee67e2b0778a2bed4f1e40c32f08b4d/0fa0d/good-image.jpg 345w,
 /static/7ee67e2b0778a2bed4f1e40c32f08b4d/58a9f/good-image.jpg 498w"
         sizes="(max-width: 498px) 100vw, 498px"
         loading="lazy"
@@ -577,4 +577,4 @@ Spring의 내부 <code class="language-text">ConfigurableBeanFactory</code>를 �
       
       
       
-      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/spring/scope/spring-scope/";window.webpackCompilationHash="ad5f8d65f0ae6e79aaae";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-41361b996b071ccacf46.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-d8ff3142cebda72f471f.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-2047161ab81a7fa0cbea.js"],"component---src-pages-404-js":["/component---src-pages-404-js-3ef9908c8ca2bbec57a2.js"],"component---src-pages-about-js":["/component---src-pages-about-js-00cc2684b605b19b0688.js"],"component---src-pages-index-js":["/component---src-pages-index-js-c844c12cd7f5589a4a4b.js"]};/*]]>*/</script><script src="/component---src-templates-blog-post-js-2047161ab81a7fa0cbea.js" async=""></script><script src="/styles-a61f89ff58cea193353c.js" async=""></script><script src="/commons-e3839588b8ec4f06d1d2.js" async=""></script><script src="/app-41361b996b071ccacf46.js" async=""></script><script src="/webpack-runtime-db7c9e59d855b4322330.js" async=""></script></body></html>
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/spring/scope/spring-scope/";window.webpackCompilationHash="f4b5838bbd453be6c10c";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-3ef2d9e26c0a65fb468a.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-d8ff3142cebda72f471f.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-2047161ab81a7fa0cbea.js"],"component---src-pages-404-js":["/component---src-pages-404-js-3ef9908c8ca2bbec57a2.js"],"component---src-pages-about-js":["/component---src-pages-about-js-00cc2684b605b19b0688.js"],"component---src-pages-index-js":["/component---src-pages-index-js-c844c12cd7f5589a4a4b.js"]};/*]]>*/</script><script src="/component---src-templates-blog-post-js-2047161ab81a7fa0cbea.js" async=""></script><script src="/styles-3abeaeb3bbc3533521fb.js" async=""></script><script src="/commons-e3839588b8ec4f06d1d2.js" async=""></script><script src="/app-3ef2d9e26c0a65fb468a.js" async=""></script><script src="/webpack-runtime-db7c9e59d855b4322330.js" async=""></script></body></html>
