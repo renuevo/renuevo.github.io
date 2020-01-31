@@ -1,4 +1,850 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[renuevo blog]]></title><description><![CDATA[development]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 09 Jan 2020 13:44:03 GMT</lastBuildDate><item><title><![CDATA[[Elastic] Could not create the Java Virtual Machine Error]]></title><description><![CDATA[얼마전 로 시스템을 업그레이드 하였습니다    에서 사용하는 ELK는 를 쓰고 있었습니다 Elastic이랑 Kibana는 문제없이 작동 됐지만 Logstash에서 다음과 같은 에러를 마주 했습니다    해당 에러는 JVM…]]></description><link>https://renuevo.github.io/elastic/elastic-jvm-matrix/</link><guid isPermaLink="false">https://renuevo.github.io/elastic/elastic-jvm-matrix/</guid><pubDate>Mon, 23 Dec 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;얼마전 &lt;code class=&quot;language-text&quot;&gt;open-jdk11&lt;/code&gt;로 시스템을 업그레이드 하였습니다  &lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[renuevo blog]]></title><description><![CDATA[development]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 31 Jan 2020 02:09:19 GMT</lastBuildDate><item><title><![CDATA[[Spring] Spring Batch 1부]]></title><description><![CDATA[1부는 Spring Batch의 구조와 동작 방식의 대한 이야기를 다룹니다 Spring의 DI,AOP,서비스 + Accenture의 Batch 노하우 해당 포스팅의 모든 소스는 Github에서 확인하실 수 있습니다   Batch…]]></description><link>https://renuevo.github.io/spring/batch/spring-batch-chapter-1/</link><guid isPermaLink="false">https://renuevo.github.io/spring/batch/spring-batch-chapter-1/</guid><pubDate>Thu, 30 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;1부는 Spring Batch의 구조와 동작 방식의 대한 이야기를 다룹니다&lt;br&gt;
+&lt;strong&gt;&lt;em&gt;Spring의 DI,AOP,서비스 + &lt;a href=&quot;https://www.accenture.com/us-en&quot;&gt;Accenture&lt;/a&gt;의 Batch 노하우&lt;/em&gt;&lt;/strong&gt;&lt;br&gt;
+해당 포스팅의 모든 소스는 &lt;a href=&quot;https://github.com/renuevo/spring-boot-in-action&quot;&gt;Github&lt;/a&gt;에서 확인하실 수 있습니다  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;em&gt;Batch 를 통한 일괄처리&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Spring Batch의 특성&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;자동화 - 개입 없이 &lt;code class=&quot;language-text&quot;&gt;자동 실행&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;견고성 - &lt;code class=&quot;language-text&quot;&gt;충돌/중단&lt;/code&gt; 없는 안전한 처리&lt;/li&gt;
+&lt;li&gt;신뢰성 -  이슈 처리를 추적 할 &lt;code class=&quot;language-text&quot;&gt;로깅/알림&lt;/code&gt; 기능&lt;/li&gt;
+&lt;li&gt;성능 - 처리 완료와 독립적 수행의 대한 &lt;code class=&quot;language-text&quot;&gt;퍼포먼스&lt;/code&gt; 확보&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;data-code-classlanguage-textreadercode와-code-classlanguage-textwritercode를-지원&quot;&gt;&lt;a href=&quot;#data-code-classlanguage-textreadercode%EC%99%80-code-classlanguage-textwritercode%EB%A5%BC-%EC%A7%80%EC%9B%90&quot; aria-label=&quot;data code classlanguage textreadercode와 code classlanguage textwritercode를 지원 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Data &lt;code class=&quot;language-text&quot;&gt;Reader&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;Writer&lt;/code&gt;를 지원&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;DataSource&lt;/th&gt;
+&lt;th&gt;기술&lt;/th&gt;
+&lt;th&gt;설명&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Database&lt;/td&gt;
+&lt;td&gt;JDBC&lt;/td&gt;
+&lt;td&gt;페이징, 커서, 일괄 업데이트등&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Database&lt;/td&gt;
+&lt;td&gt;Hibernate&lt;/td&gt;
+&lt;td&gt;페이징, 커서&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Database&lt;/td&gt;
+&lt;td&gt;JPA&lt;/td&gt;
+&lt;td&gt;페이징 (커서 기능 삭제됨)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;File&lt;/td&gt;
+&lt;td&gt;Flat file&lt;/td&gt;
+&lt;td&gt;지정한 구분자로 파싱&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;File&lt;/td&gt;
+&lt;td&gt;XML&lt;/td&gt;
+&lt;td&gt;XML 파싱&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Ibatis 모듈은 현재 삭재 되었고 JDBC ItemReader로 교체를 추천  &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;spring-batch-기본-구조&quot;&gt;&lt;a href=&quot;#spring-batch-%EA%B8%B0%EB%B3%B8-%EA%B5%AC%EC%A1%B0&quot; aria-label=&quot;spring batch 기본 구조 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Spring Batch 기본 구조&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.83087861858812%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACvElEQVQozz2S22sTQRTG84f47v8hFPxHfPVBFPRJBR9UEAQviBUUwUttq7bWqkFttTGX5rLZS2Z3dneS3XQ32dxNO7Va2/M5SYsPHzMcZn585zsnNeDFU23zx++hXZRIPIm2Kw9btoyCqqyJogxalkxGntzq2dIWBel4Ocn9vDSdjPSammx2mQw7llJNRuptSgFPI3HBeBqr2SfI6Iv4FeqIYgMfrEUsqNqGSKO/62LOd3HyrY8T8x7uOg383OUIxh62tl1s7aizx5BqlNZOd60civobWs7O0jf9JXWsH8R5lr54izSff0Dr7hK1RjZ9j306r0V0JiNogTOK+gYFI07NicZKnRql9iM2Q4kDtDnthzWi2MFhzNDtOtBDDxuahqxRQr3P0OhV0YjXwbxVsCAD3jYQDFR9oqENBURqr2nNUNvB35jRTl2jvaaJg6iGpMPx6I2Gm7M5zKUN6KKADecT7qVv4Pb7a9jcWkM8FlNYqGDByEbct5H6fQw8UMBtUaEuy2NoF9Du2BDbIRrbTYihQL1XUy4t9dGCJjIww02EIweBgol+TYkdOfwPbNm0G5hTYNdS0KSCyJ1DUH2MXrKOaMdFRTDMvirgztMMPhfLCPsa0qaOaysOLi87+FQxj1tOOPYjg6TI0YhnMfY19CMFZg/RLt3CIP4AFTqsJsPbb2W8/lpCllXhxQWsGgYuLdg4N2fj3aZxBMQEyJ9TuHaVdo37QKyh0/MR7AjlTKjVUBo6qkU1rD0XvT8+vKQKFuaxUi7hyhLHxQUHH8vmpGVz6vCg/p6kfpcG5jN0+boaispLuZrk1PzpHOU1uY/Vzqnd87s1uHERy+UKLrxycPaFg6WJw1+hOXOoMtzj89TJXqe49ASR9RmtljEFhANbTVHB1GkFRRj1wlRVPw9D5FAOTKzoNpaqNsquiX/D2PhG74McogAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Spring Batch Diagram&quot;
+        title=&quot;Spring Batch Diagram&quot;
+        src=&quot;/static/d7545ae38bd4eaee607c4eb49b7f3f95/36727/Ch02_SpringBatchArchitecture_Architecture_StepTaskletFlow.png&quot;
+        srcset=&quot;/static/d7545ae38bd4eaee607c4eb49b7f3f95/acf4b/Ch02_SpringBatchArchitecture_Architecture_StepTaskletFlow.png 173w,
+/static/d7545ae38bd4eaee607c4eb49b7f3f95/fc834/Ch02_SpringBatchArchitecture_Architecture_StepTaskletFlow.png 345w,
+/static/d7545ae38bd4eaee607c4eb49b7f3f95/36727/Ch02_SpringBatchArchitecture_Architecture_StepTaskletFlow.png 690w,
+/static/d7545ae38bd4eaee607c4eb49b7f3f95/17fa4/Ch02_SpringBatchArchitecture_Architecture_StepTaskletFlow.png 1035w,
+/static/d7545ae38bd4eaee607c4eb49b7f3f95/a5044/Ch02_SpringBatchArchitecture_Architecture_StepTaskletFlow.png 1380w,
+/static/d7545ae38bd4eaee607c4eb49b7f3f95/49956/Ch02_SpringBatchArchitecture_Architecture_StepTaskletFlow.png 1969w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt; &lt;span class=&apos;img_caption&apos;&gt;Source : &lt;a href=&quot;https://terasoluna-batch.github.io/guideline/5.0.0.RELEASE/en/Ch02_SpringBatchArchitecture.html&quot;&gt;Spring Batch Architecture&lt;/a&gt; &lt;/span&gt; &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. Job&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Batch Job의 한 단위&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;  &lt;span class=&quot;token annotation punctuation&quot;&gt;@Bean&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Job&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;jobBean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; jobBuilderFactory&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;{Job Name}&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+              &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;stepBean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+              &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;2. Step&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Job내부에서 수행될 1개의 Step&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Tasklet에 Step에서 수행할 기능으로 써 2가지의 형태가 존재&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;User 커스텀&lt;/li&gt;
+&lt;li&gt;Reader &amp;#x26; Processor &amp;#x26; Writer(RPW)가 한 묶음으로 존재&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;  &lt;span class=&quot;token annotation punctuation&quot;&gt;@Bean&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Step&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;stepBean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; stepBuilderFactory&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;{Step Name}&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;              &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;tasklet&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;contribution&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; chunkContext&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;                  log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;[========= This is Step ==========]&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;                  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;RepeatStatus&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;FINISHED&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;              &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/span&gt;              &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;srping-boot-meta-data&quot;&gt;&lt;a href=&quot;#srping-boot-meta-data&quot; aria-label=&quot;srping boot meta data permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Srping Boot Meta Data&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;이전 실행 Job History&lt;/li&gt;
+&lt;li&gt;실패한 Batch와 Parameter / 성공한 Job&lt;/li&gt;
+&lt;li&gt;실행 재개 지점&lt;/li&gt;
+&lt;li&gt;Job 기준 Step현황과 성공/실패 여부&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 81.70878459687123%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAIAAACZeshMAAAACXBIWXMAAAsSAAALEgHS3X78AAACVElEQVQoz4VSiW7aQBDl//8mDVGqSlUTSFBwSADbGB9rvOuT9QHeOPheu2OSSq1E1NFoJY/f2zfzZkdL3buarsYz8Wq6HD+ur2fi0vT7vu+6/r8x8mmgarqmG6qmIXOXF2VV11lRE5o6MSP04ESM88s3jXTLni8lYSXDuVJ0UTOJ67vh4eqXcDNdXN8J969q1bSXyd2f/vLTqTsH5zwvToFru8RKaNB3vG2/IDctn6yM70/i7Wx9PXl5kHe87/dRvBA3wlKElFSjrCqAQvP/ZNcBuVWQuVjL642KsEOTFJSbtssbnr7nWV7mVdN94d4IWqJ0bxMMGfheXddQNdxo/LC+mb58u3/+ISinsj4VjWZTw6GavddIsMW+F7OB7AeBZVmmuSuK4kMkSmJJUeWthiwShDFU/Oh4M3m+nS7G9/O7hTxXLOTFo5Zzz/cxxqZpUkr5OVLGbJvYhBCMy7Lsuz4vC9+1aeA5BCrF2QL+qQwwXdeDIBiszvPkeCC2jRCC6wAHHR3T1AIFTDAhVVXzvmsHMueu5501MKDTNAU0yzIHpAc0ZoxB5T3PTRNhy4L64BX43TafZJgZ+NB5GIYw9D6MNooqbRRR3qj6sKokZcMT2hqSihR9B6dJnIFMQ3oWBsPJh9unoozTzA+TfXyMDgxGg62WDa9aXjW8bFrIuuWjummMnXUWGdJ2HHrIJis0k8yfgnz3qj6I6FlzLj7vQXmfMD9Ogzj1oiNNWMKYIG7mK3khbp9eJexH8Vt+mfz3x8f/tyzTDUOD0HWETFik53kXn/dvzcp1CxmBXnIAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Spring Batch Meta Data Schema&quot;
+        title=&quot;Spring Batch Meta Data Schema&quot;
+        src=&quot;/static/55b809cbc69531950dd7c7fa094e4261/36727/meta-data-erd.png&quot;
+        srcset=&quot;/static/55b809cbc69531950dd7c7fa094e4261/acf4b/meta-data-erd.png 173w,
+/static/55b809cbc69531950dd7c7fa094e4261/fc834/meta-data-erd.png 345w,
+/static/55b809cbc69531950dd7c7fa094e4261/36727/meta-data-erd.png 690w,
+/static/55b809cbc69531950dd7c7fa094e4261/d181f/meta-data-erd.png 831w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt; &lt;span class=&apos;img_caption&apos;&gt;Source : &lt;a href=&quot;https://docs.spring.io/spring-batch/docs/3.0.x/reference/html/metaDataSchema.html&quot;&gt;Spring Batch Doc&lt;/a&gt; &lt;/span&gt; &lt;/p&gt;
+&lt;p&gt;해당 Table들은 Spring Batch 동작에 꼭 필요하며 &lt;code class=&quot;language-text&quot;&gt;H2 DB&lt;/code&gt;사용시 자동으로 생성되지만  &lt;/p&gt;
+&lt;p&gt;그외 DB들은 직접 생성해 주어야합니다&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;DB DDL&lt;/code&gt; 쿼리는 org.springframework.batch.core에 포함되어 있고 탐색 및 schema 검색으로 확인할 수 있습니다&lt;/p&gt;
+&lt;br/&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;BATCH&lt;em&gt;JOB&lt;/em&gt;INSTANCE&lt;/strong&gt;  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;job이 실행 되는 단위  &lt;/li&gt;
+&lt;li&gt;job의 name/key/version 등의 정보를 가지고 있습니다  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;br/&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;BATCH&lt;em&gt;JOB&lt;/em&gt;EXCUTION_PARAMS&lt;/strong&gt;  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;job과 1:1의 관계를 갖는 parameters 입니다  &lt;/li&gt;
+&lt;li&gt;job과 1:1의 속성때문에 param이 다르면 job_instance가 새롭게 생성됩니다  &lt;/li&gt;
+&lt;li&gt;Map타입으로 지정데이터를 job에 넘길 수 있습니다  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Bean&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Job&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;jobBean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; jobBuilderFactory&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;testJob&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;stepBean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Bean&lt;/span&gt;
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@JobScope&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Step&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;stepBean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Value&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;#{jobParameters[requestDate]}&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; requestDate&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; stepBuilderFactory&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;testStep&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;tasklet&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;contribution&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; chunkContext&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; 
+                    log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;[========= This is Step ==========]&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                    log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;[========= requestDate {} ==========]&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; requestDate&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;RepeatStatus&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;FINISHED&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 27.224008574490888%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAzklEQVQY002Naw6CMBCEOY4UBOSptpS3mJhIRI33P8m4XQv4YzLT7uy3zvR8Y35/cJ9fmEgPysZn67fpgartUdYte90Nq7fDyOqs66aDo3TFw+5y5aJ5L8uqarhUWtf0L0vNHak19RqclcZJKtbxLOEURYEkTVAcT8jynHKKLMs5G5BZjqKIgW0//uAEkqpEHCfwfR9CCJbneXCCMIS7c+G6P5nPJUeHGPsg4BwSNE4zpHQsIR0IZroLaAUK4XFYZQdcItC2sBzdWW2zf+AXIaCkxfOKWQMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Spring Boot Batch Instance&quot;
+        title=&quot;Spring Boot Batch Instance&quot;
+        src=&quot;/static/a8eae1d0b90346d8518152f99207e91c/36727/spring-boot-batch-instance.png&quot;
+        srcset=&quot;/static/a8eae1d0b90346d8518152f99207e91c/acf4b/spring-boot-batch-instance.png 173w,
+/static/a8eae1d0b90346d8518152f99207e91c/fc834/spring-boot-batch-instance.png 345w,
+/static/a8eae1d0b90346d8518152f99207e91c/36727/spring-boot-batch-instance.png 690w,
+/static/a8eae1d0b90346d8518152f99207e91c/5e09a/spring-boot-batch-instance.png 933w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt; &lt;span class=&apos;img_caption&apos;&gt;Spring Boot Batch Instance&lt;/span&gt; &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 14.393125671321162%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAm0lEQVQI11WN2xKCMAxE+SihLdD0xmVG0RGRAXH8/89Y0/jkQ2Y3u81pcVvfuDx2TMsL2U/Ljvv2YX/gPG+4Pg8M0wzrI3zq4WInE4cRsR8ROAvdwFmSvQj9r6CQ0LrwNw150dxRBjKIPOfWcUeyCyxEAQuw0gZKa1RKywNTN1DsE5emrkEZ3FqcypIP+VNyslvWfCNTKWYYlKxffFtqJQbfQN0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Spring Boot Batch Param&quot;
+        title=&quot;Spring Boot Batch Param&quot;
+        src=&quot;/static/041065b97ebf81d1f14a68d0ac3940e7/36727/spring-boot-batch-param.png&quot;
+        srcset=&quot;/static/041065b97ebf81d1f14a68d0ac3940e7/acf4b/spring-boot-batch-param.png 173w,
+/static/041065b97ebf81d1f14a68d0ac3940e7/fc834/spring-boot-batch-param.png 345w,
+/static/041065b97ebf81d1f14a68d0ac3940e7/36727/spring-boot-batch-param.png 690w,
+/static/041065b97ebf81d1f14a68d0ac3940e7/36c39/spring-boot-batch-param.png 931w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt; &lt;span class=&apos;img_caption&apos;&gt;Spring Boot Batch Param&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;동일 &lt;code class=&quot;language-text&quot;&gt;Parameter&lt;/code&gt;로 실행시 이미 &lt;code class=&quot;language-text&quot;&gt;Instance&lt;/code&gt;가 존재해서 에러가 납니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 32.157800358637175%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAwklEQVQY01WQWRKEIAxEPY8brqXIInL/O2XoOO2MH12hArx0ulrXVUII4r0X51ypQUJM4kMUa61q33etuN+2TTXPsyzLItM0iTFGhmGQruukQjOlpFAoxqjCGQBC72H+gRJQ1/VLFRzmnOU8TwWndD0D8JkgDsM7WxybAoSztm0V1DSN6uWQH1AB4arHcYj/xsEIACPoBUQWBHBtZgoQVyYYdwCO46j59X3/AqvD68pPbqh0zMx+wOLS3T3AkSXA/y4/NbfFLJkHEPsAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Parameter Exist Error&quot;
+        title=&quot;Parameter Exist Error&quot;
+        src=&quot;/static/20d442031bd61e22606261e5e83c4fe0/36727/parameter-exist.png&quot;
+        srcset=&quot;/static/20d442031bd61e22606261e5e83c4fe0/acf4b/parameter-exist.png 173w,
+/static/20d442031bd61e22606261e5e83c4fe0/fc834/parameter-exist.png 345w,
+/static/20d442031bd61e22606261e5e83c4fe0/36727/parameter-exist.png 690w,
+/static/20d442031bd61e22606261e5e83c4fe0/17fa4/parameter-exist.png 1035w,
+/static/20d442031bd61e22606261e5e83c4fe0/a5044/parameter-exist.png 1380w,
+/static/20d442031bd61e22606261e5e83c4fe0/856a4/parameter-exist.png 1673w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt; &lt;span class=&apos;img_caption&apos;&gt;Parameter Exist Error&lt;/span&gt;&lt;/p&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;BATCH&lt;em&gt;JOB&lt;/em&gt;EXECUTION&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;batch_job_instance와 대응되면서 &lt;code class=&quot;language-text&quot;&gt;성공/실패&lt;/code&gt; 내역을 갖고 있습니다&lt;/li&gt;
+&lt;li&gt;process는 해당 table을 조회해서 재수행이 필요한 job만 처리 합니다&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 57.88206979542719%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAA7DAAAOwwHHb6hkAAABLUlEQVQoz7WT646DIBCFeZxqRShXrUq13tru7vs/ztkRk6abNK2b7P74cmaADAcYWF1KVJVH1bVo5xF118A5D2MctLLIBEfGOThf9R3s6AVCadGEDuHUIzQnlIWDMhriICG0pIUZsmwbTB4EtBZQ2pAaHJSGshraU+4tlNPI8zw63ALLeI4kSZ6zWzVN080wTrsvwX6//xP+oSD/WTB9mPzNUe9HNq6Atv7OY258AevLqMt4xL+GDfMV0+0T4+WG6fqBmJPONBa6HlVo0bRnNBSH87DGL2Dj7SsWWximC3piiMzohgldP+LUnXGkwmUd4IuSXK/On8EU/QhjLfWghqOFi0NfFNSXGv14wbGqIYSITZsku/d3mN77bkcNLODIgZAyFnC0oxAyzm995W+zDnp/6je54QAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;BATCH_JOB_EXECUTION&quot;
+        title=&quot;BATCH_JOB_EXECUTION&quot;
+        src=&quot;/static/423d6616f1c839da11d35f858df96535/36727/job-completed.png&quot;
+        srcset=&quot;/static/423d6616f1c839da11d35f858df96535/acf4b/job-completed.png 173w,
+/static/423d6616f1c839da11d35f858df96535/fc834/job-completed.png 345w,
+/static/423d6616f1c839da11d35f858df96535/36727/job-completed.png 690w,
+/static/423d6616f1c839da11d35f858df96535/d181f/job-completed.png 831w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt; &lt;span class=&apos;img_caption&apos;&gt;BATCH&lt;em&gt;JOB&lt;/em&gt;EXECUTION&lt;/span&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;spring-batch-flow&quot;&gt;&lt;a href=&quot;#spring-batch-flow&quot; aria-label=&quot;spring batch flow permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Spring Batch Flow&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;contribution&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setExitStatus&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;ExitStatus&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;FAILED&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//setExitStatus로 상태를 저장 할 수 있다&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;흐름 제어&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;on - 이전 step의 status에 대한 다음 행동&lt;/li&gt;
+&lt;li&gt;to - on과 연결된 다음 행동&lt;/li&gt;
+&lt;li&gt;end - 반환 / build 종료 2가지가 존재 맺음 메소드&lt;/li&gt;
+&lt;li&gt;from - on과 end 이외 추가전 이벤트 캐치 사용에 사용  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Slf4j&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Configuration&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@AllArgsConstructor&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;JobSecondConfig&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;JobBuilderFactory&lt;/span&gt; jobBuilderFactory&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;StepBuilderFactory&lt;/span&gt; stepBuilderFactory&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Bean&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Job&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;jobSecondBean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; jobBuilderFactory&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;testJob2&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;jobStep1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;                    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;FAILED&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;   &lt;span class=&quot;token comment&quot;&gt;//FAILED 이면&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;                    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;jobStep3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//step3 실행&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;                    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;*&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//to와 관계없이&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;                    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;//반환 종료&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;jobStep1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;//on을 사용한후 추가적 이벤트 캐치&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;                    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;*&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;    &lt;span class=&quot;token comment&quot;&gt;//FAILED외의 모든 것&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;                    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;jobStep2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//step2 실행&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;                    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;jobStep3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;   &lt;span class=&quot;token comment&quot;&gt;//정상 종료되면 step3 실행&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;                    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;*&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;    &lt;span class=&quot;token comment&quot;&gt;//step3 결과 상관없이&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;                    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;//반환 종료&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//build 종료&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/span&gt;    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Bean&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Step&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;jobStep1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; stepBuilderFactory&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;step1&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;tasklet&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;contribution&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; chunkContext&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                    log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;[========= This is Step1 ==========]&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                    contribution&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setExitStatus&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;ExitStatus&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;FAILED&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;      &lt;span class=&quot;token comment&quot;&gt;//Status Failed&lt;/span&gt;
+                    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;RepeatStatus&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;FINISHED&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Bean&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Step&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;jobStep2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; stepBuilderFactory&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;step2&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;tasklet&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;contribution&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; chunkContext&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                    log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;[========= This is Step2 ==========]&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;RepeatStatus&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;FINISHED&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Bean&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Step&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;jobStep3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; stepBuilderFactory&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;step3&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;tasklet&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;contribution&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; chunkContext&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                    log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;[========= This is Step3 ==========]&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                    contribution&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setExitStatus&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;ExitStatus&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;FAILED&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;      &lt;span class=&quot;token comment&quot;&gt;//Status Failed&lt;/span&gt;
+                    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;RepeatStatus&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;FINISHED&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 8.114157806379406%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAZUlEQVQI1z3MWQ7AIAhF0W5HjCPWse5/Wa8Q037cEEI4Vy03vHMorYF6B80JsxZcznhk7r3R5JZl15gZMUaEEE7ew1oLYwyICNfNBU5ArhWk6DiognMMLEEVTCnBy/MPSR+s8+sF7Us/Q/MzXs0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Fail Flow&quot;
+        title=&quot;Fail Flow&quot;
+        src=&quot;/static/f48ae9b7ae70e38974af215ff6a9c0f7/36727/job-step1.png&quot;
+        srcset=&quot;/static/f48ae9b7ae70e38974af215ff6a9c0f7/acf4b/job-step1.png 173w,
+/static/f48ae9b7ae70e38974af215ff6a9c0f7/fc834/job-step1.png 345w,
+/static/f48ae9b7ae70e38974af215ff6a9c0f7/36727/job-step1.png 690w,
+/static/f48ae9b7ae70e38974af215ff6a9c0f7/17fa4/job-step1.png 1035w,
+/static/f48ae9b7ae70e38974af215ff6a9c0f7/a5044/job-step1.png 1380w,
+/static/f48ae9b7ae70e38974af215ff6a9c0f7/7d213/job-step1.png 1787w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&apos;img_caption&apos;&gt;Fail Flow&lt;/span&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Bean&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Step&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;jobStep1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; stepBuilderFactory&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;step1&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;tasklet&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;contribution&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; chunkContext&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                    log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;[========= This is Step1 ==========]&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                    &lt;span class=&quot;token comment&quot;&gt;/*
+                    	contribution.setExitStatus(ExitStatus.FAILED);
+                    */&lt;/span&gt;
+                    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;RepeatStatus&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;FINISHED&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 10.03904071388734%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAW0lEQVQI13XMQQ6AIAxEUa5DKa1EMFD0/scaGxbGmLj4mVm9YDZxXobed6hsKMcB6h00J7hW2Bgw/6UUiAhU9VlmRowRRLRKKSH8gmbg1jD8Twer41/wXc55oTf4QT88CCDfNQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Standard Flow&quot;
+        title=&quot;Standard Flow&quot;
+        src=&quot;/static/8a76897c204337c8d094cc928934a9d1/36727/job-step.png&quot;
+        srcset=&quot;/static/8a76897c204337c8d094cc928934a9d1/acf4b/job-step.png 173w,
+/static/8a76897c204337c8d094cc928934a9d1/fc834/job-step.png 345w,
+/static/8a76897c204337c8d094cc928934a9d1/36727/job-step.png 690w,
+/static/8a76897c204337c8d094cc928934a9d1/17fa4/job-step.png 1035w,
+/static/8a76897c204337c8d094cc928934a9d1/a5044/job-step.png 1380w,
+/static/8a76897c204337c8d094cc928934a9d1/ce243/job-step.png 1793w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&apos;img_caption&apos;&gt;Standard  Flow&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;BATCH&lt;em&gt;STEP&lt;/em&gt;EXECUTION&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;각각의 Step에 대한 성공 실패 여부가 기록됩니다&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 46.99612403100775%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABaUlEQVQoz32S3ZKjIBCFfZwAKpiJEv9AATUmNbN7N+//JGcaMklla2f34qvuhrbtOofMhoBtc5iXAOMXjLPD4BxGH+C3K8JlT0wuoB8tYTBS7pYNM0XrPazz6MMNvd+R6a5F15SYrcU8b5gsDRx6nOoalTpCKoVClsiLHHn+oKC6eNYl3bf+BvPxieyt1ijKAqpSOB5PFI9EBSkrapTgOQcTDFxwcP43jDEURQljJ0wrbVjREEF/YewAxiMswb8R9JHg4jveh4gXYh237IYRg7HIerfjbNdEM4Yn2ix/xEeuzfoDC7p5Jw2vyMJ6wf7+G9vtFzytPK9XEvxC5pDYyaQY18RA+nbj9A8sWiKL4jdaJ9quh5nmZIg+n+ECbd3odBajIoOEEC/miBfuZ1lFBrDDIWmoVEWDzzhQLSkfzISylKSPuRtEBsSBP5nzIJPUGJsi8Ym8nep0IaWCbjsaWKJu4kson33/4wsM0iQ5OUuHgAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;BATCH_STEP_EXECUTION&quot;
+        title=&quot;BATCH_STEP_EXECUTION&quot;
+        src=&quot;/static/97bd14e44ce3583ead26b1f3b31ad70a/36727/step-completed.png&quot;
+        srcset=&quot;/static/97bd14e44ce3583ead26b1f3b31ad70a/acf4b/step-completed.png 173w,
+/static/97bd14e44ce3583ead26b1f3b31ad70a/fc834/step-completed.png 345w,
+/static/97bd14e44ce3583ead26b1f3b31ad70a/36727/step-completed.png 690w,
+/static/97bd14e44ce3583ead26b1f3b31ad70a/1cbac/step-completed.png 1032w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&apos;img_caption&apos;&gt;BATCH&lt;em&gt;STEP&lt;/em&gt;EXECUTION&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;위의 코드의 &lt;code class=&quot;language-text&quot;&gt;문제점&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;Step&lt;/code&gt;이 Flow랑 Process처리라는 &lt;code class=&quot;language-text&quot;&gt;2가지&lt;/code&gt;의 역할을 수행 합니다&lt;/li&gt;
+&lt;li&gt;ExitStatus로는 다양한 &lt;code class=&quot;language-text&quot;&gt;Flow 처리&lt;/code&gt;에 번거로움이 있습니다&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&quot;jobexecutiondecider-를-통한-flow-처리&quot;&gt;&lt;a href=&quot;#jobexecutiondecider-%EB%A5%BC-%ED%86%B5%ED%95%9C-flow-%EC%B2%98%EB%A6%AC&quot; aria-label=&quot;jobexecutiondecider 를 통한 flow 처리 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;JobExecutionDecider 를 통한 Flow 처리&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;   	&lt;span class=&quot;token annotation punctuation&quot;&gt;@Bean&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Job&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;jobDeciderBean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; jobBuilderFactory&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;deTestJob&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;startStep&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;decider&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;	&lt;span class=&quot;token comment&quot;&gt;//JobExecutionDecider()로직 처리&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;decider&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;	&lt;span class=&quot;token comment&quot;&gt;//JobExecutionDecider()결과 확인&lt;/span&gt;
+                    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;testDecide&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;startStep2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Bean&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;JobExecutionDecider&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;decider&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;jobDecider&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; jobDecider &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;JobExecutionDecider&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+        &lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;	&lt;span class=&quot;token comment&quot;&gt;//조건 정의 method&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FlowExecutionStatus&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;decide&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;JobExecution&lt;/span&gt; jobExecution&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;StepExecution&lt;/span&gt; stepExecution&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FlowExecutionStatus&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;testDecide&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;JobExecutionDecider&lt;/strong&gt;로 Flow를 제어하여 역할을 분리하고 유동적으로 많은 조건들을 생성해서 적용 가능하다&lt;/p&gt;
+&lt;br/&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;jobparameter--scope&quot;&gt;&lt;a href=&quot;#jobparameter--scope&quot; aria-label=&quot;jobparameter  scope permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;JobParameter &amp;#x26; Scope&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Barch Component에서 사용할 수 있게 지원되는 파라미터&lt;/em&gt;  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Value&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;#{jobParameters[parameterName]}&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;JobParameter Scope&lt;/strong&gt;  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;JobScope : Step 사용시 사용  &lt;/li&gt;
+&lt;li&gt;StepScope : Tasklet 사용시 사용  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Double&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;Long&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;Date&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;String&lt;/code&gt; 형식만을 지원합니다  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Slf4j&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Configuration&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@AllArgsConstructor&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;JobParameterConfig&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;JobBuilderFactory&lt;/span&gt; jobBuilderFactory&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;StepBuilderFactory&lt;/span&gt; stepBuilderFactory&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Bean&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Job&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;jobScopeBean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; jobBuilderFactory&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;jobScope&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;scopeStep1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;scopeStep2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Bean&lt;/span&gt;
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;    &lt;span class=&quot;token annotation punctuation&quot;&gt;@JobScope&lt;/span&gt;   &lt;span class=&quot;token comment&quot;&gt;//Step에 대해서 설정 &lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Step&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;scopeStep1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Value&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;#{jobParameters[requestDate]}&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; requestDate&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;/span&gt;        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; stepBuilderFactory&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;scopeStep1&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;tasklet&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;contribution&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; chunkContext&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                    log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;[========= This is scopeStep1 ==========]&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                    log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;{}&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;requestDate&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;RepeatStatus&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;FINISHED&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Bean&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Step&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;scopeStep2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; stepBuilderFactory&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;scopeStep2&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;tasklet&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;scopeStep2Tasklet&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Bean&lt;/span&gt;
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@StepScope&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;//Tasklet에 대해서 설정&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Tasklet&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;scopeStep2Tasklet&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Value&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;#{jobParameters[requestDate]}&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; requestDate&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;contribution&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; chunkContext&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;[========= This is scopeStep2 ==========]&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;{}&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;requestDate&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;RepeatStatus&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;FINISHED&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;@Bean에 @StepScope와 @JobScope를 같이 사용하면 Step의 시작과 종료시 생성/삭제가 이루어지게 됩니다  &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;JobParameter의 Late Binding&lt;/p&gt;
+&lt;p&gt;일반적인 Bean 생성시점이 아닌 지점에서 생성 되므로 &lt;code class=&quot;language-text&quot;&gt;Controller&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;Service&lt;/code&gt;와 같은 &lt;strong&gt;비지니스 로직 처리단계에서 Job Parameter를 할당&lt;/strong&gt; 할 수 있게 됩니다&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Component Parallel Processing &lt;/p&gt;
+&lt;p&gt;일반적인 &lt;code class=&quot;language-text&quot;&gt;Singleton&lt;/code&gt; 처럼 생성되면 각각의 Step에서 Tasklet의 멤버변수등의 상태를 수정하는 일이 생기면서 데이터가 덮어써지게 됩니다&lt;br&gt;
+👉 &lt;a href=&quot;https://ko.wikipedia.org/wiki/%EA%B2%BD%EC%9F%81_%EC%83%81%ED%83%9C&quot;&gt;Race Condition 문제&lt;/a&gt;&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;@StepScope&lt;/code&gt;로 &lt;strong&gt;각각의 Step별로 별도의 Tasklet를 생성&lt;/strong&gt;하고 관리하게 하므로써 이러한 문제를 해결 할 수 있습니다&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;jobparameter-주의-사항&quot;&gt;&lt;a href=&quot;#jobparameter-%EC%A3%BC%EC%9D%98-%EC%82%AC%ED%95%AD&quot; aria-label=&quot;jobparameter 주의 사항 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;JobParameter 주의 사항&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;JobParameter는 &lt;code class=&quot;language-text&quot;&gt;@Value&lt;/code&gt;를 통해서만 값을 할당 받을 수 있습니다  &lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;@JobScope&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;@StepScope&lt;/code&gt;로 &lt;strong&gt;Bean&lt;/strong&gt;을 생성할때만 Jobparameter가 생성되어 사용 할 수 있습니다  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;br/&gt; 
+&lt;p&gt;&lt;span class=&apos;code_header&apos;&gt;&lt;strong&gt;Job Parameter Bean&lt;/strong&gt;&lt;/span&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 70.79889807162533%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABcElEQVQ4y41Ty5KDMAzjcxonkHcC9AGl7WH//4O0DtBOuztTOGjMgciyZFddp2AtQUqCEAJE9A9SylfdQnWfFB6TwDRK5KzRaEbzRPPx89xgizC7Gl4TvG2Q2gwf4geUUqz8AEFFvZwn+aa2kvwgGYnEpME0iLlDTCuxCUguI9gEqy3kHoV1XWOKErdEGLuA6+MH0/2B83jFuR1xabnmgUnDqm6TcAlFcPcDh3IQtOCwgMQy4jOwrYAq3dQYWkIOjhV5/uaaLcbeYTh6OG+haonSeE/alVI1Gh4lGoVjd+K0bxgvVwyXETE6GK+hObCCEtAmYfGQSM3jamMRYloeSjWPKcQ6tti3kzOhMXL1afGP3vz6i02FxcOxJzhrEYPBMWluYNYlXrCX7OWh5kctL3iXWgz9CW3sEX2LxPtoi4e8n5LX5Z38K2H5KNcQYsaJA/GG0+WldlwXj/fd8UxYbvcjveIliTWQ1Uta75i2x/4Fcw6s0YOsizYAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Jobparameter Bean&quot;
+        title=&quot;Jobparameter Bean&quot;
+        src=&quot;/static/4ac4c31944b5dcd6e3e066c454e2533d/36727/jobparameter.png&quot;
+        srcset=&quot;/static/4ac4c31944b5dcd6e3e066c454e2533d/acf4b/jobparameter.png 173w,
+/static/4ac4c31944b5dcd6e3e066c454e2533d/fc834/jobparameter.png 345w,
+/static/4ac4c31944b5dcd6e3e066c454e2533d/36727/jobparameter.png 690w,
+/static/4ac4c31944b5dcd6e3e066c454e2533d/8d582/jobparameter.png 726w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;span class=&apos;code_header&apos;&gt;&lt;strong&gt;Job Tasklet&lt;/strong&gt;&lt;/span&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 49.24154025670945%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABTklEQVQoz4WSa27DIBCEfZuEN9gBA3aSJmrvf6TpQJ6V6vbHaL2G/ZhBDNerQkoSQkhIKahWVZcQt14p9axbeqwPp6pRCfTew4cRzgd4LSiJME4wxvwL+wH0ViOOCqUm5OOKshZczhnHJcI5D6X1JvD9/xPoLGEHxs4Jc6moXRGHGO7xt/UOegENHXqDNU8o0SFOd1dKwtC95rrWqqvFb7LWbjvUbZN2CLw/6zQh7Fn7N6UMBxqQ1bY1Ywk3m44H7zVSFAS0k3h6c8KBNqTZj4GuGb/BmvNWUwqYmMR057rr4XSwRqLGEcfzBXGOyMkh14h5yZjrjNOl4PNrRa3sSyEs4vxRsSwJE+/fO0szrh+m6HKQpI7WYeXmWDLGw4FDiU+I0TjQI3NPcCPl+9vc7fbY7wXEb5FdoyvBePIWs0VgVCXVayMlpPjzPT7WvgGHCzM03Ja8AAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Jobparameter Component&quot;
+        title=&quot;Jobparameter Component&quot;
+        src=&quot;/static/ab5780ac1f05fcea17765014fb95dfaf/36727/jobparameter-component.png&quot;
+        srcset=&quot;/static/ab5780ac1f05fcea17765014fb95dfaf/acf4b/jobparameter-component.png 173w,
+/static/ab5780ac1f05fcea17765014fb95dfaf/fc834/jobparameter-component.png 345w,
+/static/ab5780ac1f05fcea17765014fb95dfaf/36727/jobparameter-component.png 690w,
+/static/ab5780ac1f05fcea17765014fb95dfaf/ab944/jobparameter-component.png 857w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;span class=&apos;code_header&apos;&gt;&lt;strong&gt;Result&lt;/strong&gt;&lt;/span&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 10.885700148441368%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAZ0lEQVQI12WMSw6AIAxEvY6h/CoIharc/1IjunDjYvImmc8i0tC1YOOIECOo7FhFQCmh1gpVnSxgZoQQXsXZ895/JCIYY14uqgfOqyEnRsoZ1BrWeULT994xxoBI/cbWWjjnfnz05DcWJD+mLWYnYwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Jobparameter Component Result&quot;
+        title=&quot;Jobparameter Component Result&quot;
+        src=&quot;/static/08aa4186ea55f6aeea4c222f8eaa5bcd/36727/jobparameter-component-complete.png&quot;
+        srcset=&quot;/static/08aa4186ea55f6aeea4c222f8eaa5bcd/acf4b/jobparameter-component-complete.png 173w,
+/static/08aa4186ea55f6aeea4c222f8eaa5bcd/fc834/jobparameter-component-complete.png 345w,
+/static/08aa4186ea55f6aeea4c222f8eaa5bcd/36727/jobparameter-component-complete.png 690w,
+/static/08aa4186ea55f6aeea4c222f8eaa5bcd/17fa4/jobparameter-component-complete.png 1035w,
+/static/08aa4186ea55f6aeea4c222f8eaa5bcd/a5044/jobparameter-component-complete.png 1380w,
+/static/08aa4186ea55f6aeea4c222f8eaa5bcd/61d97/jobparameter-component-complete.png 2021w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;만약 &lt;code class=&quot;language-text&quot;&gt;@StepScope&lt;/code&gt;가 없는 Bean에  Jobparameter를 지정하게 되면 &lt;code class=&quot;language-text&quot;&gt;생성시점&lt;/code&gt; 때문에  &lt;span class=&apos;red_font&apos;&gt;error&lt;/span&gt;가 납니다  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 61.19668246445498%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAA7DAAAOwwHHb6hkAAABeklEQVQoz5WTa3KkMAyEfZvdARvwEzDGMFt7/yv1tsxOKpNMUpUfHxLGasuSUGkOCN5AG4PB9DC0fd8/0XXdS/8VyjqPFAbkLSOvEcMwMOixoftW/KXgREE3GQQ3wgzMTjOIQlpr6F43gZ9l6D2it/CBwmKjx7zQdw4xOkyjaeLfiTxnaBnEzLynnSRLjXEcWE8Dw2y1XLtlefvM7TMqLgU2zLA+NRz9yQup2faNuLi8YIVPz6jAx7xV+HqHqyfstiPTr/e/2I47yvGnsXBPWgvm/GBvAh8PU5r3dqxjt674zU7/WmZEch4V53lg49oiayFg5AQI03jZgaUSa4x+Q8mYSGP0PKMXYuQBjjX1JFxj9FUTZBLeGqbbu7LWtuBJYBYT360LsGzWtfkKeo8Mv/BxXVD7vqMeBw6y1x2lFKzlRC6Xv20bcs6Ymf3Ksgjix3j9BOM4Nh6+KntBrazX/WTNzuZnBjUoJAJyqIiLUEqpXfEmY/J/6N/zD4R9eGpcNKscAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Jobparameter Error&quot;
+        title=&quot;Jobparameter Error&quot;
+        src=&quot;/static/a0dcd7f2ab7c9c1eb387f551af0c2d51/36727/jobparameter-component-fail.png&quot;
+        srcset=&quot;/static/a0dcd7f2ab7c9c1eb387f551af0c2d51/acf4b/jobparameter-component-fail.png 173w,
+/static/a0dcd7f2ab7c9c1eb387f551af0c2d51/fc834/jobparameter-component-fail.png 345w,
+/static/a0dcd7f2ab7c9c1eb387f551af0c2d51/36727/jobparameter-component-fail.png 690w,
+/static/a0dcd7f2ab7c9c1eb387f551af0c2d51/17fa4/jobparameter-component-fail.png 1035w,
+/static/a0dcd7f2ab7c9c1eb387f551af0c2d51/a5044/jobparameter-component-fail.png 1380w,
+/static/a0dcd7f2ab7c9c1eb387f551af0c2d51/1c80d/jobparameter-component-fail.png 1688w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;   &lt;/p&gt;
+&lt;br/&gt;
+&lt;h3 id=&quot;jobparameter를-사용하는-이유&quot;&gt;&lt;a href=&quot;#jobparameter%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0&quot; aria-label=&quot;jobparameter를 사용하는 이유 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;JobParameter를 사용하는 이유&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Late Binding (Command Line실행외의 다른 실행이 어려워 진다)&lt;br&gt;
+&lt;em&gt;다음과 같이 동적 parameter의 대한 대응을 할 수 없습니다&lt;/em&gt;  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Slf4j&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@RestController&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;JobController&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;	&lt;span class=&quot;token comment&quot;&gt;//단순 예제&lt;/span&gt;
+
+   &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;JobLauncher&lt;/span&gt; jobLauncher&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+   &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Job&lt;/span&gt; job&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+   &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;JobController&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;JobLauncher&lt;/span&gt; jobLauncher&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token annotation punctuation&quot;&gt;@Qualifier&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;JobParameterBean&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Job&lt;/span&gt; job&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+       &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;jobLauncher &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; jobLauncher&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+       &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;job &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; job&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+   &lt;span class=&quot;token annotation punctuation&quot;&gt;@GetMapping&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;/launchjob&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+   &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;handle&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@RequestParam&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;requestDate&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; requestDate&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+       &lt;span class=&quot;token keyword&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+           &lt;span class=&quot;token class-name&quot;&gt;JobParameters&lt;/span&gt; jobParameters &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;JobParametersBuilder&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                   &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addString&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;requestDate&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; requestDate&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                   &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addLong&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;time&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;currentTimeMillis&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                   &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toJobParameters&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+           jobLauncher&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;job&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; jobParameters&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+       &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Exception&lt;/span&gt; e&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+           log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Error : {}&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; e&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getMessage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; e&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+       &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+       &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Deon&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 72.30406599882144%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABZ0lEQVQ4y5WT7ZKDIAxFfZxFUD4FFavd93+ouxfabp2Odrs/ziSDk9OUhCamgOgltDZQSqFt20OklJV9fkRjfcBgFNIQYK1H13VEUi7rD7xKPhIG2yE4B23cTagEJIUll1L9U+g8ZRQOBsZQ0itGi17r51/eFXwgDFDsYpoXLJeFYodxylX6V/Gh0LBD3bPDMKB0a63jh+OhnA1sT+Mo0rrnfak6hNtQOuaku6PuZ4/zNzTaGAjxhVaIc9od4j3NMG+I8wqf8ikuzh+S0cSJyWWDWa/Q+YKUF2zXbyzrhrXGK0YObJxzjUOayIgQRwyFR15j4pSthUwRYhzxxei54MuSMc9TZeS5444+l1zwil6uYUczTVMVtnmGiJFrM2Db2N26onwLobwgex/Uc2hVfrQ2K4vblCjMtcsivCzcSVJFXKm+76ukxILm0r+++19hZmFbOmQ3gnh2GSn1wdfiswUuwgf7F/QD0USxVt+sDigAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Batch Parameter Controller&quot;
+        title=&quot;Batch Parameter Controller&quot;
+        src=&quot;/static/dd98eb2046678f22a12c2a7847bbd3a4/36727/batch-parameter-controller.png&quot;
+        srcset=&quot;/static/dd98eb2046678f22a12c2a7847bbd3a4/acf4b/batch-parameter-controller.png 173w,
+/static/dd98eb2046678f22a12c2a7847bbd3a4/fc834/batch-parameter-controller.png 345w,
+/static/dd98eb2046678f22a12c2a7847bbd3a4/36727/batch-parameter-controller.png 690w,
+/static/dd98eb2046678f22a12c2a7847bbd3a4/17fa4/batch-parameter-controller.png 1035w,
+/static/dd98eb2046678f22a12c2a7847bbd3a4/a5044/batch-parameter-controller.png 1380w,
+/static/dd98eb2046678f22a12c2a7847bbd3a4/209db/batch-parameter-controller.png 1697w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;br&gt;
+&lt;strong&gt;&lt;em&gt;Spring Batch에서는 웹서버로 Batch를 관리하기를 &lt;code class=&quot;language-text&quot;&gt;권장하지 않습니다&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt; ❗  &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;br/&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;Meta Table의 활용성 (Job과 Parameter의 &lt;code class=&quot;language-text&quot;&gt;1:1&lt;/code&gt; 관계)&lt;br&gt;
+&lt;em&gt;이 처럼 Meta Table을 활용하여 Job을 1번만 실행하는지의 여부 확인이 어려워 집니다&lt;/em&gt;&lt;br&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 32.157800358637175%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAwklEQVQY01WQWRKEIAxEPY8brqXIInL/O2XoOO2MH12hArx0ulrXVUII4r0X51ypQUJM4kMUa61q33etuN+2TTXPsyzLItM0iTFGhmGQruukQjOlpFAoxqjCGQBC72H+gRJQ1/VLFRzmnOU8TwWndD0D8JkgDsM7WxybAoSztm0V1DSN6uWQH1AB4arHcYj/xsEIACPoBUQWBHBtZgoQVyYYdwCO46j59X3/AqvD68pPbqh0zMx+wOLS3T3AkSXA/y4/NbfFLJkHEPsAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Parameter Exist Error&quot;
+        title=&quot;Parameter Exist Error&quot;
+        src=&quot;/static/20d442031bd61e22606261e5e83c4fe0/36727/parameter-exist.png&quot;
+        srcset=&quot;/static/20d442031bd61e22606261e5e83c4fe0/acf4b/parameter-exist.png 173w,
+/static/20d442031bd61e22606261e5e83c4fe0/fc834/parameter-exist.png 345w,
+/static/20d442031bd61e22606261e5e83c4fe0/36727/parameter-exist.png 690w,
+/static/20d442031bd61e22606261e5e83c4fe0/17fa4/parameter-exist.png 1035w,
+/static/20d442031bd61e22606261e5e83c4fe0/a5044/parameter-exist.png 1380w,
+/static/20d442031bd61e22606261e5e83c4fe0/856a4/parameter-exist.png 1673w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;br/&gt;
+&lt;h3 id=&quot;bean과-stepscope를-같이-사용할-때-주의사항&quot;&gt;&lt;a href=&quot;#bean%EA%B3%BC-stepscope%EB%A5%BC-%EA%B0%99%EC%9D%B4-%EC%82%AC%EC%9A%A9%ED%95%A0-%EB%95%8C-%EC%A3%BC%EC%9D%98%EC%82%AC%ED%95%AD&quot; aria-label=&quot;bean과 stepscope를 같이 사용할 때 주의사항 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;@Bean과 @StepScope를 같이 사용할 때 주의사항&lt;/h3&gt;
+&lt;p&gt;기억보단 기록을 블로그의 &lt;a href=&quot;https://jojoldu.tistory.com/132&quot;&gt;StepScope 사용시 주의사항&lt;/a&gt;을 정리해서 요약했습니다&lt;br&gt;
+Spring Batch에서 ItemReader를 구현시 &lt;code class=&quot;language-text&quot;&gt;@Bean&lt;/code&gt;을 사용해서 구현하곤 합니다&lt;br&gt;
+문제는 &lt;code class=&quot;language-text&quot;&gt;@Bean&lt;/code&gt;과 JobParameter를 같이 써야 하면서 &lt;code class=&quot;language-text&quot;&gt;@StepScope&lt;/code&gt;를 같이 추가하면서 일어납니다  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Bean&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@StepScope&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ItemReader&lt;/span&gt;&lt;span class=&quot;token generics&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;reader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Value&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;#{jobParameters[parameter]}&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; parameter&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+
+    &lt;span class=&quot;token class-name&quot;&gt;JpaPagingItemReader&lt;/span&gt;&lt;span class=&quot;token generics&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt; reader &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;JpaPagingItemReader&lt;/span&gt;&lt;span class=&quot;token generics&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+    
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; reader&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;해당 코드와 같이 사용하고 일반적으로 &lt;code class=&quot;language-text&quot;&gt;JpaPagingItemReader&lt;/code&gt;를 사용하게 되면 &lt;code class=&quot;language-text&quot;&gt;ItemStream&lt;/code&gt; 인터페이스를 가지고 있지 않아서 &lt;span class=&apos;red_font&apos;&gt;Error&lt;/span&gt;가 납니다&lt;br&gt;
+이유인 즉 &lt;code class=&quot;language-text&quot;&gt;@StepScope&lt;/code&gt;가 선언됨에 따라 Bean이 &lt;code class=&quot;language-text&quot;&gt;Proxy&lt;/code&gt;로 설정 되면서 실제 생성한것과 다르게 &lt;em&gt;ItemReader로 return 되기 때문입니다&lt;/em&gt;  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Scope&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;value &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;step&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; proxyMode &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ScopedProxyMode&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;TARGET_CLASS&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Retention&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;RetentionPolicy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;RUNTIME&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Documented&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token annotation punctuation&quot;&gt;@interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;StepScope&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Scope의 관해서 자세히 알고 싶으시면 제 블로그의 다른 글 👉 &lt;a href=&quot;https://renuevo.github.io/spring/scope/spring-scope/&quot;&gt;Spring Scope의 관해서&lt;/a&gt;을 확인 하시기 바랍니다  &lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;chunk-지향-처리&quot;&gt;&lt;a href=&quot;#chunk-%EC%A7%80%ED%96%A5-%EC%B2%98%EB%A6%AC&quot; aria-label=&quot;chunk 지향 처리 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Chunk 지향 처리&lt;/h2&gt;
+&lt;p&gt;Spring Batch의 가장 큰 장점 중 하나는 &lt;code class=&quot;language-text&quot;&gt;Chunk&lt;/code&gt; 지향 처리입니다&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;Chunk&lt;/code&gt;지향처리란 &lt;strong&gt;한 번에 하나씩의 데이터를 읽어 Chunk라는 덩어리를 만든 뒤, Chunk 단위로 트랜잭션&lt;/strong&gt;을 다루는 것을 의미합니다&lt;br&gt;
+그래서 트랜잭션을 수행시 &lt;code class=&quot;language-text&quot;&gt;Chunk&lt;/code&gt;단위로 수행하기 때문에 Chunk 만큼만 롤백 됩니다  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 594px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.05050505050505%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAABiElEQVQoz4WPS0vDQBSF819diaCgf8CtSzdu3Va6Eouim1ZBUbAuqgg+0L6StEkzM3k38/Q0o1JB9DCQO3fuueeLY4zJ53y3eba9f/T4/h497fQ6G48X6+HLXkm7/evVh/baw/n66+VKNjkWxXjU3ex1tt5uNtjowEmTZDh2T67ujq/vA0rL4NR/bkxeG1nQrooxc1vhoBX0W2x8yLMXyQkbNb3ng6jfKOitUxQFpYSXhVaCRCScxVIZIbX5ktKLsyxcbcOx9/l8TihzPXc6ncSMJjETvCLRDCfLUqWE0cpoXR/FeaWUNEYvzFrrhZkQUFRVlSRJVqtfKwgC+JeThRCw/EwmBLG+56VpWpYlXnnFsQsb0fnHjAmERFGU5zlqKQVjMQSzUup3s/3YZADDCQM4UQyHo+FgQAjFL/yVDDxkghYFRuHknCdJTClDjSdM44nUApdlcRACWqQxxr7NQAULaqzIa9m+7/ue606mU/QX5iLPPdcLw1mWf7Jhq6Wy0rWWsaWUtvMBDk9r2yqMa+gAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;chunk-oriented processing&quot;
+        title=&quot;chunk-oriented processing&quot;
+        src=&quot;/static/ededcb54565ead1e65848381425a907a/262c7/chunk-oriented-processing.png&quot;
+        srcset=&quot;/static/ededcb54565ead1e65848381425a907a/acf4b/chunk-oriented-processing.png 173w,
+/static/ededcb54565ead1e65848381425a907a/fc834/chunk-oriented-processing.png 345w,
+/static/ededcb54565ead1e65848381425a907a/262c7/chunk-oriented-processing.png 594w&quot;
+        sizes=&quot;(max-width: 594px) 100vw, 594px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;br&gt;
+&lt;span class=&apos;img_caption&apos;&gt; Source : &lt;a href=&quot;https://docs.spring.io/spring-batch/docs/4.0.x/reference/html/index-single.html#chunkOrientedProcessing&quot;&gt;Spring Batch Docs Chunk-oriented&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;위의 그림은 Spring Batch에서 Item단위로 처리 프로세스가 어떻게 이루어지는지 나타냅니다&lt;br&gt;
+&lt;strong&gt;ItemReader와 ItemProcessor를 처리한뒤 마지막에 ItemWriter으로 전달 합니다&lt;/strong&gt; &lt;/p&gt;
+&lt;br/&gt; 
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 62.63208453410183%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAABYlAAAWJQFJUiTwAAABZUlEQVQ4y22T2arCQBBE8/8/J8YY3BDBGNQH930rPQMV+nptGJKp6a6prnQyhTgejyqKQq1WS7PZLGHj8VidTkd5nquu64TN53O127nKstT5fI4UypbLpVj7/V6Xy0WLxUJVVWm73ep+v2u1Wqn+kIODPR4P7Xa7dCF1EILdbjc9n09lvV5PxUfBdDpNhBycTie9Xq9ESLDnncLr9ZqedAMBQS4YORkvk8lEENMKIAoo5HYUHg6HVEChScDIcYAnQhRRyCEAB7RGAa13u910gQNSq/5J6JvjwXq9btrkjD128O5cWv5JaFVOtE9RDWRcgPLRaKTBYKDhcNh4/E+hfTGhRyGqwUuetA8xXxi7nPdH4XfLKIrh0fhu2YQmTYQQcMCGBZm/KjhPZtTj4vFBaRwvc2RWZR8BnWgsfqCIsTabjfr9fvK2IYzxq2X20WfbwIpCmjmMi2L8iW2gxH+RMXtoItvzBlax9G9BhrDgAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;spring batch chunk&quot;
+        title=&quot;spring batch chunk&quot;
+        src=&quot;/static/aac8f74d08de518fa48c9a923ba56fc5/36727/spring-batch-chunk.png&quot;
+        srcset=&quot;/static/aac8f74d08de518fa48c9a923ba56fc5/acf4b/spring-batch-chunk.png 173w,
+/static/aac8f74d08de518fa48c9a923ba56fc5/fc834/spring-batch-chunk.png 345w,
+/static/aac8f74d08de518fa48c9a923ba56fc5/36727/spring-batch-chunk.png 690w,
+/static/aac8f74d08de518fa48c9a923ba56fc5/17fa4/spring-batch-chunk.png 1035w,
+/static/aac8f74d08de518fa48c9a923ba56fc5/a5044/spring-batch-chunk.png 1380w,
+/static/aac8f74d08de518fa48c9a923ba56fc5/48160/spring-batch-chunk.png 2082w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;br&gt;
+&lt;span class=&apos;img_caption&apos;&gt; Source : &lt;a href=&quot;https://jojoldu.tistory.com/331&quot;&gt;기억보단 기록을 Chunk 지향처리&lt;/a&gt;&lt;/span&gt;&lt;br&gt;
+위의 그림은 이해를 돕기 위한 그림입니다&lt;br&gt;
+&lt;strong&gt;Reader와 Processor가 Item을 1건씩 처리하고 Chunk단위 만큼 처리가 끝나면 Writer쪽으로 전달되어 일괄 처리 됩니다&lt;/strong&gt;  &lt;/p&gt;
+&lt;br/&gt;
+&lt;h3 id=&quot;page-size-와-chunk-size&quot;&gt;&lt;a href=&quot;#page-size-%EC%99%80-chunk-size&quot; aria-label=&quot;page size 와 chunk size permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Page Size 와 Chunk Size&lt;/h3&gt;
+&lt;p&gt;Spring Batch에서 일반적으로 Reader로 &lt;code class=&quot;language-text&quot;&gt;PagingItemReader&lt;/code&gt;를 많이들 사용합니다&lt;br&gt;
+일반적으로 Page Size와 Chunk Size를 같은 의미로 생각할 수 있습니다&lt;br&gt;
+&lt;strong&gt;하지만 Page Size와 Chunk Size는 서로 의미하는 바가 다릅니다&lt;/strong&gt;  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;strong&gt;1. Chunk Size는 한번에 처리될 트랜잭션 단위&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;2. Page Size는 한번에 조회할 Item의 양&lt;/strong&gt;  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;아래 코드로 ItemReader에서 Read가 이루어지는 경우를 한눈에 볼 수 있습니다  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;doRead&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;synchronized&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;lock&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;        &lt;span class=&quot;token comment&quot;&gt;//results가 없거나, index가 pageSize를 초과한 경우 &lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;        &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;results &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; current &lt;span class=&quot;token operator&quot;&gt;&gt;=&lt;/span&gt; pageSize&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;    &lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;logger&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;isDebugEnabled&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                logger&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;debug&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Reading page &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getPage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        
+            &lt;span class=&quot;token comment&quot;&gt;//신규 Item을 읽어서 results list에 추가한다&lt;/span&gt;
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;            &lt;span class=&quot;token function&quot;&gt;doReadPage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;/span&gt;            page&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;current &lt;span class=&quot;token operator&quot;&gt;&gt;=&lt;/span&gt; pageSize&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                current &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;        &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; next &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; current&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;        &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;next &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; results&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;            &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; results&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;next&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/span&gt;        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;다음과 같이 Read는 &lt;code class=&quot;language-text&quot;&gt;Page Size&lt;/code&gt; 단위로 이루어지며 &lt;strong&gt;쿼리 실행시 Page의 Size를 지정하기 위한 용도&lt;/strong&gt;입니다&lt;br&gt;
+&lt;strong&gt;Chunk는 Item이 처리되는 단위&lt;/strong&gt;이며 이 때문에 &lt;strong&gt;Chunk Size와 Page Size가 다를 경우 불필요한 Read가 발생할 수 있습니다&lt;/strong&gt;&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;즉 Chunk Size가 Page Size보다 클경우 Chunk Size를 만족할 만큼의 Page Read가 이루어 집니다&lt;/code&gt;&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;그래서 JpaPagingItemReader에서는 다음과 같이 주석으로 알려주고 있습니다  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;/*
+ * &amp;lt;p&gt;
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Setting&lt;/span&gt; a fairly large page size and using a commit interval that matches the&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; page size should provide better performance&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;p&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+ &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;JpaPagingItemReader&lt;/span&gt;&lt;span class=&quot;token generics&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;AbstractPagingItemReader&lt;/span&gt;&lt;span class=&quot;token generics&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;상당히 큰 페이지 크기를 설정하고 페이지 크기와 일치하는 커미트 간격을 사용하면 성능이 향상됩니다&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;즉 Chunk Size와 Page Size를 일치 시키는게 보편적으로 좋은 방법입니다&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;JPA에서의 영속성 컨텍스트가 깨지는 문제도 있을 수 있다고 합니다&lt;br&gt;
+관련 정리 👉 &lt;a href=&quot;https://jojoldu.tistory.com/146&quot;&gt;영속성 컨텍스트 문제&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br/&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;관련-참고&quot;&gt;&lt;a href=&quot;#%EA%B4%80%EB%A0%A8-%EC%B0%B8%EA%B3%A0&quot; aria-label=&quot;관련 참고 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;관련 참고&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.spring.io/spring-batch/docs/current/reference/html/index.html&quot;&gt;Spring Batch Doc&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://terasoluna-batch.github.io/guideline/5.0.0.RELEASE/en/Ch02_SpringBatchArchitecture.html&quot;&gt;Spring Batch Guideline&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://jojoldu.tistory.com/&quot;&gt;기억보단 기록을&lt;/a&gt;   &lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Elastic] Could not create the Java Virtual Machine Error]]></title><description><![CDATA[얼마전 로 시스템을 업그레이드 하였습니다    에서 사용하는 ELK는 를 쓰고 있었습니다 Elastic이랑 Kibana는 문제없이 작동 됐지만 Logstash에서 다음과 같은 에러를 마주 했습니다    해당 에러는 JVM…]]></description><link>https://renuevo.github.io/elastic/elastic-jvm-matrix/</link><guid isPermaLink="false">https://renuevo.github.io/elastic/elastic-jvm-matrix/</guid><pubDate>Mon, 23 Dec 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;얼마전 &lt;code class=&quot;language-text&quot;&gt;open-jdk11&lt;/code&gt;로 시스템을 업그레이드 하였습니다  &lt;/p&gt;
 &lt;br/&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
