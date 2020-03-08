@@ -1,4 +1,275 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[renuevo blog]]></title><description><![CDATA[development]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 04 Mar 2020 15:52:23 GMT</lastBuildDate><item><title><![CDATA[[Spring] 2. Spring Batch의 ItemReader - File Item Reader]]></title><description><![CDATA[Chapter 2에서는 Spring Batch의 File ItemReader에 대한 이야기를 다룹니다   앞서 본것과 같이 Chunk 지향처리 의 구성요소로 이루어져 있습니다   ItemReader   ItemProcessor   ItemWriter…]]></description><link>https://renuevo.github.io/spring/batch/spring-batch-chapter-2/</link><guid isPermaLink="false">https://renuevo.github.io/spring/batch/spring-batch-chapter-2/</guid><pubDate>Thu, 05 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;Chapter 2에서는 Spring Batch의 File ItemReader에 대한 이야기를 다룹니다&lt;/em&gt;  &lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[renuevo blog]]></title><description><![CDATA[development]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 08 Mar 2020 15:57:45 GMT</lastBuildDate><item><title><![CDATA[[Docker] Docker의 구조와 Windows10의 Docker]]></title><description><![CDATA[Docker의 기본 구조 이번 포스트에서는 와 가 있어야만 Docker 설치가 가능한 이유를 알아 보도록 하겠습니다   서버 가상화 (Virtual Machine) 먼저 서버 가상화 기술 2가지에 대해 알아 보겠습니다      하이퍼바이저 Type…]]></description><link>https://renuevo.github.io/other/docker/docker-hello-world/</link><guid isPermaLink="false">https://renuevo.github.io/other/docker/docker-hello-world/</guid><pubDate>Mon, 09 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h1 id=&quot;docker의-기본-구조&quot;&gt;&lt;a href=&quot;#docker%EC%9D%98-%EA%B8%B0%EB%B3%B8-%EA%B5%AC%EC%A1%B0&quot; aria-label=&quot;docker의 기본 구조 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Docker의 기본 구조&lt;/h1&gt;
+&lt;p&gt;이번 포스트에서는 &lt;code class=&quot;language-text&quot;&gt;가상화 기술의 3가지&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;Windows10에서 Hyper-V&lt;/code&gt;가 있어야만 Docker 설치가 가능한 이유를 알아 보도록 하겠습니다  &lt;/p&gt;
+&lt;h2 id=&quot;서버-가상화-virtual-machine&quot;&gt;&lt;a href=&quot;#%EC%84%9C%EB%B2%84-%EA%B0%80%EC%83%81%ED%99%94-virtual-machine&quot; aria-label=&quot;서버 가상화 virtual machine permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;서버 가상화 (Virtual Machine)&lt;/h2&gt;
+&lt;p&gt;먼저 서버 가상화 기술 2가지에 대해 알아 보겠습니다  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 38.34394904458599%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABcRAAAXEQHKJvM/AAACS0lEQVQoz2NgIAKwbQiTYFjnv4djU/hJrT15R4Hs80JrAqf8r7JZ9r3R+dKviTEnf9Y7nvpZa3+KoSNwzcJs69WTz/NZVf1R01/wX91kwTZpvRrWtNZJZhUTlvBE1XUyTAhXZt3quUt9b9I5s0M5J0R2hl3mXuc6+X+lydL/E4Kv/J8Rf/J/t9fp/9WGpxk6fTfdK3HYeuqmpNvi/2r6d/6rGt89omy2jLtwwnGdskmPRNI69jI0FqtyL5qzy2DthgvG6zecVFqx+hrfrI6+tI6Ji4vmr7letXDtmYI5K86Fdc08x9BTMuNJXeqks8tcYhfuTEp5tDM+5ck079AlkZUtp9Obul+GFTccUCsp03JtmXgstHv2pVCgpqD+hVeiu/q2xLdN2RnfM/diYueMM5Ft0894Nkw9w9A+Y97Jms4p+1rr+1b1TZ15onf67JO1jd2rK7sn7W2bPvdcceeEtZntEw2auruO13V1nqtubzvTN2PamXnLV1xcsGjRhZ6+3jPNbW1n2zs7znZ2dZ5liGuZeiehfcbdyhlLHjXPXnanefby22XTFj2K7Zh2J7ptysO4jmmHEjummid0Tr+S0DH9fnL3rDv5Uxbdq5y19G7lnOV3sictuBvfOeNOfOf0u3FAzGDsG7LYKihqYVxJ9Zzw/LK5EfllC6ILK+YCxRYY+4QuN/EN7QfSGia+YXMMvIIXO0QkLEipqJ8TmlM8L6qgfEFUftk8M//wRUA1C4FqFyGnDkUglgNiMSCWwpOKOIBYBYiloWolkSUB9PgUz8/nAz0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Server Virtual&quot;
+        title=&quot;Server Virtual&quot;
+        src=&quot;/static/0603b7f09d3bd0236f0995594e6a2aba/36727/hypervisor.png&quot;
+        srcset=&quot;/static/0603b7f09d3bd0236f0995594e6a2aba/acf4b/hypervisor.png 173w,
+/static/0603b7f09d3bd0236f0995594e6a2aba/fc834/hypervisor.png 345w,
+/static/0603b7f09d3bd0236f0995594e6a2aba/36727/hypervisor.png 690w,
+/static/0603b7f09d3bd0236f0995594e6a2aba/17fa4/hypervisor.png 1035w,
+/static/0603b7f09d3bd0236f0995594e6a2aba/a5044/hypervisor.png 1380w,
+/static/0603b7f09d3bd0236f0995594e6a2aba/a0d55/hypervisor.png 1570w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;  &lt;/p&gt;
+&lt;br/&gt;
+&lt;ol&gt;
+&lt;li&gt;하이퍼바이저 Type1 가상화&lt;br&gt;
+하이퍼바이저 Type1은 Windows에서 지원하는 &lt;code class=&quot;language-text&quot;&gt;Hyper-V&lt;/code&gt;가 있습니다&lt;br&gt;
+하드웨어를 이용한 가상화 기술로 효율적인 가상화가 가능합니다  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;br/&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;하이퍼바이저 Type2(호스트형) 가상화&lt;br&gt;
+호스트형 서버 가상화에는 &lt;code class=&quot;language-text&quot;&gt;VMware Server&lt;/code&gt;가 있습니다&lt;br&gt;
+Host OS위에 가상환경을 만들어 Guest OS를 설치하는 가상화 기술입니다&lt;br&gt;
+하드웨어 및 가상환경이 호스트 OS에 의지하고 있기 때문에 속도가 느립니다   &lt;/li&gt;
+&lt;/ol&gt;
+&lt;br/&gt;
+&lt;h3 id=&quot;전가상화와-반가상화&quot;&gt;&lt;a href=&quot;#%EC%A0%84%EA%B0%80%EC%83%81%ED%99%94%EC%99%80-%EB%B0%98%EA%B0%80%EC%83%81%ED%99%94&quot; aria-label=&quot;전가상화와 반가상화 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;전가상화와 반가상화&lt;/h3&gt;
+&lt;p&gt;일반적으로 이 두가지 Type과 같이 나오는 개념이 &lt;code class=&quot;language-text&quot;&gt;전가상화&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;반가상화&lt;/code&gt;라는 개념이 있습니다&lt;br&gt;
+&lt;strong&gt;반가상화가 전가상화에 비해 상대적으로 성능이 좋습니다&lt;/strong&gt;&lt;br&gt;
+Type1을 전가상화 Type2를 반가상화라고 설명하는 글들을 볼 수 있는데 이는 전부 옛말입니다&lt;br&gt;
+요즘은 &lt;code class=&quot;language-text&quot;&gt;전/반가상화&lt;/code&gt;를 혼재해서 사용하는 경우가 많습니다  &lt;/p&gt;
+&lt;p&gt;보다 자세한 개념은 &lt;a href=&quot;https://itholic.github.io/hypervisor/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;하이퍼바이저, 전가상화, 반가상화&lt;/a&gt; 포스팅을 참고하시기 바랍니다    &lt;/p&gt;
+&lt;br/&gt;
+&lt;h2 id=&quot;컨테이너화-containers&quot;&gt;&lt;a href=&quot;#%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%ED%99%94-containers&quot; aria-label=&quot;컨테이너화 containers permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;컨테이너화 (Containers)&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;컨테이너화는 Docker에서 사용하는 가상화 기술입니다&lt;/strong&gt;&lt;br&gt;
+VM과 헷갈리기 쉬워 &lt;a href=&quot;https://www.docker.com/blog/containers-are-not-vms/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Containers are not VMs&lt;/a&gt;라는 글이 정식으로 등록되기도 했습니다&lt;br&gt;
+그림으로 서로 어떻게 다른지 살펴보겠습니다  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 42.1875%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsSAAALEgHS3X78AAABzUlEQVQY011R3W/ScBTtH+a7ezUaEx9mwhsui8YlsCzSKXErHy1d2daBDAEzOiCwgqSlsGWMiosfMU5jfBhNQDd1KAxka38U2lJ/bPriyUnuufec83QRTdOGw6GqqoPBAOrRaGT+A9RdudWRm6DTVE9PQPdUPTpWf/66TOi6jhiGYf6Pv31DN6qNOFfH5RJlptDOrqBfvw085BBamj4uH/3+tF1fqZwklJposh5DjBg8r0/bDQ9l9M7KXxIZiWgJ/n5ivlXZGdy09DDCkSrewGPvaw2k3n3DHtoL3yn1I2uuWswth7kRG125alqsWrtt5d5eS1YnU/u3mBdr5YM7G+Ji/rU9lp1YCO1/lhC+Vp/MlaxFEeVe+tgint+dY/bsFIuGCs127+lmmgxGV6NxMvwsK2xTMSae41IZlg6FDyUJEcRXU498Ni89T0dckQQWZmxLwXs+enZl/bjZCj4veTdzRDLvz/CRQnk5zeHJ3FKadzHZD1IDEcqV6QcPZxc9TnKZCKx76SdzmNfmxFA38fXbDwcVuLuA38d8qD/gDkUfr4VnXCTklNNdfXeAgH7/XFEgZQXIAMhQAHAOxhf4QgWuEGNXGQ/lInAB+N0/QnFtkRfclosAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;containers-vm&quot;
+        title=&quot;containers-vm&quot;
+        src=&quot;/static/329b5717228e6947915aeb166bdf91bf/36727/docker-structure.png&quot;
+        srcset=&quot;/static/329b5717228e6947915aeb166bdf91bf/acf4b/docker-structure.png 173w,
+/static/329b5717228e6947915aeb166bdf91bf/fc834/docker-structure.png 345w,
+/static/329b5717228e6947915aeb166bdf91bf/36727/docker-structure.png 690w,
+/static/329b5717228e6947915aeb166bdf91bf/17fa4/docker-structure.png 1035w,
+/static/329b5717228e6947915aeb166bdf91bf/a5044/docker-structure.png 1380w,
+/static/329b5717228e6947915aeb166bdf91bf/2f950/docker-structure.png 1600w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;br&gt;
+&lt;span class=&apos;img_caption&apos;&gt;Source : &lt;a href=&quot;https://www.docker.com/blog/containers-and-vms-together/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Docker Blog&lt;/a&gt;&lt;/span&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Containers&lt;/code&gt;는 Host OS위에서 동작합니다&lt;br&gt;
+Docker는 추상화를 통해 Host OS 커널을 공유 하면서 각 App Container들이 필요로 하는 요소만을 패킹징하여 제공합니다&lt;br&gt;
+이러한 요소때문에 각각의 OS를 가져야하는 일반적인 가상화 보다 효율적이게 작동할 수 있습니다  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;strong&gt;하지만 Host OS 커널에 의존하기 때문에 OS가 다른 경우 오른쪽 그림처럼 VM과 Docker를 같이 사용하는 경우도 존재 합니다&lt;/strong&gt;  &lt;/p&gt;
+&lt;br/&gt;
+&lt;h2 id=&quot;windows10-hyper-v와-docker&quot;&gt;&lt;a href=&quot;#windows10-hyper-v%EC%99%80-docker&quot; aria-label=&quot;windows10 hyper v와 docker permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Windows10 Hyper-V와 Docker&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Windows10에서 Hyper-V를 통해 Docker에 Linux 가상화 환경을 제공합니다&lt;/strong&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 114.6788990825688%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAYAAAALHW+jAAAACXBIWXMAABcRAAAXEQHKJvM/AAACR0lEQVQ4y51Uy47TQBD0MfEjDz/j+G0njpPdQ1YCIYTEiQsnzpz5/1iIA5ym6ZrNWF6vzYYcSp5JPDXVVd3Wvkbe7w+xTZ/CpfB9g/TAJN8MyLVcMkyDTMMk07wd2pck/fUx3NI72xGh7ZChm6QbugTIQGoYxu2EYZ5fgjgmy7HFYrl88eddCossax8fHshzXQElCpLwP5R1hHmet7vdjlwmXCwWtF6vybKsu0m1/X7fHo9HqqpKlGVJvCff9+9SJwkzLvlwOBCrFFDKimmz2dxFBhEaq2qhbLvdCiiLOaDVakXz+Zx0XX8B5W9/PfRdS9O0PZ1OIBIgC4JAIgxDqRSXYO95Hi25CwBcqJ5q3SksiqK9eieiKEI4HYlagwxrBAZgbds2OY7TQQWpcRgyZSYWXLY8jLRxI14ClEf4HRhaoSzoSm6aRoaCtM/nMyGkuq4Je6SOPZ4IDBf22+pVKGmStLuqooQ9jK4K1QvwBoqUd0OiIakk5LG7ZEwYRJEIORTlF6BeGpugqT7VfhTFn29ZRt/TVHxGyoyYw0Hiff/GyhslfJ/nP5+Kgo6+L3JO1Od0Z7OZxJj5/QDGSLWkLC8lG141jdg/hyNbBYmrnoQNqn2wR5tMKuRA2hOneahrwYnLA4qw38gK6D/8NknIB2Xb4OMAQpBBAQ7hiQvwoir1zZIxKSiTPxKCIZVhYkCE0Zvqu0mF3MAtmjhJEjkpUKWmAkRvKXpFyGpkyZhl5SF6EIT/auJJQvasvaYpUCJUqi/NkPQW/AVU5Cn3J1umCQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Docker OS Type&quot;
+        title=&quot;Docker OS Type&quot;
+        src=&quot;/static/d08c457c17c7b332445b582a8dc1bf61/36727/docker-info.png&quot;
+        srcset=&quot;/static/d08c457c17c7b332445b582a8dc1bf61/acf4b/docker-info.png 173w,
+/static/d08c457c17c7b332445b582a8dc1bf61/fc834/docker-info.png 345w,
+/static/d08c457c17c7b332445b582a8dc1bf61/36727/docker-info.png 690w,
+/static/d08c457c17c7b332445b582a8dc1bf61/13450/docker-info.png 981w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;br&gt;
+이를 통해 Docker는 OS-TYPE Linux로 동작하는 것을 확인 할 수 있습니다  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;그러면 Hyper-V를 통해 Windows는 어떻게 Linux 환경을 제공할까요?&lt;br&gt;
+Windows10에서 Linux를 제공하는 방법은 2가지 입니다 👉 &lt;a href=&quot;https://docs.microsoft.com/ko-kr/virtualization/windowscontainers/deploy-containers/linux-containers&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Windows 10의 Linux 컨테이너&lt;/a&gt;    &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Linux VM를 통한 Linux 컨테이너 실행&lt;/li&gt;
+&lt;li&gt;Hyper-V 격리 통한 Linux 컨테이너 실행&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 85.2185089974293%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAABcRAAAXEQHKJvM/AAAEkElEQVQ4y53Ua0xTVxwA8FNgQMtj6ECJmm1scyIqIqWloDxUAqIIRbC8oTBErAykIBUKpQKVjvaWFiyCwHgGkYe9FKiM8JSHwBiPD8bPc8mymTjA7Ytru/8OhWxLln3ZSX75n3PP/3/OvbknB6H/18wxV+wQ5ox98PeYZPsiTQTDjIxkor4LTNTqzkRdvkwKyWaaaSKYSMtmBHZccgWhH+tdiZ8flJ31fcVzP0/4OmTJ/fdl9XGOxY4nu0fUhx3OrDzv4rG94LrZKAdwIdiPJELgggiOTmcDGowEM1004PnfnXvDuVDstwzSIADRGQAiEqAtxwh1KUYQ+wHeBAs0QOU5H4Q04V2oP3QVv92CpTZ6MWBGuHRkjLeEx4uo/+Iy0oRNftgTcQWKTnfpi1gvDQKvFUNZ0Kq+KWtdr4hZ1wu81gyFrDW90Hf1XYk/AzkMJ6z6r98Fj9l8oD8vgI+necB4LgD6fAEwFu/AgW/SjXad5xKgMnwdHuUCNGZiGQAqDkBLFkDTdYCvb4Cxiv2H4fYpFrIdjC1gTOUXnxjPFh6fyi06082tOjdVKHKbyC5yH88ucRxNz3PtCgkFaZjA0JD+lbEhXWJ8kHrPKIlSGxt4MuP9lEqjOlVqlF6uNBR6u+NPjpQ5DnPb9g1zmx2fcptdehMe7dEmtDjquM0HdF+0Im1MDVsdzIVYL9c8hKzHqRT7WZqV/fc054PFCFm6WiAL/Hcp390K2KMvDTyKKNqw6YD5/HchC8KNs/OCt/TZnI2T0ze3/Odub0V8K/rNfpTzQ1CNPx+Caa6AkAVG22X1z3ME2eh9KPE5jhwa1W22yt7lw82auRNt2vnPm0kTl0bN3N7axws2tZqJ8y282FCive6gcuzpp9VPNZ71Y6T3w/EBVt3okFu1bvAThW7Ik3iinSlL9kK26u5BG+nsrwEdqz8lDbx8Hd3/4nUijlf7X/x8SDX3hiaff3W2PiPqhKx/nKaY0dsRk29OdyxvhvasbV7qW9/YXzPzC5WY2nIixn7UiVPpyLtdKvVvqSMYTSo5/aFKzmyqMfHGfJpUhEejUhb/sKygRn6vsoRQyMurFbK7CoVMrNiJFcpqTFlVpSRUA0SBDyru1G6Ke0agtHsYSh/rTES4L+kfhc6ZZeieW4HWZyvQNLEI7VNLUKt7ZpoXb+d27xB1DYGEnARB59ANlCJRtadUqLQYaSJRkcnlSjKxTEFmSO+TfGUjyZOpNZlVapInf0Cm4vk4MUFyJTV/5WNPcH+EW6EMQfTLnLeMyHjwiogFBjsOTl3mQPi1LyG3ogqS84XALSgxSROI4HpxOaQXiiH+Fj744TGm/G3btd5RSYDX4iFWdFIOVoTd2SUITruZmyIo5V8rLs9LKxTnp94R58XxhbmZpffwswp+HL8oj8VJ4ftcTRawonZqMBHm8V/X0/Z1ZIdRsfd2oxNmjzlgtN347+Z9JcF8m8cFtrkOgGLvtN/OwtKSbkWlnqTa2Byh2dm5UG1sP7O0tvawptLcraypnlZUmhvOObb30Ec0bnULxfNilPnOOvGUPwHLeEi5m/NmzQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;docker on windows&quot;
+        title=&quot;docker on windows&quot;
+        src=&quot;/static/671bc7286a05c4b15ef3b8db4a3d2e1a/36727/docker-on-windows.png&quot;
+        srcset=&quot;/static/671bc7286a05c4b15ef3b8db4a3d2e1a/acf4b/docker-on-windows.png 173w,
+/static/671bc7286a05c4b15ef3b8db4a3d2e1a/fc834/docker-on-windows.png 345w,
+/static/671bc7286a05c4b15ef3b8db4a3d2e1a/36727/docker-on-windows.png 690w,
+/static/671bc7286a05c4b15ef3b8db4a3d2e1a/e7c6f/docker-on-windows.png 778w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;일반적으로 1번 방식을 통해 Docker는 Windows에서도 Linux Container를 동작합니다&lt;br&gt;
+Client는 Windows에 둔 상태에서 Daemon만을 이중으로 두고 운영환경에 맞게 동작 시킵니다   &lt;/p&gt;
+&lt;br/&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;관련-참고&quot;&gt;&lt;a href=&quot;#%EA%B4%80%EB%A0%A8-%EC%B0%B8%EA%B3%A0&quot; aria-label=&quot;관련 참고 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;관련 참고&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.docker.com/blog/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Docker Bolg&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://medium.com/@jwyeom63/%EC%8B%9C%EC%9E%91%ED%95%98%EB%8A%94-%EC%9D%B4%EB%93%A4%EC%9D%84-%EC%9C%84%ED%95%9C-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-vm-%EA%B7%B8%EB%A6%AC%EA%B3%A0-%EB%8F%84%EC%BB%A4%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0-3a04c000cb5c&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;도커에 대한 이야기&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://docs.microsoft.com/ko-kr/virtualization/windowscontainers/manage-containers/hyperv-container&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Hyper-V 격리&lt;/a&gt;  &lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Docker] Windows10 Docker 설치]]></title><description><![CDATA[Windows 10에서 Docker 설치 하기 1. CPU 가상화 기능 설정하기 Windows10에서는 Hyper-V를 통한 Hypervisor를 활용하여 간단하게 Docker를 설치 할 수 있습니다 하지만 Windows7의 경우 Hyper-V…]]></description><link>https://renuevo.github.io/other/docker/docker-setup/</link><guid isPermaLink="false">https://renuevo.github.io/other/docker/docker-setup/</guid><pubDate>Sun, 08 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;windows-10에서-docker-설치-하기&quot;&gt;&lt;a href=&quot;#windows-10%EC%97%90%EC%84%9C-docker-%EC%84%A4%EC%B9%98-%ED%95%98%EA%B8%B0&quot; aria-label=&quot;windows 10에서 docker 설치 하기 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Windows 10에서 Docker 설치 하기&lt;/h2&gt;
+&lt;h3 id=&quot;1-cpu-가상화-기능-설정하기&quot;&gt;&lt;a href=&quot;#1-cpu-%EA%B0%80%EC%83%81%ED%99%94-%EA%B8%B0%EB%8A%A5-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0&quot; aria-label=&quot;1 cpu 가상화 기능 설정하기 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. CPU 가상화 기능 설정하기&lt;/h3&gt;
+&lt;p&gt;Windows10에서는 Hyper-V를 통한 Hypervisor를 활용하여 간단하게 Docker를 설치 할 수 있습니다&lt;br&gt;
+하지만 Windows7의 경우 Hyper-V를 지원하지 않아서 VirtualBox를 통해 Docker를 사용할 수 있게 &lt;code class=&quot;language-text&quot;&gt;Docker Toolbox&lt;/code&gt;를 지원하고 있습니다&lt;br&gt;
+관련해서는 정식 도큐먼트를 확인해 주세요 &lt;a href=&quot;https://docs.docker.com/toolbox/toolbox_install_windows/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Install Docker Toolbox on Windows&lt;/a&gt;  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;먼저 CPU의 &lt;code class=&quot;language-text&quot;&gt;가상화&lt;/code&gt;기능을 설정해야 합니다  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 89.71291866028707%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAABcRAAAXEQHKJvM/AAAB9klEQVQ4y5VUa2/iMBD0//9zlfqJcrQ9TlcaIInzchK/MjdrEony0mFltAavx+OxvWqXHVCWJUZr4b2HDx7OOYQQME3TXVy2GGOarz6+9njbbLBarbBer7HdbrHbfaFpmpR4j3AYBvS9QW+Ivk8YCFWWBr82v/H5+YHjMadajdYwwTr4OMGFeBP9aGGGcY6nft0ZqJGsTVWjIpbmSBSpIsT74HeFwUco42syV+jIPiWSkwIh/G/E2QYfoHrXomlPhHQsDQrh9Azh7OsoCjtboW41CbsfhPeUPPo/KTSuToSWhyDt4ZbjY5WJMESLuqmSwmm6UBin2/GRQtvkKLK/yPMCgRdTBi49nJ7x0GTv2P9Zc9vdifDCQ0m0TAzx/ulKfmc9BkeF0VuURYH9fg/LSxrPPAzzhHb0V4ucQ/cOh3ZMUUnysdDpqclz+nEo8fRmm8GjY57Epd/bkBbSxqHsLAoiby3UsoooW5A8lBOXF0DSdnAoRAEnacMdnUHPqObf6rpyTLzoLXRNxbTAcdhwAYGd37HlaY7OJzj2z9+4ui5L9ERrHOjp9+GAav0G8/KC/vUVqFg48hzfWYaWi0qFkeokcRGjcKNJfSx4UIEL9McjLCdplrhARZZ1UwgkSt2U++t4O5ZSpzrWM6k23RgSzj19pi3W/QMx9IKh1oAdVQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;CPU Virtualization&quot;
+        title=&quot;CPU Virtualization&quot;
+        src=&quot;/static/6a74037998cf643d98c0d41455d4c366/36727/cpu-virtualization.png&quot;
+        srcset=&quot;/static/6a74037998cf643d98c0d41455d4c366/acf4b/cpu-virtualization.png 173w,
+/static/6a74037998cf643d98c0d41455d4c366/fc834/cpu-virtualization.png 345w,
+/static/6a74037998cf643d98c0d41455d4c366/36727/cpu-virtualization.png 690w,
+/static/6a74037998cf643d98c0d41455d4c366/17fa4/cpu-virtualization.png 1035w,
+/static/6a74037998cf643d98c0d41455d4c366/693d7/cpu-virtualization.png 1254w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;  &lt;/p&gt;
+&lt;p&gt;만약 이미지처럼 사용으로 되어 있으면 상관 없지만 아니라면 설정을 해주셔야합니다&lt;br&gt;
+BIOS에서 CPU설정을 확인하셔서 가상화 관련 기능을 Enabled 시켜주시면 됩니다&lt;br&gt;
+메인보드별로 설정방법을 확인하셔서 설정해 주시기 바랍니다  👉 &lt;a href=&quot;https://www.isunshare.com/blog/how-to-enable-virtualizationvt-in-bios-for-hyper-v-windows-10/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;메인보드별 BIOS 가상화&lt;/a&gt;&lt;/p&gt;
+&lt;br/&gt;
+&lt;h3 id=&quot;2-windows10-hyper-v-설정하기&quot;&gt;&lt;a href=&quot;#2-windows10-hyper-v-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0&quot; aria-label=&quot;2 windows10 hyper v 설정하기 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. Windows10 Hyper-V 설정하기&lt;/h3&gt;
+&lt;p&gt;다음으로 윈도우의 Hyper-V기능을 활성화 해야합니다 :point-right:&lt;a href=&quot;http://renuevo.github.io/other/docker/docker-hello-world/#windows10-hyper-v%EC%99%80-docker&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;왜 Hyper-V가 필요한가?&lt;/a&gt;&lt;br&gt;
+&lt;strong&gt;프로그램 추가 제거로 들어가서 Windows 기능 켜기/끄기를 클릭합니다&lt;/strong&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 61.681715575620764%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABcRAAAXEQHKJvM/AAACFklEQVQoz11TXY+bMBDk//+oqg99OrXqXZJL0iSEC4RvYzBgwAQy3XWOk3KWBq8se3Zmd3F2ux1EIRAEAeI4RpokiKIQeZ5BKYVxHDFN0xdut5s9430YBnRdh7ZtbcxwpCgw9gbTaHC/31G3A4pSQzU9zDhhnh8kC/gOL94Z8zzbO8u5E/z4ieJ1g2a9xdw0kKpGIUtSLSFpZ5UVo6psbAwltySzVWwJiexGsR5upDDPKR1RTzPqSiEMY6i6ge4eFvp+gNYdZKnorLNK+r5HluXoaGfLsixtojAr4XD2ZbGCv6sdNtuDxfF0wtnz4BG2xzPiJLX3jBng+75VyEnTNLVKKyJ2Svosq241zv9esV2/wSeSkB7FYQgpBD1KSH1o7zHJlWImZLVcjjsRCurHE6FOBYr9C4LNH1QBPabuLRCua20uhEzOTWIyBq+G7n0jzCHeX+D9/gV/tcaYpbhLCeoOBNlP0uyrhqyQx0dS83JywGpHSvBE2LQ9cv8N7m4D93BEFsXoWSHZqam+vh/ADIaapC2hVVhWZEB/1tZ8J+yQBCu4pz09iO3YaCYE7PDm+cOyIctRFNlGsFpJDjhmxc7if6lBGgeIwishsl19d0N4QYzL5cMmeKohd5lU8aQMpJxjR5D/z9Gn+Wux3R9w8q7YHz/gXiKcg4wIU/hhhqyoUdGfpFoDUbZQ2qDWVEfVoag0ymbAf0ehlH5mgPoLAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Hyper-V&quot;
+        title=&quot;Hyper-V&quot;
+        src=&quot;/static/6c95691b29b0403fd342fc07ba566998/36727/check-hyper-v.png&quot;
+        srcset=&quot;/static/6c95691b29b0403fd342fc07ba566998/acf4b/check-hyper-v.png 173w,
+/static/6c95691b29b0403fd342fc07ba566998/fc834/check-hyper-v.png 345w,
+/static/6c95691b29b0403fd342fc07ba566998/36727/check-hyper-v.png 690w,
+/static/6c95691b29b0403fd342fc07ba566998/17fa4/check-hyper-v.png 1035w,
+/static/6c95691b29b0403fd342fc07ba566998/a5044/check-hyper-v.png 1380w,
+/static/6c95691b29b0403fd342fc07ba566998/bde20/check-hyper-v.png 1772w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;해당 칸들을 이미지처럼 체크하시고 &lt;span class=&apos;red_font&apos;&gt;재부팅&lt;/span&gt;을 해주면 됩니다  &lt;/p&gt;
+&lt;br/&gt;
+&lt;h3 id=&quot;3-docker-설치하기&quot;&gt;&lt;a href=&quot;#3-docker-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0&quot; aria-label=&quot;3 docker 설치하기 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. Docker 설치하기&lt;/h3&gt;
+&lt;p&gt;이제 Docker를 설치하기 위한 모든 환경설정이 끝났습니다&lt;br&gt;
+이제 Docker 사이트에서 설치파일을 다운로드 합니다&lt;br&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.03048780487805%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABcRAAAXEQHKJvM/AAAB0ElEQVQoz42RO2sUURiGDyZCOn+OP8MLxtgI8R+I2iwKKhFsdJekEIOlrZ2NnY0gaNRc1LgKSgrj7mR2Zue2Z+bMzjx+Zy6YDVt44OWd+b73uyu13ENd6KIudTm90mNRsHBZIHzm2lOWVjc5dXWTBcHS6jPUygbq/GPUxW6DXg3JsXhlHbX+He5/hs42rAk//AqP+oJv8v3F2kuubxXc/FBwZ6fk7h7cE92a+G5/mtL5aLjxLuPWlhE/KJ1oklgD0wb5CS7mwNoNlJn8pjU3WnVuY4ezD96z/csljEJcP8AbB/hBhOuNiXVapciLssK0hERnDF0PZ+RXbGN0llOUJarz4gfLT/bYPfCIkgmxILGYtNDkU1tdGpEA+9Isk6JhhSCM8YIYXzjNDMqLUobjSSUyeV2lKIoZtIlaNnlG6MtEgcfvocORO5JpPJkwQonMSmcC5z3rKxr/wc9Dnr/u8/JNn2AwqCZoiysrkdVUAWXTXcn8xK11cOjxanfI231H5k9nNCrUBicysugULc6J1mSyi1zGN2YWrY1jBY10Z4ypNeJXdnd2mTZJZmpunScT/ktqqpj0mLa1K3vFIzm/I+cf+WP+OG51WWb6+L9nV/YXbaoi2m2lmEUAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Docker Download Page&quot;
+        title=&quot;Docker Download Page&quot;
+        src=&quot;/static/415fcbcaec7fc4b29334b351d4dfa73f/36727/docker-download.png&quot;
+        srcset=&quot;/static/415fcbcaec7fc4b29334b351d4dfa73f/acf4b/docker-download.png 173w,
+/static/415fcbcaec7fc4b29334b351d4dfa73f/fc834/docker-download.png 345w,
+/static/415fcbcaec7fc4b29334b351d4dfa73f/36727/docker-download.png 690w,
+/static/415fcbcaec7fc4b29334b351d4dfa73f/17fa4/docker-download.png 1035w,
+/static/415fcbcaec7fc4b29334b351d4dfa73f/a5044/docker-download.png 1380w,
+/static/415fcbcaec7fc4b29334b351d4dfa73f/66f1a/docker-download.png 1968w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;br&gt;
+&lt;a href=&quot;https://hub.docker.com/editions/community/docker-ce-desktop-windows/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Docker Download Page&lt;/a&gt;로 이동해서 설치 파일을 받습니다&lt;br&gt;
+사이트에서 원할한 Docker 이용을 위해서 사이트에도 가입해 주세요&lt;br&gt;
+설치파일을 실행하면 Docker 설치에 필요한 package를 다운로드합니다  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 69.43661971830987%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABR0lEQVQ4y72Ty26DMBBF+f8P66qPdVlURI0DJDbmYWPetzOmUCo1aeiilo5spMmZO4YED6/v0HkBrTPac+RFido1sHUN52o0zsKaCtYaokJNu6HnsixRVfOe0++MMYiiA4Isy5BpjfNFQtE5SVJIpXwBN6qMxb1LkyeQSsJYi4I68c4J86Kgc00yA9c0vniapquM4+hrlGKhlD42p1I69ymlovHpnJ4vNObvCVk6C9U8snPOx+W74Hvk57Zt0VC6tu0wDAP6vr9K13VeyOFWYUZ2f58Ei7hogeW34Hoe2ws5JkfmTpyEWSRb6S24lh2rkO3zeF9d90i/CeWncE+i/xWqjfCvzC/lh4Q9ddtyzxv2kHBNWNC/YlkjJgwb9i7+5IIwDHFOUxxPMV5EhCfxhmfikQjFAWkcI45PK8nmvHASgtJdIMQRH9kMP4L1m969AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Docker Setup&quot;
+        title=&quot;Docker Setup&quot;
+        src=&quot;/static/c967e65034a41061cdba9020dd55f002/36727/docker-setup.png&quot;
+        srcset=&quot;/static/c967e65034a41061cdba9020dd55f002/acf4b/docker-setup.png 173w,
+/static/c967e65034a41061cdba9020dd55f002/fc834/docker-setup.png 345w,
+/static/c967e65034a41061cdba9020dd55f002/36727/docker-setup.png 690w,
+/static/c967e65034a41061cdba9020dd55f002/ad34c/docker-setup.png 710w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이후 ok만 클릭하면 자동으로 도커가 설치되는 것을 확인 할 수 있습니다  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 128px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 37.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABZUlEQVQoz32QyU4CQRCG5xVcWCICM8zO9GwM2wiKUZQEBTWgElCUq0fDxYPR+B5ejK/gBRN9M357WkFEYzpf6u9K1Z+q4sbjMX4weTMaX0zz/8AN2n1MuGxRpvp8ymA+1/7konVG+db9Vg+cEVVhRBVGmqFCjyjQIjKLAWpIghaWoEdlqGER4iIPaUmAvJxideJCkv6TVEvgcmIGOdFlZCkZwUZe8ZCXM0zbCYKCkqV4sOMGizW/it3iNjbsEtyUhWZ1H9XCJhyegPMEBx5tDAgMvJTDVg9WJCs6DrcaeB+94fnxCb6eQ6NSx/DqGg839zitH4PE0+geddA5OKFamzPkLTqZh5JRRJn4bLpmZQ+vLyPcDW9h0eaKXUav2UGXUvN3YCcJfCOPdXcNZFX7PaFLTZ2kycwCbcbS7IZKSIRLm+2EARLTYFLzwIzV0ugK5t8rzxIYTs4Q4PImbbQYDjOYhTA+AOnnOBb8QGAQAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Docker Icon&quot;
+        title=&quot;Docker Icon&quot;
+        src=&quot;/static/40c4cb27df109a39b346af55ec7dcf25/6b190/docker-image.png&quot;
+        srcset=&quot;/static/40c4cb27df109a39b346af55ec7dcf25/6b190/docker-image.png 128w&quot;
+        sizes=&quot;(max-width: 128px) 100vw, 128px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;오른쪽 밑에 다음과 같이 Docker 아이콘이 뜨면 설치가 완료된 것을 확인할 수 있습니다  &lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Spring] 2. Spring Batch의 ItemReader - File Item Reader]]></title><description><![CDATA[Chapter 2에서는 Spring Batch의 File ItemReader에 대한 이야기를 다룹니다   앞서 본것과 같이 Chunk 지향처리 의 구성요소로 이루어져 있습니다   ItemReader   ItemProcessor   ItemWriter…]]></description><link>https://renuevo.github.io/spring/batch/spring-batch-chapter-2/</link><guid isPermaLink="false">https://renuevo.github.io/spring/batch/spring-batch-chapter-2/</guid><pubDate>Thu, 05 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;Chapter 2에서는 Spring Batch의 File ItemReader에 대한 이야기를 다룹니다&lt;/em&gt;  &lt;/p&gt;
 &lt;br/&gt;
 &lt;p&gt;앞서 본것과 같이 Chunk 지향처리 &lt;code class=&quot;language-text&quot;&gt;3가지&lt;/code&gt;의 구성요소로 이루어져 있습니다  &lt;/p&gt;
 &lt;ol&gt;
