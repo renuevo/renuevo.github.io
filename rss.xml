@@ -1,4 +1,384 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[renuevo blog]]></title><description><![CDATA[development]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 10 Mar 2020 06:31:13 GMT</lastBuildDate><item><title><![CDATA[[Docker] Docker의 구조와 Windows10의 Docker]]></title><description><![CDATA[Docker의 기본 구조 이번 포스트에서는 와 가 있어야만 Docker 설치가 가능한 이유를 알아 보도록 하겠습니다   서버 가상화 (Virtual Machine) 먼저 서버 가상화 기술 2가지에 대해 알아 보겠습니다      하이퍼바이저 Type…]]></description><link>https://renuevo.github.io/other/docker/docker-structure-windows10/</link><guid isPermaLink="false">https://renuevo.github.io/other/docker/docker-structure-windows10/</guid><pubDate>Tue, 10 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h1 id=&quot;docker의-기본-구조&quot;&gt;&lt;a href=&quot;#docker%EC%9D%98-%EA%B8%B0%EB%B3%B8-%EA%B5%AC%EC%A1%B0&quot; aria-label=&quot;docker의 기본 구조 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Docker의 기본 구조&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[renuevo blog]]></title><description><![CDATA[development]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 11 Mar 2020 17:20:20 GMT</lastBuildDate><item><title><![CDATA[[Docker] Docker 시작하기 - Hello World와 Git Bash]]></title><description><![CDATA[Docker 시작하기 이 포스팅을 Windows에서 Git Bash로 Docker를 활용해 Ubuntu에서 를 출력하는 것을 목표로 합니다 만약 설치와 Docker의 구조를 모르신다면 아래 포스팅 두개를 보고 오시면 됩니다   Windows1…]]></description><link>https://renuevo.github.io/docker/docker-hello-world/</link><guid isPermaLink="false">https://renuevo.github.io/docker/docker-hello-world/</guid><pubDate>Thu, 12 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h1 id=&quot;docker-시작하기&quot;&gt;&lt;a href=&quot;#docker-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0&quot; aria-label=&quot;docker 시작하기 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Docker 시작하기&lt;/h1&gt;
+&lt;p&gt;이 포스팅을 &lt;strong&gt;Windows에서 Git Bash로 Docker를 활용해 Ubuntu에서 &lt;code class=&quot;language-text&quot;&gt;Hello World&lt;/code&gt;를 출력&lt;/strong&gt;하는 것을 목표로 합니다&lt;br&gt;
+만약 설치와 Docker의 구조를 모르신다면 아래 포스팅 두개를 보고 오시면 됩니다  &lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://renuevo.github.io/other/docker/docker-setup/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Windows10 Docker 설치&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://renuevo.github.io/other/docker/docker-hello-world/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Docker의 구조와 Windows10의 Docker&lt;/a&gt;  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;해당 포스팅의 설명은 &lt;code class=&quot;language-text&quot;&gt;Windows10&lt;/code&gt;에서 &lt;code class=&quot;language-text&quot;&gt;Git Bash&lt;/code&gt;를 사용하여 설명합니다&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;Git Bash&lt;/code&gt;는 이미 깔려 있다고 생각하고 진행하지만 없다면 &lt;code class=&quot;language-text&quot;&gt;CMD&lt;/code&gt;로 하셔도 무관합니다&lt;br&gt;
+요즘은 Docker도 편리한 관리를 위해서 아래사진과 같은 &lt;code class=&quot;language-text&quot;&gt;Kitematic&lt;/code&gt;이라는 GUI 툴도 제공합니다  &lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;docker의-기본-방식&quot;&gt;&lt;a href=&quot;#docker%EC%9D%98-%EA%B8%B0%EB%B3%B8-%EB%B0%A9%EC%8B%9D&quot; aria-label=&quot;docker의 기본 방식 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Docker의 기본 방식&lt;/h2&gt;
+&lt;p&gt;Docker는 기본적으로 App실행에 필요한 것들을 Build하여 &lt;code class=&quot;language-text&quot;&gt;Image&lt;/code&gt;를 만드는 것으로 시작합니다&lt;br&gt;
+그리고 이러한 Image를 여러 환경에서 설치한 환경을 &lt;code class=&quot;language-text&quot;&gt;Container&lt;/code&gt;라고 합니다  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;간단하게 환경과 App을 저장하고 필요할때 설치한다&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;그림으로 보면 아래와 같습니다&lt;/strong&gt;&lt;br&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.597671410090555%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACUklEQVQoz1VSW2sTQRjND1XQFwWFgg++WPClxRcF0WCKN/JUERUqPrQktUZK0DYh0ppESYLZtMYm2W32kszOZS85fjMbFedl5ttv5pzznbO58/MphJSYsRCpFBBCIuQCSkXQS1JPSoU/K0lSpGmanRfUp3tRHEOEIZxmE7np1DWPY2runQawfYYFnccTB5X9KmJ6RSVanT4GwxE0lFIxnMoumOtBUl/ICDJK4XOJnOv5SIhBpQtca0r0bN+wH345wvWVG8SemDq/VcHO5yNz5kLh15XLCLpdSGLjRMBlDD9gyIUkVS9FoLdelmCNbFO3ux08zN+jcSOjqvFuC716zfQY2fJp5z5GZxYi4mMyA5wxToCcZ4A09srtdQxOhxlgp4N84QEi8k9Q7RbW4W+/gr49JxHP2nfw0x1A8AghkQqVwMsUZoB6tNWNt+TTxNSTXhut52sIeBbIh0YJjW8HSElRSEENP67BHfWgtMLlyLM5/x/wZqGEk6GNmGq/fQjn7iUEigamD0+/l1G26nSRFArS/PoC5LgLEeuRdSgJxk6AHF+OnBJ1uVGE7WYKu30LT4pFk6heu+VN1Op7WShkQ7/6Aq5zRh4u/oYSGIU8CyVJY7Ssx5h6I+gUar0TrBbfQJEa/Ufub2/i68F76MxnoUCfLPCcMRhZMhPRv5GFyBRiQSzVi5hNBwawO4/xyJojJr8U2cG4/uEV/ciJSZURqCBlYlnr3QB6QUD+pZCCQTSuwrN/QDCJY5djY8DAqe/RxTk9CkmJVqR3c17WLJRm1yP/BnwpMxEdnKGUAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Kitematic&quot;
+        title=&quot;Kitematic&quot;
+        src=&quot;/static/aa4c71507721456ba0b7a79168ca58eb/36727/kitematic.png&quot;
+        srcset=&quot;/static/aa4c71507721456ba0b7a79168ca58eb/acf4b/kitematic.png 173w,
+/static/aa4c71507721456ba0b7a79168ca58eb/fc834/kitematic.png 345w,
+/static/aa4c71507721456ba0b7a79168ca58eb/36727/kitematic.png 690w,
+/static/aa4c71507721456ba0b7a79168ca58eb/17fa4/kitematic.png 1035w,
+/static/aa4c71507721456ba0b7a79168ca58eb/a5044/kitematic.png 1380w,
+/static/aa4c71507721456ba0b7a79168ca58eb/ace41/kitematic.png 1546w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;br&gt;
+&lt;a href=&quot;https://docs.docker.com/kitematic/userguide/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Docker Doc Kitematic Guide&lt;/a&gt;를 통해 정식으로 지원하고 있습니다&lt;br&gt;
+하지만 이번 포스팅에서는 다루지 않고 &lt;code class=&quot;language-text&quot;&gt;Command&lt;/code&gt;로 진행합니다&lt;br&gt;
+Kitematic을 통한 설정은 추후 Elastic과 Kibana설치를 하는 예제로 포스팅하겠습니다  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;돌아와서 설명드리면 Docker는 Image를 풀어 Container환경 구성이 가능합니다&lt;br&gt;
+그림처럼 A, B, C 의 전혀 다른 서버에 &lt;strong&gt;Docker Image를 활용해 같은 환경&lt;/strong&gt;을 만들수 있습니다  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 86.33257403189066%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAABcRAAAXEQHKJvM/AAAEZElEQVQ4y2NgQAYbAhgY1vvD2KcYtgb+l9+Z+lNtd+Zf5V0Zf0W3xf1i2BTwHyh3j2lDIDNcD04AMmyNH5jJuCHgGsP+kP8ah/P+h1+e8D/iyoT/2kcK/jPsDvwPlHvDsCmQBa4HJ7ieyMAQogZhbwqcwLA5YCfnxtBtWkuTLlityLkkuSV+B8Nm/22MmwLnMTRaQVx4OgbVjDz9eQyVJusYgpXLGXSE7BmR5XgYGESBlDQQKwOxIojNy8AgjqyGRc2Ekc0hlJE7o5uBM6YKqzvZgViGgYVJhYGLUQgsIi0tyKGkygdmczEKMLAC5RgYZIGYA0N3vtFcznKx/cDw4ABKMqsJcUiqK/Lpg1zG8F/RhOW/VRajBgODgiHQ2P9ylkz/lU0hYSerLswsKKYOZIEwF0PaXGa+2CpOhnz9+YtKzZasrnJdvCHPfNq2YsMlG8sNl4BD+juvbNVfftnN39SN135X1l/zB8j+yidTA5LjTWz05Epo2CCTVLNVNbtlk2By0yrO2JrVDDlac48XGi54MK9o/62+qK3XsjTmvCo2mJsC0vSTW2rqb1bhF399wm/+9Y24+ZtD7MV3HunpIDn+2JpohrCyF8ZVU69HTFp+SySl6R5zZOVlhiqXFdubA9adrHZZcazea/WRWo9Vl/L05saCNH2V1e38YWx/8Yeq8ZEfWuZHfuhYXvwkqtINkuOLrwvVK5t4QTm/+ygQH9Mo6jsultZymKHTYcX2aRGbz04L23RySsjG41MCN1yrVJ4ZDQ5DUcXO/2Z2V/7buBz/b2J7HMi++p9PsgskJxBdEWJVNfGKbc2UE7a1U07a1kw+rZzdeohBs3TrStPanWtManeuNqvdtVKjfNtW7YptYBd650yuCy+dtSWybNbKyLLZq3wLZ2z2yJ/eCg7D+tUBEq3rtyp1b14p37lxjWTbhlUCjWs3MghP2v/Cafnp7/5rz38B4k+qc47/5+rdUwdOIRMOrTJacu6/z/pLn7zWXvykt+jMf47+A9vBct17M7XnnPgftObCJ59V5766LDvzVWzCgS8MRfM37K1dvv14+7q9x5rX7D5ctmjTxeL569NAmornreuqWrL5QuuaXUdaVu86AmSfL5m/bgpIrnD++tDSxZsuNALFm9fuPlazYvuxogXrjzHkTVtytnLuypvdq7Zc71q5+UrhjKVP8mcszQfnomlLppXOXv6offmmq72rt14tn7PiIVBsITj9Tl8aC1T7qHnJepDc9fpFa6/nTlt8ncErKfNpQmnNp7iS6vdA/DYsp/ifVUgMOK25xqWtiCmq/AsUfxNfWvM2Mr/8t2NU8haQnF14QkZUQfnfuOLqt7HFVe+B6j54JmZ+YHCLT29IrWpsT6mo68prbG8FSvTZhMe7gjQ5RqfEAQ3qSS6v7cqpb+1IqqjvcY5NTQXJ2YYnWEUWlPekVNR3pFbUd2fVtbZ6p+S0IedCQWROZH4ZckHBD8TMME5mbTMjWg6G52kAzSLRBHXxu6AAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Docker Image Flow&quot;
+        title=&quot;Docker Image Flow&quot;
+        src=&quot;/static/796a37d95f767a362318242f8d9af984/36727/docker-image-flow.png&quot;
+        srcset=&quot;/static/796a37d95f767a362318242f8d9af984/acf4b/docker-image-flow.png 173w,
+/static/796a37d95f767a362318242f8d9af984/fc834/docker-image-flow.png 345w,
+/static/796a37d95f767a362318242f8d9af984/36727/docker-image-flow.png 690w,
+/static/796a37d95f767a362318242f8d9af984/8ee24/docker-image-flow.png 878w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;  &lt;/p&gt;
+&lt;p&gt;이렇게 환경을 맞춤으로 많은 이점을 가질 수 있습니다  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. 마이크로 서비스에 특화&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;2. 호환성 문제를 극복&lt;/strong&gt;  &lt;/p&gt;
+&lt;p&gt;제 생각에는 크게 이렇게 2가지를 얻을 수 있다고 생각합니다&lt;br&gt;
+때문에 요즘 Container환경이 각광받으며 &lt;code class=&quot;language-text&quot;&gt;Docker&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;Kubernetes&lt;/code&gt;를 많이 사용하는 걸 볼 수 있습니다  &lt;/p&gt;
+&lt;br/&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;docker의-repository&quot;&gt;&lt;a href=&quot;#docker%EC%9D%98-repository&quot; aria-label=&quot;docker의 repository permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Docker의 Repository&lt;/h2&gt;
+&lt;p&gt;앞서 &lt;code class=&quot;language-text&quot;&gt;Docker&lt;/code&gt;는 &lt;code class=&quot;language-text&quot;&gt;Image&lt;/code&gt;를 받아와서 &lt;code class=&quot;language-text&quot;&gt;Container&lt;/code&gt; 환경을 구성한다는걸 알았습니다&lt;br&gt;
+이러한 &lt;code class=&quot;language-text&quot;&gt;Image&lt;/code&gt;는 직접 만들 수 도 있지만 왠만한 것들이 이미 공유되고 있습니다&lt;br&gt;
+Docker에서 제공하고 있고 가장 많은 Image를 가지고 있는 곳이 &lt;a href=&quot;https://hub.docker.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Docker Hub&lt;/a&gt;입니다 &lt;/p&gt;
+&lt;br/&gt; 
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.79513184584179%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACQklEQVQoz21SSWtTURR+S7eCiLvapQMVHKgURH+AO0WsIAhFUHHjtHHvwl/RitakajGVgrELI2hUBFHcmJI0zdC8NMO79903j/k896apdbhwuPc79zvz0QaDAaTIM7rl6RsMjHN1c27CYIzeBulM9PoGkiTdttnpQxuBNB0SLMtGs6WjXF1HtVZHea2Kyta71miiVK4o3Xq9QUH40CnZSh9xHEPDf04SJ0SiIEmiSCpoEpE+QiQxceSd7qgoooyF7UITQqBKEfVmC91uB8w00WzraLRb6Bh9MCq5Tn9tKwazQ3D616mCzfYmGLVB3+xglbJe/VlCkyrQ5mZnsWdsL/YdHceZ06cwc/8utMNj2HXsEA5cOYfLtx5g9/4TGD97D+cfrmDm2lVMTB3B5NQkLk5fwu3pC7gxcRB3Th7H3M3r0CrVNTzLLeLFq0W8yb/Gp29f8Wj5JZ4sLyH38R2KPyqYXyrgcTaHt99reP+hiMzzBcw/zSCfX8HnfB7FbAZfFrIoFQrUQ98H1flXD3/3Bg6jBrnbMKY+jiasuCTBFj2WU04sC9ZGC24QkKMYfhDCMAXF8SH9Rr02mN6C7QVwPV/1kKv/IbZtC4J0gcSuBy0gB92egTAMVZQ0TeAQKYwihXkQoS9sRPQf0/QFrZXcSZ8SkJN2TFutmlw76UtLyNAhxciB3CnHcWA7rsqCC0tl5FE2EguJabk9ekudQzzJcbyQbLw/91BGkUSTMmJcwCDhpqVEYfYvlnePWdjomuj0BX4BUwIcuQCxR+IAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Docker_Hub&quot;
+        title=&quot;Docker_Hub&quot;
+        src=&quot;/static/65d6bb7160e19f027071caa1c4747f3a/36727/docker-hub.png&quot;
+        srcset=&quot;/static/65d6bb7160e19f027071caa1c4747f3a/acf4b/docker-hub.png 173w,
+/static/65d6bb7160e19f027071caa1c4747f3a/fc834/docker-hub.png 345w,
+/static/65d6bb7160e19f027071caa1c4747f3a/36727/docker-hub.png 690w,
+/static/65d6bb7160e19f027071caa1c4747f3a/17fa4/docker-hub.png 1035w,
+/static/65d6bb7160e19f027071caa1c4747f3a/a5044/docker-hub.png 1380w,
+/static/65d6bb7160e19f027071caa1c4747f3a/0bfbb/docker-hub.png 1972w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;
+&lt;span class=&apos;img_caption&apos;&gt;&lt;a href=&quot;https://hub.docker.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Docker Hub&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;보시는 것과 같이 &lt;code class=&quot;language-text&quot;&gt;Docker Hub&lt;/code&gt;에서는 간단하게 이미 구성된 &lt;strong&gt;Image들을 다운&lt;/strong&gt;받아 사용할 수 있습니다&lt;br&gt;
+그럼 이제 Docker Hub에서 Image를 다운받아 &lt;code class=&quot;language-text&quot;&gt;Ubuntu Container 환경&lt;/code&gt;을 구성하고 &lt;code class=&quot;language-text&quot;&gt;Hello World&lt;/code&gt;를 출력해 보도록 하겠습니다  &lt;/p&gt;
+&lt;br/&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;docker-hub에-로그인-하기&quot;&gt;&lt;a href=&quot;#docker-hub%EC%97%90-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%ED%95%98%EA%B8%B0&quot; aria-label=&quot;docker hub에 로그인 하기 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Docker Hub에 로그인 하기&lt;/h3&gt;
+&lt;p&gt;Image를 다운받기에 앞서 Docker Client를 로그인 해줍니다  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. 명령어를 이용한 방식&lt;/strong&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 531px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 23.728813559322035%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAA6cAAAOnAEHlFPdAAAAuklEQVQY052QzQ7CIBCEe11oLFD+qdJiD9r3f7+xYGxi1IuHLzvLhAlDR4LAHAOzBG4YuOX7ThhOAo4HaK7R97vPnnDOD/2NbrnPiGtEvmWYZCCDhJwElBoRRIRXAVLKhhACwzBgHMem65lS6s3vylJQ5oL5MuNarsjnDGcctNYwzsAHD+89Qght1rCcM6y1bU8pHZ5zDt22bVjXtV2cpmmv14MYfVQhop/6RatcX1KTY4xt1j+qof/yAAVZeBCOlhSQAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;git-bash-docker-login&quot;
+        title=&quot;git-bash-docker-login&quot;
+        src=&quot;/static/8df559f2035c3048326ec789f544868c/90647/git-bash-docker-login.png&quot;
+        srcset=&quot;/static/8df559f2035c3048326ec789f544868c/acf4b/git-bash-docker-login.png 173w,
+/static/8df559f2035c3048326ec789f544868c/fc834/git-bash-docker-login.png 345w,
+/static/8df559f2035c3048326ec789f544868c/90647/git-bash-docker-login.png 531w&quot;
+        sizes=&quot;(max-width: 531px) 100vw, 531px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;   &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;docker login [OPTIONS] [SERVER]
+[OPTIONS] : -u --username / -p --password&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;login은 사진처럼 단계별로 입력하는 방법과 options으로 한꺼번에 입력 할 수도 있습니다  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;strong&gt;2. GUI를 이용한 방식&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 43.745019920318725%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABcRAAAXEQHKJvM/AAAB80lEQVQoz31Sy27TQBT13htv+ByE2CEVliwqooRNIlZIReqKf8mjH9APQKgL2KCiknZBI5omENuxHT9jO35lHpczhoiuuNLxHM+Mzj333tE+fpnqn3+s9TTNdN/3dcuydM/zWm6apr5cLtWeoSHquj4nhL/ZsDAMZRTF1DQNFUVBjDF1RJpsKpckc4XggHCx10JKeYCN/SYIggEEz8Bpcb+AYCSVmIqyLOnAtRDCd3nLqaoq8jYeRVFEeZ4TRICwPfP94BTnY8Vty24dqjtlUVL1UPD9ZSF6F5lgQgqSsNLsgUagBLHfg+OjLsZxfFLV9URxy16zOEnkDqWWMFE8FKw5ERey/cmQsUBGISVxzlug5LY5cPqu2uUTNItMlFxAECok65qK7fafICAI1tSKEgRE4eyPO7ViWA1EyXS9Ez6bTWhlUnD5lSXTqYyvrojN58RmM+JwexD8byRJAlOcHNc93SXJWLlaze9Zmaay2e2IQSgNQ8rSlDA00tArB24clOek28RZmY6zsGNnvYmdPMucsqxMDKPCoPrLn7/OVJJtmrE951L+TapadX1zQ7e330kbjUbGcDg0hljHwIeLT8advTX8pDLQFwOTNr5Nrx+pd/js+cvzwZu31O102avjY9ntdOh1r0eDfp9eHB3R0yeP6TdQZnp4UdaK6AAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;docker-gui-login&quot;
+        title=&quot;docker-gui-login&quot;
+        src=&quot;/static/e78413a6c55af387f5aa2e5691529ddc/36727/docker-gui-login.png&quot;
+        srcset=&quot;/static/e78413a6c55af387f5aa2e5691529ddc/acf4b/docker-gui-login.png 173w,
+/static/e78413a6c55af387f5aa2e5691529ddc/fc834/docker-gui-login.png 345w,
+/static/e78413a6c55af387f5aa2e5691529ddc/36727/docker-gui-login.png 690w,
+/static/e78413a6c55af387f5aa2e5691529ddc/17fa4/docker-gui-login.png 1035w,
+/static/e78413a6c55af387f5aa2e5691529ddc/a666d/docker-gui-login.png 1255w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;  &lt;/p&gt;
+&lt;br/&gt;
+&lt;h3 id=&quot;error-발생할-경우&quot;&gt;&lt;a href=&quot;#error-%EB%B0%9C%EC%83%9D%ED%95%A0-%EA%B2%BD%EC%9A%B0&quot; aria-label=&quot;error 발생할 경우 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Error 발생할 경우&lt;/h3&gt;
+&lt;p&gt;&lt;span class=&apos;red_font&apos;&gt;Error : Cannot perform an interactive login from a non TTY device&lt;/span&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;라거나&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&apos;red_font&apos;&gt;the input device is not a TTY. If you are using mintty, try prefixing the command with ‘winpty’
+&lt;/span&gt; &lt;/p&gt;
+&lt;p&gt;Git Bash로 진행하다 보면 다음과 같은 Error가 뜰 수도 있습니다&lt;br&gt;
+원인은 Git Bash 설치시 Terminal 사용을 &lt;code class=&quot;language-text&quot;&gt;Use MinTTY&lt;/code&gt;를 선택해서 그렇습니다&lt;br&gt;
+설치시 해당 설정이 default이고 한국의 각종 블로그에서 설치시 해당 옵션을 선호합니다&lt;/p&gt;
+&lt;p&gt;이럴경우 재설치를 하시거나 명령어 앞에 &lt;code class=&quot;language-text&quot;&gt;winpty&lt;/code&gt;를 붙여 주시면 됩니다  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;winpty docker login&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;만약 그래도 안될경우 재설치를 해주시면 됩니다&lt;br&gt;
+저 같은 경우 Git 버젼도 올릴겸 재설치를 하였습니다  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 500px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 77.4%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACqElEQVQ4y3VT6XKyQBD0/V/me4EkxivEiAeiIjeIKCh4IGAu05lZYsr8+KhqZmZ3q7fn2JrvWthuIqTpDnEcIdkmuFy+8PHxgU8C2/f3d2F/QfF+v8cyCHA8HnEuC7y9lnBsD7UsO8L3XaiTCXR9DsuyYVsWLNuGYRiwbQfL5RKO44hYJ+wPB/D3ebnQ/wtvX0DmrGFOu6jlWYY8z+F5HoLFAkEQ0gU+kYRYrVZYhYTVGiHZMAyxoDNRFOP2y14Bw5tB1v+hFpLs8/mMsiz/i6Io/vin0wkZCbnF51sK1zJR80nZbrcT6SrjMabTCVR1gtFoiMFgiAmVQhkrGI9V9PsylqQyJ0Ku3ZWM/VNeQpvPUQt8T9zIKUpPErrdF3Q6T3h+7hJBX8TsP9HacDjCy0uP1gfkDyFJkojZZ1LD0FFbuA7VsBDdHY1G6PVk9OWBUMfxYFD5QwIr7xHBWBkLK9FFqqrCdV3RKF3XuYYLJEkKgwLesB0bwTKASd30Fz5cKonruQIFNY9reItrXc/nEnNOmQmZ3TQNyLIsUlAUhVLtihQ5PVbJak3TEpd6BNf14NE0CBE0Ymmaij4QoS/GJo4iqpOEVquFh4c6Go0m7u7u0W63K7TaqNcfcX9fF36n00GjyWcfyJdEDeeaRoSU1umU04wtBUmLDj0+NkRj2F7JuSm81yKyJtlmsymIG3RGoZoWlLqmzSrCI7WeR2e73Yp6JkkifEYcb37iBJtN5bO9rld+jJzqqLHCFRHyLB2ojiybUfmHP2u34Ocq8OPzOW6M6LJP77ZSEv+C1fLjv4JjVsOWix9tEsTJjmyKLa3zXkazPJtOSSENNt/Ahxn8jg3dgEUd5e5p2hzr9Vq86xENsEZ7Pc1H/ZmGfL6AHUSYTVRMZxoUmoRvHRlC8f0a9QgAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;git_bash_tty&quot;
+        title=&quot;git_bash_tty&quot;
+        src=&quot;/static/ad2cb0c020a691da28b92ca1121e4a20/d19c0/git-bash-tty.png&quot;
+        srcset=&quot;/static/ad2cb0c020a691da28b92ca1121e4a20/acf4b/git-bash-tty.png 173w,
+/static/ad2cb0c020a691da28b92ca1121e4a20/fc834/git-bash-tty.png 345w,
+/static/ad2cb0c020a691da28b92ca1121e4a20/d19c0/git-bash-tty.png 500w&quot;
+        sizes=&quot;(max-width: 500px) 100vw, 500px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Windows 10 이전에는 cmd의 각종 문제가 많았지만 이후론 문제들이 수정되면서 윈도우에서 사용시&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;Use Windows default console window&lt;/code&gt;를 선택하는게 더 좋다고 생각합니다  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;물론 다 필요없이 CMD에서 실행 할경우 정상적으로 실행 됩니다 &lt;del&gt;(그래도 CMD는 불편)&lt;/del&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 531px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 23.540489642184557%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAA6cAAAOnAEHlFPdAAAAuUlEQVQY022OSQqDQBBFeyU4zxMigtexRfDyMZu40EXEXEA3P1aRiJosHr/+a7qrxb3r0PcP3LZ8ThOGYcS4Mc8vrOuKZVk4meXS/yCapgFR1zWnlJJnKWu0bfuZ5Q71qqpO7ohI0xR5niPLMsRxvM+O4yBJEliWBU3ToOs6oygKbNvenWmaMAxjPxdlWaIoCn7A8zz4vs9J3XVdhGF4ghwtCoKAiaKIPd2jFNcNV+gnR8ipqvrjv7wBrhC5edxKvG4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;cmd_docker_login&quot;
+        title=&quot;cmd_docker_login&quot;
+        src=&quot;/static/57ec7241e36a1b6072098cadd5062c3b/90647/cmd-docker-login.png&quot;
+        srcset=&quot;/static/57ec7241e36a1b6072098cadd5062c3b/acf4b/cmd-docker-login.png 173w,
+/static/57ec7241e36a1b6072098cadd5062c3b/fc834/cmd-docker-login.png 345w,
+/static/57ec7241e36a1b6072098cadd5062c3b/90647/cmd-docker-login.png 531w&quot;
+        sizes=&quot;(max-width: 531px) 100vw, 531px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;  &lt;/p&gt;
+&lt;br/&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;image를-가져와서-hello-world-출력&quot;&gt;&lt;a href=&quot;#image%EB%A5%BC-%EA%B0%80%EC%A0%B8%EC%99%80%EC%84%9C-hello-world-%EC%B6%9C%EB%A0%A5&quot; aria-label=&quot;image를 가져와서 hello world 출력 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Image를 가져와서 Hello World 출력&lt;/h3&gt;
+&lt;p&gt;Image를 가져올때는 Pull을 통해 가져올 수 있습니다&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;Image&lt;/code&gt;명으로 원하는 Image를 선택하고 &lt;code class=&quot;language-text&quot;&gt;Tag&lt;/code&gt;를 통해 버젼을 지정해서 가져오는게 일반적입니다&lt;br&gt;
+&lt;a href=&quot;https://hub.docker.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Docker Hub&lt;/a&gt;에 접속하시면 관련 Description과 Tag들을 확인 하실 수 있습니다  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 67.24447101016139%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAABcRAAAXEQHKJvM/AAACAUlEQVQ4y4WS22rUUBSG8xTqjaCoCIKXWl/CtxFvRTzD4JU+gNJSFA94J0XbWqzeCF4VLYqVTjrTOSSZJHvv2efftZM5xFpq4ONfeyfrz1qsFV1+McSZxQHOL6e48jqbsfAqw6WXGU4tJTj2JMGJpzXHKT65mOAsfX+a3p0jvfg8dQtvGC48S+OoBJAThQaEBZj2hJtRBtREG7CGEo7Sg8aR/PIOYmUJRgowxgHv8P/HH4inST6O+o+uo3PtKtJuF+2UozfiEFJDKtVAw3kPPyHExrkmlSHpXsTiX1C/vyHcGGOhtIE2BKkxc4JRVcNEEXTezTRoR0xZCDoqrSszRaYyKBEqa8K4qLO2tvDw5h08ftBCi7R145Zv3b6H5bv3RRRaUkT1U0tTUbJS32hx1mrdGbL9HlbfrmBz7QM+r29gc3Xdf9r4iK/v15LIUrKSZBq01wfb7cAOk0MNm6YHnnnLfCzBxRhjMmV5iayfgI0KCLoXdH8oPGyEqPJK2gzCaevCeS+SaQZNFdnRCDbLYKWsJ2fMEVhaMwVdlJB5HnBUETTjccTaXbBBgvEogxxk8Hk+n+JRO8g5+PdtlD9+Yryz48xuDBV3yDDnGO6XMAWDZ6weyCSVC0HtsNm6/MV0pWucospLLshQevQpxzT3flKdpPaL8l/D2T7Ozy4Ml5PhH/An01FJo85jAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;ubuntu-docker&quot;
+        title=&quot;ubuntu-docker&quot;
+        src=&quot;/static/298c2e6b45b7d107a1cbf51b8b16be00/36727/ubuntu-docker-hub.png&quot;
+        srcset=&quot;/static/298c2e6b45b7d107a1cbf51b8b16be00/acf4b/ubuntu-docker-hub.png 173w,
+/static/298c2e6b45b7d107a1cbf51b8b16be00/fc834/ubuntu-docker-hub.png 345w,
+/static/298c2e6b45b7d107a1cbf51b8b16be00/36727/ubuntu-docker-hub.png 690w,
+/static/298c2e6b45b7d107a1cbf51b8b16be00/17fa4/ubuntu-docker-hub.png 1035w,
+/static/298c2e6b45b7d107a1cbf51b8b16be00/a5044/ubuntu-docker-hub.png 1380w,
+/static/298c2e6b45b7d107a1cbf51b8b16be00/856a4/ubuntu-docker-hub.png 1673w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;  &lt;/p&gt;
+&lt;br/&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;docker pull [IMAGENAME]:[TAG]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span class=&apos;code_header&apos;&gt;따라서 Ubuntu Image를 가져오는 Docker 명령어는 다음과 같습니다&lt;/span&gt;  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;docker pull ubuntu:lastest&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 20.435967302452315%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAApElEQVQY04XOwQ6DIBAEUM5YEKSB9qBoShCr6Qn//9OmK1rTS9PDy2Y2k80yczcQ7kJEIW8SVjhorsErjqqq/uKcn9jyWhCfEUMYEKeIMAbEB2U/wDmHpmlgjCnztOVjp7WmnoW1O5ZzxppXhBCQUsIYR8zzjL7vIaX8QaD+yp/DG5bSBO97tF1LuqLrfPlOKQVFJXWUa8r1No09XOl7RQd3mrwBQm5jncZjuoQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;docker-pull-ubuntu&quot;
+        title=&quot;docker-pull-ubuntu&quot;
+        src=&quot;/static/1a92b7c2179737a630ea2539e148f69c/36727/docker-pull-ubuntu.png&quot;
+        srcset=&quot;/static/1a92b7c2179737a630ea2539e148f69c/acf4b/docker-pull-ubuntu.png 173w,
+/static/1a92b7c2179737a630ea2539e148f69c/fc834/docker-pull-ubuntu.png 345w,
+/static/1a92b7c2179737a630ea2539e148f69c/36727/docker-pull-ubuntu.png 690w,
+/static/1a92b7c2179737a630ea2539e148f69c/a2f30/docker-pull-ubuntu.png 734w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;strong&gt;이제 Image를 확인 합니다&lt;/strong&gt;  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;docker image ls&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 20.933521923620933%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAA6cAAAOnAEHlFPdAAAAuElEQVQY0z2OyQ6FIAxFWToAMTggBqMBjHFYaPz/b7vvtYkuSCmcnlsxhAE2WXSxg/EG0kkYbWClg1ISZVn+q+JaFMXXa62/XkrJh+7iui5M04SmaaCkgnOO+xemwW3bkFJC3/fIsoyZ4zhgrWWOmGVZYIyB2PedQUqlT4LmeWbZKzzPE8/zIITAQmLojUKqqmLmvm/2CILGcUTbtiyg6r3/hBREzLquvHme5yyMMXJwXdfMUABt+ANXFGSoD6WZiwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;docker-image-ls&quot;
+        title=&quot;docker-image-ls&quot;
+        src=&quot;/static/08ef3eb6f60b27992d13c048ea085c16/36727/docker-image-ls.png&quot;
+        srcset=&quot;/static/08ef3eb6f60b27992d13c048ea085c16/acf4b/docker-image-ls.png 173w,
+/static/08ef3eb6f60b27992d13c048ea085c16/fc834/docker-image-ls.png 345w,
+/static/08ef3eb6f60b27992d13c048ea085c16/36727/docker-image-ls.png 690w,
+/static/08ef3eb6f60b27992d13c048ea085c16/331c8/docker-image-ls.png 707w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;다음 명령어를 통해 현재 local에 가지고 있는 Image들을 확인 할 수 있습니다  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;이제 Ubuntu Container를 설정하고 echo를 통해 Hello world를 출력해 봅니다  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;docker container run ubuntu:latest /bin/echo &amp;#39;Hello world&amp;#39;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 18.567103935418768%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAABcRAAAXEQHKJvM/AAAA8klEQVQY01WOwW6DMBBEOReblOQQjA3GNuBAoPmBfkKbVlGl/v8H1Kceq50uOVTqYfS0I83sZLKSkI3AThcQlUCuH7Av92ikxaE4QEoBIQRT/nHTrigg+c7z/J+yOEfqY0+n+UTzMtM4jXR5utAyrbQuK8UYaRxHOi8Lpnmm0PfkvYeqazyWJXIuFVKS2B4VBWVaa3jnYVsLay2CDxiGAdpo2M6ibVt07J+GgQYu6p2DY6/l3EZrzF1NXdMUIzJjTHLOJV6ROJy6rku84M4+hGSc+3qu6+/b8YgXpehda7oqhTde+MGPrszXqqLPEHBT6ucX2IZqpXme0YwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;hello_world_error&quot;
+        title=&quot;hello_world_error&quot;
+        src=&quot;/static/9fae9a12854d11e928106a3933f21743/36727/hello-world-error.png&quot;
+        srcset=&quot;/static/9fae9a12854d11e928106a3933f21743/acf4b/hello-world-error.png 173w,
+/static/9fae9a12854d11e928106a3933f21743/fc834/hello-world-error.png 345w,
+/static/9fae9a12854d11e928106a3933f21743/36727/hello-world-error.png 690w,
+/static/9fae9a12854d11e928106a3933f21743/15f59/hello-world-error.png 991w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그럼 다음과 같은 &lt;span class=&apos;red_font&apos;&gt;Error&lt;/span&gt;를 만나게 됩니다&lt;br&gt;
+이유인즉 /bin/echo Path가 &lt;code class=&quot;language-text&quot;&gt;Convert&lt;/code&gt; 되면서 Git에서 &lt;code class=&quot;language-text&quot;&gt;/bin/echo&lt;/code&gt;를 찾게 됩니다&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;Hello world&lt;/code&gt;가 쉽지가 않습니다 😅    &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;strong&gt;하지만 역시 해결법은 존재합니다&lt;/strong&gt;  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;MSYS_NO_PATHCONV=1&lt;/code&gt;을 맨앞에 줘서 Convert를 막는 방법&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;//bin/echo&lt;/code&gt;로 설정하면 Convert가 되지 않습니다  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;strong&gt;명령어를 수정합니다&lt;/strong&gt;  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;docker container run ubuntu:latest //bin/echo &amp;#39;Hello world&amp;#39;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;OR&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;MSYS_NO_PATHCONV=1 docker container run ubuntu:latest /bin/echo &amp;#39;Hello world&amp;#39;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;strong&gt;드디어 &lt;code class=&quot;language-text&quot;&gt;Hello world&lt;/code&gt;를 만났습니다&lt;/strong&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 27.263581488933603%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAABcRAAAXEQHKJvM/AAAA6ElEQVQY022PvVLDMBCE3cpy9K+TkeQ4ECBF3gAaeACG938P0qTwovPgUEDxzWr3Rjd73V31XzEr+L1aXLXQVcM0iq0oZoJzLdMtM+aPKqUgpcQwDDe6z+P99XXe462W5ZkI2juE4DGmEcEHpJTaUocYY8sDvPcr7Hlh3/crvJi1O2d3eSoap9ksqTU0k4FpftQZ2VTY1mS3262ft3bM5jc4s9ai+3g8Xl8OM94P83KuBTGPoERIlECRWtPfhtyW2hWs3HZTnnFrnnUPSV0y9ZiKXJQXECQgmw99BMkE+XMSI4S4vf/zzDfS63n6cWVHAQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;docker-hello-world-done&quot;
+        title=&quot;docker-hello-world-done&quot;
+        src=&quot;/static/0f94d85589ec646a6e8d561728523b5f/36727/docker-hello-world-done.png&quot;
+        srcset=&quot;/static/0f94d85589ec646a6e8d561728523b5f/acf4b/docker-hello-world-done.png 173w,
+/static/0f94d85589ec646a6e8d561728523b5f/fc834/docker-hello-world-done.png 345w,
+/static/0f94d85589ec646a6e8d561728523b5f/36727/docker-hello-world-done.png 690w,
+/static/0f94d85589ec646a6e8d561728523b5f/b12db/docker-hello-world-done.png 994w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;  &lt;/p&gt;
+&lt;br/&gt;
+&lt;hr&gt;
+&lt;p&gt;마지막으로 Container run을 하는경우 Image가 없다면 자동으로 Pull을 하여 받아옵니다&lt;br&gt;
+local에서 Image를 찾아보고 없으면 &lt;a href=&quot;https://hub.docker.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Docker Hub&lt;/a&gt;에서 Pull해서 진행합니다  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 51.1578947368421%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAABcRAAAXEQHKJvM/AAABTklEQVQoz52S3U6DQBCFQRug0BYKUqAsXRYCZaFGb/RCjTH2KXz/R0Av5TjbmtQYm9henMzOZvPtmR8tZO67x2y4mT0EbIpJaiD1Q6wdgdj14I7HuJrNMLNt2CTHcWCaBjRN+1tvVfX5wBieWTa8igJPyxQveY5tWWArBK6nE9z5c2wsC5eGAcs0MRqNjgMfq+rjvihwQ8BNkuA2Y2jCkGKGgB7Mv+UcA/xW3bZ9WVXgohgWBFwSaOK68Amq/RfyU61s+6auURCQpSn4aoXADxBHC1jGvlf6KUBJQNk0EEIMGZVLEXkuoO4cGsLJDqWUfaOAuRg45yjLEpzn6Lr2fODBYUbuOCrqaRxFuND104Fd1/WtlMrZEBGEsRQqNw3jvKGs67pP4mRXck77V9L+qdKV4jimDxhSGpaS7/tw1QZQDIIAHp09z9vlur4HfgGaf+dLyOXFrAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;ubuntu_simple_run&quot;
+        title=&quot;ubuntu_simple_run&quot;
+        src=&quot;/static/87a7b267b59d41103199a6adf1a3e193/36727/ubuntu_simple_run.png&quot;
+        srcset=&quot;/static/87a7b267b59d41103199a6adf1a3e193/acf4b/ubuntu_simple_run.png 173w,
+/static/87a7b267b59d41103199a6adf1a3e193/fc834/ubuntu_simple_run.png 345w,
+/static/87a7b267b59d41103199a6adf1a3e193/36727/ubuntu_simple_run.png 690w,
+/static/87a7b267b59d41103199a6adf1a3e193/329de/ubuntu_simple_run.png 950w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;strong&gt;결론은 아래 명령어만 하면 &lt;code class=&quot;language-text&quot;&gt;Hello world&lt;/code&gt;를 만날 수 있다!&lt;/strong&gt; 👏  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;docker container run ubuntu:latest //bin/echo &amp;#39;Hello world&amp;#39;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[[Docker] Docker의 구조와 Windows10의 Docker]]></title><description><![CDATA[Docker의 기본 구조 이번 포스트에서는 와 가 있어야만 Docker 설치가 가능한 이유를 알아 보도록 하겠습니다   서버 가상화 (Virtual Machine) 먼저 서버 가상화 기술 2가지에 대해 알아 보겠습니다      하이퍼바이저 Type…]]></description><link>https://renuevo.github.io/docker/docker-structure-windows10/</link><guid isPermaLink="false">https://renuevo.github.io/docker/docker-structure-windows10/</guid><pubDate>Mon, 09 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h1 id=&quot;docker의-기본-구조&quot;&gt;&lt;a href=&quot;#docker%EC%9D%98-%EA%B8%B0%EB%B3%B8-%EA%B5%AC%EC%A1%B0&quot; aria-label=&quot;docker의 기본 구조 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Docker의 기본 구조&lt;/h1&gt;
 &lt;p&gt;이번 포스트에서는 &lt;code class=&quot;language-text&quot;&gt;가상화 기술의 3가지&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;Windows10에서 Hyper-V&lt;/code&gt;가 있어야만 Docker 설치가 가능한 이유를 알아 보도록 하겠습니다  &lt;/p&gt;
 &lt;h2 id=&quot;서버-가상화-virtual-machine&quot;&gt;&lt;a href=&quot;#%EC%84%9C%EB%B2%84-%EA%B0%80%EC%83%81%ED%99%94-virtual-machine&quot; aria-label=&quot;서버 가상화 virtual machine permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;서버 가상화 (Virtual Machine)&lt;/h2&gt;
 &lt;p&gt;먼저 서버 가상화 기술 2가지에 대해 알아 보겠습니다  &lt;/p&gt;
@@ -169,7 +549,7 @@ Mac OS의 경우는 &lt;code class=&quot;language-text&quot;&gt;Xhyve&lt;/code&g
 &lt;p&gt;&lt;a href=&quot;https://www.docker.com/blog/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Docker Bolg&lt;/a&gt;&lt;br&gt;
 &lt;a href=&quot;https://medium.com/@jwyeom63/%EC%8B%9C%EC%9E%91%ED%95%98%EB%8A%94-%EC%9D%B4%EB%93%A4%EC%9D%84-%EC%9C%84%ED%95%9C-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-vm-%EA%B7%B8%EB%A6%AC%EA%B3%A0-%EB%8F%84%EC%BB%A4%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0-3a04c000cb5c&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;도커에 대한 이야기&lt;/a&gt;&lt;br&gt;
 &lt;a href=&quot;https://docs.microsoft.com/ko-kr/virtualization/windowscontainers/manage-containers/hyperv-container&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Hyper-V 격리&lt;/a&gt;&lt;br&gt;
-&lt;a href=&quot;https://www.nebulaworks.com/blog/2017/04/23/getting-started-linuxkit-mac-os-x-xhyve/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;LinuxKit on Mac OS X with xhyve&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Docker] Windows10 Docker 설치]]></title><description><![CDATA[Windows 10에서 Docker 설치 하기 1. CPU 가상화 기능 설정하기 Windows10에서는 Hyper-V를 통한 Hypervisor를 활용하여 간단하게 Docker를 설치 할 수 있습니다 하지만 Windows7의 경우 Hyper-V…]]></description><link>https://renuevo.github.io/other/docker/docker-setup/</link><guid isPermaLink="false">https://renuevo.github.io/other/docker/docker-setup/</guid><pubDate>Sun, 08 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;windows-10에서-docker-설치-하기&quot;&gt;&lt;a href=&quot;#windows-10%EC%97%90%EC%84%9C-docker-%EC%84%A4%EC%B9%98-%ED%95%98%EA%B8%B0&quot; aria-label=&quot;windows 10에서 docker 설치 하기 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Windows 10에서 Docker 설치 하기&lt;/h2&gt;
+&lt;a href=&quot;https://www.nebulaworks.com/blog/2017/04/23/getting-started-linuxkit-mac-os-x-xhyve/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;LinuxKit on Mac OS X with xhyve&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Docker] Windows10 Docker 설치]]></title><description><![CDATA[Windows 10에서 Docker 설치 하기 1. CPU 가상화 기능 설정하기 Windows10에서는 Hyper-V를 통한 Hypervisor를 활용하여 간단하게 Docker를 설치 할 수 있습니다 하지만 Windows7의 경우 Hyper-V…]]></description><link>https://renuevo.github.io/docker/docker-setup/</link><guid isPermaLink="false">https://renuevo.github.io/docker/docker-setup/</guid><pubDate>Sun, 08 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;windows-10에서-docker-설치-하기&quot;&gt;&lt;a href=&quot;#windows-10%EC%97%90%EC%84%9C-docker-%EC%84%A4%EC%B9%98-%ED%95%98%EA%B8%B0&quot; aria-label=&quot;windows 10에서 docker 설치 하기 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Windows 10에서 Docker 설치 하기&lt;/h2&gt;
 &lt;h3 id=&quot;1-cpu-가상화-기능-설정하기&quot;&gt;&lt;a href=&quot;#1-cpu-%EA%B0%80%EC%83%81%ED%99%94-%EA%B8%B0%EB%8A%A5-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0&quot; aria-label=&quot;1 cpu 가상화 기능 설정하기 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. CPU 가상화 기능 설정하기&lt;/h3&gt;
 &lt;p&gt;Windows10에서는 Hyper-V를 통한 Hypervisor를 활용하여 간단하게 Docker를 설치 할 수 있습니다&lt;br&gt;
 하지만 Windows7의 경우 Hyper-V를 지원하지 않아서 VirtualBox를 통해 Docker를 사용할 수 있게 &lt;code class=&quot;language-text&quot;&gt;Docker Toolbox&lt;/code&gt;를 지원하고 있습니다&lt;br&gt;
@@ -3839,90 +4219,7 @@ java랑 완벽히 호환된다지만 &lt;code class=&quot;language-text&quot;&gt
 &lt;h4 id=&quot;실행화면&quot;&gt;&lt;a href=&quot;#%EC%8B%A4%ED%96%89%ED%99%94%EB%A9%B4&quot; aria-label=&quot;실행화면 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;실행화면&lt;/h4&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;가격 &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1100&lt;/span&gt;원 &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; 메뉴 &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Americano&lt;/span&gt;
 가격 &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1400&lt;/span&gt;원 &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; 메뉴 &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Americano&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 우유
-가격 &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1900&lt;/span&gt;원 &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; 메뉴 &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Americano&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 우유&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 흑당&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[[DesignPattern] 전략 패턴(Strategy Pattern)이란?]]></title><description><![CDATA[…]]></description><link>https://renuevo.github.io/design-pattern/strategy-pattern/</link><guid isPermaLink="false">https://renuevo.github.io/design-pattern/strategy-pattern/</guid><pubDate>Sat, 07 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;&lt;em&gt;메인 프로세스에서 상황에 맞게 전략을 선택하여 실행하는 패턴입니다&lt;/em&gt;&lt;/strong&gt;  &lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 256px;&quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 62.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAACPUlEQVQoz3WQ62/SYBSH+XOVxMzpZLpNE2cIGqBYUJBbGDDmpsZJuK7lMq7ThRWYG5PCZoBiRukLpRSkHe0sYWaTzPM+n07yvL9zjgwlte7csj2tcGQX/fWXO+cayKQMB9HhcAiojsRw+PvyPyVLDwyfjp97DlY28k9jlG63C79z6pKJNMdx/X6fHbAEQYyF8YgbSTUrxxmNRGIAJVjtLqPdrj1rgmpvQCENOHz2xpNRutMvtvZV0ebbeN3KDhjJEaU3lQvAm2ttH5AT8pQ329gEPbJF1xGgQkg15JND3rv60L0kq0MIiGHpiSz+lUX+8iYCL0jdBlk1J+c82Io1teDYU3zGV1FK7S2/mpVn1hDFidyia96KCiVghIAjTbgounJje+LcMjv2rWfkeZ4CZJ+lK6flQNBXr9dAh6JAWxCEfw52M/OayWiT71l2UDouSX9NAyUEUbhCEG5J5jketLu9br8LGIZmyRbZo9ku6Emddgvw/MVs8pgX9nA/UrbFKq5A0eLDTOgPRxR3IEdrtV/V6IkHLdujuPNLzhg6skbLaxHc8SFmlE2350dj/6HRmX/oKSxZMw8sqXlral6PyG0JBV4vbmKr7rxiPf/EFJ+zf10wJ++/DstVG3eu5eB3syv/aB1bdu4voqR6t6eLM1CY0J6cYR8LSjf22J1ben+4EqehWAfKcHpLZPFq7AtOSFa3/BVNqGoI4nCqbcl0bVnalmjaThslBDcHKrpQFd75aUh3bGlg/cY6NjPqPyOikmuHvnU/AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;strategy_pattern&quot;
-        title=&quot;strategy_pattern&quot;
-        src=&quot;/static/01c3a1b7d7027a3139ef025546f18c8d/00397/Strategy_Pattern.png&quot;
-        srcset=&quot;/static/01c3a1b7d7027a3139ef025546f18c8d/acf4b/Strategy_Pattern.png 173w,
-/static/01c3a1b7d7027a3139ef025546f18c8d/00397/Strategy_Pattern.png 256w&quot;
-        sizes=&quot;(max-width: 256px) 100vw, 256px&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-    &lt;/span&gt;
-&lt;span class=&quot;img_caption&quot;&gt;출처 : &lt;a href=&quot;https://ko.wikipedia.org/wiki/%EC%A0%84%EB%9E%B5_%ED%8C%A8%ED%84%B4&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;위키피디아&lt;/a&gt; &lt;/span&gt;&lt;/p&gt;
-&lt;br/&gt;
-&lt;p&gt;이 패턴은 가장 기본적이며 인터페이스의 필요여부를 가장 잘 보여 주고 많은 곳에서 사용하고 있는 패턴입니다&lt;br&gt;
-이 그림에서 볼 수 있듯이 하나의 인터페이스를 두고 클래스들이 인터페이스를 구현하여 사용됩니다  &lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;strategy-sample&quot;&gt;&lt;a href=&quot;#strategy-sample&quot; aria-label=&quot;strategy sample permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Strategy Sample&lt;/h2&gt;
-&lt;/br&gt;
-&lt;h4 id=&quot;strategyinterface&quot;&gt;&lt;a href=&quot;#strategyinterface&quot; aria-label=&quot;strategyinterface permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;StrategyInterface&lt;/h4&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Strategy&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;br/&gt;
-&lt;h4 id=&quot;contentsstrategya--span-calsssub_headerspan&quot;&gt;&lt;a href=&quot;#contentsstrategya--span-calsssub_headerspan&quot; aria-label=&quot;contentsstrategya  span calsssub_headerspan permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;ContentsStrategyA  &lt;span calss=&quot;sub_header&quot;&gt;&lt;/span&gt;&lt;/h4&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ContentsStrategyA&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Strategy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;token class-name&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;앞으로 이동&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;br/&gt;
-&lt;h4 id=&quot;contentsstrategyb--span-calsssub_headerspan&quot;&gt;&lt;a href=&quot;#contentsstrategyb--span-calsssub_headerspan&quot; aria-label=&quot;contentsstrategyb  span calsssub_headerspan permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;ContentsStrategyB  &lt;span calss=&quot;sub_header&quot;&gt;&lt;/span&gt;&lt;/h4&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ContentsStrategyB&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Strategy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;token class-name&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;뒤로 이동&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;br/&gt;
-&lt;h4 id=&quot;main&quot;&gt;&lt;a href=&quot;#main&quot; aria-label=&quot;main permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Main&lt;/h4&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@SpringBootApplication&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;SimpleCode&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-
-    &lt;span class=&quot;token comment&quot;&gt;//Run&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;robot&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    
-        &lt;span class=&quot;token comment&quot;&gt;//전략 리스트&lt;/span&gt;
-        &lt;span class=&quot;token class-name&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;token generics&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt; moveList &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Arrays&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;asList&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;go&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;back&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;go&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;go&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;token class-name&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;token generics&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Strategy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt; strategyList &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;token generics&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-        moveList&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;m &lt;span class=&quot;token operator&quot;&gt;-&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;token keyword&quot;&gt;switch&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;m&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;token keyword&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;go&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
-                    strategyList&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ContentsStrategyA&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;//기능 A&lt;/span&gt;
-                    &lt;span class=&quot;token keyword&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;token keyword&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;back&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
-                    strategyList&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ContentsStrategyB&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;//기능 B&lt;/span&gt;
-                    &lt;span class=&quot;token keyword&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-        strategyList&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Strategy&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;//기능 실행&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;br/&gt;
-&lt;h4 id=&quot;실행결과&quot;&gt;&lt;a href=&quot;#%EC%8B%A4%ED%96%89%EA%B2%B0%EA%B3%BC&quot; aria-label=&quot;실행결과 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;실행결과&lt;/h4&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;앞으로 이동
-뒤로 이동
-앞으로 이동
-앞으로 이동&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;br/&gt;
-&lt;p&gt;위에 code를 보시면 먼저 &lt;strong&gt;StrategyInterface&lt;/strong&gt; 인터페이스를 구현합니다&lt;br&gt;
-그리고 각각의 기능을 &lt;strong&gt;ContentsStrategyA&lt;/strong&gt;, &lt;strong&gt;ContentsStrategyB&lt;/strong&gt;에서 구현하게 됩니다&lt;br&gt;
-그러면 메인프로세스는 &lt;strong&gt;StrategyInterface&lt;/strong&gt;만으로 각각의 상황에 맞춰 전략을 선택하고 실행 할 수 있습니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[DataScience] K-mean]]></title><description><![CDATA[K-평균 (K-mean cluster) 데이터를 k개의 클러스터로 묶는 알고리즘 이 알고리즘을 데이터를 K개의 그룹으로 묶고 싶을때 사용하는 알고리즘 중 하나입니다
+가격 &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1900&lt;/span&gt;원 &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; 메뉴 &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Americano&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 우유&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 흑당&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[[DataScience] K-mean]]></title><description><![CDATA[K-평균 (K-mean cluster) 데이터를 k개의 클러스터로 묶는 알고리즘 이 알고리즘을 데이터를 K개의 그룹으로 묶고 싶을때 사용하는 알고리즘 중 하나입니다
 방법은 간단합니다 K-means 출처 : 위키피디아  K-mean 알고리즘 방식  k…]]></description><link>https://renuevo.github.io/data-science/k-mean-algorithm/</link><guid isPermaLink="false">https://renuevo.github.io/data-science/k-mean-algorithm/</guid><pubDate>Sat, 07 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;h1 id=&quot;k-평균-span-classsub_headerk-mean-clusterspan&quot;&gt;&lt;a href=&quot;#k-%ED%8F%89%EA%B7%A0-span-classsub_headerk-mean-clusterspan&quot; aria-label=&quot;k 평균 span classsub_headerk mean clusterspan permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;K-평균 &lt;span class=&quot;sub_header&quot;&gt;(K-mean cluster)&lt;/span&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;데이터를 k개의 클러스터로 묶는 알고리즘&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;이 알고리즘을 데이터를 K개의 그룹으로 묶고 싶을때 사용하는 알고리즘 중 하나입니다
@@ -4050,7 +4347,90 @@ k 기준점 선정에 대해서 많은 사람들이 관련 연구를 진행하�
     &lt;/span&gt;  &lt;/p&gt;
 &lt;p&gt;위 그래프는 실제 제가 회사 데이터를 K평균으로 분류하여 유용한 데이터들입니다&lt;br&gt;
 Scikit-Learn을 사용하면 간편하고 사용해보실 수 있으니 분석하실 데이터의 군집화가 필요하시다면 사용해 보시기 바랍니다&lt;br&gt;
-그리고 만약 군집화를 정해진 개수 없이 하고 싶으시면 Label Propagation 알고리즘을 사용해 보시기 바랍니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Notion] 동기(Synchronous)와 비동기(Asynchronous) & 블로킹(Blocking)과 논블로킹(NonBlocking)]]></title><description><![CDATA[얼마전 Reactive Programing을 공부하면서 백기선님의 유튜브를 보다 문득 의문이 생기는 부분이 있었습니다 “asynchronous하면 당연히 non-blocking…]]></description><link>https://renuevo.github.io/notion/blocking-nonBlocking-synchronous-asynchronous/</link><guid isPermaLink="false">https://renuevo.github.io/notion/blocking-nonBlocking-synchronous-asynchronous/</guid><pubDate>Fri, 06 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;얼마전 Reactive Programing을 공부하면서 &lt;a href=&quot;https://www.youtube.com/channel/UCwjaZf1WggZdbczi36bWlBA&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;백기선님의 유튜브&lt;/a&gt;를 보다 문득 의문이 생기는 부분이 있었습니다&lt;/p&gt;
+그리고 만약 군집화를 정해진 개수 없이 하고 싶으시면 Label Propagation 알고리즘을 사용해 보시기 바랍니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[DesignPattern] 전략 패턴(Strategy Pattern)이란?]]></title><description><![CDATA[…]]></description><link>https://renuevo.github.io/design-pattern/strategy-pattern/</link><guid isPermaLink="false">https://renuevo.github.io/design-pattern/strategy-pattern/</guid><pubDate>Sat, 07 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;&lt;em&gt;메인 프로세스에서 상황에 맞게 전략을 선택하여 실행하는 패턴입니다&lt;/em&gt;&lt;/strong&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 256px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 62.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAACPUlEQVQoz3WQ62/SYBSH+XOVxMzpZLpNE2cIGqBYUJBbGDDmpsZJuK7lMq7ThRWYG5PCZoBiRukLpRSkHe0sYWaTzPM+n07yvL9zjgwlte7csj2tcGQX/fWXO+cayKQMB9HhcAiojsRw+PvyPyVLDwyfjp97DlY28k9jlG63C79z6pKJNMdx/X6fHbAEQYyF8YgbSTUrxxmNRGIAJVjtLqPdrj1rgmpvQCENOHz2xpNRutMvtvZV0ebbeN3KDhjJEaU3lQvAm2ttH5AT8pQ329gEPbJF1xGgQkg15JND3rv60L0kq0MIiGHpiSz+lUX+8iYCL0jdBlk1J+c82Io1teDYU3zGV1FK7S2/mpVn1hDFidyia96KCiVghIAjTbgounJje+LcMjv2rWfkeZ4CZJ+lK6flQNBXr9dAh6JAWxCEfw52M/OayWiT71l2UDouSX9NAyUEUbhCEG5J5jketLu9br8LGIZmyRbZo9ku6Emddgvw/MVs8pgX9nA/UrbFKq5A0eLDTOgPRxR3IEdrtV/V6IkHLdujuPNLzhg6skbLaxHc8SFmlE2350dj/6HRmX/oKSxZMw8sqXlral6PyG0JBV4vbmKr7rxiPf/EFJ+zf10wJ++/DstVG3eu5eB3syv/aB1bdu4voqR6t6eLM1CY0J6cYR8LSjf22J1ben+4EqehWAfKcHpLZPFq7AtOSFa3/BVNqGoI4nCqbcl0bVnalmjaThslBDcHKrpQFd75aUh3bGlg/cY6NjPqPyOikmuHvnU/AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;strategy_pattern&quot;
+        title=&quot;strategy_pattern&quot;
+        src=&quot;/static/01c3a1b7d7027a3139ef025546f18c8d/00397/Strategy_Pattern.png&quot;
+        srcset=&quot;/static/01c3a1b7d7027a3139ef025546f18c8d/acf4b/Strategy_Pattern.png 173w,
+/static/01c3a1b7d7027a3139ef025546f18c8d/00397/Strategy_Pattern.png 256w&quot;
+        sizes=&quot;(max-width: 256px) 100vw, 256px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;
+&lt;span class=&quot;img_caption&quot;&gt;출처 : &lt;a href=&quot;https://ko.wikipedia.org/wiki/%EC%A0%84%EB%9E%B5_%ED%8C%A8%ED%84%B4&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;위키피디아&lt;/a&gt; &lt;/span&gt;&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;이 패턴은 가장 기본적이며 인터페이스의 필요여부를 가장 잘 보여 주고 많은 곳에서 사용하고 있는 패턴입니다&lt;br&gt;
+이 그림에서 볼 수 있듯이 하나의 인터페이스를 두고 클래스들이 인터페이스를 구현하여 사용됩니다  &lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;strategy-sample&quot;&gt;&lt;a href=&quot;#strategy-sample&quot; aria-label=&quot;strategy sample permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Strategy Sample&lt;/h2&gt;
+&lt;/br&gt;
+&lt;h4 id=&quot;strategyinterface&quot;&gt;&lt;a href=&quot;#strategyinterface&quot; aria-label=&quot;strategyinterface permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;StrategyInterface&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Strategy&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;h4 id=&quot;contentsstrategya--span-calsssub_headerspan&quot;&gt;&lt;a href=&quot;#contentsstrategya--span-calsssub_headerspan&quot; aria-label=&quot;contentsstrategya  span calsssub_headerspan permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;ContentsStrategyA  &lt;span calss=&quot;sub_header&quot;&gt;&lt;/span&gt;&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ContentsStrategyA&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Strategy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token class-name&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;앞으로 이동&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;h4 id=&quot;contentsstrategyb--span-calsssub_headerspan&quot;&gt;&lt;a href=&quot;#contentsstrategyb--span-calsssub_headerspan&quot; aria-label=&quot;contentsstrategyb  span calsssub_headerspan permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;ContentsStrategyB  &lt;span calss=&quot;sub_header&quot;&gt;&lt;/span&gt;&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ContentsStrategyB&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Strategy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token class-name&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;뒤로 이동&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;h4 id=&quot;main&quot;&gt;&lt;a href=&quot;#main&quot; aria-label=&quot;main permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Main&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@SpringBootApplication&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;SimpleCode&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;//Run&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;robot&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    
+        &lt;span class=&quot;token comment&quot;&gt;//전략 리스트&lt;/span&gt;
+        &lt;span class=&quot;token class-name&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;token generics&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt; moveList &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Arrays&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;asList&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;go&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;back&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;go&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;go&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token class-name&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;token generics&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Strategy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt; strategyList &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;token generics&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+        moveList&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;m &lt;span class=&quot;token operator&quot;&gt;-&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;switch&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;m&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;token keyword&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;go&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+                    strategyList&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ContentsStrategyA&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;//기능 A&lt;/span&gt;
+                    &lt;span class=&quot;token keyword&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;token keyword&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;back&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+                    strategyList&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ContentsStrategyB&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;//기능 B&lt;/span&gt;
+                    &lt;span class=&quot;token keyword&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+        strategyList&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Strategy&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;//기능 실행&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;h4 id=&quot;실행결과&quot;&gt;&lt;a href=&quot;#%EC%8B%A4%ED%96%89%EA%B2%B0%EA%B3%BC&quot; aria-label=&quot;실행결과 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;실행결과&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;앞으로 이동
+뒤로 이동
+앞으로 이동
+앞으로 이동&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;p&gt;위에 code를 보시면 먼저 &lt;strong&gt;StrategyInterface&lt;/strong&gt; 인터페이스를 구현합니다&lt;br&gt;
+그리고 각각의 기능을 &lt;strong&gt;ContentsStrategyA&lt;/strong&gt;, &lt;strong&gt;ContentsStrategyB&lt;/strong&gt;에서 구현하게 됩니다&lt;br&gt;
+그러면 메인프로세스는 &lt;strong&gt;StrategyInterface&lt;/strong&gt;만으로 각각의 상황에 맞춰 전략을 선택하고 실행 할 수 있습니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Notion] 동기(Synchronous)와 비동기(Asynchronous) & 블로킹(Blocking)과 논블로킹(NonBlocking)]]></title><description><![CDATA[얼마전 Reactive Programing을 공부하면서 백기선님의 유튜브를 보다 문득 의문이 생기는 부분이 있었습니다 “asynchronous하면 당연히 non-blocking…]]></description><link>https://renuevo.github.io/notion/blocking-nonBlocking-synchronous-asynchronous/</link><guid isPermaLink="false">https://renuevo.github.io/notion/blocking-nonBlocking-synchronous-asynchronous/</guid><pubDate>Fri, 06 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;얼마전 Reactive Programing을 공부하면서 &lt;a href=&quot;https://www.youtube.com/channel/UCwjaZf1WggZdbczi36bWlBA&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;백기선님의 유튜브&lt;/a&gt;를 보다 문득 의문이 생기는 부분이 있었습니다&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;textbox&quot;&gt;&lt;pre class=&quot;language-textbox&quot;&gt;&lt;code class=&quot;language-textbox&quot;&gt;By being built around the core pillars of being fully asynchronous and non-blocking,  
 Reactive Programming is an alternative to the more limited ways of doing asynchronous code in the JDK: namely Callback based APIs and Future.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;“asynchronous하면 당연히 non-blocking 되는 게 아닌가?”&lt;/em&gt;&lt;/strong&gt;  지금까지 저는 비동기면 당연히 논블록킹하다고 생각하고 있었습니다&lt;br&gt;
