@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[renuevo blog]]></title><description><![CDATA[development]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 11 Mar 2020 17:20:20 GMT</lastBuildDate><item><title><![CDATA[[Docker] Docker 시작하기 - Hello World와 Git Bash]]></title><description><![CDATA[Docker 시작하기 이 포스팅을 Windows에서 Git Bash로 Docker를 활용해 Ubuntu에서 를 출력하는 것을 목표로 합니다 만약 설치와 Docker의 구조를 모르신다면 아래 포스팅 두개를 보고 오시면 됩니다   Windows1…]]></description><link>https://renuevo.github.io/docker/docker-hello-world/</link><guid isPermaLink="false">https://renuevo.github.io/docker/docker-hello-world/</guid><pubDate>Thu, 12 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h1 id=&quot;docker-시작하기&quot;&gt;&lt;a href=&quot;#docker-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0&quot; aria-label=&quot;docker 시작하기 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Docker 시작하기&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[renuevo blog]]></title><description><![CDATA[development]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 11 Mar 2020 17:38:25 GMT</lastBuildDate><item><title><![CDATA[[Docker] Docker 시작하기 - Hello World와 Git Bash]]></title><description><![CDATA[Docker 시작하기 이 포스팅을 Windows에서 Git Bash로 Docker를 활용해 Ubuntu에서 를 출력하는 것을 목표로 합니다 만약 설치와 Docker의 구조를 모르신다면 아래 포스팅 두개를 보고 오시면 됩니다   Windows1…]]></description><link>https://renuevo.github.io/docker/docker-hello-world/</link><guid isPermaLink="false">https://renuevo.github.io/docker/docker-hello-world/</guid><pubDate>Thu, 12 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h1 id=&quot;docker-시작하기&quot;&gt;&lt;a href=&quot;#docker-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0&quot; aria-label=&quot;docker 시작하기 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Docker 시작하기&lt;/h1&gt;
 &lt;p&gt;이 포스팅을 &lt;strong&gt;Windows에서 Git Bash로 Docker를 활용해 Ubuntu에서 &lt;code class=&quot;language-text&quot;&gt;Hello World&lt;/code&gt;를 출력&lt;/strong&gt;하는 것을 목표로 합니다&lt;br&gt;
 만약 설치와 Docker의 구조를 모르신다면 아래 포스팅 두개를 보고 오시면 됩니다  &lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://renuevo.github.io/other/docker/docker-setup/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Windows10 Docker 설치&lt;/a&gt;&lt;br&gt;
@@ -129,7 +129,7 @@ Docker에서 제공하고 있고 가장 많은 Image를 가지고 있는 곳이 
     &lt;/span&gt;   &lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;docker login [OPTIONS] [SERVER]
 [OPTIONS] : -u --username / -p --password&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;login은 사진처럼 단계별로 입력하는 방법과 options으로 한꺼번에 입력 할 수도 있습니다  &lt;/p&gt;
+&lt;p&gt;login은 사진처럼 단계별로 입력하는 방법과 options으로 한꺼번에 입력할 수도 있습니다  &lt;/p&gt;
 &lt;br/&gt;
 &lt;p&gt;&lt;strong&gt;2. GUI를 이용한 방식&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span
@@ -190,7 +190,7 @@ Docker에서 제공하고 있고 가장 많은 Image를 가지고 있는 곳이 
 &lt;p&gt;Windows 10 이전에는 cmd의 각종 문제가 많았지만 이후론 문제들이 수정되면서 윈도우에서 사용시&lt;br&gt;
 &lt;code class=&quot;language-text&quot;&gt;Use Windows default console window&lt;/code&gt;를 선택하는게 더 좋다고 생각합니다  &lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;물론 다 필요없이 CMD에서 실행 할경우 정상적으로 실행 됩니다 &lt;del&gt;(그래도 CMD는 불편)&lt;/del&gt;  &lt;/p&gt;
+&lt;p&gt;물론 다 필요없이 CMD에서 실행할 경우 정상적으로 실행 됩니다 &lt;del&gt;(그래도 CMD는 불편)&lt;/del&gt;  &lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 531px;&quot;
@@ -215,8 +215,7 @@ Docker에서 제공하고 있고 가장 많은 Image를 가지고 있는 곳이 
 &lt;hr&gt;
 &lt;h3 id=&quot;image를-가져와서-hello-world-출력&quot;&gt;&lt;a href=&quot;#image%EB%A5%BC-%EA%B0%80%EC%A0%B8%EC%99%80%EC%84%9C-hello-world-%EC%B6%9C%EB%A0%A5&quot; aria-label=&quot;image를 가져와서 hello world 출력 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Image를 가져와서 Hello World 출력&lt;/h3&gt;
 &lt;p&gt;Image를 가져올때는 Pull을 통해 가져올 수 있습니다&lt;br&gt;
-&lt;code class=&quot;language-text&quot;&gt;Image&lt;/code&gt;명으로 원하는 Image를 선택하고 &lt;code class=&quot;language-text&quot;&gt;Tag&lt;/code&gt;를 통해 버젼을 지정해서 가져오는게 일반적입니다&lt;br&gt;
-&lt;a href=&quot;https://hub.docker.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Docker Hub&lt;/a&gt;에 접속하시면 관련 Description과 Tag들을 확인 하실 수 있습니다  &lt;/p&gt;
+&lt;a href=&quot;https://hub.docker.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Docker Hub&lt;/a&gt;에 접속하시면 Image의 &lt;code class=&quot;language-text&quot;&gt;Description&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;Tag&lt;/code&gt;들을 확인 하실 수 있습니다  &lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
@@ -241,8 +240,10 @@ Docker에서 제공하고 있고 가장 많은 Image를 가지고 있는 곳이 
       /&gt;
     &lt;/span&gt;  &lt;/p&gt;
 &lt;br/&gt;
+&lt;p&gt;Docker의  Pull 기본 명령 형식은 다음과 같습니다  &lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;docker pull [IMAGENAME]:[TAG]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;span class=&apos;code_header&apos;&gt;따라서 Ubuntu Image를 가져오는 Docker 명령어는 다음과 같습니다&lt;/span&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Image&lt;/code&gt;명으로 원하는 Image를 선택하고 &lt;code class=&quot;language-text&quot;&gt;Tag&lt;/code&gt;를 통해 버젼을 지정해서 가져오는게 일반적입니다&lt;br&gt;
+&lt;span class=&apos;code_header&apos;&gt;따라서 Ubuntu Image를 가져오는 Docker 명령어는 다음과 같습니다&lt;/span&gt;  &lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;docker pull ubuntu:lastest&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -266,7 +267,8 @@ Docker에서 제공하고 있고 가장 많은 Image를 가지고 있는 곳이 
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;&lt;strong&gt;이제 Image를 확인 합니다&lt;/strong&gt;  &lt;/p&gt;
+&lt;p&gt;위와 같이 차례로 필요한 요소를 다운로드 합니다&lt;br&gt;
+그리고 완료 후 &lt;code class=&quot;language-text&quot;&gt;docker image ls&lt;/code&gt;를 통해 local Image를 확인할 수 있습니다    &lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;docker image ls&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -289,9 +291,10 @@ Docker에서 제공하고 있고 가장 많은 Image를 가지고 있는 곳이 
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;다음 명령어를 통해 현재 local에 가지고 있는 Image들을 확인 할 수 있습니다  &lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;이제 Ubuntu Container를 설정하고 echo를 통해 Hello world를 출력해 봅니다  &lt;/p&gt;
+&lt;p&gt;자 그럼 이제 Ubuntu Image를 가져왔습니다&lt;br&gt;
+&lt;strong&gt;이제 Docker를 통해 Image를 적용해서 Ubuntu Container를 구성하고 echo를 통해 Hello world를 출력해 봅시다&lt;/strong&gt;&lt;br&gt;
+Container 구성 명령어는 &lt;code class=&quot;language-text&quot;&gt;docker container run [IMAGENAME]&lt;/code&gt;입니다  &lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;docker container run ubuntu:latest /bin/echo &amp;#39;Hello world&amp;#39;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -314,8 +317,8 @@ Docker에서 제공하고 있고 가장 많은 Image를 가지고 있는 곳이 
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;그럼 다음과 같은 &lt;span class=&apos;red_font&apos;&gt;Error&lt;/span&gt;를 만나게 됩니다&lt;br&gt;
-이유인즉 /bin/echo Path가 &lt;code class=&quot;language-text&quot;&gt;Convert&lt;/code&gt; 되면서 Git에서 &lt;code class=&quot;language-text&quot;&gt;/bin/echo&lt;/code&gt;를 찾게 됩니다&lt;br&gt;
+&lt;p&gt;짜잔! 그럼 다음과 같은 &lt;span class=&apos;red_font&apos;&gt;Error&lt;/span&gt;를 만나게 됩니다&lt;br&gt;
+이유인 즉 /bin/echo Path가 &lt;code class=&quot;language-text&quot;&gt;Convert&lt;/code&gt; 되면서 Git에서 &lt;code class=&quot;language-text&quot;&gt;/bin/echo&lt;/code&gt;를 찾게 됩니다&lt;br&gt;
 &lt;code class=&quot;language-text&quot;&gt;Hello world&lt;/code&gt;가 쉽지가 않습니다 😅    &lt;/p&gt;
 &lt;br/&gt;
 &lt;p&gt;&lt;strong&gt;하지만 역시 해결법은 존재합니다&lt;/strong&gt;  &lt;/p&gt;
@@ -329,7 +332,7 @@ Docker에서 제공하고 있고 가장 많은 Image를 가지고 있는 곳이 
 &lt;p&gt;&lt;strong&gt;OR&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;MSYS_NO_PATHCONV=1 docker container run ubuntu:latest /bin/echo &amp;#39;Hello world&amp;#39;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;br/&gt;
-&lt;p&gt;&lt;strong&gt;드디어 &lt;code class=&quot;language-text&quot;&gt;Hello world&lt;/code&gt;를 만났습니다&lt;/strong&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;드디어 &lt;code class=&quot;language-text&quot;&gt;Hello world&lt;/code&gt;를 만났습니다&lt;/strong&gt; ✌   &lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
