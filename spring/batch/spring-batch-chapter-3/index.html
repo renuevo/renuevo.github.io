@@ -1,0 +1,632 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="google-site-verification" content="_rVJuueG9dPQsjnBpN7bhY8QW5HU9HQz-7xYVzRUBaM"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, minimum-scale=1, maximum-scale=2"/><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:100%/1.625 -apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.8);font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:normal;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}h1{margin-left:0;margin-right:0;margin-top:2.4375rem;padding-bottom:calc(0.40625rem - 1px);padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.21875rem;color:inherit;font-family:Catamaran;font-weight:800;text-rendering:optimizeLegibility;font-size:2rem;line-height:1.2;border-bottom:1px solid hsla(0,0%,0%,0.07);}h2{margin-left:0;margin-right:0;margin-top:56px;padding-bottom:calc(0.40625rem - 1px);padding-left:0;padding-right:0;padding-top:0;margin-bottom:20px;color:inherit;font-family:Catamaran;font-weight:700;text-rendering:optimizeLegibility;font-size:1.51572rem;line-height:1.2;border-bottom:1px solid hsla(0,0%,0%,0.07);}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1.31951rem;line-height:1.1;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.1;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:0.87055rem;line-height:1.1;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:hsla(0,0%,0%,0.53);font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:0.81225rem;line-height:1.1;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}ul{margin-left:1.625rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:6px;list-style-position:outside;list-style-image:none;}ol{margin-left:1.625rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;font-size:0.85rem;line-height:1.625rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;font-size:1rem;line-height:1.625rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}blockquote{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:calc(0.8125rem - 1px);padding-right:0;padding-top:0;margin-bottom:0.8125rem;border-left:4px solid hsla(0,0%,0%,0.13);color:hsla(0,0%,0%,0.53);}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(0.8125rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}b{font-weight:600;}strong{font-weight:600;}dt{font-weight:600;}th{font-weight:600;}li{margin-bottom:2px;}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.625rem;margin-bottom:calc(0.8125rem / 2);margin-top:calc(0.8125rem / 2);}li > ul{margin-left:1.625rem;margin-bottom:calc(0.8125rem / 2);margin-top:calc(0.8125rem / 2);}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:calc(0.8125rem / 2);}code{font-size:0.85rem;line-height:1.625rem;}kbd{font-size:0.85rem;line-height:1.625rem;}samp{font-size:0.85rem;line-height:1.625rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:1.08333rem;padding-right:1.08333rem;padding-top:0.8125rem;padding-bottom:calc(0.8125rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}h3,h4,h5,h6{margin-bottom:0.8125rem;margin-top:1.625rem;}ol,ul{margin-left:2.03125rem;}li>ol,li>ul{margin-left:2.03125rem;}a{color:#0687f0;text-decoration:none;box-shadow:none;}a:hover,a:active{text-decoration:underline;}a.gatsby-resp-image-link{box-shadow:none;text-decoration:none;}a:hover{text-decoration:none;}</style><style data-href="/styles.a99f49bf948dde8d946d.css">@import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css);@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:100;src:local("Noto Sans KR Thin "),local("Noto Sans KR-Thin"),url(/static/noto-sans-kr-latin-100-2de137ca3e12ea146ee47485a97f1e78.woff2) format("woff2"),url(/static/noto-sans-kr-latin-100-b965647685dd9fc531d1f8a1cc25e024.woff) format("woff")}@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:300;src:local("Noto Sans KR Light "),local("Noto Sans KR-Light"),url(/static/noto-sans-kr-latin-300-4f773a0fce88aa857d70b56c5b0a1d26.woff2) format("woff2"),url(/static/noto-sans-kr-latin-300-ee87751dac814562bac316d848e35748.woff) format("woff")}@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:400;src:local("Noto Sans KR Regular "),local("Noto Sans KR-Regular"),url(/static/noto-sans-kr-latin-400-be09f2ced7ff9fa6eda5f0416e2fc840.woff2) format("woff2"),url(/static/noto-sans-kr-latin-400-4c50be0fe5b21a153b8e40a392c2d3fe.woff) format("woff")}@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:500;src:local("Noto Sans KR Medium "),local("Noto Sans KR-Medium"),url(/static/noto-sans-kr-latin-500-416698c2fc4b3951f8d63d3d2ae23900.woff2) format("woff2"),url(/static/noto-sans-kr-latin-500-28601458e118110e494903a1fcd6dcf5.woff) format("woff")}@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:700;src:local("Noto Sans KR Bold "),local("Noto Sans KR-Bold"),url(/static/noto-sans-kr-latin-700-04e782e08729f3725ae5a9c95da0c8ba.woff2) format("woff2"),url(/static/noto-sans-kr-latin-700-b9e989a96027f839a9569d2d011e0b71.woff) format("woff")}@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:900;src:local("Noto Sans KR Black "),local("Noto Sans KR-Black"),url(/static/noto-sans-kr-latin-900-c41f1395489a117ca36d550142a1695f.woff2) format("woff2"),url(/static/noto-sans-kr-latin-900-589f5fbf84d9dc9984a969bae969fd60.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:100;src:local("Catamaran Thin "),local("Catamaran-Thin"),url(/static/catamaran-latin-100-6473cfe10b779f968c3d41708e4dfa70.woff2) format("woff2"),url(/static/catamaran-latin-100-a2eb4ef6ac1cc8ff5a51d62c01fe2fea.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:200;src:local("Catamaran Extra Light "),local("Catamaran-Extra Light"),url(/static/catamaran-latin-200-d005aac0ee52a3cb2261ea79a93d4e04.woff2) format("woff2"),url(/static/catamaran-latin-200-fbc8307e859bc6f8866a36e084fdcb3b.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:300;src:local("Catamaran Light "),local("Catamaran-Light"),url(/static/catamaran-latin-300-62b414e71a1f15fa797f91bbf8a3f124.woff2) format("woff2"),url(/static/catamaran-latin-300-7c000b951ef8e9a2b791e70d678dd263.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:400;src:local("Catamaran Regular "),local("Catamaran-Regular"),url(/static/catamaran-latin-400-2175f69a7b7f93cc707ffb96264af4aa.woff2) format("woff2"),url(/static/catamaran-latin-400-2de7e6f54ec70b29a1b4541beba00c89.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:500;src:local("Catamaran Medium "),local("Catamaran-Medium"),url(/static/catamaran-latin-500-f1dd472e80352ac073661af4c1f612dc.woff2) format("woff2"),url(/static/catamaran-latin-500-b7668eb8c9c0df2d0cbe5f77616a8ea8.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:600;src:local("Catamaran SemiBold "),local("Catamaran-SemiBold"),url(/static/catamaran-latin-600-15d0af50791a8286c40ffd0e51bd94c7.woff2) format("woff2"),url(/static/catamaran-latin-600-10467dab56671e7aa6f043987d44dcb8.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:700;src:local("Catamaran Bold "),local("Catamaran-Bold"),url(/static/catamaran-latin-700-4a133d839202a1733fd3e50dab1597dc.woff2) format("woff2"),url(/static/catamaran-latin-700-09314a5449726c9e36e6453e9661fe46.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:800;src:local("Catamaran ExtraBold "),local("Catamaran-ExtraBold"),url(/static/catamaran-latin-800-f6053867cb0122b6897b017da49d0009.woff2) format("woff2"),url(/static/catamaran-latin-800-cb812de767a624c9d405058e05731b3f.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:900;src:local("Catamaran Black "),local("Catamaran-Black"),url(/static/catamaran-latin-900-0e80350f234f47318f42c4ef8f4f47b9.woff2) format("woff2"),url(/static/catamaran-latin-900-6f7344e59325277678d79578eb0a2554.woff) format("woff")}.custom-hr{margin:64px;background:linear-gradient(72deg,#86e3ce,#d0e6a5);border:none;height:2px}.post-date{text-align:right;font-size:12px;font-style:italic}.resp-sharing-button--facebook:hover{background-color:#2d4373}.resp-sharing-button--facebook{background-color:#3b5998;border-color:#3b5998}.resp-sharing-button--facebook:active,.resp-sharing-button--facebook:hover{background-color:#2d4373;border-color:#2d4373}.resp-sharing-button--twitter:hover{background-color:#2795e9}.resp-sharing-button--twitter{background-color:#55acee;border-color:#55acee}.resp-sharing-button--twitter:active,.resp-sharing-button--twitter:hover{background-color:#2795e9;border-color:#2795e9}.social-share{text-align:right;height:100%}.resp-sharing-button__icon,.resp-sharing-button__link{display:inline-block;vertical-align:middle;border:none}.resp-sharing-button__link{text-decoration:none;color:#fff;margin:4px;height:33px}.resp-sharing-button__link .service-label{font-size:12px;padding-right:4px}.resp-sharing-button{height:33px;border-radius:6px;-webkit-transition:25ms ease-out;transition:25ms ease-out;padding:3px 8px 3px 10px;font-family:Helvetica Neue,Helvetica,Arial,sans-serif}.resp-sharing-button__icon svg{width:1em;height:1.5em;margin-right:.4em;vertical-align:top}.resp-sharing-button__icon{stroke:#fff;fill:none}.resp-sharing-button__icon--solid{fill:#fff;stroke:none}.sponsor-button{text-align:right;margin:4px}.sponsor-button .bmc-button{display:inline-block;padding:0 7px;width:133px;height:33px;text-decoration:none;background-color:#bb5794;color:#fff;border:1px solid transparent;border-radius:6px;letter-spacing:-.08px;box-sizing:border-box;font-size:12px;line-height:30px;text-align:left}.sponsor-button .bmc-button:active,.sponsor-button .bmc-button:hover{background-color:#a0457d}.sponsor-button .bmc-button img{width:20px;margin-bottom:1px;box-shadow:none;border:none;vertical-align:middle}.sponsor-button .bmc-button span{margin-left:6px}.bio{margin-bottom:24px}.bio .author-description{display:flex}.bio .author-image{margin-top:12px;margin-right:12px;margin-bottom:0;min-width:72px}.bio .author-name-prefix{font-size:90%;margin-right:4px}.bio .author-name-content{display:inline-block;font-size:95%;padding:2px 6px;font-weight:bolder;border-radius:8px;-webkit-transform-origin:center;transform-origin:center;-webkit-animation:flutter 2s linear infinite;animation:flutter 2s linear infinite}.bio .author-introduction{margin-top:4px;font-size:80%;line-height:1.4}.bio .author-socials{margin-top:4px}.bio a{margin-right:8px;font-size:80%}.bio a.visited{text-decoration:none}@-webkit-keyframes flutter{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}35%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}40%{-webkit-transform:rotate(-5deg);transform:rotate(-5deg)}60%{-webkit-transform:rotate(5deg);transform:rotate(5deg)}65%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(0deg);transform:rotate(0deg)}}@keyframes flutter{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}35%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}40%{-webkit-transform:rotate(-5deg);transform:rotate(-5deg)}60%{-webkit-transform:rotate(5deg);transform:rotate(5deg)}65%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(0deg);transform:rotate(0deg)}}.navigator{margin:40px 0;display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0}.navigator li{margin-bottom:12px}.navigator a{padding:7px 16px 8px;border-radius:6px;font-size:12px;opacity:.8}.gatsby-highlight-code-line{background-color:#022a4b;display:block;margin-right:-1.2em;margin-left:-1.2em;padding-right:1em;padding-left:.75em;border-left:.35em solid #ff609a}.gatsby-highlight .language-textbox code{border-radius:5px;color:#383838}.gatsby-highlight pre[class*=language-textbox]{background-color:#f8f8f8;border:1px solid #ccc}.gatsby-highlight pre[class*=language-]{border-radius:5px;display:flex}.gatsby-highlight pre[class*=language-] code[class*=language-]{flex:1 1}code[class*=language-],pre[class*=language-]{color:#e0e0e0;background:none;font-family:Fira Code,Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.6;font-size:15px;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none;-ms-overflow-style:none;overflow:-moz-scrollbars-none}li code[class*=language-text],p code[class*=language-text]{font-weight:600}pre[class*=language-]::-webkit-scrollbar{display:none}pre[class*=language-]{padding:1.2em;margin:1.5em 0;overflow:auto;border-radius:.6em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#212121}:not(pre)>code[class*=language-]{padding:.1em .6em;border-radius:.2em;white-space:normal;background:#e0ecde;color:#205072;border:1px solid}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#616161}.token.punctuation{color:#e0e0e0}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#ff9100}.token.class-name,.token.constant,.token.property,.token.symbol{color:#ff0}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#b388ff}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#00e676}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}.category-container{display:flex;top:0;line-height:0;white-space:nowrap;-ms-overflow-style:none;overflow:-moz-scrollbars-none;z-index:1;padding:6px 20px;box-sizing:content-box;margin-top:50px}.category-container .filter-button{width:15rem;background:linear-gradient(45deg,#fe6b8b 30%,#ff8e53 90%);border-radius:3px;border:0;color:#fff;height:40px;padding:0 30px;box-shadow:0 3px 5px 2px rgba(255,105,135,.3)}.category-container .search-filter{margin-top:5px;margin-bottom:0;margin-left:5vw}.category-container .search-filter>label{top:-13px}.category-container .search-filter>div{margin-top:5px}.category-container .search-filter .MuiFormLabel-root.Mui-focused{color:#fe6b8b}.category-container .search-filter .MuiInput-underline:after{border-bottom:2px solid #fe6b8b}.category-container .search-filter .MuiInputLabel-shrink{-webkit-transform:translateY(8px) scale(.7);transform:translateY(8px) scale(.7)}.category-container .search-filter .MuiInputBase-input{padding:6px 0 5px}.category-container .search-filter .MuiAppBar.root{box-sizing:border-box}.category-container::-webkit-scrollbar{display:none}.thumbnail-container{min-height:calc(100vh - 3.5rem)}.thumbnail{display:block;margin-bottom:12px;padding:4px 4px 12px;box-shadow:none;-webkit-transition:text-shadow .3s,opacity .4s;transition:text-shadow .3s,opacity .4s;opacity:0}.thumbnail p{font-size:90%;line-height:1.4}.thumbnail.visible{opacity:1}</style><style data-href="/commons.70c6c28aa8ca3cbc5a10.css">.github{float:right;padding:14px;opacity:.6}.top{position:relative;width:100%;height:60px;background:linear-gradient(72deg,#86e3ce,#d0e6a5)}.top .link{display:inline-block;font-size:28px;padding-top:8px;color:#fff;opacity:.7;margin-left:20px;font-family:Catamaran;font-weight:800}.home-header{margin-top:0;border-bottom:none;font-weight:900;font-size:48px;letter-spacing:-2px}.link{box-shadow:none;text-decoration:none;color:inherit}.switch-container{text-align:right}.switch-container .icon{text-align:center;color:#222;font-size:14px;font-weight:900}.footer{padding-top:52px;text-align:center;font-size:12px}.footer a{text-decoration:none!important}body.light{background-color:#fff;text-shadow:0 0 .1px rgba(0,0,0,.3);padding-right:0!important}body.light .home-header{color:#333}body.light .bio .author-name-content{background-color:#ecf0f2}body.light .bio .author-introduction{color:#7d7d7d}body.light .bio a{color:navy}body.light .thumbnail h3{color:#333}body.light .thumbnail p{color:#7d7d7d}body.light .thumbnail:hover{text-shadow:0 0 6px rgba(0,0,0,.2)}body.light .footer{color:#aaa}body.light .footer a{color:#333}body.light .navigator a{background-color:#fceff7;color:#cc007a}body.light blockquote{color:rgba(0,0,0,.8)}body.light .red_font{color:#cc007a;font-weight:700}body.dark{background-color:#282c35;text-shadow:0 0 .1px hsla(0,0%,100%,.3);padding-right:0!important}body.dark,body.dark .home-header{color:#eee}body.dark .bio .author-name-content{background-color:#383636}body.dark .bio .author-introduction{color:#d8d7d7}body.dark .bio a{color:#bb72ec}body.dark .category-container .MuiInputBase-input{color:#eee}body.dark .category-container .MuiFormLabel-root{color:#fff}body.dark .category-container .MuiInput-underline:before{border-bottom:1px solid #fff}body.dark .thumbnail h3{color:#eee}body.dark .thumbnail p{color:#d8d7d7}body.dark .thumbnail:hover{text-shadow:0 0 6px hsla(0,0%,100%,.2)}body.dark .footer{color:#d8d7d7}body.dark .footer a{color:#fff}body.dark blockquote{border-left:4px solid hsla(0,0%,100%,.822);color:#d8d7d7}body.dark h1,body.dark h2{border-bottom-color:hsla(0,0%,100%,.3)}body.dark .navigator a{background-color:#fceff7;color:#cc007a}body.dark .red_font{color:#cc007a;font-weight:700}body{font-family:Noto Sans KR,sans-serif;font-size:115%;background-color:#fff;-webkit-text-size-adjust:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-transition:background-color .3s,color .3s;transition:background-color .3s,color .3s}body .main-container{max-width:60vw}@media screen and (max-width:50em){body .main-container{max-width:39rem}}body .main-container .sub_header{font-size:.8rem}body .main-container .img_caption{font-style:normal;display:inherit;text-align:center;font-size:90%}body .main-container .category-container{margin-bottom:1.5rem}body .main-container .category-container .MuiInputBase-input{padding:6px 0 5px}</style><meta name="generator" content="Gatsby 2.15.28"/><style type="text/css">.gatsby-resp-image-image{width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;color:transparent;}</style><style type="text/css">
+    .anchor {
+      float: left;
+      padding-right: 4px;
+      margin-left: -20px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var offset = element.offsetTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="preconnect dns-prefetch" href="https://www.google-analytics.com"/><link rel="shortcut icon" href="/icons/icon-48x48.png?v=f081fa739c9c8df01963bc93e8c99786"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=f081fa739c9c8df01963bc93e8c99786"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=f081fa739c9c8df01963bc93e8c99786"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=f081fa739c9c8df01963bc93e8c99786"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=f081fa739c9c8df01963bc93e8c99786"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=f081fa739c9c8df01963bc93e8c99786"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=f081fa739c9c8df01963bc93e8c99786"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=f081fa739c9c8df01963bc93e8c99786"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=f081fa739c9c8df01963bc93e8c99786"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">[Spring] 3. Spring Batch의 ItemReader - DB Item Reader | renuevo blog</title><meta data-react-helmet="true" name="description" content="Chapter 3에서는 Spring Batch의 DB ItemReader에 대한 이야기를 다룹니다   Spring의 JDBC ItemReader Spring은 사용자 편의를 위하여 해서 로 제공합니다 사용자는 이렇게 제공된 JDBC ItemReader 구현체로 간편하게 Item을 읽어올 수 있어 보다 서비스에 집중 할 수 있습니다   그럼 Item의 읽어오는 방식을 먼저 생각해 보겠습니다 앞서 Chapter 1에서 마지막에서 설명했듯 프로세스를 Spring Batch…"/><meta data-react-helmet="true" property="og:title" content="[Spring] 3. Spring Batch의 ItemReader - DB Item Reader"/><meta data-react-helmet="true" property="og:description" content="Chapter 3에서는 Spring Batch의 DB ItemReader에 대한 이야기를 다룹니다   Spring의 JDBC ItemReader Spring은 사용자 편의를 위하여 해서 로 제공합니다 사용자는 이렇게 제공된 JDBC ItemReader 구현체로 간편하게 Item을 읽어올 수 있어 보다 서비스에 집중 할 수 있습니다   그럼 Item의 읽어오는 방식을 먼저 생각해 보겠습니다 앞서 Chapter 1에서 마지막에서 설명했듯 프로세스를 Spring Batch…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="deokhwa kim"/><meta data-react-helmet="true" name="twitter:title" content="[Spring] 3. Spring Batch의 ItemReader - DB Item Reader"/><meta data-react-helmet="true" name="twitter:description" content="Chapter 3에서는 Spring Batch의 DB ItemReader에 대한 이야기를 다룹니다   Spring의 JDBC ItemReader Spring은 사용자 편의를 위하여 해서 로 제공합니다 사용자는 이렇게 제공된 JDBC ItemReader 구현체로 간편하게 Item을 읽어올 수 있어 보다 서비스에 집중 할 수 있습니다   그럼 Item의 읽어오는 방식을 먼저 생각해 보겠습니다 앞서 Chapter 1에서 마지막에서 설명했듯 프로세스를 Spring Batch…"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/webpack-runtime-db7c9e59d855b4322330.js"/><link as="script" rel="preload" href="/app-3ef2d9e26c0a65fb468a.js"/><link as="script" rel="preload" href="/commons-e3839588b8ec4f06d1d2.js"/><link as="script" rel="preload" href="/styles-de8ef11f8283f774e6c1.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-2047161ab81a7fa0cbea.js"/><link as="fetch" rel="preload" href="/page-data\spring\batch\spring-batch-chapter-3\page-data.json" crossorigin="anonymous"/></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><div class="top"><a class="link" href="/">renuevo blog</a><a href="https://github.com/renuevo" class="github" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg></a></div><div style="margin-left:auto;margin-right:auto;padding:2.4375rem 1.21875rem" class="main-container"><div class="switch-container"><label for="normal-switch"><div style="position:relative;display:inline-block;text-align:left;opacity:1;direction:ltr;border-radius:12px;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s;touch-action:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none"><div class="react-switch-bg" style="height:24px;width:48px;margin:0;position:relative;background:#d9dfe2;border-radius:12px;cursor:pointer;-webkit-transition:background 0.25s;-moz-transition:background 0.25s;transition:background 0.25s"><div style="height:24px;width:26px;position:relative;opacity:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon checkedIcon">D</div></div><div style="height:24px;width:26px;position:absolute;opacity:1;right:0;top:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon uncheckedIcon">L</div></div></div><div class="react-switch-handle" style="height:22px;width:22px;background:#ffffff;display:inline-block;cursor:pointer;border-radius:50%;position:absolute;transform:translateX(1px);top:1px;outline:0;border:0;-webkit-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;-moz-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s"></div><input type="checkbox" role="switch" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px" id="normal-switch"/></div></label></div><h1>[Spring] 3. Spring Batch의 ItemReader - DB Item Reader</h1><p class="post-date">April 01, 2020</p><div><p><em>Chapter 3에서는 Spring Batch의 DB ItemReader에 대한 이야기를 다룹니다</em>  </p>
+<br/>
+<h2 id="spring의-jdbc-itemreader"><a href="#spring%EC%9D%98-jdbc-itemreader" aria-label="spring의 jdbc itemreader permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Spring의 JDBC ItemReader</h2>
+<p>Spring은 사용자 편의를 위하여 <code class="language-text">JDBC의 기능을 확장</code>해서 <code class="language-text">추상화 서비스</code>로 제공합니다<br>
+사용자는 이렇게 제공된 JDBC ItemReader 구현체로 간편하게 Item을 읽어올 수 있어 보다 서비스에 집중 할 수 있습니다  </p>
+<p>그럼 Item의 읽어오는 방식을 먼저 생각해 보겠습니다<br>
+앞서 <a href="https://renuevo.github.io/spring/batch/spring-batch-chapter-1/" target="_blank" rel="nofollow noopener noreferrer">Chapter 1</a>에서 마지막에서 설명했듯 프로세스를 Spring Batch는 <code class="language-text">Chuck 지향 처리</code>를 합니다  </p>
+<div class="gatsby-highlight" data-language="textbox"><pre class="language-textbox"><code class="language-textbox">Spring Batch의 가장 큰 장점 중 하나는 `Chunk` 지향 처리입니다  
+`Chunk`지향처리란 한 번에 하나씩의 데이터를 읽어 Chunk라는 덩어리를 만든 뒤, Chunk 단위로 트랜잭션을 다루는 것을 의미합니다  
+그래서 트랜잭션을 수행시 `Chunk`단위로 수행하기 때문에 Chunk 만큼만 롤백 됩니다  </code></pre></div>
+<p>이러한 구조상 순차적으로 Item을 일정 사이즈 만큼 받아와서 처리해야 할 것입니다<br>
+하지만 <span class='red_font'> Spring의 JdbcTemplate은 자체적으로 분할처리를 지원하지 않습니다</span><br>
+때문에 <code class="language-text">limit</code>와 <code class="language-text">offset</code>을 사용자가 직접지정하여 사용하는 작업이 필요합니다  </p>
+<br/>
+<p>Spring Batch는 이러한 구현을 사용자가 직접하지 않고 사용할 수 있도록 자체적으로 서비스를 <code class="language-text">2가지 방식</code>으로 제공합니다</p>
+<ol>
+<li>Cursor-based ItemReader  </li>
+<li>Paging ItemReader  </li>
+</ol>
+<br/>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 39.62666666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABcRAAAXEQHKJvM/AAACA0lEQVQoz2P40+y27W9f2P5fDc4TGJhY1BkYGNREyub58vUfmiE35VC/cN++BQwTT/k0VZTGdXZ1Hevo6Njq4+fnA1LHr2elzdd/oEl84sFpkpMOTebr3dfP8LcnuPHvrIz2P10BqUwMDHJAhSJCPZut7KbvWOU7b89S+2nb18lMOejWVlftOGny5J6JEyc2hkdEGgDVSTFo2YmYTtnZ7jF711ogXmE0ecckBhQgJcU+j4GBb31svln94nUbJq/fsbVp8dr1GbPXmjOggf///4Ppknmr63pXb9nbu2rz9sK5axoYfncHsfyYlsLyf24cMwMfL3crAwP/zIQyy+KFG1a3rNq+rmzButXhszZZgjRPnz6NtX/iRBaf+DTGLUXBjCCxjDnrauuXb9lWv2zzhpTZ6xsRViqqwZnWKw6rAA062rV254nKheuOxM7aYAcSX75iKaPYhAMMor17GG6vmwE2MHvO2t6WlVsvtKzYcgpo+AS4IaISCgxaAdFMILZb/1rlgnnrOppWbe8oWbC+NWDGZkOQ+MWtyxhY5DQYWBV1Gdc7CoENTJ61Lq1u+dbeumVbOuJnbchkwAbk/v9nYXj+n41h1S92htZ9XLx9B7g+f36HVS3T4sdcDPV7OBnajnAydx/kQZZjAcUwAwOjDDgGITHOi8UMVqgcSJ0CEHMhSwIAcKHDW3vyZugAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="DB_ItemReader"
+        title="DB_ItemReader"
+        src="/static/f830e8d0ebd2d3f951605759945c2cd3/36727/db-itemreader.png"
+        srcset="/static/f830e8d0ebd2d3f951605759945c2cd3/acf4b/db-itemreader.png 173w,
+/static/f830e8d0ebd2d3f951605759945c2cd3/fc834/db-itemreader.png 345w,
+/static/f830e8d0ebd2d3f951605759945c2cd3/36727/db-itemreader.png 690w,
+/static/f830e8d0ebd2d3f951605759945c2cd3/17fa4/db-itemreader.png 1035w,
+/static/f830e8d0ebd2d3f951605759945c2cd3/a5044/db-itemreader.png 1380w,
+/static/f830e8d0ebd2d3f951605759945c2cd3/07b3b/db-itemreader.png 1875w"
+        sizes="(max-width: 690px) 100vw, 690px"
+        loading="lazy"
+      />
+    </span></p>
+<p>2가지 방식은 같은 데이터를 읽어 오지만 서로 다른 전략으로 DB의 데이터를 읽어 옵니다<br>
+프로세스 동작에 따라 알맞은 전략을 선택해야 하며 전략선택에 따라 Batch의 퍼포먼스를 높일 수 있습니다  </p>
+<br/>
+<h2 id="sample-db-setting"><a href="#sample-db-setting" aria-label="sample db setting permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sample DB Setting</h2>
+<p>ItemReader를 테스트할 DB를 먼저 세팅해 보겠습니다<br>
+테스트에 사용할 DB는 <code class="language-text">H2</code>를 선택했습니다<br>
+<code class="language-text">MYSQL</code>을 사용하시고 싶으신 분들은 Meta Table을 생성하셔서 사용하셔도 됩니다  </p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 81.70878459687123%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAIAAACZeshMAAAACXBIWXMAAAsSAAALEgHS3X78AAACVElEQVQoz4VSiW7aQBDl//8mDVGqSlUTSFBwSADbGB9rvOuT9QHeOPheu2OSSq1E1NFoJY/f2zfzZkdL3buarsYz8Wq6HD+ur2fi0vT7vu+6/r8x8mmgarqmG6qmIXOXF2VV11lRE5o6MSP04ESM88s3jXTLni8lYSXDuVJ0UTOJ67vh4eqXcDNdXN8J969q1bSXyd2f/vLTqTsH5zwvToFru8RKaNB3vG2/IDctn6yM70/i7Wx9PXl5kHe87/dRvBA3wlKElFSjrCqAQvP/ZNcBuVWQuVjL642KsEOTFJSbtssbnr7nWV7mVdN94d4IWqJ0bxMMGfheXddQNdxo/LC+mb58u3/+ISinsj4VjWZTw6GavddIsMW+F7OB7AeBZVmmuSuK4kMkSmJJUeWthiwShDFU/Oh4M3m+nS7G9/O7hTxXLOTFo5Zzz/cxxqZpUkr5OVLGbJvYhBCMy7Lsuz4vC9+1aeA5BCrF2QL+qQwwXdeDIBiszvPkeCC2jRCC6wAHHR3T1AIFTDAhVVXzvmsHMueu5501MKDTNAU0yzIHpAc0ZoxB5T3PTRNhy4L64BX43TafZJgZ+NB5GIYw9D6MNooqbRRR3qj6sKokZcMT2hqSihR9B6dJnIFMQ3oWBsPJh9unoozTzA+TfXyMDgxGg62WDa9aXjW8bFrIuuWjummMnXUWGdJ2HHrIJis0k8yfgnz3qj6I6FlzLj7vQXmfMD9Ogzj1oiNNWMKYIG7mK3khbp9eJexH8Vt+mfz3x8f/tyzTDUOD0HWETFik53kXn/dvzcp1CxmBXnIAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Spring Batch Meta Data Schema"
+        title="Spring Batch Meta Data Schema"
+        src="/static/55b809cbc69531950dd7c7fa094e4261/36727/meta-data-erd.png"
+        srcset="/static/55b809cbc69531950dd7c7fa094e4261/acf4b/meta-data-erd.png 173w,
+/static/55b809cbc69531950dd7c7fa094e4261/fc834/meta-data-erd.png 345w,
+/static/55b809cbc69531950dd7c7fa094e4261/36727/meta-data-erd.png 690w,
+/static/55b809cbc69531950dd7c7fa094e4261/d181f/meta-data-erd.png 831w"
+        sizes="(max-width: 690px) 100vw, 690px"
+        loading="lazy"
+      />
+    </span>  </p>
+<p><code class="language-text">H2</code>의 경우 <code class="language-text">Meta Table</code>을 자동으로 생성해주기 때문에 별다른 설정 없이 테스트 가능합니다<br>
+다른 DB들 경우 각각의 쿼리로 해당 Table들을 생성해 주어야 정상적으로 작동합니다  </p>
+<p><a href="https://github.com/spring-projects/spring-batch/blob/master/spring-batch-core/src/main/resources/org/springframework/batch/core/schema-mysql.sql" target="_blank" rel="nofollow noopener noreferrer">MYSQL-Spring-Batch-SCHEMA</a>  </p>
+<br/>
+<p>의존관계를 Gradle에 추가해 줍니다 👉 <a href="https://github.com/renuevo/spring-boot-in-action/blob/master/spring-boot-batch-in-action/build.gradle" target="_blank" rel="nofollow noopener noreferrer">Code</a>     </p>
+<div class="gatsby-highlight" data-language="groovy"><pre class="language-groovy"><code class="language-groovy">dependencies <span class="token punctuation">{</span>
+ <span class="token punctuation">...</span>
+    implementation <span class="token string">'org.springframework.boot:spring-boot-starter-data-jdbc'</span>
+    implementation <span class="token string">'org.springframework.boot:spring-boot-starter-data-jpa'</span>
+    runtimeOnly <span class="token string">'com.h2database:h2'</span>
+ <span class="token punctuation">...</span>
+<span class="token punctuation">}</span></code></pre></div>
+<br/>
+<p>그리고 <code class="language-text">application-property</code>로 <code class="language-text">DB설정</code>을 해주겠습니다 👉 <a href="https://github.com/renuevo/spring-boot-in-action/blob/master/spring-boot-batch-in-action/src/main/resources/application.yml" target="_blank" rel="nofollow noopener noreferrer">Code</a><br>
+Spring Boot에서 간단한 property설정만으로 <code class="language-text">DataSource</code>와 <code class="language-text">EntityManagerFactory</code>를 생성해 주기 때문에 편합니다<br>
+추가적으로 여러개의 Job을 각각 실행해보기 위해서 <code class="language-text">batch-job-names</code>을 설정합니다  </p>
+<div class="gatsby-highlight" data-language="groovy"><pre class="language-groovy"><code class="language-groovy">spring<span class="token punctuation">:</span>
+  datasource<span class="token punctuation">:</span>
+    hikari<span class="token punctuation">:</span>
+      driver<span class="token operator">-</span><span class="token keyword">class</span><span class="token operator">-</span>name<span class="token punctuation">:</span> org<span class="token operator">.</span>h2<span class="token operator">.</span>Driver
+<span class="gatsby-highlight-code-line">      jdbc<span class="token operator">-</span>url<span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>h2<span class="token punctuation">:</span>mem<span class="token punctuation">:</span>spring<span class="token operator">-</span>batch #In<span class="token operator">-</span>memory   </span>      #jdbc<span class="token operator">-</span>url<span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>h2<span class="token punctuation">:</span>file<span class="token punctuation">:</span><span class="token operator">.</span><span class="token string regex">/spring-boot-batch-in-action/</span>data<span class="token string regex">/spring-batch;AUTO_SERVER=TRUE; #File-based  /</span><span class="token operator">*</span> highlight<span class="token operator">-</span>line <span class="token operator">*</span><span class="token operator">/</span>  
+      username<span class="token punctuation">:</span> sa
+      password<span class="token punctuation">:</span>
+  jpa<span class="token punctuation">:</span>
+    show<span class="token operator">-</span>sql<span class="token punctuation">:</span> <span class="token boolean">true</span>
+    hibernate<span class="token punctuation">:</span>
+      ddl<span class="token operator">-</span>auto<span class="token punctuation">:</span> create<span class="token operator">-</span>drop
+    database<span class="token operator">-</span>platform<span class="token punctuation">:</span> org<span class="token operator">.</span>hibernate<span class="token operator">.</span>dialect<span class="token operator">.</span>H2Dialect
+  batch<span class="token punctuation">:</span>
+    job<span class="token punctuation">:</span>
+<span class="gatsby-highlight-code-line">      names<span class="token punctuation">:</span> <span class="token punctuation">$</span><span class="token punctuation">{</span>job<span class="token operator">.</span>name<span class="token punctuation">:</span>NONE<span class="token punctuation">}</span>   #<span class="token operator">--</span>job<span class="token operator">.</span>name<span class="token operator">=</span>jdbcCursorItemReaderJob  </span></code></pre></div>
+<br/>
+<p>다음은 <code class="language-text">Schema 설정</code>입니다 👉 <a href="https://github.com/renuevo/spring-boot-in-action/blob/master/spring-boot-batch-in-action/src/main/resources/schema.sql" target="_blank" rel="nofollow noopener noreferrer">Code</a><br>
+<code class="language-text">H2</code>를 사용하기 때문에 Batch관련 설정은 필요없지만 Sample 데이터를 설정해 주겠습니다<br>
+Spring boot 초기데이터를 생성하도록 <code class="language-text">src/main/resources/schema.sql</code>파일을 생성해 줍니다<br>
+<code class="language-text">in-memory</code>방식으로 해서 기존 테이블 확인은 필요없지만 <code class="language-text">MYSQL</code>로 테스트 해볼수도 있기 때문에 <span class='red_font'>DROP</span> 조건을 추가하였습니다  </p>
+<p><span class='code_header'>schema.sql</span></p>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> pay<span class="token punctuation">;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> pay2<span class="token punctuation">;</span>
+<span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> tax<span class="token punctuation">;</span>
+
+<span class="token keyword">create</span> <span class="token keyword">table</span> pay <span class="token punctuation">(</span>
+  id         <span class="token keyword">bigint</span> <span class="token operator">not</span> <span class="token boolean">null</span> <span class="token keyword">auto_increment</span><span class="token punctuation">,</span>
+  amount     <span class="token keyword">bigint</span><span class="token punctuation">,</span>
+  tx_name     <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  tx_date_time <span class="token keyword">datetime</span><span class="token punctuation">,</span>
+  <span class="token keyword">primary</span> <span class="token keyword">key</span> <span class="token punctuation">(</span>id<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">create</span> <span class="token keyword">table</span> pay2 <span class="token punctuation">(</span>
+  id         <span class="token keyword">bigint</span> <span class="token operator">not</span> <span class="token boolean">null</span> <span class="token keyword">auto_increment</span><span class="token punctuation">,</span>
+  amount     <span class="token keyword">bigint</span><span class="token punctuation">,</span>
+  tx_name     <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  tx_date_time <span class="token keyword">datetime</span><span class="token punctuation">,</span>
+  <span class="token keyword">primary</span> <span class="token keyword">key</span> <span class="token punctuation">(</span>id<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">create</span> <span class="token keyword">table</span> tax <span class="token punctuation">(</span>
+  id        <span class="token keyword">bigint</span> <span class="token operator">not</span> <span class="token boolean">null</span> <span class="token keyword">auto_increment</span><span class="token punctuation">,</span>
+  pay_id    <span class="token keyword">bigint</span><span class="token punctuation">,</span>
+  pay_tax   <span class="token keyword">bigint</span><span class="token punctuation">,</span>
+  location  <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token keyword">primary</span> <span class="token keyword">key</span> <span class="token punctuation">(</span>id<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">insert</span> <span class="token keyword">into</span> pay <span class="token punctuation">(</span>amount<span class="token punctuation">,</span> tx_name<span class="token punctuation">,</span> tx_date_time<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">,</span> <span class="token string">'trade1'</span><span class="token punctuation">,</span> <span class="token string">'2020-03-11 00:00:00'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> pay <span class="token punctuation">(</span>amount<span class="token punctuation">,</span> tx_name<span class="token punctuation">,</span> tx_date_time<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">,</span> <span class="token string">'trade2'</span><span class="token punctuation">,</span> <span class="token string">'2020-03-12 00:00:00'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> pay <span class="token punctuation">(</span>amount<span class="token punctuation">,</span> tx_name<span class="token punctuation">,</span> tx_date_time<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">,</span> <span class="token string">'trade3'</span><span class="token punctuation">,</span> <span class="token string">'2020-03-13 00:00:00'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> pay <span class="token punctuation">(</span>amount<span class="token punctuation">,</span> tx_name<span class="token punctuation">,</span> tx_date_time<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">4000</span><span class="token punctuation">,</span> <span class="token string">'trade4'</span><span class="token punctuation">,</span> <span class="token string">'2020-03-14 00:00:00'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p>이것으로 테스트를 돌리기 위한 초기 데이터 세팅이 끝났습니다<br>
+다음은 이제 본격적으로 ItemReader의 살펴 보도록 하겠습니다  </p>
+<br/>
+<h2 id="cursor-based-itemreader"><a href="#cursor-based-itemreader" aria-label="cursor based itemreader permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Cursor-based ItemReader</h2>
+<p>먼저 설명드릴 것은 Batch 시스템의 <code class="language-text">default</code>로 쓰인다고 할 수 있는 <code class="language-text">Cursor Based ItemReader</code>입니다  </p>
+<br/>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 81.54696132596685%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAABcRAAAXEQHKJvM/AAACz0lEQVQ4y5WUX0hTURzHz92u03J2/Xc3lbTp0pT+EUVS4TB6qIcEoYgeAskeRHyRnCmb4qbl/12d5XSK7SazUduU7jb/zXu3EGEkPVhELz2Xz1L0kNfT784VkfhnP/jyPefA+fA99/7OQbjjKsZMJcZj1RiPVGE8WIF/tZZFEEJ5iXLiPPhZQpFUCl5I9y0YcyY/46yRCM62r2Kd+xPWTLzHalsES+uqAZ5F4pMb6+Lw/XXRVr0u2mu+bg1XbXw3lPkBQCvkstPgJxGp0IAfyewO3E62hEcT+8O9ir6QpWQ80p/CvLUk9IV7ky0hO80ID9Cm8bJy03BJuVlXoNx6fF35w6hLwUx5EtquXFCJAqE0jLEsv2c2t33SU2t0uLt6XvlMzPS82eycMbWwns6OSXdtoTVIod3q4z3NzsWFjewmh5d9+Ny7YnL5+af+sNAyxfENMH/ETrPHrUE1Es3XkNhbicTuCiQyd9BKnY6IbU+AZFngqnbyMP0zvaB8prTySoOTe6af8PAA9Fs5IdDifOPXO7xLTax3FIAqtEclAvAEeHGrQlm4ReXVfNCW3qx3BYb0E24hCvQJswAMSMDmAwB31jJWNzu8Y3BECRgY5Pi5GJAHoH1fIPwZAlGZBIZx411DkrbLn9/ETgPQEwbgHBx5HoBzAAwBcOxACVUDQtTTGSFBPcAfA6ANgEEAcgD0AZAD4CIAbfECSQDmNUNCPSQ0Q8Ihn7AAwPlYwnFoGzquhHATtNAeXdA2rjaXn7X6Qi+MTk5qo5ew3qkZXMreF3hIdyvqdIeXoBm+CJkiGciwdgTVr1CoepFCje8oZFyjUNtqGtyUYhRvwY2RRET1JUjg5SniGzdK4EUbsdc+IibZX8nkcvJoESlLpUm5Klcay84BPKPtdfSzbIvfFZgafRQQ0oJOgaRXR2ryM6ALoIugnHhPR/6TkPwv8Z/5jvoNF+xTrwoP8ckAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="cursor-based-itemReader"
+        title="cursor-based-itemReader"
+        src="/static/ca409cac0c190462dec2f12893f0b5de/36727/cursor-based-itemReader.png"
+        srcset="/static/ca409cac0c190462dec2f12893f0b5de/acf4b/cursor-based-itemReader.png 173w,
+/static/ca409cac0c190462dec2f12893f0b5de/fc834/cursor-based-itemReader.png 345w,
+/static/ca409cac0c190462dec2f12893f0b5de/36727/cursor-based-itemReader.png 690w,
+/static/ca409cac0c190462dec2f12893f0b5de/6b7c3/cursor-based-itemReader.png 905w"
+        sizes="(max-width: 690px) 100vw, 690px"
+        loading="lazy"
+      />
+    </span>  </p>
+<br/>
+<p>Java의 <code class="language-text">ResultSet</code>클래스는 <code class="language-text">Cursor</code>를 조작하여 데이터를 읽어 옵니다<br>
+데이터 베이스에 Cursor를 지정해 두고 <code class="language-text">next</code>를 통해서 Cursor의 위치를 <strong>이동해 가면서 차례대로</strong> 가져옵니다  </p>
+<br/>
+<p>이러한 전략에 따라 장점과 단점 그리고 유의 해야할 점이 발생 합니다<br>
+먼저 이러한 유의사항들을 알아보고 Spring Batch에 제공하는 <strong>3가지</strong>의 <code class="language-text">Cursor-based ItemReader</code>에 대해 알아보겠습니다  </p>
+<hr>
+<h3 id="장점"><a href="#%EC%9E%A5%EC%A0%90" aria-label="장점 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>장점</h3>
+<ol>
+<li><strong>뛰어난 퍼포먼스를 가진다</strong>👍<br>
+모든 데이터를 조회한 뒤 Cursor설정하고 이동하는 방식으로 데이터를 가져오는 방식은 <code class="language-text">높은 성능</code>을 보여 줍니다<br>
+때문에 이슈가 되지 않는 한 <code class="language-text">Default ItemReader</code>로 사용하기 좋습니다<br>
+<br/>    </li>
+<li><strong>Batch 프로세스 동작동안에 데이터 무결성이 유지된다</strong><br>
+스냅샷 방식으로 동작하기 때문에 데이터의 변경에 대해 안전합니다<br>
+Connection을 맺고 <span class='red_font'>Close</span>하기 전까지 DB 트랜잭션을 무시 합니다  </li>
+</ol>
+<br/>
+<h3 id="단점"><a href="#%EB%8B%A8%EC%A0%90" aria-label="단점 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>단점</h3>
+<ol>
+<li><strong>메모리 사용량이 높다</strong><br>
+스냅샷 방식을 사용하기 때문에 많은 메모리를 사용합니다<br>
+<br/>    </li>
+<li><strong>멀티 쓰레드 환경 사용 불가</strong><br>
+<code class="language-text">단일 ResultSet</code>을 가지기 때문에 <span class='red_font'>Thread Safe 하지 않습니다</span><br>
+<br/></li>
+<li><strong>긴 Timeout 설정이 필요할 수 있다</strong><br>
+<code class="language-text">Cursor</code>가 <span class='red_font'>Close</span>전까지 유지되기 때문에 충분한 <code class="language-text">Timeout 시간</code>이 필요합니다  </li>
+</ol>
+<br/>
+<br/>
+<p><strong>장점보다 단점이 많아 보이지만 <code class="language-text">성능상 유리</code>하기 때문에 사용하기 좋습니다</strong><br>
+멀티 쓰레드 환경이 아니고 메모리 사용량도 엄청큰 대량의 데이터가 아닌 이상 사용상 문제는 없습니다  </p>
+<br/>
+<hr>
+<p>다음은 Spring Batch에서 제공하는 <code class="language-text">Cursor-based ItemReader 3가지</code>에 대해 알아보겠습니다  </p>
+<p><strong>Cursor-based ItemReader</strong>  </p>
+<blockquote>
+<ol>
+<li>JdbcCursorItemReader   </li>
+<li>HibernateCursorItemReader  </li>
+<li>StoredProcedureItemReader  </li>
+</ol>
+</blockquote>
+<br/>
+<hr>
+<h3 id="1-jdbccursoritemreader"><a href="#1-jdbccursoritemreader" aria-label="1 jdbccursoritemreader permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. JdbcCursorItemReader</h3>
+<p><code class="language-text">JdbcCursorItemReader</code>는 가장 <code class="language-text">기본</code>이 되는 <code class="language-text">ItemReader</code>입니다 👉  <a href="https://github.com/renuevo/spring-boot-in-action/blob/master/spring-boot-batch-in-action/src/main/java/com/github/renuevo/config/JdbcCursorItemReaderJobConfig.java" target="_blank" rel="nofollow noopener noreferrer">Code</a><br>
+간편하게 구현 가능합니다<br>
+먼저 데이터를 담을 <code class="language-text">VO 객체</code>를 하나 만들어 줍니다<br>
+여기서는 이후 예제들에서 사용할 JPA도 고려해서 <code class="language-text">Entity</code>로 생성해 주었습니다  </p>
+<p><a href="https://github.com/renuevo/spring-boot-in-action/blob/master/spring-boot-batch-in-action/src/main/java/com/github/renuevo/entity/Pay.java" target="_blank" rel="nofollow noopener noreferrer">Pay.class</a>  </p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Setter</span>
+<span class="token annotation punctuation">@Getter</span>
+<span class="token annotation punctuation">@Entity</span>
+<span class="token annotation punctuation">@ToString</span>
+<span class="token annotation punctuation">@NoArgsConstructor</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Pay</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">DateTimeFormatter</span> DATE_TIME_FORMATTER <span class="token operator">=</span> <span class="token class-name">DateTimeFormatter</span><span class="token punctuation">.</span><span class="token function">ofPattern</span><span class="token punctuation">(</span><span class="token string">"yyyy-MM-dd hh:mm:ss"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Id</span>
+    <span class="token annotation punctuation">@GeneratedValue</span><span class="token punctuation">(</span>strategy <span class="token operator">=</span> <span class="token class-name">GenerationType</span><span class="token punctuation">.</span>IDENTITY<span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">Long</span> id<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Long</span> amount<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> txName<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">LocalDateTime</span> txDateTime<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Pay</span><span class="token punctuation">(</span><span class="token class-name">Long</span> amount<span class="token punctuation">,</span> <span class="token class-name">String</span> txName<span class="token punctuation">,</span> <span class="token class-name">String</span> txDateTime<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>amount <span class="token operator">=</span> amount<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>txName <span class="token operator">=</span> txName<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>txDateTime <span class="token operator">=</span> <span class="token function">convertStringToTime</span><span class="token punctuation">(</span>txDateTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Pay</span><span class="token punctuation">(</span><span class="token class-name">Long</span> id<span class="token punctuation">,</span> <span class="token class-name">Long</span> amount<span class="token punctuation">,</span> <span class="token class-name">String</span> txName<span class="token punctuation">,</span> <span class="token class-name">String</span> txDateTime<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>id <span class="token operator">=</span> id<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>amount <span class="token operator">=</span> amount<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>txName <span class="token operator">=</span> txName<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>txDateTime <span class="token operator">=</span> <span class="token function">convertStringToTime</span><span class="token punctuation">(</span>txDateTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">LocalDateTime</span> <span class="token function">convertStringToTime</span><span class="token punctuation">(</span><span class="token class-name">String</span> txDateTime<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>txDateTime<span class="token punctuation">,</span> DATE_TIME_FORMATTER<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>❓ 참고로 어노테이션이 많은 게 보기 싫을 수도 있지만 <code class="language-text">Entity</code>에 대해서는 <code class="language-text">양방향 관계</code>로 <code class="language-text">deadlock</code>이 생길 수 있어서 <code class="language-text">@Data</code>을 사용하지 않고 있습니다<br>
+<a href="https://www.inflearn.com/questions/5788" target="_blank" rel="nofollow noopener noreferrer">왜 @Data을 사용하지 않았는가?</a>  </p>
+<br/>
+<p>다음은 드디어 <code class="language-text">JdbcCursorItemReader</code>의 구현을 살펴 보겠습니다 👉 <a href="https://github.com/renuevo/spring-boot-in-action/blob/master/spring-boot-batch-in-action/src/main/java/com/github/renuevo/config/JdbcCursorItemReaderJobConfig.java" target="_blank" rel="nofollow noopener noreferrer">Code</a>    </p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@Configuration</span>
+<span class="token annotation punctuation">@AllArgsConstructor</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JdbcCursorItemReaderJobConfig</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">DataSource</span> dataSource<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> chunkSize <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>    <span class="token comment">//트랜잭션 범위</span>
+
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">Step</span> <span class="token function">jdbcCursorItemReaderStep</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> stepBuilderFactory<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"jdbcCursorItemReaderStep"</span><span class="token punctuation">)</span>   <span class="token comment">//step name</span>
+                <span class="token punctuation">.</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Pay</span><span class="token punctuation">,</span> <span class="token class-name">Pay</span><span class="token punctuation">></span></span><span class="token function">chunk</span><span class="token punctuation">(</span>chunkSize<span class="token punctuation">)</span> <span class="token comment">//Reader의 반환타입 &amp; Writer의 파라미터타입</span>
+                <span class="token punctuation">.</span><span class="token function">reader</span><span class="token punctuation">(</span><span class="token function">jdbcCursorItemReader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">writer</span><span class="token punctuation">(</span>list <span class="token operator">-></span> list<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                                    <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token class-name">Pay</span><span class="token operator">:</span><span class="token operator">:</span><span class="token function">toString</span><span class="token punctuation">)</span>
+                                    <span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>log<span class="token operator">:</span><span class="token operator">:</span><span class="token function">info</span><span class="token punctuation">)</span>
+                <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">JdbcCursorItemReader</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Pay</span><span class="token punctuation">></span></span> <span class="token function">jdbcCursorItemReader</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">JdbcCursorItemReaderBuilder</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Pay</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+                <span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token string">"jdbcCursorItemReader"</span><span class="token punctuation">)</span>   <span class="token comment">//reader name</span>
+                <span class="token punctuation">.</span><span class="token function">fetchSize</span><span class="token punctuation">(</span>chunkSize<span class="token punctuation">)</span> 
+                <span class="token punctuation">.</span><span class="token function">dataSource</span><span class="token punctuation">(</span>dataSource<span class="token punctuation">)</span>
+<span class="gatsby-highlight-code-line">                <span class="token punctuation">.</span><span class="token function">rowMapper</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BeanPropertyRowMapper</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token class-name">Pay</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  </span>                <span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span><span class="token string">"SELECT id, amount, tx_name, tx_date_time FROM pay"</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+   <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><code class="language-text">JdbcCursorItemReaderBuilder</code>의 요소를 살펴 보겠습니다  </p>
+<ol>
+<li>name : ItemReader의 이름  </li>
+<li>fetchSize : 한번에 읽어올 Size  </li>
+<li>dataSource : 연결할 DB의 dataSource  </li>
+<li>rowMapper : 가져온 data를 Object로 바꿔줄 Mapper  </li>
+<li>sql : 쿼리!  </li>
+</ol>
+<p>각각의 요소들은 직관적이게 잘 만들어져 있어서 이해하는데 어려움은 없을 것입니다  </p>
+<br/>
+<p><strong>여기서 rowMapper만 좀더 살펴 보겠습니다</strong>    </p>
+<ol>
+<li><code class="language-text">BeanPropertyRowMapper</code>는 Class를 받아서 각각의 이름에 맞게 객체를 매핑해줍니다<br>
+<code class="language-text">Converter</code>을 등록하여 타입 변환 전략도 확장 가능합니다
+<a href="https://github.com/benelog/spring-jdbc-tips/blob/master/spring-jdbc-core.md#beanpropertyrowmapper" target="_blank" rel="nofollow noopener noreferrer">BeanPropertyRowMapper 설명 더보기</a><br>
+<br/></li>
+<li><code class="language-text">ColumnMapRowMapper</code>을 사용하면 Map의 형태로 받아 올 수 있습니다
+<a href="https://github.com/benelog/spring-jdbc-tips/blob/master/spring-jdbc-core.md#columnmaprowmapper" target="_blank" rel="nofollow noopener noreferrer">ColumnMapRowMapper 설명 더보기</a><br>
+<br/></li>
+<li>
+<p><code class="language-text">RowMapper Custom 구현</code>도 가능합니다  </p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CustomerPayRowMapper</span> <span class="token keyword">implements</span> <span class="token class-name">RowMapper</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Pay</span><span class="token punctuation">></span></span> <span class="token punctuation">{</span>
+ 
+   <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span> ID_COLUMN <span class="token operator">=</span> <span class="token string">"id"</span><span class="token punctuation">;</span>
+   <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span> AMOUNT_COLUMN <span class="token operator">=</span> <span class="token string">"amount"</span><span class="token punctuation">;</span>
+   <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span> TX_NAME_COLUMN <span class="token operator">=</span> <span class="token string">"tx_name"</span><span class="token punctuation">;</span>
+   <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span> TX_DATE_TIME_COLUMN <span class="token operator">=</span> <span class="token string">"tx_date_time"</span><span class="token punctuation">;</span>
+
+   <span class="token keyword">public</span> <span class="token class-name">Pay</span> <span class="token function">mapRow</span><span class="token punctuation">(</span><span class="token class-name">ResultSet</span> rs<span class="token punctuation">,</span> <span class="token keyword">int</span> rowNum<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">SQLException</span> <span class="token punctuation">{</span>
+       <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Pay</span><span class="token punctuation">(</span>rs<span class="token punctuation">.</span><span class="token function">getLong</span><span class="token punctuation">(</span>ID_COLUMN<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                      rs<span class="token punctuation">.</span><span class="token function">getLong</span><span class="token punctuation">(</span>AMOUNT_COLUMN<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                      rs<span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span>TX_NAME_COLUMN<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                      rs<span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span>TX_DATE_TIME_COLUMN<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+</li>
+</ol>
+<br/>
+<p>그리고 <code class="language-text">--job.name=jdbcCursorItemReaderJob</code>과 같이 실행해보면 다음과 같은 결과를 얻을 수 있습니다  </p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 12.32166018158236%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAZUlEQVQI1zWNWQ6AMAhEvY4kNmliVyxNvf+dRkD9ILNAHhvFCEoJVCuoNdB1gXrHXgpCCBhjoOpOpkBEPM850fT299avdbtuDjxPUM7vGFRh5g8FdoUXzczsY9nUnjD3r2OHm38AmA9CAE7zaFEAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="jdbcCursorItemReader"
+        title="jdbcCursorItemReader"
+        src="/static/ca5d1bb718bc9264b6f26acf12f015ed/36727/jdbcCursorItemReader.png"
+        srcset="/static/ca5d1bb718bc9264b6f26acf12f015ed/acf4b/jdbcCursorItemReader.png 173w,
+/static/ca5d1bb718bc9264b6f26acf12f015ed/fc834/jdbcCursorItemReader.png 345w,
+/static/ca5d1bb718bc9264b6f26acf12f015ed/36727/jdbcCursorItemReader.png 690w,
+/static/ca5d1bb718bc9264b6f26acf12f015ed/0fafd/jdbcCursorItemReader.png 771w"
+        sizes="(max-width: 690px) 100vw, 690px"
+        loading="lazy"
+      />
+    </span>  </p>
+<br/>
+<hr>
+<h3 id="2-hibernatecursoritemreader"><a href="#2-hibernatecursoritemreader" aria-label="2 hibernatecursoritemreader permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. HibernateCursorItemReader</h3>
+<p>다음은 <code class="language-text">HibernateCursorItemReader</code>입니다<br>
+HibernateCursorItemReader는 DataSource 대신에 SessionFactory를 사용합니다  </p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Bean</span>
+<span class="token keyword">public</span> <span class="token class-name">HibernateCursorItemReader</span> <span class="token function">hibernateCursorItemReader</span><span class="token punctuation">(</span><span class="token class-name">SessionFactory</span> sessionFactory<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">HibernateCursorItemReaderBuilder</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Pay</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+			<span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token string">"hibernateCursorItemReader"</span><span class="token punctuation">)</span>
+			<span class="token punctuation">.</span><span class="token function">sessionFactory</span><span class="token punctuation">(</span>sessionFactory<span class="token punctuation">)</span>
+			<span class="token punctuation">.</span><span class="token function">queryString</span><span class="token punctuation">(</span><span class="token string">"from Pay"</span><span class="token punctuation">)</span>
+			<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<br/>
+<hr>
+<h3 id="3-storedprocedureitemreader-docs"><a href="#3-storedprocedureitemreader-docs" aria-label="3 storedprocedureitemreader docs permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. StoredProcedureItemReader <a href="https://docs.spring.io/spring-batch/docs/current/reference/html/readersAndWriters.html#StoredProcedureItemReader" target="_blank" rel="nofollow noopener noreferrer">Docs</a></h3>
+<p>다음은 <code class="language-text">StoredProcedureItemReader</code>입니다<br>
+DB에 Procedure로 등록해둔 액션으로 가져오는 방식입니다<br>
+개인적으로 별로 선호하지 않는 방법입니다<br>
+관리 포인트도 2개로 나뉘어 있고 DB에 따라 Recruit 받는 값도 다릅니다  </p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">As a returned ResultSet (used by SQL Server, Sybase, DB2, Derby, and MySQL).
+As a ref-cursor returned as an out parameter (used by Oracle and PostgreSQL).</code></pre></div>
+<br/>
+<p>그리서 Document에 있는 설정 방법만을 보고 넘어가도록 하겠습니다  </p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Bean</span>
+<span class="token keyword">public</span> <span class="token class-name">StoredProcedureItemReader</span> <span class="token function">storedProcedureItemReader</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token class-name">StoredProcedureItemReader</span> storedProcedureItemReader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StoredProcedureItemReader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	storedProcedureItemReader<span class="token punctuation">.</span><span class="token function">setDataSource</span><span class="token punctuation">(</span>dataSource<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	storedProcedureItemReader<span class="token punctuation">.</span><span class="token function">setProcedureName</span><span class="token punctuation">(</span><span class="token string">"sp_pay"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	storedProcedureItemReader<span class="token punctuation">.</span><span class="token function">setRowMapper</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BeanPropertyRowMapper</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token class-name">Pay</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> storedProcedureItemReader<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<br/>
+<p>이걸 <code class="language-text">Cursor-based ItemReader</code>에 대한 설명이 끝났습니다<br>
+마지막으로 정리해보면</p>
+<br/>
+<ul>
+<li><strong>퍼포먼스가 우수하다</strong></li>
+<li><strong>지속적인 connection을 가지고 있어야 한다</strong></li>
+<li><strong>병렬처리가 불가능하다</strong></li>
+</ul>
+<br/>
+<p>라는 <code class="language-text">특성</code>을 꼭 기억하고 사용하시기 바랍니다<br>
+다음은 이어서 PagingItemReader를 알아 보도록 하겠습니다  </p>
+<br/>
+<hr>
+<h2 id="paging-itemreader"><a href="#paging-itemreader" aria-label="paging itemreader permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Paging ItemReader</h2>
+<p>다음은 <code class="language-text">Paging ItemReader</code>입니다  </p>
+<br/>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 82.09944751381215%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAABcRAAAXEQHKJvM/AAACeklEQVQ4y6XUXW/SUBgH8KewdW5jI24Czhglbi4uS0z0Qr3ywg9g/AxKYnYpjLdQGYSwha0rLSYVtgh14ojyIhZwbKyFmbkgixfGGG+9mrv3AxwfkBiNbgvzJP+cntOcX57T0xa8Xi9hWZYkEgkiiiLhOI44nc46AIxqtdrrANQkRZ+4huNxY1h1nVn5Qk4/rpOR2C65mf5MzE8+EJNYJ815Y1iRwOfz7fM8vx+JRPYR3BME4bvL5cojMIjgJPY3oIs2Y08b+eqdPrYa62Fr8/RCdXFiuc4OcFuL3Qu1+f7FaszAqffAbrfr3G63zmKx6Dwej87hcAxYrdZe+NkGMBcwmluEUEZ2/WxgJTPlSaTnQi8KPi5X9vuTr3yMlJkNrKSnLgoVPRzUaJqmfh8P2pZoU1g1O6RcwhrP7PhSReVRsaYyz2XFFs++w3lpTKiYgGEYCAaDEAgEIBQKta6x6l+QRn+qBQ/xW12msHLeKeWitnhGQbAoyGqJSb4uTieym04pG0XQCEc1PIhWP8Sp3X+BBfUNgqUm6PoPMIagimCJl5W1NqggGDsuuIRgDcE13HIZwTUEqwguHRcUEawgKCNYQFBGcANBsVOweSjnXFjhNFboxwojBXUdwXK7wmV8bQwdVYhfwii+HnPWeDY1kypKQqH61JOUJRyv4vysmd8cORLU3b7f6g3BPGXglHHwN4aB+TQID3b0cHdDD/aGHjwf9TCzexK/lEvQaSONKPU1H6PI+5cU2dumyNYz6pscpciGSB227sCbww9XMSkwRt62HsefUf65pg8zhmn+YS5jJjBXMFfb0XW6Kw2mC9Pfxnva6W2PNYct/gFh1FCIRwnzoAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="pagingitemReader"
+        title="pagingitemReader"
+        src="/static/f46e3563fb96318000cea9ff6b04c787/36727/pagingitemReader.png"
+        srcset="/static/f46e3563fb96318000cea9ff6b04c787/acf4b/pagingitemReader.png 173w,
+/static/f46e3563fb96318000cea9ff6b04c787/fc834/pagingitemReader.png 345w,
+/static/f46e3563fb96318000cea9ff6b04c787/36727/pagingitemReader.png 690w,
+/static/f46e3563fb96318000cea9ff6b04c787/6b7c3/pagingitemReader.png 905w"
+        sizes="(max-width: 690px) 100vw, 690px"
+        loading="lazy"
+      />
+    </span>  </p>
+<br/>
+<p><code class="language-text">Paging ItemReader</code>는 이전 <code class="language-text">Cursor방식</code>과는 다르게 매번 호출마다 <code class="language-text">Connection</code>을 맺게 됩니다<br>
+때문에 얻어지는 장점과 단점 그리고 <span class=red_font>주의</span>해야할 사항들이 생기게 됩니다  </p>
+<hr>
+<h3 id="장점-1"><a href="#%EC%9E%A5%EC%A0%90-1" aria-label="장점 1 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>장점</h3>
+<ol>
+<li><strong>Timeout 설정에서 자유롭다</strong><br>
+한번의 <code class="language-text">Connection</code>을 유지하는 방식이 아니기 때문에 Itmeout설정에 문제가 없습니다<br>
+<br/>    </li>
+<li><strong>매번 새로운 참조로 메모리 이슈가 없다</strong><br>
+이전 Cursor 방식과 달리 매번 새로운 연결로 실시간 데이터를 받아 오기 때문에 스냅샷 같은 상태값 저장을 하지 않습니다<br>
+하지만 이 <code class="language-text">장점</code>때문에 데이터 <span clsss='red_font'>무결성이 깨지게</span> 됩니다<br>
+<br/>   </li>
+<li><strong>병렬처리가 가능하다</strong> 🔀<br>
+병렬로 많은 양의 데이터를 빠르게 처리하는 경우 <code class="language-text">Paging ItemReader</code>를 사용하셔야합니다    </li>
+</ol>
+<h3 id="단점-1"><a href="#%EB%8B%A8%EC%A0%90-1" aria-label="단점 1 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>단점</h3>
+<ol>
+<li><strong>속도가 느리다</strong><br>
+매번 새로운 <code class="language-text">Connection</code>과 <code class="language-text">Sorting</code>으로 속도가 느린편입니다<br>
+<br/>    </li>
+<li><strong>Batch 프로세스 동작동안에 데이터 무결성이 유지되지 않는다</strong><br>
+실시간 데이터를 탐색하는 방식이기 때문에 중간에 데이터가 바뀔수 있습니다<br>
+이점을 유의해서 개발을 해야합니다 👉 <a href="https://jojoldu.tistory.com/337" target="_blank" rel="nofollow noopener noreferrer">Paging Reader 주의사항</a><br>
+<br/>   </li>
+<li><strong>정렬이 필수적으로 필요하다</strong><br>
+주의 사항과 같은 <span clsss='red_font'>단점</span>입니다<br>
+<code class="language-text">offset방식</code>으로 값을 읽어오는 특성때문에 <code class="language-text">Sorting</code>을 하지 않을 경우  차례로 데이터를 못 가져 옵니다<br>
+<br/><br>
+<br/>   </li>
+</ol>
+<p><strong>장점보다 단점이 많아 보이지만 <code class="language-text">성능상 유리</code>하기 때문에 사용하기 좋습니다</strong><br>
+멀티 쓰레드 환경이 아니고 메모리 사용량도 엄청큰 대량의 데이터가 아닌 이상 사용상 문제는 없습니다  </p>
+<br/>
+<hr>
+<p>이제 그럼 Spring Batch에서 제공하는 <code class="language-text">Paging ItemReader</code>를 살펴 보겠습니다
+일부 블로그 글에서는 <code class="language-text">HibernatePagingItemReader</code>도 있지만 여기서는 <a href="https://docs.spring.io/spring-batch/docs/current/reference/html/readersAndWriters.html#database" target="_blank" rel="nofollow noopener noreferrer">Document</a>에 나와있는 아래 <code class="language-text">두가지</code>만 설명합니다  </p>
+<p><strong>Paging ItemReader</strong>  </p>
+<blockquote>
+<ol>
+<li>JdbcPagingItemReader  </li>
+<li>JpaPagingItemReader   </li>
+</ol>
+</blockquote>
+<br/>
+<hr>
+<h3 id="1-jdbcpaingitemreader"><a href="#1-jdbcpaingitemreader" aria-label="1 jdbcpaingitemreader permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. JdbcPaingItemReader</h3>
+<p><code class="language-text">JdbcPagingItemReader</code>는 PaingItemReader의 가장 기본적인 Reader 입니다 👉 <a href="https://github.com/renuevo/spring-boot-in-action/blob/master/spring-boot-batch-in-action/src/main/java/com/github/renuevo/config/JdbcPagingItemReaderJobConfig.java" target="_blank" rel="nofollow noopener noreferrer">Code</a><br>
+앞서 Cursor-Base처럼 간편하게 구현 가능합니다<br>
+예제 <code class="language-text">데이터</code>와<code class="language-text">VO</code>는 위에서 사용했던 <code class="language-text">Pay.class</code>를 그대로 사용합니다  </p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java">    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">JdbcPagingItemReader</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Pay</span><span class="token punctuation">></span></span> <span class="token function">jdbcPagingItemReader</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> parameterValues <span class="token operator">=</span> <span class="token class-name">Maps</span><span class="token punctuation">.</span><span class="token function">newHashMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        parameterValues<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"amount"</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">//조건절 파라미터</span>
+    
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">JdbcPagingItemReaderBuilder</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Pay</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="gatsby-highlight-code-line">                <span class="token punctuation">.</span><span class="token function">pageSize</span><span class="token punctuation">(</span>chunkSize<span class="token punctuation">)</span></span><span class="gatsby-highlight-code-line">                <span class="token punctuation">.</span><span class="token function">fetchSize</span><span class="token punctuation">(</span>chunkSize<span class="token punctuation">)</span></span>                <span class="token punctuation">.</span><span class="token function">dataSource</span><span class="token punctuation">(</span>dataSource<span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">rowMapper</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BeanPropertyRowMapper</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token class-name">Pay</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="gatsby-highlight-code-line">                <span class="token punctuation">.</span><span class="token function">queryProvider</span><span class="token punctuation">(</span><span class="token function">createQueryProvider</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></span><span class="gatsby-highlight-code-line">                <span class="token punctuation">.</span><span class="token function">parameterValues</span><span class="token punctuation">(</span>parameterValues<span class="token punctuation">)</span>   <span class="token comment">//Provider Where에 조건 세팅</span></span>                <span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token string">"jdbcPagingItemReader"</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">PagingQueryProvider</span> <span class="token function">createQueryProvider</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        <span class="token class-name">SqlPagingQueryProviderFactoryBean</span> queryProviderFactoryBean <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SqlPagingQueryProviderFactoryBean</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        queryProviderFactoryBean<span class="token punctuation">.</span><span class="token function">setDataSource</span><span class="token punctuation">(</span>dataSource<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Datasource를 통한 DB Type 인식해서 Provider 자동 인식</span>
+
+<span class="gatsby-highlight-code-line">        queryProviderFactoryBean<span class="token punctuation">.</span><span class="token function">setSelectClause</span><span class="token punctuation">(</span><span class="token string">"id, amount, tx_name, tx_date_time"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span class="gatsby-highlight-code-line">        queryProviderFactoryBean<span class="token punctuation">.</span><span class="token function">setFromClause</span><span class="token punctuation">(</span><span class="token string">"from pay"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span class="gatsby-highlight-code-line">        queryProviderFactoryBean<span class="token punctuation">.</span><span class="token function">setWhereClause</span><span class="token punctuation">(</span><span class="token string">"where amount >= :amount"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//조건</span></span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Order</span><span class="token punctuation">></span></span> sortKeys <span class="token operator">=</span> <span class="token class-name">Maps</span><span class="token punctuation">.</span><span class="token function">newHashMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//Paging은 매번 다른 Connection을 맺기 때문에 Order가 필수</span>
+<span class="gatsby-highlight-code-line">        sortKeys<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">,</span> <span class="token class-name">Order</span><span class="token punctuation">.</span>ASCENDING<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+        queryProviderFactoryBean<span class="token punctuation">.</span><span class="token function">setSortKeys</span><span class="token punctuation">(</span>sortKeys<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> queryProviderFactoryBean<span class="token punctuation">.</span><span class="token function">getObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span></code></pre></div>
+<p>JdbcPageItemReader는 크게 2개의 메소드로 나눠서 구성합니다<br>
+PagingItemReader는 <code class="language-text">JdbcPagingItemReaderBuilder</code>로 틀을 구성하는데 주요설정은 2부분으로 나뉩니다<br>
+Reader의 <code class="language-text">Size</code>지정과 <code class="language-text">QueryProvider</code>로 Query를 정의합니다  </p>
+<br/>
+<p><strong>Size는 <code class="language-text">PageSize</code>와 <code class="language-text">FetchSize</code> 2가지가 존재합니다</strong><br>
+서로 다른의미를 가지며 같은 크기를 지정하는 것이 일반적이라 <code class="language-text">chunkSize</code>를 똑같이 지정하였습니다<br>
+관련해서 자세한 사항은 이전 포스팅을 참고해주세요 👉 <a href="https://renuevo.github.io/spring/batch/spring-batch-chapter-1/#page-size-%EC%99%80-chunk-size" target="_blank" rel="nofollow noopener noreferrer">Chunk Size와 Paging Size</a>  </p>
+<br/>
+<p><code class="language-text">QueryProvider</code>는 <code class="language-text">queryProviderFactoryBean</code>로 지정해 줍니다<br>
+쿼리의 기본구조로 <code class="language-text">setFromClause</code>, <code class="language-text">setFromClause</code>, <code class="language-text">setWhereClause</code>설정하여 쿼리를 생성합니다<br>
+<code class="language-text">JPQL</code>로 쿼리를 작성하였고 관련 유동적 Parameter는 parameterValues를 통해 지정해 주었습니다   </p>
+<br/>
+<p><strong>그리고 PagingItemReader의 <span class='red_font'>필수요소</span>인 <code class="language-text">Sorting</code>이 필요합니다</strong><br>
+<code class="language-text">setSortKeys</code>를 통해 정렬을 설정하는 것으로 PagingItemReader의 생성이 끝이 납니다  </p>
+<br/>
+<p>다음과 같이 설정하면 정상적으로 Pay를 읽어서 출력됩니다  </p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 13.409961685823754%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAkUlEQVQI1zWPbRKDIAxEvU2/1CIQQgA71fb+V9qSVH+8eSST2VkG7xlMGYUFOWW0LHiVAoqMZ2gg2ZHKx4h5s3n2BaPLuDwCrmM0nwyzS1h8QggMDVfHqO+EaZEeWg/aQYWLrbNasHKfE24TmQffA7SNtlJWEZTeMoQe2I9JNiy0mgO/wfULKrtZW587rv9f/ADLWWGhWOgEqwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="jdbcPagingItemReader"
+        title="jdbcPagingItemReader"
+        src="/static/6270f730bc9a372dffa16cd0eb9641c0/36727/jdbcPagingItemReader.png"
+        srcset="/static/6270f730bc9a372dffa16cd0eb9641c0/acf4b/jdbcPagingItemReader.png 173w,
+/static/6270f730bc9a372dffa16cd0eb9641c0/fc834/jdbcPagingItemReader.png 345w,
+/static/6270f730bc9a372dffa16cd0eb9641c0/36727/jdbcPagingItemReader.png 690w,
+/static/6270f730bc9a372dffa16cd0eb9641c0/17fa4/jdbcPagingItemReader.png 1035w,
+/static/6270f730bc9a372dffa16cd0eb9641c0/cac76/jdbcPagingItemReader.png 1044w"
+        sizes="(max-width: 690px) 100vw, 690px"
+        loading="lazy"
+      />
+    </span>  </p>
+<br/>
+<hr>
+<h3 id="2-jpapagingitemreader"><a href="#2-jpapagingitemreader" aria-label="2 jpapagingitemreader permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. JpaPagingItemReader</h3>
+<p>마지막으로 알아볼 <code class="language-text">JpaPagingItemReader</code>입니다 <a href="https://github.com/renuevo/spring-boot-in-action/blob/master/spring-boot-batch-in-action/src/main/java/com/github/renuevo/config/JpaPagingItemReaderJobConfig.java" target="_blank" rel="nofollow noopener noreferrer">Code</a><br>
+앞서 본 JdbcPagingItemReader 보다 직관적이여서 저는 이 방법을 더 선호합니다  </p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java">    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">JpaPagingItemReader</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Pay</span><span class="token punctuation">></span></span> <span class="token function">jpaPagingItemReader</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">JpaPagingItemReaderBuilder</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Pay</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token string">"jpaPagingItemReader"</span><span class="token punctuation">)</span>
+<span class="gatsby-highlight-code-line">                <span class="token punctuation">.</span><span class="token function">entityManagerFactory</span><span class="token punctuation">(</span>entityManagerFactory<span class="token punctuation">)</span> <span class="token comment">//DataSource가 아닌 EntityManagerFactory를 통한 접근</span>                <span class="token punctuation">.</span><span class="token function">pageSize</span><span class="token punctuation">(</span>chunkSize<span class="token punctuation">)</span>
+<span class="gatsby-highlight-code-line">                <span class="token punctuation">.</span><span class="token function">queryString</span><span class="token punctuation">(</span><span class="token string">"SELECT p FROM Pay p WHERE amount >= 2000 ORDER BY id ASC"</span><span class="token punctuation">)</span>  <span class="token comment">//ORDER 조건은 필수!</span>                <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span></code></pre></div>
+<p>다음과 같이 간편하게 구현 가능합니다<br>
+<span class='red_font'>주의할 점</span>인 <code class="language-text">정렬조건</code> 추가만 안 잊으면 됩니다   </p>
+<br/>
+<hr>
+<p>마지막으로 추가적으로 <code class="language-text">JpaRepository</code>를 사용하는 방식입니다<br>
+일반적으로 ItemReader를 따로 구현해서 Repository를 사용할 경우 일반적으로 <code class="language-text">new ListItemReader&lt;&gt;(jpaRepository.findByAmount(amount))</code>와 같이 구현 할 경우
+<span class='red_font'>Batch의 장점인 Paging을 처리하지 않게 됩니다</span><br>
+그래서 JpaRepository 구현이 필요하신분은 기본적으로 Paging이 지원되는 <code class="language-text">RepositoryItemReader</code>를 사용하는것을 추천드립니다 <a href="https://stackoverflow.com/questions/43003266/spring-batch-with-spring-data/43986718#43986718" target="_blank" rel="nofollow noopener noreferrer">RepositoryItemReader Example</a>  </p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java">    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">RepositoryItemReader</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Pay</span><span class="token punctuation">></span></span> <span class="token function">reader</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">RepositoryItemReader</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Pay</span><span class="token punctuation">></span></span> reader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RepositoryItemReader</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        reader<span class="token punctuation">.</span><span class="token function">setRepository</span><span class="token punctuation">(</span>payRepository<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        reader<span class="token punctuation">.</span><span class="token function">setMethodName</span><span class="token punctuation">(</span><span class="token string">"findAll"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        reader<span class="token punctuation">.</span><span class="token function">setSort</span><span class="token punctuation">(</span><span class="token class-name">Collections</span><span class="token punctuation">.</span><span class="token function">singletonMap</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">,</span> <span class="token class-name">Sort</span><span class="token punctuation">.</span><span class="token class-name">Direction</span><span class="token punctuation">.</span>ASC<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> reader<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span></code></pre></div>
+<br>
+<hr>
+<h2 id="관련-참고"><a href="#%EA%B4%80%EB%A0%A8-%EC%B0%B8%EA%B3%A0" aria-label="관련 참고 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>관련 참고</h2>
+<p><a href="https://stackoverflow.com/questions/43003266/spring-batch-with-spring-data/43986718#43986718" target="_blank" rel="nofollow noopener noreferrer">RepositoryItemReader</a><br>
+<a href="https://docs.spring.io/spring-batch/docs/current/reference/html/readersAndWriters.html#database" target="_blank" rel="nofollow noopener noreferrer">Spring Batch Docs</a><br>
+<a href="https://stackoverflow.com/questions/28719836/spring-batch-problems-mix-data-when-converting-to-multithread" target="_blank" rel="nofollow noopener noreferrer">Cursor-based ItemReader Thread Safe</a><br>
+<a href="https://github.com/benelog/spring-jdbc-tips/blob/master/spring-jdbc-core.md#beanpropertyrowmapper" target="_blank" rel="nofollow noopener noreferrer">spring-jdbc-tips</a><br>
+<a href="https://jojoldu.tistory.com/336" target="_blank" rel="nofollow noopener noreferrer">기억보단 기록을</a>  </p></div><div class="social-share"><a class="resp-sharing-button__link" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook"><div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"></path></svg></div><span class="service-label">Share on Facebook</span></div></a><a class="resp-sharing-button__link" href="#" rel="noopener" aria-label="Share on Twitter"><div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"></path></svg></div><span class="service-label">Share on Twitter</span></div></a></div><hr class="custom-hr"/><div class="bio"><div class="author"><div class="author-description"><div class="author-image gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:72px;height:72px;border-radius:100%"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAEz0lEQVQ4ywHEBDv7AHuZjJKqtnNpb0AuJ05APoJmUquIaayMb6+TfbOYhridibmdh72fhr2ehLeYfp6AaX9jUJJ1X5N3YX5kUgB+m5CQqbSPmKh3dm1dTEuRfXOxjXC6mn67n4rBpZDHq5TLrZXOr5XPsJTSspbWtZjVtJbUtJbSspbNrpMAiJaFiKOxlJ2vnrSkjo2L69rY0qyEwZFh0KZ54LWF5LuL6MOS6MCO6sKQ6sOR68mZ5sGU37iN2rWK0KyGAI+Qj4ufr5yitpisl42kqcW2t9KoetanbrKMYa6GXfHHj//hpPzYl/rRkfzVkfLUlOS+hPnOju3Agua4fACpqLunwN6krMSbs8GGorjMytLjvZCXa0dNLR8+IhRILx91VzzNp3P20JT805Xy0qTlx5/6z5DzyY7twIYApZaNubzApqOuucjLqsPU0MvWy6WLYTkpVTQlQykbNR8TLBMKVjcj8NOe/eey/OKw/dym/Nae/N6p+9ikAJ+Zn5eNjGxaVqqgm46LjdPLzpWAfTslIjkmIS4cFC8cEjgjFi4VCLeWb//msfjYpvrTn/rVn/jUn/rYpACcqrnf5euEeoKxsLior7jMvb1pYWYVDxMmHyQsHRszHxYzGxEpEQexjWb/2J750pj91Jz90pj4z5X/1Z4Av8K53Orwj4qWvMHIqLO+18zPkIOCYUxNlW1kwI1+pnNeo2xSlmE+ZkYxdFZCd1dAelpCeltBeltAfF1DAM3r/6/K4oeDkaSipZOUmImBhHtlY9y0q8maju+1od2egd2hgeCZaFQxID0pHEguH0kwIEQrHEwyH0MsGwCtsL2jl5RiVltPTmJRbJFxdIBeVFbqu7HxvK3fqJjpoXz9waXHiWA8JBU/JhU3IRM2IBJEKBY7IxJQLxkAioWDZ2ZsR0JMV1tjYHeIdHeBfmpexp2S9sO31ZWE2Itq7KuDgls+JRkSPSkeJhcPLBwSOiUWLx0RUDMfAEpPVD1FU09VXpSnoJarpWprb39hTpdyYMmfmcN5b8x6WcSGTrWJWlhCL25RN2ZKLVE4IXZUL2ZGKa6CTQBRWmVFS1QgIy04P0k1PUhVSUNNQD1OOzWuin22i33JhlyDTymtjmb2yY7+1Jn1zI/swYbtw4bku3zyx4kAgJSgHCEsGRogJSEoLSEiVkM6OCwsNSUji2FNtJePuIRmXjsoRDQnak80eVw/poVf8syV+tOX7ceL9M6RAFhUVEhBQkM2MUQ2My0fHiIXFywfHx0TE2E1HcGUeK+JeiseGRgNBxkNCR0QDx0PDE87LMCdcfzTlPjRmQAhFBM1JCExIR4kFhQhFBMgFRMaExIJBwgeDg1TJiUoFxgKBwUUEA4YEg8jFxYdFBIZDgwmEwyhflP/2pkAKx8eJhoYHBEPHxQSHBMTGxEQGRIQDg0NEQsOQAMHGwcGGBEQHhYUFhEOFA4MEAwKGBEOHBANMyAUwqFzAB0RDx8UEBQLCBAMCRkUFCAWFB0SERcQDQwQESkNDyMOCxsSER0SEhkSEBgPDQoHBxIOCx8TECATDyoaEQAbEAwUCwgOCAUIBQMXEREiFhUbEA4WDQsSDw8bDg8kEg4eExAcEhEcExEaEA8LCAgJCAkTDw0hFRArHBKIIAQPpy4qsAAAAABJRU5ErkJggg==" alt="deokhwa kim" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/3fc5562e6ad25d80970b53e8e9afab0c/f4007/profile.png 1x,
+/static/3fc5562e6ad25d80970b53e8e9afab0c/c608d/profile.png 1.5x,
+/static/3fc5562e6ad25d80970b53e8e9afab0c/d10ce/profile.png 2x" /><img loading="lazy" width="72" height="72" srcset="/static/3fc5562e6ad25d80970b53e8e9afab0c/f4007/profile.png 1x,
+/static/3fc5562e6ad25d80970b53e8e9afab0c/c608d/profile.png 1.5x,
+/static/3fc5562e6ad25d80970b53e8e9afab0c/d10ce/profile.png 2x" src="/static/3fc5562e6ad25d80970b53e8e9afab0c/f4007/profile.png" alt="deokhwa kim" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><div class="author-name"><span class="author-name-prefix">Written by</span><a class="author-name-content" href="/about"><span>@<!-- -->deokhwa kim</span></a><div class="author-introduction">검색엔진 &amp; Spring &amp; Data를 다루고 있습니다 / 요즘은 Kotlin, Reactive Programing에 관심이 많습니다</div><p class="author-socials"><a href="https://github.com/renuevo">GitHub</a><a href="https://www.facebook.com/deokhwa.kim.75">Facebook</a></p></div></div></div></div><ul class="navigator"><li><a rel="prev" href="/docker/docker-hello-world/">← <!-- -->[Docker] Docker 시작하기 - Hello World와 Git Bash</a></li><li></li></ul><div><div id="disqus_thread"></div></div><footer class="footer">©<a href="https://github.com/renuevo">renuevo</a>, Built with<!-- --> <a href="https://github.com/JaeYeopHan/gatsby-starter-bee">Gatsby-starter-bee</a></footer></div></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-147163050-1', 'auto', {});
+      
+      
+      
+      
+      
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/spring/batch/spring-batch-chapter-3/";window.webpackCompilationHash="f9cb6dabeb9a351a28e3";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-3ef2d9e26c0a65fb468a.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-d8ff3142cebda72f471f.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-2047161ab81a7fa0cbea.js"],"component---src-pages-404-js":["/component---src-pages-404-js-3ef9908c8ca2bbec57a2.js"],"component---src-pages-about-js":["/component---src-pages-about-js-00cc2684b605b19b0688.js"],"component---src-pages-index-js":["/component---src-pages-index-js-c844c12cd7f5589a4a4b.js"]};/*]]>*/</script><script src="/component---src-templates-blog-post-js-2047161ab81a7fa0cbea.js" async=""></script><script src="/styles-de8ef11f8283f774e6c1.js" async=""></script><script src="/commons-e3839588b8ec4f06d1d2.js" async=""></script><script src="/app-3ef2d9e26c0a65fb468a.js" async=""></script><script src="/webpack-runtime-db7c9e59d855b4322330.js" async=""></script></body></html>
