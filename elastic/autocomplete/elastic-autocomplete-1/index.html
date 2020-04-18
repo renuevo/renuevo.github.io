@@ -1,0 +1,795 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="google-site-verification" content="_rVJuueG9dPQsjnBpN7bhY8QW5HU9HQz-7xYVzRUBaM"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, minimum-scale=1, maximum-scale=2"/><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:100%/1.625 -apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.8);font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:normal;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}h1{margin-left:0;margin-right:0;margin-top:2.4375rem;padding-bottom:calc(0.40625rem - 1px);padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.21875rem;color:inherit;font-family:Catamaran;font-weight:800;text-rendering:optimizeLegibility;font-size:2rem;line-height:1.2;border-bottom:1px solid hsla(0,0%,0%,0.07);}h2{margin-left:0;margin-right:0;margin-top:56px;padding-bottom:calc(0.40625rem - 1px);padding-left:0;padding-right:0;padding-top:0;margin-bottom:20px;color:inherit;font-family:Catamaran;font-weight:700;text-rendering:optimizeLegibility;font-size:1.51572rem;line-height:1.2;border-bottom:1px solid hsla(0,0%,0%,0.07);}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1.31951rem;line-height:1.1;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.1;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:0.87055rem;line-height:1.1;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:hsla(0,0%,0%,0.53);font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:0.81225rem;line-height:1.1;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}ul{margin-left:1.625rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:6px;list-style-position:outside;list-style-image:none;}ol{margin-left:1.625rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;font-size:0.85rem;line-height:1.625rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;font-size:1rem;line-height:1.625rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}blockquote{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:calc(0.8125rem - 1px);padding-right:0;padding-top:0;margin-bottom:0.8125rem;border-left:4px solid hsla(0,0%,0%,0.13);color:hsla(0,0%,0%,0.53);}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(0.8125rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}b{font-weight:600;}strong{font-weight:600;}dt{font-weight:600;}th{font-weight:600;}li{margin-bottom:2px;}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.625rem;margin-bottom:calc(0.8125rem / 2);margin-top:calc(0.8125rem / 2);}li > ul{margin-left:1.625rem;margin-bottom:calc(0.8125rem / 2);margin-top:calc(0.8125rem / 2);}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:calc(0.8125rem / 2);}code{font-size:0.85rem;line-height:1.625rem;}kbd{font-size:0.85rem;line-height:1.625rem;}samp{font-size:0.85rem;line-height:1.625rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:1.08333rem;padding-right:1.08333rem;padding-top:0.8125rem;padding-bottom:calc(0.8125rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}h3,h4,h5,h6{margin-bottom:0.8125rem;margin-top:1.625rem;}ol,ul{margin-left:2.03125rem;}li>ol,li>ul{margin-left:2.03125rem;}a{color:#0687f0;text-decoration:none;box-shadow:none;}a:hover,a:active{text-decoration:underline;}a.gatsby-resp-image-link{box-shadow:none;text-decoration:none;}a:hover{text-decoration:none;}</style><style data-href="/styles.d29006b75e9df635ea00.css">@import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css);@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:100;src:local("Noto Sans KR Thin "),local("Noto Sans KR-Thin"),url(/static/noto-sans-kr-latin-100-2de137ca3e12ea146ee47485a97f1e78.woff2) format("woff2"),url(/static/noto-sans-kr-latin-100-b965647685dd9fc531d1f8a1cc25e024.woff) format("woff")}@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:300;src:local("Noto Sans KR Light "),local("Noto Sans KR-Light"),url(/static/noto-sans-kr-latin-300-4f773a0fce88aa857d70b56c5b0a1d26.woff2) format("woff2"),url(/static/noto-sans-kr-latin-300-ee87751dac814562bac316d848e35748.woff) format("woff")}@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:400;src:local("Noto Sans KR Regular "),local("Noto Sans KR-Regular"),url(/static/noto-sans-kr-latin-400-be09f2ced7ff9fa6eda5f0416e2fc840.woff2) format("woff2"),url(/static/noto-sans-kr-latin-400-4c50be0fe5b21a153b8e40a392c2d3fe.woff) format("woff")}@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:500;src:local("Noto Sans KR Medium "),local("Noto Sans KR-Medium"),url(/static/noto-sans-kr-latin-500-416698c2fc4b3951f8d63d3d2ae23900.woff2) format("woff2"),url(/static/noto-sans-kr-latin-500-28601458e118110e494903a1fcd6dcf5.woff) format("woff")}@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:700;src:local("Noto Sans KR Bold "),local("Noto Sans KR-Bold"),url(/static/noto-sans-kr-latin-700-04e782e08729f3725ae5a9c95da0c8ba.woff2) format("woff2"),url(/static/noto-sans-kr-latin-700-b9e989a96027f839a9569d2d011e0b71.woff) format("woff")}@font-face{font-family:Noto Sans KR;font-style:normal;font-display:swap;font-weight:900;src:local("Noto Sans KR Black "),local("Noto Sans KR-Black"),url(/static/noto-sans-kr-latin-900-c41f1395489a117ca36d550142a1695f.woff2) format("woff2"),url(/static/noto-sans-kr-latin-900-589f5fbf84d9dc9984a969bae969fd60.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:100;src:local("Catamaran Thin "),local("Catamaran-Thin"),url(/static/catamaran-latin-100-6473cfe10b779f968c3d41708e4dfa70.woff2) format("woff2"),url(/static/catamaran-latin-100-a2eb4ef6ac1cc8ff5a51d62c01fe2fea.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:200;src:local("Catamaran Extra Light "),local("Catamaran-Extra Light"),url(/static/catamaran-latin-200-d005aac0ee52a3cb2261ea79a93d4e04.woff2) format("woff2"),url(/static/catamaran-latin-200-fbc8307e859bc6f8866a36e084fdcb3b.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:300;src:local("Catamaran Light "),local("Catamaran-Light"),url(/static/catamaran-latin-300-62b414e71a1f15fa797f91bbf8a3f124.woff2) format("woff2"),url(/static/catamaran-latin-300-7c000b951ef8e9a2b791e70d678dd263.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:400;src:local("Catamaran Regular "),local("Catamaran-Regular"),url(/static/catamaran-latin-400-2175f69a7b7f93cc707ffb96264af4aa.woff2) format("woff2"),url(/static/catamaran-latin-400-2de7e6f54ec70b29a1b4541beba00c89.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:500;src:local("Catamaran Medium "),local("Catamaran-Medium"),url(/static/catamaran-latin-500-f1dd472e80352ac073661af4c1f612dc.woff2) format("woff2"),url(/static/catamaran-latin-500-b7668eb8c9c0df2d0cbe5f77616a8ea8.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:600;src:local("Catamaran SemiBold "),local("Catamaran-SemiBold"),url(/static/catamaran-latin-600-15d0af50791a8286c40ffd0e51bd94c7.woff2) format("woff2"),url(/static/catamaran-latin-600-10467dab56671e7aa6f043987d44dcb8.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:700;src:local("Catamaran Bold "),local("Catamaran-Bold"),url(/static/catamaran-latin-700-4a133d839202a1733fd3e50dab1597dc.woff2) format("woff2"),url(/static/catamaran-latin-700-09314a5449726c9e36e6453e9661fe46.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:800;src:local("Catamaran ExtraBold "),local("Catamaran-ExtraBold"),url(/static/catamaran-latin-800-f6053867cb0122b6897b017da49d0009.woff2) format("woff2"),url(/static/catamaran-latin-800-cb812de767a624c9d405058e05731b3f.woff) format("woff")}@font-face{font-family:Catamaran;font-style:normal;font-display:swap;font-weight:900;src:local("Catamaran Black "),local("Catamaran-Black"),url(/static/catamaran-latin-900-0e80350f234f47318f42c4ef8f4f47b9.woff2) format("woff2"),url(/static/catamaran-latin-900-6f7344e59325277678d79578eb0a2554.woff) format("woff")}.custom-hr{margin:64px;background:linear-gradient(72deg,#86e3ce,#d0e6a5);border:none;height:2px}.post-date{text-align:right;font-size:12px;font-style:italic}.resp-sharing-button--facebook:hover{background-color:#2d4373}.resp-sharing-button--facebook{background-color:#3b5998;border-color:#3b5998}.resp-sharing-button--facebook:active,.resp-sharing-button--facebook:hover{background-color:#2d4373;border-color:#2d4373}.resp-sharing-button--twitter:hover{background-color:#2795e9}.resp-sharing-button--twitter{background-color:#55acee;border-color:#55acee}.resp-sharing-button--twitter:active,.resp-sharing-button--twitter:hover{background-color:#2795e9;border-color:#2795e9}.social-share{text-align:right;height:100%}.resp-sharing-button__icon,.resp-sharing-button__link{display:inline-block;vertical-align:middle;border:none}.resp-sharing-button__link{text-decoration:none;color:#fff;margin:4px;height:33px}.resp-sharing-button__link .service-label{font-size:12px;padding-right:4px}.resp-sharing-button{height:33px;border-radius:6px;-webkit-transition:25ms ease-out;transition:25ms ease-out;padding:3px 8px 3px 10px;font-family:Helvetica Neue,Helvetica,Arial,sans-serif}.resp-sharing-button__icon svg{width:1em;height:1.5em;margin-right:.4em;vertical-align:top}.resp-sharing-button__icon{stroke:#fff;fill:none}.resp-sharing-button__icon--solid{fill:#fff;stroke:none}.sponsor-button{text-align:right;margin:4px}.sponsor-button .bmc-button{display:inline-block;padding:0 7px;width:133px;height:33px;text-decoration:none;background-color:#bb5794;color:#fff;border:1px solid transparent;border-radius:6px;letter-spacing:-.08px;box-sizing:border-box;font-size:12px;line-height:30px;text-align:left}.sponsor-button .bmc-button:active,.sponsor-button .bmc-button:hover{background-color:#a0457d}.sponsor-button .bmc-button img{width:20px;margin-bottom:1px;box-shadow:none;border:none;vertical-align:middle}.sponsor-button .bmc-button span{margin-left:6px}.bio{margin-bottom:24px}.bio .author-description{display:flex}.bio .author-image{margin-top:12px;margin-right:12px;margin-bottom:0;min-width:72px}.bio .author-name-prefix{font-size:90%;margin-right:4px}.bio .author-name-content{display:inline-block;font-size:95%;padding:2px 6px;font-weight:bolder;border-radius:8px;-webkit-transform-origin:center;transform-origin:center;-webkit-animation:flutter 2s linear infinite;animation:flutter 2s linear infinite}.bio .author-introduction{margin-top:4px;font-size:80%;line-height:1.4}.bio .author-socials{margin-top:4px}.bio a{margin-right:8px;font-size:80%}.bio a.visited{text-decoration:none}@-webkit-keyframes flutter{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}35%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}40%{-webkit-transform:rotate(-5deg);transform:rotate(-5deg)}60%{-webkit-transform:rotate(5deg);transform:rotate(5deg)}65%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(0deg);transform:rotate(0deg)}}@keyframes flutter{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}35%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}40%{-webkit-transform:rotate(-5deg);transform:rotate(-5deg)}60%{-webkit-transform:rotate(5deg);transform:rotate(5deg)}65%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(0deg);transform:rotate(0deg)}}.navigator{margin:40px 0;display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0}.navigator li{margin-bottom:12px}.navigator a{padding:7px 16px 8px;border-radius:6px;font-size:12px;opacity:.8}.gatsby-highlight-code-line{background-color:#022a4b;display:block;margin-right:-1.2em;margin-left:-1.2em;padding-right:1em;padding-left:.75em;border-left:.35em solid #ff609a}.gatsby-highlight .language-textbox code{border-radius:5px;color:#383838}.gatsby-highlight pre[class*=language-textbox]{background-color:#f8f8f8;border:1px solid #ccc}.gatsby-highlight pre[class*=language-]{border-radius:5px;display:flex;margin-top:0}.gatsby-highlight pre[class*=language-] code[class*=language-]{flex:1 1}code[class*=language-],pre[class*=language-]{color:#e0e0e0;background:none;font-family:Fira Code,Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.6;font-size:15px;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none;-ms-overflow-style:none;overflow:-moz-scrollbars-none}li code[class*=language-text],p code[class*=language-text]{font-weight:600}pre[class*=language-]::-webkit-scrollbar{display:none}pre[class*=language-]{padding:1.2em;margin:1.5em 0;overflow:auto;border-radius:.6em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#212121}:not(pre)>code[class*=language-]{padding:.1em .6em;border-radius:.2em;white-space:normal;background:#e0ecde;color:#205072;border:1px solid}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#616161}.token.punctuation{color:#e0e0e0}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#ff9100}.token.class-name,.token.constant,.token.property,.token.symbol{color:#ff0}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#b388ff}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#00e676}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}.category-container{display:flex;top:0;line-height:0;white-space:nowrap;-ms-overflow-style:none;overflow:-moz-scrollbars-none;z-index:1;padding:6px 20px;box-sizing:content-box;margin-top:50px}.category-container .filter-button{width:15rem;background:linear-gradient(45deg,#fe6b8b 30%,#ff8e53 90%);border-radius:3px;border:0;color:#fff;height:40px;padding:0 30px;box-shadow:0 3px 5px 2px rgba(255,105,135,.3)}.category-container .search-filter{margin-top:5px;margin-bottom:0;margin-left:5vw}.category-container .search-filter>label{top:-13px}.category-container .search-filter>div{margin-top:5px}.category-container .search-filter .MuiFormLabel-root.Mui-focused{color:#fe6b8b}.category-container .search-filter .MuiInput-underline:after{border-bottom:2px solid #fe6b8b}.category-container .search-filter .MuiInputLabel-shrink{-webkit-transform:translateY(8px) scale(.7);transform:translateY(8px) scale(.7)}.category-container .search-filter .MuiInputBase-input{padding:6px 0 5px}.category-container .search-filter .MuiAppBar.root{box-sizing:border-box}.category-container::-webkit-scrollbar{display:none}.thumbnail-container{min-height:calc(100vh - 3.5rem)}.thumbnail{display:block;margin-bottom:12px;padding:4px 4px 12px;box-shadow:none;-webkit-transition:text-shadow .3s,opacity .4s;transition:text-shadow .3s,opacity .4s;opacity:0}.thumbnail p{font-size:90%;line-height:1.4}.thumbnail.visible{opacity:1}</style><style data-href="/commons.629e292697f931a03527.css">.github{float:right;padding:14px;opacity:.6}.top{position:relative;width:100%;height:60px;background:linear-gradient(72deg,#86e3ce,#d0e6a5)}.top .link{display:inline-block;font-size:28px;padding-top:8px;color:#fff;opacity:.7;margin-left:20px;font-family:Catamaran;font-weight:800}.home-header{margin-top:0;border-bottom:none;font-weight:900;font-size:48px;letter-spacing:-2px}.link{box-shadow:none;text-decoration:none;color:inherit}.switch-container{text-align:right}.switch-container .icon{text-align:center;color:#222;font-size:14px;font-weight:900}.footer{padding-top:52px;text-align:center;font-size:12px}.footer a{text-decoration:none!important}body.light{background-color:#fff;text-shadow:0 0 .1px rgba(0,0,0,.3);padding-right:0!important}body.light .home-header{color:#333}body.light .bio .author-name-content{background-color:#ecf0f2}body.light .bio .author-introduction{color:#7d7d7d}body.light .bio a{color:navy}body.light .thumbnail h3{color:#333}body.light .thumbnail p{color:#7d7d7d}body.light .thumbnail:hover{text-shadow:0 0 6px rgba(0,0,0,.2)}body.light .footer{color:#aaa}body.light .footer a{color:#333}body.light .navigator a{background-color:#fceff7;color:#cc007a}body.light blockquote{color:rgba(0,0,0,.8)}body.light .red_font{color:#cc007a;font-weight:700}body.dark{background-color:#282c35;text-shadow:0 0 .1px hsla(0,0%,100%,.3);padding-right:0!important}body.dark,body.dark .home-header{color:#eee}body.dark .bio .author-name-content{background-color:#383636}body.dark .bio .author-introduction{color:#d8d7d7}body.dark .bio a{color:#bb72ec}body.dark .category-container .MuiInputBase-input{color:#eee}body.dark .category-container .MuiFormLabel-root{color:#fff}body.dark .category-container .MuiInput-underline:before{border-bottom:1px solid #fff}body.dark .thumbnail h3{color:#eee}body.dark .thumbnail p{color:#d8d7d7}body.dark .thumbnail:hover{text-shadow:0 0 6px hsla(0,0%,100%,.2)}body.dark .footer{color:#d8d7d7}body.dark .footer a{color:#fff}body.dark blockquote{border-left:4px solid hsla(0,0%,100%,.822);color:#d8d7d7}body.dark h1,body.dark h2{border-bottom-color:hsla(0,0%,100%,.3)}body.dark .navigator a{background-color:#fceff7;color:#cc007a}body.dark .red_font{color:#cc007a;font-weight:700}body{font-family:Noto Sans KR,sans-serif;font-size:108%;background-color:#fff;-webkit-text-size-adjust:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-transition:background-color .3s,color .3s;transition:background-color .3s,color .3s}body .main-container{max-width:60vw}@media screen and (max-width:50em){body .main-container{max-width:39rem}}body .main-container .code_header{margin-top:1rem;display:inline-block}body .main-container .sub_header{font-size:.8rem}body .main-container .img_caption{font-style:normal;display:inherit;text-align:center;font-size:90%}body .main-container .category-container{margin-bottom:1.5rem}body .main-container .category-container .MuiInputBase-input{padding:6px 0 5px}</style><meta name="generator" content="Gatsby 2.15.28"/><style type="text/css">.gatsby-resp-image-image{width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;color:transparent;}</style><style type="text/css">
+    .anchor {
+      float: left;
+      padding-right: 4px;
+      margin-left: -20px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var offset = element.offsetTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="preconnect dns-prefetch" href="https://www.google-analytics.com"/><link rel="shortcut icon" href="/icons/icon-48x48.png?v=f081fa739c9c8df01963bc93e8c99786"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=f081fa739c9c8df01963bc93e8c99786"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=f081fa739c9c8df01963bc93e8c99786"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=f081fa739c9c8df01963bc93e8c99786"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=f081fa739c9c8df01963bc93e8c99786"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=f081fa739c9c8df01963bc93e8c99786"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=f081fa739c9c8df01963bc93e8c99786"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=f081fa739c9c8df01963bc93e8c99786"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=f081fa739c9c8df01963bc93e8c99786"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">[Elastic] 1. Elastic 자동완성 가이드 (Autocomplete Guide) - Prefix Queries | renuevo blog</title><meta data-react-helmet="true" name="description" content="Elastic을 활용하여 다음 3가지 방법의 자동완성 서비스를 구현하는 기술을 다룹니다 Elastic 7.x 버젼을 기준으로 진행합니다    Prefix Queries를 활용한 자동완성   Index 색인을 통한 Search   Completion Suggester를 활용한 자동완성   해당 포스팅에서는 를 활용한 가장 단순한 자동완성을 만드는 방법 소개합니다   Example Data Setting 먼저 테스트 데이터를 준비해 줍니다 간단한 Index Mapping…"/><meta data-react-helmet="true" property="og:title" content="[Elastic] 1. Elastic 자동완성 가이드 (Autocomplete Guide) - Prefix Queries"/><meta data-react-helmet="true" property="og:description" content="Elastic을 활용하여 다음 3가지 방법의 자동완성 서비스를 구현하는 기술을 다룹니다 Elastic 7.x 버젼을 기준으로 진행합니다    Prefix Queries를 활용한 자동완성   Index 색인을 통한 Search   Completion Suggester를 활용한 자동완성   해당 포스팅에서는 를 활용한 가장 단순한 자동완성을 만드는 방법 소개합니다   Example Data Setting 먼저 테스트 데이터를 준비해 줍니다 간단한 Index Mapping…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="deokhwa kim"/><meta data-react-helmet="true" name="twitter:title" content="[Elastic] 1. Elastic 자동완성 가이드 (Autocomplete Guide) - Prefix Queries"/><meta data-react-helmet="true" name="twitter:description" content="Elastic을 활용하여 다음 3가지 방법의 자동완성 서비스를 구현하는 기술을 다룹니다 Elastic 7.x 버젼을 기준으로 진행합니다    Prefix Queries를 활용한 자동완성   Index 색인을 통한 Search   Completion Suggester를 활용한 자동완성   해당 포스팅에서는 를 활용한 가장 단순한 자동완성을 만드는 방법 소개합니다   Example Data Setting 먼저 테스트 데이터를 준비해 줍니다 간단한 Index Mapping…"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/webpack-runtime-db7c9e59d855b4322330.js"/><link as="script" rel="preload" href="/app-3ef2d9e26c0a65fb468a.js"/><link as="script" rel="preload" href="/commons-e3839588b8ec4f06d1d2.js"/><link as="script" rel="preload" href="/styles-b05cf69044d6f0fd47fb.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-2047161ab81a7fa0cbea.js"/><link as="fetch" rel="preload" href="/page-data\elastic\autocomplete\elastic-autocomplete-1\page-data.json" crossorigin="anonymous"/></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><div class="top"><a class="link" href="/">renuevo blog</a><a href="https://github.com/renuevo" class="github" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg></a></div><div style="margin-left:auto;margin-right:auto;padding:2.4375rem 1.21875rem" class="main-container"><div class="switch-container"><label for="normal-switch"><div style="position:relative;display:inline-block;text-align:left;opacity:1;direction:ltr;border-radius:12px;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s;touch-action:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none"><div class="react-switch-bg" style="height:24px;width:48px;margin:0;position:relative;background:#d9dfe2;border-radius:12px;cursor:pointer;-webkit-transition:background 0.25s;-moz-transition:background 0.25s;transition:background 0.25s"><div style="height:24px;width:26px;position:relative;opacity:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon checkedIcon">D</div></div><div style="height:24px;width:26px;position:absolute;opacity:1;right:0;top:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon uncheckedIcon">L</div></div></div><div class="react-switch-handle" style="height:22px;width:22px;background:#ffffff;display:inline-block;cursor:pointer;border-radius:50%;position:absolute;transform:translateX(1px);top:1px;outline:0;border:0;-webkit-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;-moz-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s"></div><input type="checkbox" role="switch" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px" id="normal-switch"/></div></label></div><h1>[Elastic] 1. Elastic 자동완성 가이드 (Autocomplete Guide) - Prefix Queries</h1><p class="post-date">April 18, 2020</p><div><p><em>Elastic을 활용하여 다음 3가지 방법의 자동완성 서비스를 구현하는 기술을 다룹니다</em><br>
+<em>Elastic 7.x 버젼을 기준으로 진행합니다</em>   </p>
+<ol>
+<li>Prefix Queries를 활용한 자동완성  </li>
+<li>Index 색인을 통한 Search  </li>
+<li>Completion Suggester를 활용한 자동완성  </li>
+</ol>
+<p>해당 포스팅에서는 <code class="language-text">Prefix Queries</code>를 활용한 가장 단순한 자동완성을 만드는 방법 소개합니다  </p>
+<br/>
+<hr>
+<h2 id="example-data-setting"><a href="#example-data-setting" aria-label="example data setting permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Data Setting</h2>
+<p>먼저 테스트 데이터를 준비해 줍니다<br>
+간단한 Index Mapping 정보를 작성합니다  </p>
+<p><span class="code_header"><strong>Autocomplete Example Mapping</strong></span>  </p>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json">PUT autocomplete_test_<span class="token number">1</span>
+<span class="token punctuation">{</span>
+  <span class="token property">"settings"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"index"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"number_of_shards"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+      <span class="token property">"number_of_replicas"</span><span class="token operator">:</span> <span class="token number">1</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+   <span class="token property">"mappings"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"_doc"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"properties"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"word"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"text"</span><span class="token punctuation">,</span>
+          <span class="token property">"fields"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"keyword"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"keyword"</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>word에 2가지 속성으로 색인을 하였습니다  </p>
+<ol>
+<li>
+<p><code class="language-text">text</code> type은 형태소 분석를 통해서 색인 키를 가지게 됩니다<br>
+따로 설정이 없으면 Standard Analyzer로 색인되는데 기본적으로 <code class="language-text">불용어, lowercase, whitespace</code>로 색인 됩니다<br>
+<strong>스팀게임 추천 :</strong> <code class="language-text">스팀게임</code> <code class="language-text">추천</code>  두개의 단어로 키가 잡힙니다
+호출로 색인 키를 확인 할 수 있습니다  </p>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json">   GET autocomplete_test_<span class="token number">1</span>/_analyze
+   <span class="token punctuation">{</span>
+     <span class="token property">"text"</span> <span class="token operator">:</span> <span class="token string">"스팀게임 추천"</span>
+   <span class="token punctuation">}</span></code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 448px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 80.35714285714286%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsSAAALEgHS3X78AAABzUlEQVQ4y6WT2W7bMBRE/f8flae+NSjgJohdp14UW5G1kRRFipQlezokGgMF4iWogAGh7XDuvcPJ8XiC9z1U00Jbj4bStod1h0/V3dDkdDrBdh1a45BWDX6lFQplodsOUls4P3LDMa4BaLr+qiLQOc8bD9kY1NS21oSauONeCazKFOsqhTL2DL1UwSSUHIDW9RCNRUX9WO+x3Ass3gWedzm2VYFFlkbHdwG9/wukqwB83pZ4zQTmaYmkqLAtK+SyjY4/SrsIDCWHoQSgJCyU+n2V0aFEViu6TPC0S7CXEq319zk07E3ooVAtaqrSDiUHI7g6d6SzYxyM6a7DInAcR0jVxA9rllURKDnxxnhCBpRacQMNE364MeE45QBsNPvjD7Hk0MNpUmBTKOyFwU+Wuyre6ba76uzssD8MDLU+O8ylwXSTY7ar8MhernPNNljCNRSz2cbg+7h+pknOMK+SDGmusCHkN/XwtMF0mWHO54+vM3ybv2D2luJlkWDH765pMgxD7OE5Nuzhki8SlhzcCmZPtF18Hxzc1UNFYGtdnLDhT47D+Dib9ouKDoVUUNpwsu6u83rDIXPWMW/+31NwK2+Xg82TEi7fD/8NC/oD8yHOtCiK9bIAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="analyzer-test"
+        title="analyzer-test"
+        src="/static/4cc296054549f55d9120ec605c1456e3/6e872/analyzer-test.png"
+        srcset="/static/4cc296054549f55d9120ec605c1456e3/acf4b/analyzer-test.png 173w,
+/static/4cc296054549f55d9120ec605c1456e3/fc834/analyzer-test.png 345w,
+/static/4cc296054549f55d9120ec605c1456e3/6e872/analyzer-test.png 448w"
+        sizes="(max-width: 448px) 100vw, 448px"
+        loading="lazy"
+      />
+    </span>
+<span class='img_caption'>Standard Analyzer</span>  </p>
+ <br/>
+</li>
+<li><code class="language-text">keyword</code> type은 텍스트 자체를 키로 색인을 합니다<br>
+<strong>스팀게임 추천 :</strong> <code class="language-text">스팀게임 추천</code>이라는 문장으로 키가 잡힙니다</li>
+</ol>
+<h2 id="br"><a href="#br" aria-label="br permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><br/></h2>
+<p>이제 기본 개념을 알아봤으니 예제의 사용할 데이터를 생성하겠습니다<br>
+<span class="code_header"><strong>Autocomplete Example Data</strong></span>  </p>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json">POST _bulk
+<span class="token punctuation">{</span><span class="token property">"index"</span><span class="token operator">:</span><span class="token punctuation">{</span><span class="token property">"_index"</span><span class="token operator">:</span><span class="token string">"autocomplete_test_1"</span><span class="token punctuation">,</span><span class="token property">"_id"</span><span class="token operator">:</span><span class="token string">"1"</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token property">"word"</span><span class="token operator">:</span><span class="token string">"스팀게임"</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token property">"index"</span><span class="token operator">:</span><span class="token punctuation">{</span><span class="token property">"_index"</span><span class="token operator">:</span><span class="token string">"autocomplete_test_1"</span><span class="token punctuation">,</span><span class="token property">"_id"</span><span class="token operator">:</span><span class="token string">"2"</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token property">"word"</span><span class="token operator">:</span><span class="token string">"스팀게임 추천"</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token property">"index"</span><span class="token operator">:</span><span class="token punctuation">{</span><span class="token property">"_index"</span><span class="token operator">:</span><span class="token string">"autocomplete_test_1"</span><span class="token punctuation">,</span><span class="token property">"_id"</span><span class="token operator">:</span><span class="token string">"3"</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token property">"word"</span><span class="token operator">:</span><span class="token string">"스팀게임 추천 2019"</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token property">"index"</span><span class="token operator">:</span><span class="token punctuation">{</span><span class="token property">"_index"</span><span class="token operator">:</span><span class="token string">"autocomplete_test_1"</span><span class="token punctuation">,</span><span class="token property">"_id"</span><span class="token operator">:</span><span class="token string">"4"</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token property">"word"</span><span class="token operator">:</span><span class="token string">"스팀게임 환불"</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token property">"index"</span><span class="token operator">:</span><span class="token punctuation">{</span><span class="token property">"_index"</span><span class="token operator">:</span><span class="token string">"autocomplete_test_1"</span><span class="token punctuation">,</span><span class="token property">"_id"</span><span class="token operator">:</span><span class="token string">"5"</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token property">"word"</span><span class="token operator">:</span><span class="token string">"스팀게임 싸게"</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token property">"index"</span><span class="token operator">:</span><span class="token punctuation">{</span><span class="token property">"_index"</span><span class="token operator">:</span><span class="token string">"autocomplete_test_1"</span><span class="token punctuation">,</span><span class="token property">"_id"</span><span class="token operator">:</span><span class="token string">"6"</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token property">"word"</span><span class="token operator">:</span><span class="token string">"스팀게임 순위"</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token property">"index"</span><span class="token operator">:</span><span class="token punctuation">{</span><span class="token property">"_index"</span><span class="token operator">:</span><span class="token string">"autocomplete_test_1"</span><span class="token punctuation">,</span><span class="token property">"_id"</span><span class="token operator">:</span><span class="token string">"7"</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token property">"word"</span><span class="token operator">:</span><span class="token string">"스팀게임 추천 2020"</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token property">"index"</span><span class="token operator">:</span><span class="token punctuation">{</span><span class="token property">"_index"</span><span class="token operator">:</span><span class="token string">"autocomplete_test_1"</span><span class="token punctuation">,</span><span class="token property">"_id"</span><span class="token operator">:</span><span class="token string">"8"</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token property">"word"</span><span class="token operator">:</span><span class="token string">"스팀게임 환불하는법"</span><span class="token punctuation">}</span></code></pre></div>
+<p>자동완성 데이터는 Google에 스팀게임을 검색해서 나오는 자동완성을 가져왔습니다  </p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 660px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 64.54545454545455%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABAklEQVQoz5WS23KDIBRF+f+/65jO1JE2TbxAFTmIqAk3ezTtJE/GrDmvi33YQKDrx2kMIc4PDMP4kX1/narjmW0M8c7FEMZpGgbj7EV1+lhCjNEvBOf8xhB7nSbTuYso8hOln0lyeEveKaVpmmYZPW9CQsTgEIPXWksJjPG8KIui1LpXuMYmi4yXxD2dc3gKLq/7BWvt/Axyqwrlq11QSrWt5JyDgh1yvMvYAWaKVtZNM++A+DUZj8BY7LfvjVp5Qf5b2znUBO4NsEt+vDN2pjsNAEIIkPCCvAa7bpUrxtCPMe6SEWNMI8RPXTPOz3leVlUr8eFhY+7y7UsuH+a/f/+MX1kG77SixCc4AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="google-search"
+        title="google-search"
+        src="/static/adb13c086f0589274d824a31187fa134/2a182/google-search.png"
+        srcset="/static/adb13c086f0589274d824a31187fa134/acf4b/google-search.png 173w,
+/static/adb13c086f0589274d824a31187fa134/fc834/google-search.png 345w,
+/static/adb13c086f0589274d824a31187fa134/2a182/google-search.png 660w"
+        sizes="(max-width: 660px) 100vw, 660px"
+        loading="lazy"
+      />
+    </span>
+<span class='img_caption'>Google Search</span>  </p>
+<br/>
+<br/>
+<p>만약 7.X보다 밑의 버젼을 쓰신다면 type을 추가해주셔야합니다  </p>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json">POST _bulk
+<span class="token punctuation">{</span><span class="token property">"index"</span><span class="token operator">:</span><span class="token punctuation">{</span><span class="token property">"_index"</span><span class="token operator">:</span><span class="token string">"autocomplete_test_1"</span><span class="token punctuation">,</span><span class="token property">"_type"</span> <span class="token operator">:</span> <span class="token string">"_doc"</span><span class="token punctuation">,</span> <span class="token property">"_id"</span><span class="token operator">:</span><span class="token string">"1"</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token property">"word"</span><span class="token operator">:</span><span class="token string">"스팀게임"</span><span class="token punctuation">}</span></code></pre></div>
+<br/>
+<br/>
+<h2 id="prefix-query"><a href="#prefix-query" aria-label="prefix query permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prefix Query</h2>
+<p>먼저 Prefix Query를 살펴보겠습니다<br>
+<code class="language-text">Prefix Query</code>는 Elastic에서 제공하는 앞글자 일치 검색기능 입니다<br>
+간단한 쿼리를 통해서 <code class="language-text">text</code>와<code class="language-text">keyword</code> type들에 대해 어떻게 검색이 다르게 되는지 살펴 보겠습니다  </p>
+<br/>
+<p><strong><em>여기서 부터 차례로 text와 keyword을 번갈아 가면서 어떻게 다르게 검색되는지 살펴보겠습니다</em></strong>  </p>
+<p>형태소 분석이된 <code class="language-text">Text Type</code>에 대한 검색입니다<br>
+띄어쓰기 기준으로 키워드가 색인된 것을 앞서 확인했습니다<br>
+예를 들어 <code class="language-text">스팀게임 추천</code>이라는 문장은 <code class="language-text">스팀게임</code>과 <code class="language-text">추천</code> 이라는 2개의 키워드를 통해 검색됩니다  </p>
+<br/>
+<p>Prefix쿼리로 먼저 앞글자 단어 일치를 확인해보겠습니다  </p>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json">GET autocomplete_test_<span class="token number">1</span>/_search
+<span class="token punctuation">{</span>
+  <span class="token property">"query"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"prefix"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"word"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"스팀게"</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 612px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 98.0392156862745%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsSAAALEgHS3X78AAAB5UlEQVQ4y52UW4/aMBSE9///sn3Zh2pVipZbIeSC49iOHSfhpunYwIp2gZJ9GGHJPsOcfPZ5KXIJq2o4yhsHry289fDdDr7dnhTWd9Sc953vMRrP8ZK9vmE5nkFN5rCLFdp1jnY8iaZNvx9uaGj0UWgssgqSKYVl2uk8pg2GoeBS1Nww/2KYvv1AMpog/fkBPV1AhHRM6nngVuG/pl8Mk8ohVQ20a2G56Tqm2h7gzskGJzSmgaw9FhsNxe+2lgWWIkMiBTJdIaeUaz6L/5tQ0yytLGa5oqGlYYm66eLBcMi1/cOUNw0z5fC+EkhlTWlI62B9d7e9h4aKLas6tGqZsIWoNSYiwcZotJeCdgCUklfFssX9/hg3+v6I/Q7ot0ca7qMGQam0i1B+C0PSHYkLLMscK7n5HhRjT+3+WkuUdU3aOf/AouY3rH0bNRhKTiijpCQQg0KdzOxZn4Xd9nkoFU0TEg5QNkZhVq6xrAq2LP+63E+1HKA4QtnuDpFq1x8ikCiuuzAg7gB5CGVJKIZQMlUSSHGCor75Ui5QhCEUkaPkr2naqJpy50HxtGGAMuXTy/kEA5Q4GK4gNINeCg0lwcw5HKTxKNjirEyxqjYRSlIJ0h6QUIZrwtF1fT2uB0JYnwqfS/gH8kX8VYPq8zkAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="search-prefix-text"
+        title="search-prefix-text"
+        src="/static/86783b78d8a731062ae5c2c491c7049f/ad08f/search-prefix-text.png"
+        srcset="/static/86783b78d8a731062ae5c2c491c7049f/acf4b/search-prefix-text.png 173w,
+/static/86783b78d8a731062ae5c2c491c7049f/fc834/search-prefix-text.png 345w,
+/static/86783b78d8a731062ae5c2c491c7049f/ad08f/search-prefix-text.png 612w"
+        sizes="(max-width: 612px) 100vw, 612px"
+        loading="lazy"
+      />
+    </span>
+<span class='img_caption'>Prefix Text Search</span><br>
+정상적으로 모든 <code class="language-text">스팀게임</code>의 키워드를 기준 앞글자가 일치하는 모든 결과가 검색된걸 확인할 수 있습니다  </p>
+<br/>
+<br/>
+<p>다음은 <code class="language-text">Keyword Type</code>에대해 Prefix쿼리로 검색합니다  </p>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json">GET autocomplete_test_<span class="token number">1</span>/_search
+<span class="token punctuation">{</span>
+  <span class="token property">"query"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"prefix"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"word.keyword"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"스팀게"</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 612px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 98.0392156862745%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsSAAALEgHS3X78AAAB5UlEQVQ4y52UW4/aMBSE9///sn3Zh2pVipZbIeSC49iOHSfhpunYwIp2gZJ9GGHJPsOcfPZ5KXIJq2o4yhsHry289fDdDr7dnhTWd9Sc953vMRrP8ZK9vmE5nkFN5rCLFdp1jnY8iaZNvx9uaGj0UWgssgqSKYVl2uk8pg2GoeBS1Nww/2KYvv1AMpog/fkBPV1AhHRM6nngVuG/pl8Mk8ohVQ20a2G56Tqm2h7gzskGJzSmgaw9FhsNxe+2lgWWIkMiBTJdIaeUaz6L/5tQ0yytLGa5oqGlYYm66eLBcMi1/cOUNw0z5fC+EkhlTWlI62B9d7e9h4aKLas6tGqZsIWoNSYiwcZotJeCdgCUklfFssX9/hg3+v6I/Q7ot0ca7qMGQam0i1B+C0PSHYkLLMscK7n5HhRjT+3+WkuUdU3aOf/AouY3rH0bNRhKTiijpCQQg0KdzOxZn4Xd9nkoFU0TEg5QNkZhVq6xrAq2LP+63E+1HKA4QtnuDpFq1x8ikCiuuzAg7gB5CGVJKIZQMlUSSHGCor75Ui5QhCEUkaPkr2naqJpy50HxtGGAMuXTy/kEA5Q4GK4gNINeCg0lwcw5HKTxKNjirEyxqjYRSlIJ0h6QUIZrwtF1fT2uB0JYnwqfS/gH8kX8VYPq8zkAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="search-prefix-keyword"
+        title="search-prefix-keyword"
+        src="/static/86783b78d8a731062ae5c2c491c7049f/ad08f/search-prefix-keyword.png"
+        srcset="/static/86783b78d8a731062ae5c2c491c7049f/acf4b/search-prefix-keyword.png 173w,
+/static/86783b78d8a731062ae5c2c491c7049f/fc834/search-prefix-keyword.png 345w,
+/static/86783b78d8a731062ae5c2c491c7049f/ad08f/search-prefix-keyword.png 612w"
+        sizes="(max-width: 612px) 100vw, 612px"
+        loading="lazy"
+      />
+    </span>
+<span class='img_caption'>Prefix Keyword Search</span><br>
+Text Type과 같이 모든 단어가 검색된걸 확인할 수 있습니다  </p>
+<p>둘의 검색을 비교해 보면 다음과 같습니다  </p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 27.252747252747252%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAABcRAAAXEQHKJvM/AAABe0lEQVQY02MIDkxjFJ95hpkBCHgZGASBlDgfAwM/iD81p4N1d3Yt6/asOtZlyZUs/YnlzFtrZrGB5BgZGESAlGw0AwMriD8xKo99V0IxkL32JS9IgKHvkB1D/54W/Y03Sxn6dtcD+VoM6OD/f7DFDBOOuXNMPVijt/xMMUPnznygOBdcTbVXlIoGKyPP1Pjy7IW5TXcOTlx8em52w5UtwVmO/x1cQv4nZ5b8j00u/u8VGPI/OMbmv7df7ta4onXzy7pvb+qcfWVOafe5v1Gpdf+9/HP++4XkMwQZ2xnw8wrI1nrH5FcFJb+uTCh80B6ddb+ssGVBZ0rZ1cbEkpe1sYWfaoPT19aFZhbXhWV9qfNPutkRl3tvaknjwym51TeaI3Me14RkPq8NzXzOwOASJ8TAysHFkNatx5DckcwQWR/NUDUrzrZjfp5s55J4hoSWKIbYxkSG5DZXhsRWPYak1kSGhNZYhooZ8Vpdi5OF6mYlM6R1xgDFYoByMQBrjI7ABxl+NAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="elastic-search-index"
+        title="elastic-search-index"
+        src="/static/c009d0460c0bf063d7e2def06c54b256/36727/elastic-search-index.png"
+        srcset="/static/c009d0460c0bf063d7e2def06c54b256/acf4b/elastic-search-index.png 173w,
+/static/c009d0460c0bf063d7e2def06c54b256/fc834/elastic-search-index.png 345w,
+/static/c009d0460c0bf063d7e2def06c54b256/36727/elastic-search-index.png 690w,
+/static/c009d0460c0bf063d7e2def06c54b256/17fa4/elastic-search-index.png 1035w,
+/static/c009d0460c0bf063d7e2def06c54b256/a5044/elastic-search-index.png 1380w,
+/static/c009d0460c0bf063d7e2def06c54b256/f9966/elastic-search-index.png 1820w"
+        sizes="(max-width: 690px) 100vw, 690px"
+        loading="lazy"
+      />
+    </span>
+<span class='img_caption'>Elastic Index Search</span>  </p>
+<p>그래서 둘 모두 같은 결과를 내놓았습니다<br>
+만약 Text Type에 형태소에서 <code class="language-text">스팀게임</code>이라는 단어를 <code class="language-text">Index Key</code>로 잡지 않았다면 전혀 다른 결과가 나오게 됩니다  </p>
+<br/>
+<br/>
+<p>다음으로 <code class="language-text">Text Type</code>에 <code class="language-text">추천</code>으로 검색해 보겠습니다  </p>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json">GET autocomplete_test_<span class="token number">1</span>/_search
+<span class="token punctuation">{</span>
+  <span class="token property">"query"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"prefix"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"word"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"추천"</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 625px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 98.88000000000001%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsSAAALEgHS3X78AAAB9klEQVQ4y5WUWW/bMBCE8///VIEiQAq06GuPuEEV67BE8RQP20kxnZVjJymKRHogJNnkcHe/nb0KsWDTGXQ6wIWEVI6XFfPh1fdb67z3KuY9lI340Wo0o4elqI3psmGp6EVwYoSjnXCvPLZjmAV31s0b/l1vXXARTHz51WlUg8foJripwMcDyv4BuTyv96J9jjDtoRmhDpkpB4oVdHZEqxUaPaJ3BoN3CKksizBQ0PrEdD3udhbKe1RqNz9NLrBcjjWVi5cJxpNgoyfcknZvA3ozMeVHFO2RTUDar0zZUHBg2j9JWohvdY+NqlFdf4D6+gXp8Lgciggq4yG0DzyY+eMMQaBoh8yL8toIpW1GRtkyVTtlto2eobQE0hPI4NZAYQ0dCQuUW6asQ8DvoeMFhJLyE5SMKe/XUa5pvW+1tItDRxBRNvYjkjKn93VQIpSLuOsttBC3Cptdhe3NRzSfb/itkfLxlWPeh8IaPRz/zFDmlpFF8cJyFMJa7RSBUtMpjrRbIy4ZUBuNnbN0i4VMpVVQKg6H783I1OmYvuUF4QQki7fz8j48Q5GWkRHW0R09I57rVbeIXY9JDp2nziIo7gRFRphhtJ3T9PU9mk/XaGco5nJoEZSR/pVnfvHnvIFNnp5qtxiK50D1cvA/EURaLr5Id0kN/wLyGARQrkcE/gAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="search-prefix-text2"
+        title="search-prefix-text2"
+        src="/static/5423fa975b866c8462f7ee1ede430215/aa4a2/search-prefix-text2.png"
+        srcset="/static/5423fa975b866c8462f7ee1ede430215/acf4b/search-prefix-text2.png 173w,
+/static/5423fa975b866c8462f7ee1ede430215/fc834/search-prefix-text2.png 345w,
+/static/5423fa975b866c8462f7ee1ede430215/aa4a2/search-prefix-text2.png 625w"
+        sizes="(max-width: 625px) 100vw, 625px"
+        loading="lazy"
+      />
+    </span>
+<span class='img_caption'>Prefix Text2 Search</span><br>
+예상한것과 같이 추천이 뒤에 포함된 결과들이 검색된걸 확인할 수 있습니다  </p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.21693121693122%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAAB4klEQVQoz4WTu24TQRSG9wVoeAQeg4YeCVIADVK4RKJD9BSkoEBCyB2IR6ChiZCokKBAsZAMkQPhInyJncS39e7s7MU76718nN0Qi8I2Z3V0tpj5zn9m/rFm2qGnu9SjNvXwNx/877STMc5MM409gsKg8xidzZamSkPiNGHHa7A9eI3lT3p8HTbYCZq89fZ4433hwByjXIXn+aRJSmESKFiaWZ7DHF45u2x2X2KxIlylcAYDtNRca4qiWJ0V/TSsIJ8REKOI5Evk3xDKmMfjIXavj8isFlZbimJp8zNoqdbqDcd8a7U46LT50enw87DLxNfYysXrH4HvL2DrVJaRZhnWu/p7NrcesHHjHlc27nLx0mX2938Rxwan36eQcSvYfxSWMU8F2GztcfPWfe5s3eba9aucO3+BT40mYRjSEaB7ckJu2wvoWoUl8OPuZ7YfP+NF7Tm1pzUePnpCq3MkRydjC1DJpSTOVNona0dfAKNZjEnMX8l5VctxXbmMbDSCPGdl/ANbAP0gYmJP8YMQW6or/osiMbIf4toOnhKDB4pRZONGmvk8q87qrGZZgWs0rjyCOJ6fKizHMsYwnU4JgkAWppWpJ55CRyFhLA3iqKpGjF5mIsCyqeN6KHGC7TiU4v4ArtY73i9E9cUAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="naver-recommend"
+        title="naver-recommend"
+        src="/static/a6c4c7abca1ed89696b5394fc390c3c1/36727/naver-recommend.png"
+        srcset="/static/a6c4c7abca1ed89696b5394fc390c3c1/acf4b/naver-recommend.png 173w,
+/static/a6c4c7abca1ed89696b5394fc390c3c1/fc834/naver-recommend.png 345w,
+/static/a6c4c7abca1ed89696b5394fc390c3c1/36727/naver-recommend.png 690w,
+/static/a6c4c7abca1ed89696b5394fc390c3c1/50bbc/naver-recommend.png 756w"
+        sizes="(max-width: 690px) 100vw, 690px"
+        loading="lazy"
+      />
+    </span>
+<span class='img_caption'>Naver Autocomplete</span><br>
+다음과 같이 뒤에 단어까지 확장된 검색이 필요하다면 Text Type의 색인된 검색결과를 입력하는게 효율적입니다  </p>
+<br/>
+<br/>
+<p>다음으로 <code class="language-text">Keyword Type</code>에 <code class="language-text">추천</code> 키워드로 검색해 보겠습니다  </p>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json">GET autocomplete_test_<span class="token number">1</span>/_search
+<span class="token punctuation">{</span>
+  <span class="token property">"query"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"prefix"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"word.keyword"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"추천"</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 427px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 48.00936768149883%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABGklEQVQoz6WR0W6CQBBF+f8PqzExLbGiqUUFgRItuAizi4Lt6UptapqmkvThZjMP9+65M0449VmNnyiXIYW/QgcRJozRX1qt0XtBDi3aHNF186ec3d2QZ89n7s7I/AA1X1Da0HqdUKevmHsXswyQE2h9uB2oxlNUC264xUsLUiXEu4q8MuSNpYrTjlra956ED4+o5o0wKwl3wjqvKOuWTIRI7zHRS1e7I+wTqGzleDCicCdsRy7K9dDjCflwRGnp68EQbev3JlSqwlskzIKUKNmSJBtUpsg2WSdtq4sNkrOhV+VCbMWGvWkw9pKlXXxljbVdgzmePq97CZMbYV1gKQfMZZArgo7qPF/e3oRivs3X+vlBXzn/Mf+mD+st/n0AMCHwAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="search-prefix-keyword2"
+        title="search-prefix-keyword2"
+        src="/static/124f7b7122e57fc9095fea6badfc50d8/8928d/search-prefix-keyword2.png"
+        srcset="/static/124f7b7122e57fc9095fea6badfc50d8/acf4b/search-prefix-keyword2.png 173w,
+/static/124f7b7122e57fc9095fea6badfc50d8/fc834/search-prefix-keyword2.png 345w,
+/static/124f7b7122e57fc9095fea6badfc50d8/8928d/search-prefix-keyword2.png 427w"
+        sizes="(max-width: 427px) 100vw, 427px"
+        loading="lazy"
+      />
+    </span>
+<span class='img_caption'>Prefix Keyword2 Search</span><br>
+추천과 관련된 word가 3개가 있는데 검색 결과는 <span class='red_font'>0건</span>이 나왔습니다  </p>
+<br/>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 27.252747252747252%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAABcRAAAXEQHKJvM/AAABhklEQVQY02MISKpjFC2awdST1sC8M6OadXvtBNYFiSVs////ZyhhYGBhYGAQARIS/xkYGP/f/894rmwCawADA/sCBgYBoJjoaQYGOSMg//+CYyyrwjLYGBi2fOES3fuHjQFoAAq485+LoWVzPt/C85WsM47WMbRuS4XLzbsvxtCxq0J12eV8zp5ddQxdB6zgco3uYUpiBrbC/zwC7P5Hxpf8r2nI+x8WXfDfyVdrYkzJ6nWVfZdWFXdcnZxQMe9/aKzlf5/AgpcBMa2Tcluvreucd35aed/NfTG5i//7BGT+9w0pYAgytjfgYeeQqQpILq+LKfhck133pCu57GVZUduSzri84w3h6U+qQlLf1PvELawPyyqpC8v6XBWY8qgjPvf+nLLmhxMyyh7UhaY/rAvNfF4LxAwMLrFCDBw8XAwpnboM8c2JDKFV0Qxl02JsO+blyXctSwKKRzMktiUxpHa6MyS26jEktSUyJLRGM1TMiFfvXJwsVD8nkSGjO5YhoSUGKBcDAIyOmYxhFbUhAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="elastic-search-index2"
+        title="elastic-search-index2"
+        src="/static/17a51ebc717ffeb8bc102da4c48b93e0/36727/elastic-search-index2.png"
+        srcset="/static/17a51ebc717ffeb8bc102da4c48b93e0/acf4b/elastic-search-index2.png 173w,
+/static/17a51ebc717ffeb8bc102da4c48b93e0/fc834/elastic-search-index2.png 345w,
+/static/17a51ebc717ffeb8bc102da4c48b93e0/36727/elastic-search-index2.png 690w,
+/static/17a51ebc717ffeb8bc102da4c48b93e0/17fa4/elastic-search-index2.png 1035w,
+/static/17a51ebc717ffeb8bc102da4c48b93e0/a5044/elastic-search-index2.png 1380w,
+/static/17a51ebc717ffeb8bc102da4c48b93e0/f9966/elastic-search-index2.png 1820w"
+        sizes="(max-width: 690px) 100vw, 690px"
+        loading="lazy"
+      />
+    </span>
+<span class='img_caption'>Elastic Index Search2</span><br>
+Type Type과 달리 들어오는 키워드 자체로 색인되기 때문에 추천이라는 글자가 포함되더라도 검색되지 않습니다  </p>
+<br/>
+<br/>
+<p><strong>그럼 무조건 Text Type의 검색일 사용하면 되는 걸까요?</strong><br>
+Text Type으로 설정시 <span class='red_font'>치명적인 단점</span>을 가지고 있습니다<br>
+다음과 같이 각각의 키워드는 있으나 결합된 키워드로 검색시 결과가 나오지 않을 수 있습니다   </p>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json">GET autocomplete_test_<span class="token number">1</span>/_search
+<span class="token punctuation">{</span>
+  <span class="token property">"query"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"prefix"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"word"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"스팀게임 추"</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 448px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 51.78571428571428%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAAA1klEQVQoz52RyY4CMQxE+/+/jgPigthBCZ2JO4mzAYfCQWjUF0YTDlYi2S49Vw2eM+zE0C5CUQSnChcLYr4hlfvv+98agixvlcXBeLiQ4HxCfjebWK+wCFaQiKxOBmtF8o8wFMD5jlIf3ZSD5wIWSi0ii/0VGz3hbByMC7jQjwjXfkJDHkZ8tCFDTeKjLHtOGJ2Toc6TWwjaBiyPI/bi405bWM8YzQR1tYivwVsPYQFJwhdiUCgIQtbCibNgughbCG24SgB53vwi4ZfgfOlTdRF+c9Zf9QS8EQXJKSQrGAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="search-prefix-text3"
+        title="search-prefix-text3"
+        src="/static/867001024aabe2448998c7c9263cf186/6e872/search-prefix-text3.png"
+        srcset="/static/867001024aabe2448998c7c9263cf186/acf4b/search-prefix-text3.png 173w,
+/static/867001024aabe2448998c7c9263cf186/fc834/search-prefix-text3.png 345w,
+/static/867001024aabe2448998c7c9263cf186/6e872/search-prefix-text3.png 448w"
+        sizes="(max-width: 448px) 100vw, 448px"
+        loading="lazy"
+      />
+    </span>
+<span class='img_caption'>Prefix Text3 Search</span>    </p>
+<p>자동완성처럼 한글자씩 치면서 아래 계속해서 list를 펼쳐줘야 하는데<br>
+이는 치명적인 단점으로 다가오게 됩니다  </p>
+<br/>
+<br/>
+<p>반면 Keyword Type의 경우 색인된 결과와 앞글자를 일치 시켜주면 검색이 됩니다  </p>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json">GET autocomplete_test_<span class="token number">1</span>/_search
+<span class="token punctuation">{</span>
+  <span class="token property">"query"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"prefix"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"word.keyword"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"스팀게임 추"</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 623px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 99.19743178170144%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsSAAALEgHS3X78AAABu0lEQVQ4y5WU63KbMBCF8/7vl04yaZy2gLlJ6IqAOO7pkWpIybSN+LGzjEc6Prvfru6sn/BcD6iEgTYj/PSKMF0wMvuwpJwT69k7H2YMFHo4SxS9huS3cn47kCu6CbpxglAOlbQMB+0CWqXTgY/xvz/YBEd+nJoBL51GT2HDFmi3YJovqfQ1PnP7h0OWrD2kDSyZfXQT6qFHKTs67tGoAZ3WiL3OchgFtR1RCotTq9Brg0K0EMZC+3GLeC5fkCDqweGJtDtl0fDbh/fD4cOlz0umYM+yHysJwVyy5K9diW+iRqvV7kKWQzFYOPZoWd5+O9qAvLs75FCSrqDLgn1UHJtzgtIzCzR0GF0ehBLSHD5zfCKMH33LAaf4DYjxAS5kQrE3ynGov5R0NBjUFI8CuUP99zlkyadGpVyx5KeuwHfZoOA8xvLXS4egXF6v6cd5uRLQT8zzNcU0vx3Z5T2UuCkRyuqs5qZEMLGPh6AUfL4eKpE25aWrd5ti+IAcmkNFd2dux31BR9IQjE0ilmAinG3tcgVXKOWt5FpLnPoKxdAlQMehcH9jDvP+0PpsHdoU49gjF3YO/hU5PfwF7NQGx5wdHHUAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="search-prefix-keyword3"
+        title="search-prefix-keyword3"
+        src="/static/b8fd34642ace5bc20a8e873dad1582ac/54ef9/search-prefix-keyword3.png"
+        srcset="/static/b8fd34642ace5bc20a8e873dad1582ac/acf4b/search-prefix-keyword3.png 173w,
+/static/b8fd34642ace5bc20a8e873dad1582ac/fc834/search-prefix-keyword3.png 345w,
+/static/b8fd34642ace5bc20a8e873dad1582ac/54ef9/search-prefix-keyword3.png 623w"
+        sizes="(max-width: 623px) 100vw, 623px"
+        loading="lazy"
+      />
+    </span>
+<span class='img_caption'>Prefix Keyword3 Search</span>    </p>
+<p>이 때문에 높은 <code class="language-text">recall(재현율)</code>을 위해서 두가지 타입을 <code class="language-text">OR</code>로 사용해서 서비스 할 수도 있습니다  </p>
+<br/>
+<p>하지만 아직 위의 구현으로는 쓸만한 자동완성을 만들 수 있지만 잘 만든 자동완성은 아닙니다<br>
+다음으로 <code class="language-text">오타교정 자동완성</code>과 <code class="language-text">형태소 분석</code>을 통한 자동완성을 살펴 보겠습니다   </p>
+<br/>
+<hr>
+<br/>
+<h2 id="fuzzy-query"><a href="#fuzzy-query" aria-label="fuzzy query permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Fuzzy Query</h2>
+<p>다음으로 알아볼것은 Elastic에서 제공하는 <strong>Fuzzy Query</strong>를 통한 자동완성입니다<br>
+Fuzzy Query를 사용하게 되면 <code class="language-text">편집거리 알고리즘</code>을 사용하여 오타를 교정하는 검색이 가능해 집니다<br>
+간단히 설명드리면 <strong>fuzziness</strong>설정 값 이하로 <strong>글자를 바꾸거나, 넣거나, 빼는 횟수</strong>를 측정하여 검색합니다<br>
+<strong>편집거리 알고리즘(Levenshtein distance)</strong>에 대한 자세한 설명은 제 다른 포스팅을 확인해 주세요 👉 <a href="https://github.com/renuevo/data-modeling-algorithm/tree/master/levenshtein-distance" target="_blank" rel="nofollow noopener noreferrer">편집거리 알고리즘</a>   </p>
+<br/>
+<p>Fuzzy Query에 경우에도 아까 설명드린 <code class="language-text">Text</code>와 <code class="language-text">Keyword</code>에 대한 검색방식은 같습니다  </p>
+<p><strong>Text Type Fuzzy Query</strong><br>
+먼저 Text Type에 대해 검색을 하는 쿼리를 실행해 보겠습니다   </p>
+<p><span class='code_header'>Fuzzy Query Text Type Search</span>  </p>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json">## 바꾸거나
+GET autocomplete_test_<span class="token number">1</span>/_search
+<span class="token punctuation">{</span>
+  <span class="token property">"query"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"fuzzy"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"word"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+<span class="gatsby-highlight-code-line">        <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"스게팀임"</span><span class="token punctuation">,</span>  </span>        <span class="token property">"fuzziness"</span><span class="token operator">:</span> <span class="token number">1</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+GET autocomplete_test_<span class="token number">1</span>/_search
+<span class="token punctuation">{</span>
+  <span class="token property">"query"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"fuzzy"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"word"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+<span class="gatsby-highlight-code-line">        <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"스팀께임"</span><span class="token punctuation">,</span>  </span>        <span class="token property">"fuzziness"</span><span class="token operator">:</span> <span class="token number">1</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+## 넣거나
+GET autocomplete_test_<span class="token number">1</span>/_search
+<span class="token punctuation">{</span>
+  <span class="token property">"query"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"fuzzy"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"word"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+<span class="gatsby-highlight-code-line">        <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"스게임"</span><span class="token punctuation">,</span>  </span>        <span class="token property">"fuzziness"</span><span class="token operator">:</span> <span class="token number">1</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+## 빼거나
+GET autocomplete_test_<span class="token number">1</span>/_search
+<span class="token punctuation">{</span>
+  <span class="token property">"query"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"fuzzy"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"word"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+<span class="gatsby-highlight-code-line">        <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"스!팀게임"</span><span class="token punctuation">,</span>  </span>        <span class="token property">"fuzziness"</span><span class="token operator">:</span> <span class="token number">1</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><code class="language-text">fuzziness</code>를 <strong>1</strong>로 설정해서 1글자의 대해서 교정을 해주었습니다<br>
+그래서 <strong>한글자를 바꾸거나, 넣거나, 빼는</strong> 경우에 대해서 아래와 같이 모두 같은 결과가 나옵니다  </p>
+<br/>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 609px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 95.40229885057472%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsSAAALEgHS3X78AAAByUlEQVQ4y52U627iMBBGef8X3Iq2VFBy9TW+JKGs9O03pi1FQmzSH0McYZ3M+IxnE/OMbW2w7xycj0jTB8bpjDSeSmS+/1zfi6//hLVJ/DFDvkB7D+0TbIzccCL44yHoJ3Ccz1B2wCakCdpFtC6hsQkujqitQ+9lPX1n9yhbeZ++gJkvu8Zg13kogj0hyk+EZ9gwlY1yBPlBtjdAqVsylLIPyhdgbRWjx9EoNM6g9Q4+jcsyDAS6kHHUAS+NhR4G7FXHLEMpf0iXiOO8AsjsahvxxrI7FwgfygdaG+/a/G/JAlSU8qfS5VlbjW13gBr8t+nFUgQoi8Cy5tP5uumzbUTIailGpISxlClSGmYoYiqjKcSi876c46ozFNhr6yglUErLPvRscPZiyiVk3zJgukp5pmWR8q4GHHRExfhVyZbAnmU/VYbPxP7ri5SdqksfXjNbKEXbALmC8+nvp4jbDNbfFAINm1vus0jpeTMaa3gMppxlP6yRwjP0YtgEbFmyCWzwvuZZurKWyeMoJ+aVN6Ui8ImNXRuHA8fYXoVi/ndSOKoUQywrTzh78FVVeOmPeDfdzcBdJoWGRcplVF02yDAIeXo4FO4B/wHC1LXcASpOdgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="search-fuzzy-text"
+        title="search-fuzzy-text"
+        src="/static/d6163360a94cad4d522a5a194188d280/672f7/search-fuzzy-text.png"
+        srcset="/static/d6163360a94cad4d522a5a194188d280/acf4b/search-fuzzy-text.png 173w,
+/static/d6163360a94cad4d522a5a194188d280/fc834/search-fuzzy-text.png 345w,
+/static/d6163360a94cad4d522a5a194188d280/672f7/search-fuzzy-text.png 609w"
+        sizes="(max-width: 609px) 100vw, 609px"
+        loading="lazy"
+      />
+    </span>
+<span class='img_caption'>Fuzzy Text Search</span>  </p>
+<br/>
+<p>이처럼 간단한 <code class="language-text">Fuzzy Query</code>만으로 오타에 대한 자동완성을 대처할 수 있습니다  </p>
+<br/>
+<p><strong>Keyword Type Fuzzy Query</strong><br>
+Keyword Type은 Key가 전체의 문자으로 잡히기 때문에 Fuzzy Query로 긴 자동완성을 풀기엔 무리가 있습니다  </p>
+<p><span class='code_header'>Fuzzy Query Keyword Type Search</span>  </p>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json">GET autocomplete_test_<span class="token number">1</span>/_search
+<span class="token punctuation">{</span>
+  <span class="token property">"query"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"fuzzy"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"word.keyword"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+<span class="gatsby-highlight-code-line">        <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"스팀게임"</span><span class="token punctuation">,</span>  </span>        <span class="token property">"fuzziness"</span><span class="token operator">:</span> <span class="token number">1</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 352px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 88.63636363636364%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsSAAALEgHS3X78AAACaUlEQVQ4y4VTWVsiMRD0//+RfdgfsN++eKzKeiAocogiIgMydzKZJDPgUVszyCqH8lBf94ROpbq62cnDGE8/fuLm9z78/WOoowri/UPkZ1XYkzPifB7PL5DtHpS5fgOMyWGy2Rp2zMRH0uygn72h5SsMZAY5fUVop9CvvAiUUTOa1MJeXUO/bCGU1Tpk9ow7x8f1wMXAFUhkikkgkSiDjOSGvxs/gq03thC6PuJaA4ptDIIE9SFJxzF6noSXGMSpQdcbwjVUx0fs5YdCXT60qeWjvwgYUy+EogrhhiUM/bWhgHQ9pJFA9jhCVq3NrfhKoWZLKVt+OKigu1fB8Pgc939O4FSq0PUr+Kc19A9P0dytoPFrD26nB/v8Bv2u8DPmhExk/gJHGNRGEYbSwleW7WpYtpZMXyDyZ8T0MCKSQskGogJFXhIKqSGEQhgrFs9gLV/XWanCMLesyUlWwL5ftmU+h7b5ssK4MJ+KJJVNhEbHCdB06CO/k2IokwFaox7ao3vUBzdojfvo+xO0ixg8YRx6rLOrhAYJVTmRwiVXp+cJpPwWSpUXB4ELSXJlMqRUJHWRF9GWZ9pMNxCmGR65ey0qFCqDLwUcEol0/pjSRWuLltcn/N/DD0KLYahw+xShS0Q8C7h7w0Cx5RCNYYAu4+p016b8WaETJmhyuTtjTpyLXnjoeAEClSIkYiJ938GNi70gFAtwL2/HIdocSnGu6NEDjb9w2qg5HbQm96WH3xPK+YRDrk5h/Gpx6ZedLZ1vIltWSK8iYmH64tLq8m4jnS822wziZKnwO3yuWSO0+Yz/kGTN6K9a2oZ/vEFaU1lzXOgAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="search-fuzzy-keyword"
+        title="search-fuzzy-keyword"
+        src="/static/48bba78d840c63e1345818ef5d2dea4c/0d1e4/search-fuzzy-keyword.png"
+        srcset="/static/48bba78d840c63e1345818ef5d2dea4c/acf4b/search-fuzzy-keyword.png 173w,
+/static/48bba78d840c63e1345818ef5d2dea4c/fc834/search-fuzzy-keyword.png 345w,
+/static/48bba78d840c63e1345818ef5d2dea4c/0d1e4/search-fuzzy-keyword.png 352w"
+        sizes="(max-width: 352px) 100vw, 352px"
+        loading="lazy"
+      />
+    </span>
+<span class='img_caption'>Fuzzy Keyword Search</span>  </p>
+<p>그래서 검색하면 다음과 같이 <code class="language-text">스팀게임</code>만 결과로 나옵니다<br>
+<code class="language-text">스팀게임 추천</code>과 <code class="language-text">스팀게임</code>을 비교하면 빈공간과 추천이란 단어로 3개의 차이점이 보입니다<br>
+때문에 <code class="language-text">fuzziness</code>의 1의 값과 맞지 않아 검색결과가 오로지 1건만 노출됩니다   </p>
+<br/>
+<hr>
+<br/>
+<h2 id="match-phrase-prefix"><a href="#match-phrase-prefix" aria-label="match phrase prefix permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Match Phrase Prefix</h2>
+<p>마지막으로 알아볼 것은 <code class="language-text">Match Phrase Prefix</code>입니다<br>
+Match Phrase Prefix는 많은 자동완성에서 실제로 많이 사용되고 있습니다<br>
+기본적으로 Text Type에 검색을 하며 앞색인어와 뒷색인어 둘 모두 만족해야만 검색이 되는 형식입니다<br>
+말로 하면 어려우니 실제 예제를 통해 살펴 보겠습니다  </p>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json">GET autocomplete_test_<span class="token number">1</span>/_search
+<span class="token punctuation">{</span>
+  <span class="token property">"query"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"match_phrase_prefix"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"word"</span><span class="token operator">:</span> <span class="token string">"스팀게임 추"</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 579px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 106.3903281519862%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAAsSAAALEgHS3X78AAACP0lEQVQ4y5WU2XLTQBRE+f9/g4IigQp27Ei2ttFsmkWLnaTpkTDwQpg8dFmlKh913547H4ZW4vDxDt33Pfz+gHgoMBUVxocdolAIyzPiuCBOlyx9CASossa3UuDcSEihMYSIUJ4xnhuEy+v7gO5YQhF6qnociwa2U2hFB7V7RDy3BL4gjDNF6HhBmJbt+Z8OjUPx9QHF/Q797oBQnCD3JUfwCK8GTASO03VVgiXo2w75tW4YIeMC4Se4+Rl2XiDHEWIYoJyDpKyPeQ4HQowNEMbj81OHno6P3QlPXYVaS7TWrErgPGAgcIhoTcBJOvTWQqwfmOHCFReWMtF1ihxzIq8OCewJ+XRsURFaSYUfbY1SCrrT8HErZVWOQ2U9rCOU4CHMMMGjsYqzNatugFvTb5dCQM82HcHzcl1fpohJ6TlF9b/cZc9QM26K/KUQkHT51FfYtyWOosFZ9asEZ5vfMiGN9jh0LMRYVMoQEDm7m9vrn8hTZikdW74/9aiVQy0t3Sl+xMJyDW0YGXv+Dc2KrAl9bA0knQkWcZQVStXirHuOoIH2ftuW/wFTKVJvpTxfuWbzBfP8wvMHLMsr9bL+jvM1M3I6NtwS7UYWoWHchMZIuqqpdt2Wii57ruG7S0kzFGZAkUBKwfhtfmmOLk7vA6bVSy132qEl/CT9eoRSw7fVy46cClFDwF3ZExYYWWEveEFInkMtcBD1ejlklZKAkjdMKmV7uf3BcX/TUUlKcf3f6/eWQ8syDN3lnLGcyD8BA2FOD4LtsjcAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="match-phrase-prefix1"
+        title="match-phrase-prefix1"
+        src="/static/6bf48a0387a2a1dacd9a3f857a64f1a8/d973d/match-phrase-prefix1.png"
+        srcset="/static/6bf48a0387a2a1dacd9a3f857a64f1a8/acf4b/match-phrase-prefix1.png 173w,
+/static/6bf48a0387a2a1dacd9a3f857a64f1a8/fc834/match-phrase-prefix1.png 345w,
+/static/6bf48a0387a2a1dacd9a3f857a64f1a8/d973d/match-phrase-prefix1.png 579w"
+        sizes="(max-width: 579px) 100vw, 579px"
+        loading="lazy"
+      />
+    </span>  </p>
+<p>보시는 것과 같이 이전 Prefix를 Keyword에 검색하는 것과 같은 결과가 나옵니다  </p>
+<br/>
+<p><strong>그럼 어떠한 경우에 다르게 나올까요?</strong>    </p>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json">GET autocomplete_test_<span class="token number">1</span>/_search
+<span class="token punctuation">{</span>
+  <span class="token property">"query"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"match_phrase_prefix"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"word"</span><span class="token operator">:</span> <span class="token string">"추천 20"</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 488px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 95.49180327868851%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsSAAALEgHS3X78AAACP0lEQVQ4y41U2U7jQBDM///XSjwgpAUich/E94w9tx0CUm2NcxDYkPDQ6rE0XVPV1e2BsS0WD0Nkjy/QwxH8eIZ2tkSYzBA2GXy3Q2jf9hHPN2LgpIJ4eMLzPMV6laFOS6iyRqs92viAa0+g/hegA81iN11g035gVBq86hZ1eEO+DTCjEba++2T5K4bKovpzBzEco3oa9REoO38cIr27h1C+v+gPDP2J6WXGAxe2SHOJv9MEm7SCKCWcdqhKhUwYCNOi276jZcR8LPTtDwyN69DQmIa90pRa9z17h+06KO8hTQS1qK2DtBbahxOziww1wWI0JmCcSjxvBIwLmORrTPMVElliUwukjWCu+Li7LlmTkbL7mGQNUmlRKsptFLMnsy2lfpyi7d5/ZHcCjAxrMpyzb5OshtABRW2xEhqrSsOyz56MvoNdZRhBV6XGKJH87pBS3rRaYyETLGWGpcgwKzbsdSDw7szti4ABUpkvl2KOzOIUxLOL0Z93X8boAiBd5lbUnEd/uOjCYd66CLQlcHfI+wdu9lCxf1HyvGgwpMuxaF4mGGdLLJhXoqDDJdayYK/tDZfPxiYakkjD2dNIOCqSxcfC7+24akoPyJiS4TxvUCmHvHZ02GJR6L6w6zfl46rcL6ZEp5ccmxe6LLluiawwryhX5nhtONxNhTWlK//p8mXAg+Sa+6sILig90MlYWBqFivIb57iSDoVWvTFXTYm7HME0We5/ALvTEJ9vx/H7pmRzkLxv+v+/qUtxDfQfnNiwmk6YHoYAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="match-phrase-prefix2"
+        title="match-phrase-prefix2"
+        src="/static/5fe74e129df9478e08dfd9a1a40b2f1b/2d6e0/match-phrase-prefix2.png"
+        srcset="/static/5fe74e129df9478e08dfd9a1a40b2f1b/acf4b/match-phrase-prefix2.png 173w,
+/static/5fe74e129df9478e08dfd9a1a40b2f1b/fc834/match-phrase-prefix2.png 345w,
+/static/5fe74e129df9478e08dfd9a1a40b2f1b/2d6e0/match-phrase-prefix2.png 488w"
+        sizes="(max-width: 488px) 100vw, 488px"
+        loading="lazy"
+      />
+    </span>
+<span class='img_caption'>Match Phrase Prefix</span>  </p>
+<p>이전과 다르게 2가지의 결과만 나왔습니다<br>
+<strong>추천과 20</strong>이라는 키워드를 차례대로 포함하고 있어서 입니다<br>
+일반적인 <span class='red_font'>like</span>검색과는 차이가 있습니다  </p>
+<br/>
+<p>색인키 <strong>스팀게임, 추천, 2019</strong>를 각각 가지고 있고 해당 색인키가 <code class="language-text">차례대로 나올때에만</code> 검색이 됩니다  </p>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json">GET autocomplete_test_<span class="token number">1</span>/_search
+<span class="token punctuation">{</span>
+  <span class="token property">"query"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"fuzzy"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"word"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"20 추천"</span><span class="token punctuation">,</span>
+        <span class="token property">"fuzziness"</span><span class="token operator">:</span> <span class="token number">1</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 230px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 62.173913043478265%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsSAAALEgHS3X78AAABxUlEQVQoz3VTXW/bMAzM//9ZA/ayrQmyrmvXrmmd2YplWZYsyd8ZbqQMZ2maPhA0IPJ4vKNX3TCh6UYUJuDbb4FtUiC3LUJokSsDITXafkJoeoR2iMH1S76M1TAeYVwLHzqUdYP1S45NInGzO0BUgYA6aOMg8hLj9JeaFtDh6oAIaAmwIjBHoIfK41Fo/CCmmfZIVA1lPCpT409Zw/gOHTM+Y3j+/R/Qhhj8+CoNbonl7b7AvahiofMNDckhCNQ1DHqM2X/IkMA4O9LqLlVY08o3tP53YrreCdztFTX1sLSJMBqfHr/iWWYEMr1Z/aQhg+mqjmvb0ENRY05GcS5oWB1mUxxlbpS2oroGbTe9X9lE/Xrs0wOK0kTxe3J/pLdhOMZvS4O4gR1nDZtm/r5qCjOsfUtMGnx+2Mc1E2XJ7QKblwO+POeRLV9CXihstz/x62mHNFcng8Ll2TCgIsANabd5ldGMlAyQlUNWaKoJkNrGZkWZT6mkWNidAHs2xc8a8tpPdDIPmUZSOrRsgiMNSw1tHQEadCQBr7rE5YGvWB9eJc1kLBiGadaNi093Nr7R6jzeMxzmKTUxXB79laZz4T/67Tj+AS/Hlmbp+YBwAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="match-phrase-prefix3"
+        title="match-phrase-prefix3"
+        src="/static/a4a56520d8773bbf550987a52f168f5d/2b3f6/match-phrase-prefix3.png"
+        srcset="/static/a4a56520d8773bbf550987a52f168f5d/acf4b/match-phrase-prefix3.png 173w,
+/static/a4a56520d8773bbf550987a52f168f5d/2b3f6/match-phrase-prefix3.png 230w"
+        sizes="(max-width: 230px) 100vw, 230px"
+        loading="lazy"
+      />
+    </span>
+<span class='img_caption'>Match Phrase No Match</span><br>
+따라서 다음과 같이 색인키의 순서가 다를 때에는 검색에서는 결과가 나오지 않습니다  </p>
+<br/>
+<hr>
+<br/>
+<h2 id="combine-query"><a href="#combine-query" aria-label="combine query permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Combine Query</h2>
+<p>마지막은 위에서 언급한 것들을 적절하게 섞어서 쓰는 방식입니다<br>
+Elastic에 bool 쿼리를 사용하여 쉽게 작성 가능합니다<br>
+예를 들어 아래 예제는 Fuzzy와 Prefix를 혼합하여 쓰는 방식입니다  </p>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json">GET autocomplete_test_<span class="token number">1</span>/_search
+<span class="token punctuation">{</span>
+  <span class="token property">"query"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"bool"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"should"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"fuzzy"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"word.keyword"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"스팀게임 불"</span><span class="token punctuation">,</span>
+              <span class="token property">"fuzziness"</span><span class="token operator">:</span> <span class="token number">1</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"prefix"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"word.keyword"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"스팀게임 "</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 605px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 95.86776859504133%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsSAAALEgHS3X78AAACAElEQVQ4y52UbW/TMBSF+/9/EwgEGkMgrRpoRe3WNGmSOonfnRcn7eBwna6FT5Dsw5EVyTk+18+9Xtja45EpZNxCmwatP6LzJzTdMCp8X9YpWtRtD05GP3KJtDJQroWq6+uGOWajYUgodI2DOsvUHZjS0LReUs5JOybcMomY0lXajUal7ih1C9+f0L1oatqFa84JueuQCgdLBzAjkWuOVAlKLVBohXDwxbT5Z8lkqG2LjAls0wqcc+wPKQQXMNbBNO2ouptq2A7QXKN88x7Juxuom084fLhF8fYj/GoDf/yFtpsO6JqwEAYPSQVBYJKKISozPBYJMsWvbTQJimt6MnFwTTdCGH/yw6hQZjB4FRRJ7cOIrKWfSmfBtCQYdBVGozJmJhRq7Cyv8BQziLJEnO1QKgnhHKSrR003pAs3cQb2dYnt5yXk/XeUX5boC4H+GfB0f+EOZ0DpoaVFmeRYrSKIPUMSbRCxBDvBUBj1Cih0h442+uNPtMMzmuGE+m8ofhaUM2VFIyecR+hLSY8DtzSK1tIEkWidBcW8TMp6d4DiYWIi5KIiwsHUQNDETDf0AUqKjEBsbu9Q3n8jKHcYiDpVj57IeNL0kunkMHpVlGL9sIWMc2RPa8SHGHtVIZMVPRByDhQPSX0YGroJUEimp/luO1ianvAw2Nb/Kfc/hr8BP+OySVJXNTUAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="combine-1"
+        title="combine-1"
+        src="/static/ecc314c38e3b4921a0b7e08c3943750f/b1c25/combine-1.png"
+        srcset="/static/ecc314c38e3b4921a0b7e08c3943750f/acf4b/combine-1.png 173w,
+/static/ecc314c38e3b4921a0b7e08c3943750f/fc834/combine-1.png 345w,
+/static/ecc314c38e3b4921a0b7e08c3943750f/b1c25/combine-1.png 605w"
+        sizes="(max-width: 605px) 100vw, 605px"
+        loading="lazy"
+      />
+    </span>
+<span class='img_caption'>Fuzzy와 Prefix의 혼합</span>  </p>
+<br/>
+<p>결과를 보시면 Should를 사용하여 Fuzzy와 Prefix 중 한가지라도 조건이 맞으면 결과로 노출됩니다<br>
+여기서 확인해야 할것은 <code class="language-text">score</code>에 의한 <code class="language-text">정렬</code>입니다<br>
+맨처음 <strong>스팀게임 환불</strong>만 Fuzzy와 Prefix를 모두 만족시켜서 높은 스코어로 맨 위에 노출되었습니다  </p>
+<br/>
+ 
+실제로 Fuzzy쿼리만 검색해보시면 다음과 같은 score 확인이 가능합니다  
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 389px;"
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 78.14910025706942%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsSAAALEgHS3X78AAACM0lEQVQ4y42UaXPaMBCG+f//KjOdHkxSEggJLuawwbdlS7LkA0jfrgwmxIFpPuzIlleP93hXA13t4MYcz26MICuQ5QVyoWD2jamyaa177vZv2cA4CVliFeWYOBF8JpFlAjlXLaCq9ihbaA1tVnPQgG/AB0rXSEUJ3hwwCXKMvAyLtIBHe4mqEGqKuibnA6DIp4OqmxHWezAvQrF0EM5XCKwltq82mO1AOxv41gR8vUaz8aFj9rUI828/4A5HyGc20qmF+NmCtGyI2Rze4wzuaAp//ApNflqVxwhPte3Xd1AQsHgYYX73E093v+AR2Pk+hJq8QI6nCO4fET6Mkf4eQw/vocm/D1SVifhYhrYpWVGB8QIRdblp9nSoOqfQUN1q2quoNOXurd0re2mqstflNJPgUiOnbrsJx9RNSEIKBTVlGW1hBQ7mZC/bFb17WMQelrGPTRoh5YJ+sD9F2gFJe5xgOUU681I8kXwYvaeCE2yFdRzQd9Kn0uBk3Sp0CVOys16vAe0gwyYR4IWmNUBMpWCnb5epmaguxf8x5RPQHLRDEjhNjZtKSIIs6AerWJLwBTJZYb8D6vpwtcufIuQE+OMzPK0jLAjMpaIoQyxTD3a8gZcnmIVrLJLte916evwAzGiGj40RxxR1g0jkBPBa83OGOYFdFrUj+R+gplWipDEzMumkYeTSNH9bqyjVHa11/XbzohgYQTICMoJ1TsWlaG9Y/yY6AyVpLWHi0wh95aq6Zv8AxvjFgiNxiIAAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="combine-2"
+        title="combine-2"
+        src="/static/3b46308576045adf23bbda9d6aa05d69/48001/combine-2.png"
+        srcset="/static/3b46308576045adf23bbda9d6aa05d69/acf4b/combine-2.png 173w,
+/static/3b46308576045adf23bbda9d6aa05d69/fc834/combine-2.png 345w,
+/static/3b46308576045adf23bbda9d6aa05d69/48001/combine-2.png 389w"
+        sizes="(max-width: 389px) 100vw, 389px"
+        loading="lazy"
+      />
+    </span><br>
+이걸로 이전 결과가 <code class="language-text">prefix 1 + fuzzy 1.4로 2.4</code>로 스코어 집계가 된걸 확인할 수 있습니다<br>
+이처럼 여러 조건을 혼합한 설계로 좋은 품질의 자동완성을 만드는 것이 가능합니다  </p></div><div class="social-share"><a class="resp-sharing-button__link" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook"><div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"></path></svg></div><span class="service-label">Share on Facebook</span></div></a><a class="resp-sharing-button__link" href="#" rel="noopener" aria-label="Share on Twitter"><div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"></path></svg></div><span class="service-label">Share on Twitter</span></div></a></div><hr class="custom-hr"/><div class="bio"><div class="author"><div class="author-description"><div class="author-image gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:72px;height:72px;border-radius:100%"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAEz0lEQVQ4ywHEBDv7AHuZjJKqtnNpb0AuJ05APoJmUquIaayMb6+TfbOYhridibmdh72fhr2ehLeYfp6AaX9jUJJ1X5N3YX5kUgB+m5CQqbSPmKh3dm1dTEuRfXOxjXC6mn67n4rBpZDHq5TLrZXOr5XPsJTSspbWtZjVtJbUtJbSspbNrpMAiJaFiKOxlJ2vnrSkjo2L69rY0qyEwZFh0KZ54LWF5LuL6MOS6MCO6sKQ6sOR68mZ5sGU37iN2rWK0KyGAI+Qj4ufr5yitpisl42kqcW2t9KoetanbrKMYa6GXfHHj//hpPzYl/rRkfzVkfLUlOS+hPnOju3Agua4fACpqLunwN6krMSbs8GGorjMytLjvZCXa0dNLR8+IhRILx91VzzNp3P20JT805Xy0qTlx5/6z5DzyY7twIYApZaNubzApqOuucjLqsPU0MvWy6WLYTkpVTQlQykbNR8TLBMKVjcj8NOe/eey/OKw/dym/Nae/N6p+9ikAJ+Zn5eNjGxaVqqgm46LjdPLzpWAfTslIjkmIS4cFC8cEjgjFi4VCLeWb//msfjYpvrTn/rVn/jUn/rYpACcqrnf5euEeoKxsLior7jMvb1pYWYVDxMmHyQsHRszHxYzGxEpEQexjWb/2J750pj91Jz90pj4z5X/1Z4Av8K53Orwj4qWvMHIqLO+18zPkIOCYUxNlW1kwI1+pnNeo2xSlmE+ZkYxdFZCd1dAelpCeltBeltAfF1DAM3r/6/K4oeDkaSipZOUmImBhHtlY9y0q8maju+1od2egd2hgeCZaFQxID0pHEguH0kwIEQrHEwyH0MsGwCtsL2jl5RiVltPTmJRbJFxdIBeVFbqu7HxvK3fqJjpoXz9waXHiWA8JBU/JhU3IRM2IBJEKBY7IxJQLxkAioWDZ2ZsR0JMV1tjYHeIdHeBfmpexp2S9sO31ZWE2Itq7KuDgls+JRkSPSkeJhcPLBwSOiUWLx0RUDMfAEpPVD1FU09VXpSnoJarpWprb39hTpdyYMmfmcN5b8x6WcSGTrWJWlhCL25RN2ZKLVE4IXZUL2ZGKa6CTQBRWmVFS1QgIy04P0k1PUhVSUNNQD1OOzWuin22i33JhlyDTymtjmb2yY7+1Jn1zI/swYbtw4bku3zyx4kAgJSgHCEsGRogJSEoLSEiVkM6OCwsNSUji2FNtJePuIRmXjsoRDQnak80eVw/poVf8syV+tOX7ceL9M6RAFhUVEhBQkM2MUQ2My0fHiIXFywfHx0TE2E1HcGUeK+JeiseGRgNBxkNCR0QDx0PDE87LMCdcfzTlPjRmQAhFBM1JCExIR4kFhQhFBMgFRMaExIJBwgeDg1TJiUoFxgKBwUUEA4YEg8jFxYdFBIZDgwmEwyhflP/2pkAKx8eJhoYHBEPHxQSHBMTGxEQGRIQDg0NEQsOQAMHGwcGGBEQHhYUFhEOFA4MEAwKGBEOHBANMyAUwqFzAB0RDx8UEBQLCBAMCRkUFCAWFB0SERcQDQwQESkNDyMOCxsSER0SEhkSEBgPDQoHBxIOCx8TECATDyoaEQAbEAwUCwgOCAUIBQMXEREiFhUbEA4WDQsSDw8bDg8kEg4eExAcEhEcExEaEA8LCAgJCAkTDw0hFRArHBKIIAQPpy4qsAAAAABJRU5ErkJggg==" alt="deokhwa kim" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/3fc5562e6ad25d80970b53e8e9afab0c/f4007/profile.png 1x,
+/static/3fc5562e6ad25d80970b53e8e9afab0c/c608d/profile.png 1.5x,
+/static/3fc5562e6ad25d80970b53e8e9afab0c/d10ce/profile.png 2x" /><img loading="lazy" width="72" height="72" srcset="/static/3fc5562e6ad25d80970b53e8e9afab0c/f4007/profile.png 1x,
+/static/3fc5562e6ad25d80970b53e8e9afab0c/c608d/profile.png 1.5x,
+/static/3fc5562e6ad25d80970b53e8e9afab0c/d10ce/profile.png 2x" src="/static/3fc5562e6ad25d80970b53e8e9afab0c/f4007/profile.png" alt="deokhwa kim" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><div class="author-name"><span class="author-name-prefix">Written by</span><a class="author-name-content" href="/about"><span>@<!-- -->deokhwa kim</span></a><div class="author-introduction">검색엔진 &amp; Spring &amp; Data를 다루고 있습니다 / 요즘은 Kotlin, Reactive Programing에 관심이 많습니다</div><p class="author-socials"><a href="https://github.com/renuevo">GitHub</a><a href="https://www.facebook.com/deokhwa.kim.75">Facebook</a></p></div></div></div></div><ul class="navigator"><li><a rel="prev" href="/spring/batch/spring-batch-chapter-3/">← <!-- -->[Spring] 3. Spring Batch의 ItemReader - DB Item Reader</a></li><li></li></ul><div><div id="disqus_thread"></div></div><footer class="footer">©<a href="https://github.com/renuevo">renuevo</a>, Built with<!-- --> <a href="https://github.com/JaeYeopHan/gatsby-starter-bee">Gatsby-starter-bee</a></footer></div></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-147163050-1', 'auto', {});
+      
+      
+      
+      
+      
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/elastic/autocomplete/elastic-autocomplete-1/";window.webpackCompilationHash="eda9a9271bf97b59714d";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-3ef2d9e26c0a65fb468a.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-d8ff3142cebda72f471f.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-2047161ab81a7fa0cbea.js"],"component---src-pages-404-js":["/component---src-pages-404-js-3ef9908c8ca2bbec57a2.js"],"component---src-pages-about-js":["/component---src-pages-about-js-00cc2684b605b19b0688.js"],"component---src-pages-index-js":["/component---src-pages-index-js-c844c12cd7f5589a4a4b.js"]};/*]]>*/</script><script src="/component---src-templates-blog-post-js-2047161ab81a7fa0cbea.js" async=""></script><script src="/styles-b05cf69044d6f0fd47fb.js" async=""></script><script src="/commons-e3839588b8ec4f06d1d2.js" async=""></script><script src="/app-3ef2d9e26c0a65fb468a.js" async=""></script><script src="/webpack-runtime-db7c9e59d855b4322330.js" async=""></script></body></html>
