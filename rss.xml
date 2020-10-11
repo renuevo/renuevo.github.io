@@ -1,4 +1,176 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[renuevo blog]]></title><description><![CDATA[development]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 29 Apr 2020 00:51:34 GMT</lastBuildDate><item><title><![CDATA[[DataScience] Levenshtein Distance (편집거리 알고리즘) - 문장 유사도 분석을 어떻게 하는가?]]></title><description><![CDATA[Levenshtein Distance (편집거리 알고리즘) 는 러시아의 과학자 블라디미르 리벤슈테인가 고안한 알고리즘   Levenshtein Distance이 무엇일까? 오늘날 언어학/데이터과학 같이 폭 넓게 사용되고 있으며 문장과 DNA…]]></description><link>https://renuevo.github.io/data-science/levenshtein-distance/</link><guid isPermaLink="false">https://renuevo.github.io/data-science/levenshtein-distance/</guid><pubDate>Mon, 27 Apr 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h1 id=&quot;levenshtein-distance-편집거리-알고리즘&quot;&gt;&lt;a href=&quot;#levenshtein-distance-%ED%8E%B8%EC%A7%91%EA%B1%B0%EB%A6%AC-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98&quot; aria-label=&quot;levenshtein distance 편집거리 알고리즘 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Levenshtein Distance (편집거리 알고리즘)&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[renuevo blog]]></title><description><![CDATA[development]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 11 Oct 2020 14:28:29 GMT</lastBuildDate><item><title><![CDATA[[Notion] 1. 클린 아키텍처란? (Clean Architecture)]]></title><description><![CDATA[설계와 아키텍처 설계(design)와 아키텍처(architecture)의 의미부터 알고 이야기를 시작하고자 한다 설계(design) 저수준의 구조와 결정사항을 의미하는 용어로 사용되어 진다    아키텍처란(architecture…]]></description><link>https://renuevo.github.io/notion/clean-architecture-1/</link><guid isPermaLink="false">https://renuevo.github.io/notion/clean-architecture-1/</guid><pubDate>Tue, 22 Sep 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;설계와-아키텍처&quot;&gt;&lt;a href=&quot;#%EC%84%A4%EA%B3%84%EC%99%80-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98&quot; aria-label=&quot;설계와 아키텍처 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;설계와 아키텍처&lt;/h2&gt;
+&lt;p&gt;설계(design)와 아키텍처(architecture)의 의미부터 알고 이야기를 시작하고자 한다&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;설계(design)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;저수준의 구조와 결정사항을 의미하는 용어로 사용되어 진다   &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;아키텍처란(architecture)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt; 고수준의 구조와 결정사항을 의미하는 용어로 사용되어 진다&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;br/&gt;
+&lt;p&gt;저수준의 구조와 결정사항들을 한곳에 모아 고수준으로 형태를 이루지만 저수준과 고수준을 마땅히 구분할 만한 경계는 가지고 있지 않다&lt;br&gt;
+따라서 &lt;strong&gt;실제로 설계와 아키텍처 둘사이엔 아무런 차이가 없다&lt;/strong&gt;  &lt;/p&gt;
+&lt;p&gt;하지만 나는 일반적으로 &lt;code class=&quot;language-text&quot;&gt;기능적 구조를 설계&lt;/code&gt; / &lt;code class=&quot;language-text&quot;&gt;적체적인 프로젝트의 시스템적 구조는 아키텍처&lt;/code&gt;라고 부르는것 같다  &lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;아키텍처의-목표&quot;&gt;&lt;a href=&quot;#%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98%EC%9D%98-%EB%AA%A9%ED%91%9C&quot; aria-label=&quot;아키텍처의 목표 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;아키텍처의 목표&lt;/h2&gt;
+&lt;p&gt;소프트웨어 아키텍처의 목표는 필요한 시스템을 만들고 유지보수하는 데 투입되는 인력을 최소화하는 데 있다&lt;br&gt;
+좋은 아키텍처는 경영자와 개발자의 둘 모두의 시각에서 긍정적인 효과를 가지고 온다  &lt;/p&gt;
+&lt;h3 id=&quot;다음은-실제-사례이다&quot;&gt;&lt;a href=&quot;#%EB%8B%A4%EC%9D%8C%EC%9D%80-%EC%8B%A4%EC%A0%9C-%EC%82%AC%EB%A1%80%EC%9D%B4%EB%8B%A4&quot; aria-label=&quot;다음은 실제 사례이다 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;다음은 실제 사례이다&lt;/h3&gt;
+&lt;p&gt;안 좋은 구조로 개발하여 출시한 앱이 있다&lt;br&gt;
+해당 앱은 출시와 동시에 기능적으로 성공하여 많은 개발자를 채용하고 여러 기능을 추가하고자 한다&lt;br&gt;
+이때 다음과 같은 문제가 발생하기 시작한다  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 61.736111111111114%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABcRAAAXEQHKJvM/AAADTUlEQVQoz33SfUgTYRgA8Mvt7p37UovKJRYE4R9BUIpiKi0qE/rwI8/pslVaWX6VkFZ/OJ22Ujdai5hSSFBI3yB9amWsJJjLLdfa7jbvtvlRzemiDyoM4nrfkUEQPfDcPRx3v/e5530xRXGJJMhYeCc6h2Pum53g/cQo7nZTOMuyuNVqJQwGg8RoNIpNJpMI1Xa7nWCYUZymKJxyu/FxP0v09/fh5eXl8SqVKgYrguCXsed8Tbd9/pGzQ4s5bpJvd1ACD00DhmEAx3E4ytnZWQLdvb4AGLU8jvY6rILAPZN4pjlV6z+rXJiYXSbcVUJKMYVCIXk0MAhf/sSvNQwtar44HIdQ2wgFPB6acLlcIJJuCricDjD60izo57goDMbEVbV0Rp3c+1afK8OWXuJVlBYKECgaGHhKBAJ+EGA9xEHd0JLrD18Lf3724Q4nQj2Ahumh3MD7ehggKNSWvXJak77N8ZnDw+rk6wFdvmzF1gPS3cqiWASKn5nNBO1lwbcwg1+DWEWHJcHpooEfLjACUZqGyfiJQF+3CIHTLRl5M+qULlTDDm9P6PPisQ1HBHMdis0Q9Pt9wDbihjMb57dftkkr9UMy9OvcFxoP3NaJIx83p9VNa+WZ09p1WTNNKWd+g7cQGLu5Wli+kxT+AX0sA+BGEPZXTogG+a1dg/PrOp4mtN9kIxiKMERCLZm5Ie36DNihcQ4c1+XJJNk10fvmQDRDdvwdQcM5uaa+429sVkFE4DjMoO9JtKoLS2HNCzWlnv7Umpbz8VRmergpOdIhnOGNMV1+/OKcSlGkQ5IkhZNjfv47ahi4vD5i4kGX6CHcxaB+e9KH9o0p3J06Uagx+cWO7h8xdOOmTlvTjtJXGnJLUJ12MbJIY0rfe91WGSavB/sRWKhUSa4YT8VNnlMu98Jz9vZMQZLvrkky1b45PXhSrkBdfGhdWxnZXa28wNtGplo6Dq20a8iygq6vCxhNzuHJzj1xq7bvE1WrCnlYVXW1sKH+qKynpTIaHlzM1NqA2y4c4yGg93wLz3JcvgzL4vC9tR0LsPyTAPtHZD7h5u0pIXGyWDkP+19wJ8RRgzWrBVXKXfwcZSNfW7SGx8HnOphTuxPhtQcLl0n/Qn4BXuSmq59q3aoAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;개발 생산성 그래프&quot;
+        title=&quot;개발 생산성 그래프&quot;
+        src=&quot;/static/d2759d07d350ce7423e331858a8bb4f0/36727/dev_graph.png&quot;
+        srcset=&quot;/static/d2759d07d350ce7423e331858a8bb4f0/acf4b/dev_graph.png 173w,
+/static/d2759d07d350ce7423e331858a8bb4f0/fc834/dev_graph.png 345w,
+/static/d2759d07d350ce7423e331858a8bb4f0/36727/dev_graph.png 690w,
+/static/d2759d07d350ce7423e331858a8bb4f0/17fa4/dev_graph.png 1035w,
+/static/d2759d07d350ce7423e331858a8bb4f0/a5044/dev_graph.png 1380w,
+/static/d2759d07d350ce7423e331858a8bb4f0/8d0ff/dev_graph.png 1440w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;처음에는 생산성이 좋지만 안 좋은 구조로 점점 많은 코드와 작업이 필요해진다  &lt;/li&gt;
+&lt;li&gt;기능적 추가를 위해 개발자를 점점 더 고용하여 인건비는 늘어난다  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;결국 앱의 생산성은 점점 줄어들어 개발자는 작업이 많아지고 지불되는 인건비로 경영자도 불행해진다&lt;br&gt;
+때문에 항상 좋은 구조를 중요시 생각하여 개발하여야 한다  &lt;/p&gt;
+&lt;hr&gt;
+&lt;br/&gt;
+&lt;h3 id=&quot;개발자들의-흔한-착각&quot;&gt;&lt;a href=&quot;#%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%93%A4%EC%9D%98-%ED%9D%94%ED%95%9C-%EC%B0%A9%EA%B0%81&quot; aria-label=&quot;개발자들의 흔한 착각 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;개발자들의 흔한 착각&lt;/h3&gt;
+&lt;p&gt;개발자들이 흔히 착각하는 사실이 있다&lt;br&gt;
+“지저분한 코드를 작성하면 단기간에는 빠르게 개발이 가능하고, 장기적으로 볼 때만 생산성이 낮아진다” 라는 것이다&lt;br&gt;
+하지만 진실은 &lt;code class=&quot;language-text&quot;&gt;엉망으로 만들면 깔끔하게 유지할 때보다 항상 더 느리다&lt;/code&gt; 라는 것이다  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 61.994421199442115%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABcRAAAXEQHKJvM/AAAC9UlEQVQoz2MoLCzkLyoqEgwICGBkgAMzRgYxJzDf2cWFJSQkRCQ0NFQmLCxMPjg4mJ8BHygpKeHMyMgQXLJkCfund29Ztx4+wQaTO37xCtvBAwfYp02bxtPX18dX3Nwp2DF1Fs+HN69Yr1y9ynbr5k3Wy1evsW09fJLt3KUrbHdu32IGa3R1dWXZuXMn25LdR7hAfIHE+gL+xPoqEPvAmYscP3/+ZPv1/z8rzKK9x09zPLh7h/3q9evsLx7dZ////z/z33cv2S5cvgpRExoWxrFl42a2xtWbeEB8nvjaXdxxtadA7KW7DnKeu3gJqOk3K19CXbx4WrMN0ACGLYdPcDx7eJ9t9b4jnD6ts8S7V2/j+f/5DcSF4cGhLFPXLmBe1H6XBcQHGraKK652F4jdtGQz67wjO8DiQLGnQMu6QezovoUcIFous1UOKH5XKLnBCR6OnlEBrP9P/GexXVcnpfLdQ5YnsWYzT1zdXpDcot37uf7f/c8GtegmMCjaQOyuFUAX/f/Pol3eqcEZW/tTKr3FF26gTU4QOOx41kWFMezwfsiVWX6CJ6Z+B0hs164LHP57mvk97+fzAg28BTSwHSResWw1OHicIpdLccXVfJVMa/aGG2hSEAB2Pv+6GKCBPne5MiuOAw3cCZNn3RBcw7DJfxt3TP0V/qT6DpDY/4X/WTi3BZdzzovr5I6sfy6Z1eQPN9C0NIgdRLOvDQ8CuvAWZ0b5Ee6Yuq0weaYNQX1AA69yR9ef50mobYVr3OR3nHFx2Bnu0KZbQum1CC+bFwZygsNoXWQk0MCXnJnll4AuPAyTZ9kQNAVo4B2ggff5Euv6YeKMm/2PMS+OOMsd1vhaMLMhEG6gS0ow2MuKm9MNuXcG14jl1xZIpLSkAwOdCSQuuC3Gl3dreIlYUkuJdFYbOKyAkcjMtzU8S2BpfIFYbFuNdWmLzZftCznhhjKu9ceak3gXBXL8Z8gBZ8P/sUDswMBoE57BxPAfVd3SqjyO7IIibgBh4iQfV7Hp3gAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;TDD 개발 실험&quot;
+        title=&quot;TDD 개발 실험&quot;
+        src=&quot;/static/380613e61b563b872246597fea46cea0/36727/dev_tdd_graph.png&quot;
+        srcset=&quot;/static/380613e61b563b872246597fea46cea0/acf4b/dev_tdd_graph.png 173w,
+/static/380613e61b563b872246597fea46cea0/fc834/dev_tdd_graph.png 345w,
+/static/380613e61b563b872246597fea46cea0/36727/dev_tdd_graph.png 690w,
+/static/380613e61b563b872246597fea46cea0/17fa4/dev_tdd_graph.png 1035w,
+/static/380613e61b563b872246597fea46cea0/a5044/dev_tdd_graph.png 1380w,
+/static/380613e61b563b872246597fea46cea0/0b460/dev_tdd_graph.png 1434w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;br&gt;
+다음은 실제 해외 개발자 제이슨 고먼이 수행한 실험이다&lt;br&gt;
+같은 프로그램을 TDD적용과 TDD미적용을 비교하면서 개발하였다&lt;br&gt;
+결과 그래프처럼 항상 TDD를 적용했을때 더 빠르게 개발을 완료 하였다  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;이러한 결과로 볼때 빠른 개발을 위해서 개발자는 처음에 러닝커브가 발생하더라도 장기적 미래를 생각하여 테스팅에 필요한 프레임워크 스킬을 가지고 있어야 한다&lt;br&gt;
+(Spring의 경우에는&lt;code class=&quot;language-text&quot;&gt;Junit&lt;/code&gt; / &lt;code class=&quot;language-text&quot;&gt;Spock&lt;/code&gt;과 같은 것들)&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;개발의-두-가지-가치&quot;&gt;&lt;a href=&quot;#%EA%B0%9C%EB%B0%9C%EC%9D%98-%EB%91%90-%EA%B0%80%EC%A7%80-%EA%B0%80%EC%B9%98&quot; aria-label=&quot;개발의 두 가지 가치 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;개발의 두 가지 가치&lt;/h2&gt;
+&lt;p&gt;소프트웨어는 다음과 같은 두 가지의 가치를 지닌다  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;목적에 맞게 수행하는 기능  &lt;/li&gt;
+&lt;li&gt;변경이 가능한 유연한 구조  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;두 가지 모두 중요한 가치를 지니지만 기능보다 구조가 보다 높은 가치를 가진다  &lt;/p&gt;
+&lt;br/&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;완벽하게 동작하지만 수정/추가를 할 수 없는 프로그램 &lt;span class=&apos;red_font&apos;&gt;(구조 결여)&lt;/span&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;처음에는 잘 작동하지만 시간이 가면 결국 해당 프로그램은 더 이상 쓸 수 없을 것이다  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;기능적으로 동작하지 않지만 구조적으로 수정이 가능한 프로그램 &lt;span class=&apos;red_font&apos;&gt;(기능 결여)&lt;/span&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;이 프로그램은 당장에는 사용할 수 없지만 수정개발을 하면 계속해서 사용 가능해 진다  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br/&gt;
+&lt;p&gt;다소 억지로 보이겠지만 실제 회사에서의 업무관계자들은 항상 추가/수정이 가능한 프로그램을 원한다&lt;br&gt;
+때문에 구조의 가치를 기능보다 높게 이야기 할 수 있다  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;물론 나의 생각을 첨언하면 해당 기능의 요소가 비즈니스에 미치는 영향도에 따라 다르게 분류가 가능 할 것이다&lt;br&gt;
+그것을 알아 보기 위해 다음 &lt;code class=&quot;language-text&quot;&gt;아이젠하워 매트릭스&lt;/code&gt;를 살펴 보자  &lt;/p&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;h3 id=&quot;아이젠하워-매트릭스&quot;&gt;&lt;a href=&quot;#%EC%95%84%EC%9D%B4%EC%A0%A0%ED%95%98%EC%9B%8C-%EB%A7%A4%ED%8A%B8%EB%A6%AD%EC%8A%A4&quot; aria-label=&quot;아이젠하워 매트릭스 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;아이젠하워 매트릭스&lt;/h3&gt;
+&lt;p&gt;다음은 미국의 43대 대통령 아이젠 하워가 매일의 일정을 계획하며 사용한 표이다  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.30593978844589%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABcRAAAXEQHKJvM/AAACzElEQVQoz3WSWUxTQRSGoaVEUBH3J0OCD5L44KtWjSuYQg1QRRHEWhBZElwibeEBVKQst5fSO3frhVuwRbaohLCJiAUKli1oCxhF1MgiS8IqKIHEjLcGMI1hkn/+mXn48p9zxslp48Wzb658/k5PN7eDLjze1tV3/qq7u3sI9nvs3rRvs6erF3f3+o8AIVyHDWVmShcBSPqqUiXVJSSoJtRqxQIG7g0hGUqsLliZ0S5KjKeF6fE6YVoCezQto0mUlFrrm+QAFHp7O3Nml2CBg0GWZZZJEu9OTjauUBQJWT2YJ7R0vvkSjQ8EAXnJSWMcdaTsduHxYqI/GGSa/RkHoIDP38bZAU57lgjiDszLx8cQBFiUSnY0O5vggOgMyMWY5hAMfAhEUYtYm1J9lkY7xFr6o0StMolwB+BpH5+1hC7zGJYI9Xp8HEFwo0xWPpCWpoOFj9FZXAsKLKHarA4RiKeExljicBGXsuhBnR+ttoiBYw8nxteO/GlULf9NkiTMy8uBDKOBjE4DaTp3SoMQ+CsJoer0x9DO8xhmDcxFOsRYliUA3H/pRzkAD50KdF4DplT0Kh7VDurkehOjNJgZRWEzk1rRRzystBGtTTHk557LwFQrYWqfiVlzvUT36e1V7E3DBd2Gfya8bTkxoguSZ8hGw4mc6uJj6aXlIa/ncFnninbMpsTg95toR1lQQSXuW2KtkLBw8hYy1yVd76F9GHt5LoId9oFw2h5tWb4b2fJDd+X5AC1tmCQiaoapsKpvVIx5FozYFNhCTzj4YgqjJ9ojiKGWMGqkNZyc7v4H3GIH8QSuHpzv4uQZZQe2LdEXS3uZc5qqJ/54vfFKzSgVbZ4DY31K7XR7KPGUS/eCFRXVcWo0BBh+2iKxDUuWmmblse8gHmuF6PXmeRDV9guL64fojZYZMGyVY3BQplngAMvvo7SLNtlfn+q8hv8BBd9fxQqpb4MAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;아이젠 하워 매트릭스&quot;
+        title=&quot;아이젠 하워 매트릭스&quot;
+        src=&quot;/static/20356de55e19a7f662a9c9db2921b985/36727/eisenhower_matrix.png&quot;
+        srcset=&quot;/static/20356de55e19a7f662a9c9db2921b985/acf4b/eisenhower_matrix.png 173w,
+/static/20356de55e19a7f662a9c9db2921b985/fc834/eisenhower_matrix.png 345w,
+/static/20356de55e19a7f662a9c9db2921b985/36727/eisenhower_matrix.png 690w,
+/static/20356de55e19a7f662a9c9db2921b985/17fa4/eisenhower_matrix.png 1035w,
+/static/20356de55e19a7f662a9c9db2921b985/0edd8/eisenhower_matrix.png 1229w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;img_caption&quot;&gt;&lt;strong&gt;아이젠 하워 매트릭스&lt;/strong&gt;&lt;/span&gt;  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;이것을 토대로 다음과 같은 일의 우선순위를 매길 수 있다  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;긴급하고 중요한   &lt;/li&gt;
+&lt;li&gt;긴급하지는 않지만 중요한  &lt;/li&gt;
+&lt;li&gt;긴급하지만 중요하지 않은  &lt;/li&gt;
+&lt;li&gt;긴급하지도 중요하지도 않은  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;br/&gt;
+&lt;p&gt;다음 우선순위로 개발의 2가지 가치를 같이 생각해 볼때 중요한 사실을 깨달을 수 있다  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;기능은 긴급함을 요구하지만 매번 높은 중요도를 가지지 않는다   &lt;/li&gt;
+&lt;li&gt;구조는 중요하지만 긴급성을 필요로 하는 경우는 절대로 없다  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;br/&gt; 
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;textbox&quot;&gt;&lt;pre class=&quot;language-textbox&quot;&gt;&lt;code class=&quot;language-textbox&quot;&gt;즉 정말 긴급하고 중요한 기능을 제외하고는 구조적 중요성이 2단계로 긴급한 일보다 중요하다   
+하지만 간혹 3단계인 긴급하지만 중요하지 않은 것을 1단계인 긴급하고 중요한 것으로 착각하는 경우가 많다  
+때문에 모든 기능이 구조보다 항상 우선시 되는 경우를 자주 보게 된다  &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;개발자는 업무를 분간하고 이를 토대로 구조적 중요성을 업무관계자에게 설명할 능력을 길러야 한다&lt;/strong&gt;   &lt;/p&gt;
+&lt;br/&gt;</content:encoded></item><item><title><![CDATA[[DataScience] Levenshtein Distance (편집거리 알고리즘) - 문장 유사도 분석을 어떻게 하는가?]]></title><description><![CDATA[Levenshtein Distance (편집거리 알고리즘) 는 러시아의 과학자 블라디미르 리벤슈테인가 고안한 알고리즘   Levenshtein Distance이 무엇일까? 오늘날 언어학/데이터과학 같이 폭 넓게 사용되고 있으며 문장과 DNA…]]></description><link>https://renuevo.github.io/data-science/levenshtein-distance/</link><guid isPermaLink="false">https://renuevo.github.io/data-science/levenshtein-distance/</guid><pubDate>Mon, 27 Apr 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h1 id=&quot;levenshtein-distance-편집거리-알고리즘&quot;&gt;&lt;a href=&quot;#levenshtein-distance-%ED%8E%B8%EC%A7%91%EA%B1%B0%EB%A6%AC-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98&quot; aria-label=&quot;levenshtein distance 편집거리 알고리즘 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Levenshtein Distance (편집거리 알고리즘)&lt;/h1&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Levenshtein Distance&lt;/code&gt;는 러시아의 과학자 &lt;a href=&quot;https://en.wikipedia.org/wiki/Vladimir_Levenshtein&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;블라디미르 리벤슈테인&lt;/a&gt;가 고안한 알고리즘  &lt;/p&gt;
 &lt;br/&gt;
 &lt;h2 id=&quot;levenshtein-distance이-무엇일까&quot;&gt;&lt;a href=&quot;#levenshtein-distance%EC%9D%B4-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C&quot; aria-label=&quot;levenshtein distance이 무엇일까 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Levenshtein Distance이 무엇일까?&lt;/h2&gt;
@@ -1391,17 +1563,17 @@ As a ref-cursor returned as an out parameter (used by Oracle and PostgreSQL).&lt
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 82.09944751381215%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAABcRAAAXEQHKJvM/AAACeklEQVQ4y6XUXW/SUBgH8KewdW5jI24Czhglbi4uS0z0Qr3ywg9g/AxKYnYpjLdQGYSwha0rLSYVtgh14ojyIhZwbKyFmbkgixfGGG+9mrv3AxwfkBiNbgvzJP+cntOcX57T0xa8Xi9hWZYkEgkiiiLhOI44nc46AIxqtdrrANQkRZ+4huNxY1h1nVn5Qk4/rpOR2C65mf5MzE8+EJNYJ815Y1iRwOfz7fM8vx+JRPYR3BME4bvL5cojMIjgJPY3oIs2Y08b+eqdPrYa62Fr8/RCdXFiuc4OcFuL3Qu1+f7FaszAqffAbrfr3G63zmKx6Dwej87hcAxYrdZe+NkGMBcwmluEUEZ2/WxgJTPlSaTnQi8KPi5X9vuTr3yMlJkNrKSnLgoVPRzUaJqmfh8P2pZoU1g1O6RcwhrP7PhSReVRsaYyz2XFFs++w3lpTKiYgGEYCAaDEAgEIBQKta6x6l+QRn+qBQ/xW12msHLeKeWitnhGQbAoyGqJSb4uTieym04pG0XQCEc1PIhWP8Sp3X+BBfUNgqUm6PoPMIagimCJl5W1NqggGDsuuIRgDcE13HIZwTUEqwguHRcUEawgKCNYQFBGcANBsVOweSjnXFjhNFboxwojBXUdwXK7wmV8bQwdVYhfwii+HnPWeDY1kypKQqH61JOUJRyv4vysmd8cORLU3b7f6g3BPGXglHHwN4aB+TQID3b0cHdDD/aGHjwf9TCzexK/lEvQaSONKPU1H6PI+5cU2dumyNYz6pscpciGSB227sCbww9XMSkwRt62HsefUf65pg8zhmn+YS5jJjBXMFfb0XW6Kw2mC9Pfxnva6W2PNYct/gFh1FCIRwnzoAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 81.54696132596685%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAABcRAAAXEQHKJvM/AAACg0lEQVQ4y6XUXU/TUBgH8OfQURUHU2SbGF+mCJEQr0x8uTHRT+CVH0C5IfHGwd6yZpQsgwy6rp1J3YZuFdGFsKF2Q8ZLuy1BMiWaGGP8Aka49wMcn85FTQwS8En+OT0n6a9P29NCKBSigiDQbDZLFUWhoihSn89XB4AehmGuAJABwh68jPM+R9zwn5j5Qo8/rNPu1Ca9Pv+Zuh6/p06lTs11R1xXgef5bUmSthOJxDaC32RZ/u73+18i0IHgAI5XwcK6cGQdUuVWm1BJHRCqk+xUJdY/XRfaxVqsdao6eThWSdlF4y54PB5rIBCwDg4OWoPBoNXr9ba73e5D8LPaMecwLTcpJQ5h+WR4Jj8UzM5PROeKvLhQHhubfcFzan48PDM/1Cuv2mCnYlmW/DnvGE6zzrjh8qoLWXcmv8HnSvqDUtXgnmn6cKbwBtfV8/KqEziOg0gkAuFwGKLRaOMYu/4Ftdi6GnCnVLM44/oZn7qQHM7kdQRLsmYscrOvSiPZwppPLSQRdMBuhS+iMXaKRutfYNF4jeCiCfr/A0whaCC4KGn6UhPUEUztF0wjWEVwCW+5jOASghUE0/sFFQRXEdQQLCKoIbiCoLJX0Hwpp/3Y4Qh2OIYdJorGMoLlZofTuG3se+oQv4Qe3B4T7kwhN5orqXKx8iQ4q6k4f47r4y5prXtXsO3G7cbYFcoRu6j3Af/2GHCfOuD+hg3urNjA884GwY82GN08il/KBdhrUUrha+kRofU5QrfWCa09JVtaktAVhex2LmPu62YYIMTCdJ+1MPZTzJF7EjinP4B9stx4JL+j74iZV+vHXMNcbOYSxvzr9MI+y0RbMZbmMWl2/c9b+wEan0/s5FXW0wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;pagingitemReader&quot;
         title=&quot;pagingitemReader&quot;
-        src=&quot;/static/f46e3563fb96318000cea9ff6b04c787/36727/pagingitemReader.png&quot;
-        srcset=&quot;/static/f46e3563fb96318000cea9ff6b04c787/acf4b/pagingitemReader.png 173w,
-/static/f46e3563fb96318000cea9ff6b04c787/fc834/pagingitemReader.png 345w,
-/static/f46e3563fb96318000cea9ff6b04c787/36727/pagingitemReader.png 690w,
-/static/f46e3563fb96318000cea9ff6b04c787/6b7c3/pagingitemReader.png 905w&quot;
+        src=&quot;/static/f9b82e70aefca0bd0204e9536d6ddb55/36727/pagingitemReader.png&quot;
+        srcset=&quot;/static/f9b82e70aefca0bd0204e9536d6ddb55/acf4b/pagingitemReader.png 173w,
+/static/f9b82e70aefca0bd0204e9536d6ddb55/fc834/pagingitemReader.png 345w,
+/static/f9b82e70aefca0bd0204e9536d6ddb55/36727/pagingitemReader.png 690w,
+/static/f9b82e70aefca0bd0204e9536d6ddb55/6b7c3/pagingitemReader.png 905w&quot;
         sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         loading=&quot;lazy&quot;
       /&gt;
@@ -4469,7 +4641,7 @@ V : 차원의 중요도를 나타내는 대각행렬  &lt;/code&gt;&lt;/pre&gt;&
 &lt;p&gt;&lt;a href=&quot;https://sragent.tistory.com/entry/Latent-Semantic-AnalysisLSA&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;내 마음을 알아주는 검색 LSA&lt;/a&gt;&lt;br&gt;
 &lt;a href=&quot;https://wikidocs.net/24949&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;딥 러닝을 이용한 자연어 처리 입문&lt;/a&gt;&lt;br&gt;
 &lt;a href=&quot;https://technowiki.wordpress.com/2011/08/27/latent-semantic-analysis-lsa-tutorial/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Latent Semantic Analysis (LSA) Tutorial&lt;/a&gt;&lt;br&gt;
-&lt;a href=&quot;https://darkpgmr.tistory.com/106&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;SVD 특이값 분해 (다크 프로그래머 블로그)&lt;/a&gt;  &lt;/p&gt;</content:encoded></item><item><title><![CDATA[about]]></title><description><![CDATA[Deokhwa Kim  Deokhwa Kim 29 age BackEnd Programer SaraminHR Lab]]></description><link>https://renuevo.github.io/resume-kr/</link><guid isPermaLink="false">https://renuevo.github.io/resume-kr/</guid><pubDate>Sun, 24 Nov 2019 23:30:00 GMT</pubDate><content:encoded>&lt;h1 id=&quot;deokhwa-kim&quot;&gt;&lt;a href=&quot;#deokhwa-kim&quot; aria-label=&quot;deokhwa kim permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Deokhwa Kim&lt;/h1&gt;
+&lt;a href=&quot;https://darkpgmr.tistory.com/106&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;SVD 특이값 분해 (다크 프로그래머 블로그)&lt;/a&gt;  &lt;/p&gt;</content:encoded></item><item><title><![CDATA[about]]></title><description><![CDATA[Deokhwa Kim  Deokhwa Kim 29 age BackEnd Programer Kakaopay Corp]]></description><link>https://renuevo.github.io/resume-kr/</link><guid isPermaLink="false">https://renuevo.github.io/resume-kr/</guid><pubDate>Sun, 24 Nov 2019 23:30:00 GMT</pubDate><content:encoded>&lt;h1 id=&quot;deokhwa-kim&quot;&gt;&lt;a href=&quot;#deokhwa-kim&quot; aria-label=&quot;deokhwa kim permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Deokhwa Kim&lt;/h1&gt;
 &lt;div align=&quot;center&quot;&gt;
 &lt;figure style=&quot;max-width:200px; width: 80%;&quot;&gt;
 &lt;p&gt;&lt;span
@@ -4496,7 +4668,7 @@ V : 차원의 중요도를 나타내는 대각행렬  &lt;/code&gt;&lt;/pre&gt;&
 &lt;p&gt;Deokhwa Kim&lt;br&gt;
 29 age&lt;br&gt;
 BackEnd Programer&lt;br&gt;
-SaraminHR Lab&lt;/p&gt;
+Kakaopay Corp&lt;/p&gt;
 &lt;/div&gt;
 &lt;br/&gt;
 &lt;br/&gt;
@@ -5779,7 +5951,90 @@ java랑 완벽히 호환된다지만 &lt;code class=&quot;language-text&quot;&gt
 &lt;h4 id=&quot;실행화면&quot;&gt;&lt;a href=&quot;#%EC%8B%A4%ED%96%89%ED%99%94%EB%A9%B4&quot; aria-label=&quot;실행화면 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;실행화면&lt;/h4&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;가격 &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1100&lt;/span&gt;원 &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; 메뉴 &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Americano&lt;/span&gt;
 가격 &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1400&lt;/span&gt;원 &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; 메뉴 &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Americano&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 우유
-가격 &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1900&lt;/span&gt;원 &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; 메뉴 &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Americano&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 우유&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 흑당&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[[DataScience] K-mean]]></title><description><![CDATA[K-평균 (K-mean cluster) 데이터를 k개의 클러스터로 묶는 알고리즘 이 알고리즘을 데이터를 K개의 그룹으로 묶고 싶을때 사용하는 알고리즘 중 하나입니다
+가격 &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1900&lt;/span&gt;원 &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; 메뉴 &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Americano&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 우유&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 흑당&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[[DesignPattern] 전략 패턴(Strategy Pattern)이란?]]></title><description><![CDATA[…]]></description><link>https://renuevo.github.io/design-pattern/strategy-pattern/</link><guid isPermaLink="false">https://renuevo.github.io/design-pattern/strategy-pattern/</guid><pubDate>Sat, 07 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;&lt;em&gt;메인 프로세스에서 상황에 맞게 전략을 선택하여 실행하는 패턴입니다&lt;/em&gt;&lt;/strong&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 256px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 62.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAACPUlEQVQoz3WQ62/SYBSH+XOVxMzpZLpNE2cIGqBYUJBbGDDmpsZJuK7lMq7ThRWYG5PCZoBiRukLpRSkHe0sYWaTzPM+n07yvL9zjgwlte7csj2tcGQX/fWXO+cayKQMB9HhcAiojsRw+PvyPyVLDwyfjp97DlY28k9jlG63C79z6pKJNMdx/X6fHbAEQYyF8YgbSTUrxxmNRGIAJVjtLqPdrj1rgmpvQCENOHz2xpNRutMvtvZV0ebbeN3KDhjJEaU3lQvAm2ttH5AT8pQ329gEPbJF1xGgQkg15JND3rv60L0kq0MIiGHpiSz+lUX+8iYCL0jdBlk1J+c82Io1teDYU3zGV1FK7S2/mpVn1hDFidyia96KCiVghIAjTbgounJje+LcMjv2rWfkeZ4CZJ+lK6flQNBXr9dAh6JAWxCEfw52M/OayWiT71l2UDouSX9NAyUEUbhCEG5J5jketLu9br8LGIZmyRbZo9ku6Emddgvw/MVs8pgX9nA/UrbFKq5A0eLDTOgPRxR3IEdrtV/V6IkHLdujuPNLzhg6skbLaxHc8SFmlE2350dj/6HRmX/oKSxZMw8sqXlral6PyG0JBV4vbmKr7rxiPf/EFJ+zf10wJ++/DstVG3eu5eB3syv/aB1bdu4voqR6t6eLM1CY0J6cYR8LSjf22J1ben+4EqehWAfKcHpLZPFq7AtOSFa3/BVNqGoI4nCqbcl0bVnalmjaThslBDcHKrpQFd75aUh3bGlg/cY6NjPqPyOikmuHvnU/AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;strategy_pattern&quot;
+        title=&quot;strategy_pattern&quot;
+        src=&quot;/static/01c3a1b7d7027a3139ef025546f18c8d/00397/Strategy_Pattern.png&quot;
+        srcset=&quot;/static/01c3a1b7d7027a3139ef025546f18c8d/acf4b/Strategy_Pattern.png 173w,
+/static/01c3a1b7d7027a3139ef025546f18c8d/00397/Strategy_Pattern.png 256w&quot;
+        sizes=&quot;(max-width: 256px) 100vw, 256px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;
+&lt;span class=&quot;img_caption&quot;&gt;출처 : &lt;a href=&quot;https://ko.wikipedia.org/wiki/%EC%A0%84%EB%9E%B5_%ED%8C%A8%ED%84%B4&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;위키피디아&lt;/a&gt; &lt;/span&gt;&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;이 패턴은 가장 기본적이며 인터페이스의 필요여부를 가장 잘 보여 주고 많은 곳에서 사용하고 있는 패턴입니다&lt;br&gt;
+이 그림에서 볼 수 있듯이 하나의 인터페이스를 두고 클래스들이 인터페이스를 구현하여 사용됩니다  &lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;strategy-sample&quot;&gt;&lt;a href=&quot;#strategy-sample&quot; aria-label=&quot;strategy sample permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Strategy Sample&lt;/h2&gt;
+&lt;/br&gt;
+&lt;h4 id=&quot;strategyinterface&quot;&gt;&lt;a href=&quot;#strategyinterface&quot; aria-label=&quot;strategyinterface permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;StrategyInterface&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Strategy&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;h4 id=&quot;contentsstrategya--span-calsssub_headerspan&quot;&gt;&lt;a href=&quot;#contentsstrategya--span-calsssub_headerspan&quot; aria-label=&quot;contentsstrategya  span calsssub_headerspan permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;ContentsStrategyA  &lt;span calss=&quot;sub_header&quot;&gt;&lt;/span&gt;&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ContentsStrategyA&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Strategy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token class-name&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;앞으로 이동&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;h4 id=&quot;contentsstrategyb--span-calsssub_headerspan&quot;&gt;&lt;a href=&quot;#contentsstrategyb--span-calsssub_headerspan&quot; aria-label=&quot;contentsstrategyb  span calsssub_headerspan permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;ContentsStrategyB  &lt;span calss=&quot;sub_header&quot;&gt;&lt;/span&gt;&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ContentsStrategyB&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Strategy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token class-name&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;뒤로 이동&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;h4 id=&quot;main&quot;&gt;&lt;a href=&quot;#main&quot; aria-label=&quot;main permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Main&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@SpringBootApplication&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;SimpleCode&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;//Run&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;robot&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    
+        &lt;span class=&quot;token comment&quot;&gt;//전략 리스트&lt;/span&gt;
+        &lt;span class=&quot;token class-name&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;token generics&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt; moveList &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Arrays&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;asList&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;go&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;back&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;go&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;go&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token class-name&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;token generics&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Strategy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt; strategyList &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;token generics&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+        moveList&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;m &lt;span class=&quot;token operator&quot;&gt;-&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;switch&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;m&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;token keyword&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;go&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+                    strategyList&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ContentsStrategyA&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;//기능 A&lt;/span&gt;
+                    &lt;span class=&quot;token keyword&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;token keyword&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;back&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+                    strategyList&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ContentsStrategyB&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;//기능 B&lt;/span&gt;
+                    &lt;span class=&quot;token keyword&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+        strategyList&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Strategy&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;//기능 실행&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;h4 id=&quot;실행결과&quot;&gt;&lt;a href=&quot;#%EC%8B%A4%ED%96%89%EA%B2%B0%EA%B3%BC&quot; aria-label=&quot;실행결과 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;실행결과&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;앞으로 이동
+뒤로 이동
+앞으로 이동
+앞으로 이동&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;p&gt;위에 code를 보시면 먼저 &lt;strong&gt;StrategyInterface&lt;/strong&gt; 인터페이스를 구현합니다&lt;br&gt;
+그리고 각각의 기능을 &lt;strong&gt;ContentsStrategyA&lt;/strong&gt;, &lt;strong&gt;ContentsStrategyB&lt;/strong&gt;에서 구현하게 됩니다&lt;br&gt;
+그러면 메인프로세스는 &lt;strong&gt;StrategyInterface&lt;/strong&gt;만으로 각각의 상황에 맞춰 전략을 선택하고 실행 할 수 있습니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[DataScience] K-mean]]></title><description><![CDATA[K-평균 (K-mean cluster) 데이터를 k개의 클러스터로 묶는 알고리즘 이 알고리즘을 데이터를 K개의 그룹으로 묶고 싶을때 사용하는 알고리즘 중 하나입니다
 방법은 간단합니다 K-means 출처 : 위키피디아  K-mean 알고리즘 방식  k…]]></description><link>https://renuevo.github.io/data-science/k-mean-algorithm/</link><guid isPermaLink="false">https://renuevo.github.io/data-science/k-mean-algorithm/</guid><pubDate>Sat, 07 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;h1 id=&quot;k-평균-span-classsub_headerk-mean-clusterspan&quot;&gt;&lt;a href=&quot;#k-%ED%8F%89%EA%B7%A0-span-classsub_headerk-mean-clusterspan&quot; aria-label=&quot;k 평균 span classsub_headerk mean clusterspan permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;K-평균 &lt;span class=&quot;sub_header&quot;&gt;(K-mean cluster)&lt;/span&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;데이터를 k개의 클러스터로 묶는 알고리즘&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;이 알고리즘을 데이터를 K개의 그룹으로 묶고 싶을때 사용하는 알고리즘 중 하나입니다
@@ -5907,90 +6162,7 @@ k 기준점 선정에 대해서 많은 사람들이 관련 연구를 진행하�
     &lt;/span&gt;  &lt;/p&gt;
 &lt;p&gt;위 그래프는 실제 제가 회사 데이터를 K평균으로 분류하여 유용한 데이터들입니다&lt;br&gt;
 Scikit-Learn을 사용하면 간편하고 사용해보실 수 있으니 분석하실 데이터의 군집화가 필요하시다면 사용해 보시기 바랍니다&lt;br&gt;
-그리고 만약 군집화를 정해진 개수 없이 하고 싶으시면 Label Propagation 알고리즘을 사용해 보시기 바랍니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[DesignPattern] 전략 패턴(Strategy Pattern)이란?]]></title><description><![CDATA[…]]></description><link>https://renuevo.github.io/design-pattern/strategy-pattern/</link><guid isPermaLink="false">https://renuevo.github.io/design-pattern/strategy-pattern/</guid><pubDate>Sat, 07 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;&lt;em&gt;메인 프로세스에서 상황에 맞게 전략을 선택하여 실행하는 패턴입니다&lt;/em&gt;&lt;/strong&gt;  &lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 256px;&quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 62.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAACPUlEQVQoz3WQ62/SYBSH+XOVxMzpZLpNE2cIGqBYUJBbGDDmpsZJuK7lMq7ThRWYG5PCZoBiRukLpRSkHe0sYWaTzPM+n07yvL9zjgwlte7csj2tcGQX/fWXO+cayKQMB9HhcAiojsRw+PvyPyVLDwyfjp97DlY28k9jlG63C79z6pKJNMdx/X6fHbAEQYyF8YgbSTUrxxmNRGIAJVjtLqPdrj1rgmpvQCENOHz2xpNRutMvtvZV0ebbeN3KDhjJEaU3lQvAm2ttH5AT8pQ329gEPbJF1xGgQkg15JND3rv60L0kq0MIiGHpiSz+lUX+8iYCL0jdBlk1J+c82Io1teDYU3zGV1FK7S2/mpVn1hDFidyia96KCiVghIAjTbgounJje+LcMjv2rWfkeZ4CZJ+lK6flQNBXr9dAh6JAWxCEfw52M/OayWiT71l2UDouSX9NAyUEUbhCEG5J5jketLu9br8LGIZmyRbZo9ku6Emddgvw/MVs8pgX9nA/UrbFKq5A0eLDTOgPRxR3IEdrtV/V6IkHLdujuPNLzhg6skbLaxHc8SFmlE2350dj/6HRmX/oKSxZMw8sqXlral6PyG0JBV4vbmKr7rxiPf/EFJ+zf10wJ++/DstVG3eu5eB3syv/aB1bdu4voqR6t6eLM1CY0J6cYR8LSjf22J1ben+4EqehWAfKcHpLZPFq7AtOSFa3/BVNqGoI4nCqbcl0bVnalmjaThslBDcHKrpQFd75aUh3bGlg/cY6NjPqPyOikmuHvnU/AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;strategy_pattern&quot;
-        title=&quot;strategy_pattern&quot;
-        src=&quot;/static/01c3a1b7d7027a3139ef025546f18c8d/00397/Strategy_Pattern.png&quot;
-        srcset=&quot;/static/01c3a1b7d7027a3139ef025546f18c8d/acf4b/Strategy_Pattern.png 173w,
-/static/01c3a1b7d7027a3139ef025546f18c8d/00397/Strategy_Pattern.png 256w&quot;
-        sizes=&quot;(max-width: 256px) 100vw, 256px&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-    &lt;/span&gt;
-&lt;span class=&quot;img_caption&quot;&gt;출처 : &lt;a href=&quot;https://ko.wikipedia.org/wiki/%EC%A0%84%EB%9E%B5_%ED%8C%A8%ED%84%B4&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;위키피디아&lt;/a&gt; &lt;/span&gt;&lt;/p&gt;
-&lt;br/&gt;
-&lt;p&gt;이 패턴은 가장 기본적이며 인터페이스의 필요여부를 가장 잘 보여 주고 많은 곳에서 사용하고 있는 패턴입니다&lt;br&gt;
-이 그림에서 볼 수 있듯이 하나의 인터페이스를 두고 클래스들이 인터페이스를 구현하여 사용됩니다  &lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;strategy-sample&quot;&gt;&lt;a href=&quot;#strategy-sample&quot; aria-label=&quot;strategy sample permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Strategy Sample&lt;/h2&gt;
-&lt;/br&gt;
-&lt;h4 id=&quot;strategyinterface&quot;&gt;&lt;a href=&quot;#strategyinterface&quot; aria-label=&quot;strategyinterface permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;StrategyInterface&lt;/h4&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Strategy&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;br/&gt;
-&lt;h4 id=&quot;contentsstrategya--span-calsssub_headerspan&quot;&gt;&lt;a href=&quot;#contentsstrategya--span-calsssub_headerspan&quot; aria-label=&quot;contentsstrategya  span calsssub_headerspan permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;ContentsStrategyA  &lt;span calss=&quot;sub_header&quot;&gt;&lt;/span&gt;&lt;/h4&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ContentsStrategyA&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Strategy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;token class-name&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;앞으로 이동&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;br/&gt;
-&lt;h4 id=&quot;contentsstrategyb--span-calsssub_headerspan&quot;&gt;&lt;a href=&quot;#contentsstrategyb--span-calsssub_headerspan&quot; aria-label=&quot;contentsstrategyb  span calsssub_headerspan permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;ContentsStrategyB  &lt;span calss=&quot;sub_header&quot;&gt;&lt;/span&gt;&lt;/h4&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ContentsStrategyB&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Strategy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;token class-name&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;뒤로 이동&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;br/&gt;
-&lt;h4 id=&quot;main&quot;&gt;&lt;a href=&quot;#main&quot; aria-label=&quot;main permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Main&lt;/h4&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@SpringBootApplication&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;SimpleCode&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-
-    &lt;span class=&quot;token comment&quot;&gt;//Run&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;robot&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    
-        &lt;span class=&quot;token comment&quot;&gt;//전략 리스트&lt;/span&gt;
-        &lt;span class=&quot;token class-name&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;token generics&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt; moveList &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Arrays&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;asList&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;go&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;back&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;go&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;go&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;token class-name&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;token generics&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Strategy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt; strategyList &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;token generics&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-        moveList&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;m &lt;span class=&quot;token operator&quot;&gt;-&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;token keyword&quot;&gt;switch&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;m&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;token keyword&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;go&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
-                    strategyList&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ContentsStrategyA&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;//기능 A&lt;/span&gt;
-                    &lt;span class=&quot;token keyword&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;token keyword&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;back&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
-                    strategyList&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ContentsStrategyB&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;//기능 B&lt;/span&gt;
-                    &lt;span class=&quot;token keyword&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-        strategyList&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Strategy&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;//기능 실행&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;br/&gt;
-&lt;h4 id=&quot;실행결과&quot;&gt;&lt;a href=&quot;#%EC%8B%A4%ED%96%89%EA%B2%B0%EA%B3%BC&quot; aria-label=&quot;실행결과 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;실행결과&lt;/h4&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;앞으로 이동
-뒤로 이동
-앞으로 이동
-앞으로 이동&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;br/&gt;
-&lt;p&gt;위에 code를 보시면 먼저 &lt;strong&gt;StrategyInterface&lt;/strong&gt; 인터페이스를 구현합니다&lt;br&gt;
-그리고 각각의 기능을 &lt;strong&gt;ContentsStrategyA&lt;/strong&gt;, &lt;strong&gt;ContentsStrategyB&lt;/strong&gt;에서 구현하게 됩니다&lt;br&gt;
-그러면 메인프로세스는 &lt;strong&gt;StrategyInterface&lt;/strong&gt;만으로 각각의 상황에 맞춰 전략을 선택하고 실행 할 수 있습니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Notion] 동기(Synchronous)와 비동기(Asynchronous) & 블로킹(Blocking)과 논블로킹(NonBlocking)]]></title><description><![CDATA[얼마전 Reactive Programing을 공부하면서 백기선님의 유튜브를 보다 문득 의문이 생기는 부분이 있었습니다 “asynchronous하면 당연히 non-blocking…]]></description><link>https://renuevo.github.io/notion/blocking-nonBlocking-synchronous-asynchronous/</link><guid isPermaLink="false">https://renuevo.github.io/notion/blocking-nonBlocking-synchronous-asynchronous/</guid><pubDate>Fri, 06 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;얼마전 Reactive Programing을 공부하면서 &lt;a href=&quot;https://www.youtube.com/channel/UCwjaZf1WggZdbczi36bWlBA&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;백기선님의 유튜브&lt;/a&gt;를 보다 문득 의문이 생기는 부분이 있었습니다&lt;/p&gt;
+그리고 만약 군집화를 정해진 개수 없이 하고 싶으시면 Label Propagation 알고리즘을 사용해 보시기 바랍니다&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Notion] 동기(Synchronous)와 비동기(Asynchronous) & 블로킹(Blocking)과 논블로킹(NonBlocking)]]></title><description><![CDATA[얼마전 Reactive Programing을 공부하면서 백기선님의 유튜브를 보다 문득 의문이 생기는 부분이 있었습니다 “asynchronous하면 당연히 non-blocking…]]></description><link>https://renuevo.github.io/notion/blocking-nonBlocking-synchronous-asynchronous/</link><guid isPermaLink="false">https://renuevo.github.io/notion/blocking-nonBlocking-synchronous-asynchronous/</guid><pubDate>Fri, 06 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;얼마전 Reactive Programing을 공부하면서 &lt;a href=&quot;https://www.youtube.com/channel/UCwjaZf1WggZdbczi36bWlBA&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;백기선님의 유튜브&lt;/a&gt;를 보다 문득 의문이 생기는 부분이 있었습니다&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;textbox&quot;&gt;&lt;pre class=&quot;language-textbox&quot;&gt;&lt;code class=&quot;language-textbox&quot;&gt;By being built around the core pillars of being fully asynchronous and non-blocking,  
 Reactive Programming is an alternative to the more limited ways of doing asynchronous code in the JDK: namely Callback based APIs and Future.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;“asynchronous하면 당연히 non-blocking 되는 게 아닌가?”&lt;/em&gt;&lt;/strong&gt;  지금까지 저는 비동기면 당연히 논블록킹하다고 생각하고 있었습니다&lt;br&gt;
