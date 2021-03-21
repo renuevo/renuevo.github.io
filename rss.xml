@@ -1,4 +1,138 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[renuevo blog]]></title><description><![CDATA[development]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 04 Nov 2020 03:00:42 GMT</lastBuildDate><item><title><![CDATA[[Elastic] 2. Elastic 자동완성 가이드 (Autocomplete Guide) - Index Search]]></title><description><![CDATA[Elastic Autocomplete Guide 시리즈 Autocomplete Prefix Queries Autocomplete Index Search Elastic을 활용하여 다음…]]></description><link>https://renuevo.github.io/elastic/autocomplete/elastic-autocomplete-2/</link><guid isPermaLink="false">https://renuevo.github.io/elastic/autocomplete/elastic-autocomplete-2/</guid><pubDate>Wed, 04 Nov 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h3 id=&quot;elastic-autocomplete-guide-시리즈&quot;&gt;&lt;a href=&quot;#elastic-autocomplete-guide-%EC%8B%9C%EB%A6%AC%EC%A6%88&quot; aria-label=&quot;elastic autocomplete guide 시리즈 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Elastic Autocomplete Guide 시리즈&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[renuevo blog]]></title><description><![CDATA[development]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 21 Mar 2021 17:08:26 GMT</lastBuildDate><item><title><![CDATA[[Spring] Spring Boot 2.3.x Dependency 업그레이드]]></title><description><![CDATA[Spring Boot 2.3.x 버젼 업그레이드 주의사항 해당 포스터는 회사에서 Spring Boot…]]></description><link>https://renuevo.github.io/spring/spring-version-upgrade/</link><guid isPermaLink="false">https://renuevo.github.io/spring/spring-version-upgrade/</guid><pubDate>Mon, 22 Mar 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;spring-boot-23x-버젼-업그레이드-주의사항&quot;&gt;&lt;a href=&quot;#spring-boot-23x-%EB%B2%84%EC%A0%BC-%EC%97%85%EA%B7%B8%EB%A0%88%EC%9D%B4%EB%93%9C-%EC%A3%BC%EC%9D%98%EC%82%AC%ED%95%AD&quot; aria-label=&quot;spring boot 23x 버젼 업그레이드 주의사항 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Spring Boot 2.3.x 버젼 업그레이드 주의사항&lt;/h2&gt;
+&lt;p&gt;해당 포스터는 회사에서 Spring Boot 버젼 업데이트를 진행한 경험을 바탕으로 작성하였습니다&lt;br&gt;
+하나하나 모든 내용을 세세하게 작성하지 않고 문제가 발생한거 위주로 작성하였습니다 😓&lt;/p&gt;
+&lt;br/&gt;
+&lt;hr&gt;
+&lt;br/&gt;
+&lt;h3 id=&quot;spring-boot-23x의-gradle-버젼&quot;&gt;&lt;a href=&quot;#spring-boot-23x%EC%9D%98-gradle-%EB%B2%84%EC%A0%BC&quot; aria-label=&quot;spring boot 23x의 gradle 버젼 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Spring Boot 2.3.x의 Gradle 버젼&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Gradle 6.3+ (if you are building with Gradle). 5.6.x is also supported but in a deprecated form.  &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;기본적으로 6.3버젼 이상으로 Gradle을 올려주어야 합니다&lt;/p&gt;
+&lt;hr&gt;
+&lt;br/&gt;
+&lt;h3 id=&quot;validation-starter-제외&quot;&gt;&lt;a href=&quot;#validation-starter-%EC%A0%9C%EC%99%B8&quot; aria-label=&quot;validation starter 제외 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Validation Starter 제외&lt;/h3&gt;
+&lt;p&gt;Spring Boot에서 Compile Dependencies의 optional로 지정되던 것들이 많이 정리 되었습니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.73264401772526%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABcklEQVQoz41SyVLDMAzN/38KP8CRZeBI6UyhZbrSHgrd0jaRt9jJQ3ISuHQhM4pkWX5+T1YyfO9jPplgl6YgUshyQs5GREg5t9vtoJQ6aWk8U9dKnfik1/nEcryAcg7HXONIBjkDO2vhOGfZF0Vx0oh0rJFYaxN9UoaKDzscMgGzOOSOWSoE73Huq6pK/tDWo+RY1sp4SDbJXvo4fExBRQAph1w7KM3s+LayLGPxKZM9Y+saMR3jCsngaYDRcw86lCzZghiQlOUCB88sLwFqUyA0l7qiZptsFhvs13umzD0klss9NMZESefAWkDVAEpsnY8+6d48Yt4ZwTDDXCSr+jEugbXWgojUglsmuWS2SDGcbqB5U+QKQ5Hi3PUeCgEfaqBfwPG3wttoGWcv00V8FNLXWQrQPjOxd39sGXC+tXi4e8XXcsUsQ9NDi9Dc/B/JbRwZdmcZbu+7WK23IJ4lmcWcB9Y3c3hJskyF9yHGGQmJEj8TYliQqVl9ngAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;spring 2.2.x&quot;
+        title=&quot;spring 2.2.x&quot;
+        src=&quot;/static/85e158ad8679aeabff392b3f9121df16/36727/spring-boot-2.2.13.png&quot;
+        srcset=&quot;/static/85e158ad8679aeabff392b3f9121df16/acf4b/spring-boot-2.2.13.png 173w,
+/static/85e158ad8679aeabff392b3f9121df16/fc834/spring-boot-2.2.13.png 345w,
+/static/85e158ad8679aeabff392b3f9121df16/36727/spring-boot-2.2.13.png 690w,
+/static/85e158ad8679aeabff392b3f9121df16/17fa4/spring-boot-2.2.13.png 1035w,
+/static/85e158ad8679aeabff392b3f9121df16/5bee8/spring-boot-2.2.13.png 1354w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;
+&lt;span class=&apos;img_caption&apos;&gt;Spring Boot 2.2.13.RELEASE&lt;/span&gt;&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 15.3219837157661%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAkklEQVQI122N3QoCIRCF9/1fp4foPuqmH4hcWLrI1HXUUeM0s7FB0MXHeJzz6WDMiOvpiGkc4cMMIkIUdFpr4ZxDSumHnBO893CCnvVOu+oM/dWx22xhDhdErlIihChSYTAXgdFaQ631i2YXCE/prrtZHBZ/aBLO+xvu0wNZ5JgKKJflwd77IvyDpKfdNRf+fPYGE4DnWmT7gq4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;spring 2.3.x&quot;
+        title=&quot;spring 2.3.x&quot;
+        src=&quot;/static/2bbcde8385a0625bc926e2ff1578a8d2/36727/spring-boot-2.3.8.png&quot;
+        srcset=&quot;/static/2bbcde8385a0625bc926e2ff1578a8d2/acf4b/spring-boot-2.3.8.png 173w,
+/static/2bbcde8385a0625bc926e2ff1578a8d2/fc834/spring-boot-2.3.8.png 345w,
+/static/2bbcde8385a0625bc926e2ff1578a8d2/36727/spring-boot-2.3.8.png 690w,
+/static/2bbcde8385a0625bc926e2ff1578a8d2/17fa4/spring-boot-2.3.8.png 1035w,
+/static/2bbcde8385a0625bc926e2ff1578a8d2/df30d/spring-boot-2.3.8.png 1351w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;
+&lt;span class=&apos;img_caption&apos;&gt;Spring Boot 2.3.8.RELEASE&lt;/span&gt;&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;Web과 WebFlux Starter의 Validation관련 디펜던시가 제외되었습니다&lt;br&gt;
+그래서 다음과 같이 의존성을 추가해 주어야 합니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;groovy&quot;&gt;&lt;pre class=&quot;language-groovy&quot;&gt;&lt;code class=&quot;language-groovy&quot;&gt;implementation &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string gstring&quot;&gt;&quot;org.springframework.boot:spring-boot-starter-validation&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr&gt;
+&lt;br/&gt;
+&lt;h3 id=&quot;lombok-버젼에-대한-사이드-이펙트&quot;&gt;&lt;a href=&quot;#lombok-%EB%B2%84%EC%A0%BC%EC%97%90-%EB%8C%80%ED%95%9C-%EC%82%AC%EC%9D%B4%EB%93%9C-%EC%9D%B4%ED%8E%99%ED%8A%B8&quot; aria-label=&quot;lombok 버젼에 대한 사이드 이펙트 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;lombok 버젼에 대한 사이드 이펙트&lt;/h3&gt;
+&lt;p&gt;버젼이 올라가면서 &lt;a href=&quot;https://projectlombok.org/changelog&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;lombok v1.18.16&lt;/a&gt;에 &lt;code class=&quot;language-text&quot;&gt;mapstruct&lt;/code&gt;대한 의존성이 분리되었습니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;BREAKING CHANGE: mapstruct users should now add a dependency to lombok-mapstruct-binding.  
+This solves compiling modules with lombok (and mapstruct).  &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;프로젝트 내에서 mapstruct를 사용하시면 추가적으로 다음 의존성을 기입해야 합니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;groovy&quot;&gt;&lt;pre class=&quot;language-groovy&quot;&gt;&lt;code class=&quot;language-groovy&quot;&gt;&lt;span class=&quot;token function&quot;&gt;annotationProcessor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string gstring&quot;&gt;&quot;org.projectlombok:lombok-mapstruct-binding:&lt;span class=&quot;token expression&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;lombokMapstructVersion&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;  &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr&gt;
+&lt;br/&gt;
+&lt;h3 id=&quot;querydsl-annotationprocessor로-변경&quot;&gt;&lt;a href=&quot;#querydsl-annotationprocessor%EB%A1%9C-%EB%B3%80%EA%B2%BD&quot; aria-label=&quot;querydsl annotationprocessor로 변경 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;QueryDsl AnnotationProcessor로 변경&lt;/h3&gt;
+&lt;p&gt;기본적으로 이전에는 &lt;code class=&quot;language-text&quot;&gt;com.ewerk.gradle.plugins.querydsl&lt;/code&gt;  플러그인을 사용해서 querydsl의 설정을 해주었습니다  &lt;/p&gt;
+&lt;p&gt;그렇지만 해당 플러그인을 사용하므로 부과적인 script를 작성해야하고&lt;br&gt;
+gradle 6.3 + multi module 환경에서 querydsl script가 제대로 작동하지 않는 문제가 있었습니다  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;그래서 gradle 4.x사용 가능한 annotationProcessor를 사용해서 깔끔하게 querydsl설정을 추가하였습니다  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;groovy&quot;&gt;&lt;pre class=&quot;language-groovy&quot;&gt;&lt;code class=&quot;language-groovy&quot;&gt;    &lt;span class=&quot;token function&quot;&gt;implementation&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string gstring&quot;&gt;&quot;com.querydsl:querydsl-jpa:&lt;span class=&quot;token expression&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;querydslVersion&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;annotationProcessor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string gstring&quot;&gt;&quot;com.querydsl:querydsl-apt:&lt;span class=&quot;token expression&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;querydslVersion&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;testImplementation&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string gstring&quot;&gt;&quot;com.querydsl:querydsl-jpa:&lt;span class=&quot;token expression&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;querydslVersion&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;testAnnotationProcessor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string gstring&quot;&gt;&quot;com.querydsl:querydsl-apt:&lt;span class=&quot;token expression&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;querydslVersion&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위의 설정으로 추가적인 script 작성없이 querydsl 잘 작동합니다    &lt;/p&gt;
+&lt;br/&gt;  
+&lt;p&gt;추가적으로 intellij의 경우 build 설정에 따라서 QClass가 생성 경로가 달라집니다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75.8695652173913%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAIBBf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHnVFBhP//EABQQAQAAAAAAAAAAAAAAAAAAACD/2gAIAQEAAQUCX//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAACD/2gAIAQEABj8CX//EABcQAAMBAAAAAAAAAAAAAAAAAAEQESH/2gAIAQEAAT8hhusP/9oADAMBAAIAAwAAABCY/wD/xAAVEQEBAAAAAAAAAAAAAAAAAAAQcf/aAAgBAwEBPxCn/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGRABAQEBAQEAAAAAAAAAAAAAAQARIUFh/9oACAEBAAE/EAAhD3k/JLW9hXALt//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;intellij build setting&quot;
+        title=&quot;intellij build setting&quot;
+        src=&quot;/static/b0a1938598bd9634ec7e971c5189bd57/8c996/intellij-setting.jpg&quot;
+        srcset=&quot;/static/b0a1938598bd9634ec7e971c5189bd57/6f483/intellij-setting.jpg 173w,
+/static/b0a1938598bd9634ec7e971c5189bd57/0fa0d/intellij-setting.jpg 345w,
+/static/b0a1938598bd9634ec7e971c5189bd57/8c996/intellij-setting.jpg 690w,
+/static/b0a1938598bd9634ec7e971c5189bd57/a08f9/intellij-setting.jpg 920w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;
+&lt;span class=&apos;img_caption&apos;&gt;Intellij Build Setting&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;위의 Build and run using 설정에 따라서 QClass가 생성됩니다&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Gradle : &lt;code class=&quot;language-text&quot;&gt;build/generated/sources/annotationProcessor/java/main&lt;/code&gt;&lt;br&gt;
+Intellij : &lt;code class=&quot;language-text&quot;&gt;src/main/generated&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;문제는 Gradle 설정을 사용하지 않을 경우 build내의 생성되는게 아니여서 clean과 같은 작업에서 QClass가 삭제되지 않습니다&lt;br&gt;
+그래서 아래 추가적으로 clean을 도와주는 script를 생성해 주어야 합니다  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;groovy&quot;&gt;&lt;pre class=&quot;language-groovy&quot;&gt;&lt;code class=&quot;language-groovy&quot;&gt;    &lt;span class=&quot;token comment&quot;&gt;// clean 태스크와 cleanGeneatedDir 태스크 중 취향에 따라서 선택하세요.&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;/** clean 태스크 실행시 QClass 삭제 */&lt;/span&gt;
+    clean &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        delete &lt;span class=&quot;token function&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;src/main/generated&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 인텔리제이 Annotation processor 생성물 생성위치&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;token comment&quot;&gt;/**
+     * 인텔리제이 Annotation processor 에 생성되는 &apos;src/main/generated&apos; 디렉터리 삭제
+     */&lt;/span&gt;
+    task &lt;span class=&quot;token function&quot;&gt;cleanGeneatedDir&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Delete&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 인텔리제이 annotation processor 가 생성한 Q클래스가 clean 태스크로 삭제되는 게 불편하다면 둘 중에 하나를 선택 &lt;/span&gt;
+        delete &lt;span class=&quot;token function&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;src/main/generated&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;때문에 일반적으로는 Gradle로 설정하여 사용하는 방법을 추천드리며&lt;br&gt;
+보다 자세한 QueryDsl 설정은 👉 &lt;a href=&quot;http://honeymon.io/tech/2020/07/09/gradle-annotation-processor-with-querydsl.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;honeymon.io님의 블로그&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;br/&gt;
+&lt;h3 id=&quot;activeprofile의-변경&quot;&gt;&lt;a href=&quot;#activeprofile%EC%9D%98-%EB%B3%80%EA%B2%BD&quot; aria-label=&quot;activeprofile의 변경 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;ActiveProfile의 변경&lt;/h3&gt;
+&lt;hr&gt;
+&lt;p&gt;🚧 아직 작성중~&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Elastic] 2. Elastic 자동완성 가이드 (Autocomplete Guide) - Index Search]]></title><description><![CDATA[Elastic Autocomplete Guide 시리즈 Autocomplete Prefix Queries Autocomplete Index Search Elastic을 활용하여 다음…]]></description><link>https://renuevo.github.io/elastic/autocomplete/elastic-autocomplete-2/</link><guid isPermaLink="false">https://renuevo.github.io/elastic/autocomplete/elastic-autocomplete-2/</guid><pubDate>Wed, 04 Nov 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h3 id=&quot;elastic-autocomplete-guide-시리즈&quot;&gt;&lt;a href=&quot;#elastic-autocomplete-guide-%EC%8B%9C%EB%A6%AC%EC%A6%88&quot; aria-label=&quot;elastic autocomplete guide 시리즈 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Elastic Autocomplete Guide 시리즈&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;https://renuevo.github.io/elastic/autocomplete/elastic-autocomplete-1/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Autocomplete Prefix Queries&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://renuevo.github.io/elastic/autocomplete/elastic-autocomplete-2/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Autocomplete Index Search&lt;/a&gt;&lt;/li&gt;
@@ -256,9 +390,7 @@
 &lt;p&gt;한글 자동완성을 설계할 때는 다음과 같은 상황을 고려해서 설계할 필요가 있습니다&lt;br&gt;
 이러한 기능들을 구현하기 위해서는 색인어를 다양한 형태로 저장해야만 합니다&lt;br&gt;
 하지만 현재의 Elastic Search가 제공하는 기본 기능만으로는 한계가 있습니다&lt;br&gt;
-그래서 추가적으로 Plugin을 설치하여 Elastic의 기능을 확장할 필요성이 있습니다  &lt;/p&gt;
-&lt;br/&gt;
-세키로
+그래서 추가적으로 Plugin을 설치하여 Elastic의 기능을 확장할 필요성이 있습니다&lt;/p&gt;
 &lt;br/&gt;
 &lt;h2 id=&quot;한글-자동완성을-위한-플러그인&quot;&gt;&lt;a href=&quot;#%ED%95%9C%EA%B8%80-%EC%9E%90%EB%8F%99%EC%99%84%EC%84%B1%EC%9D%84-%EC%9C%84%ED%95%9C-%ED%94%8C%EB%9F%AC%EA%B7%B8%EC%9D%B8&quot; aria-label=&quot;한글 자동완성을 위한 플러그인 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;한글 자동완성을 위한 플러그인&lt;/h2&gt;
 &lt;p&gt;자동완성의 경우에는 일반적인 검색에 대한 인덱싱과는 색인어의 차이를 가지고 있습니다&lt;br&gt;
@@ -3569,7 +3701,7 @@ properties를 다음과 같이 지정하므로 모든 job이 실행되는 것을
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt; &lt;span class=&apos;img_caption&apos;&gt;Source : &lt;a href=&quot;https://docs.spring.io/spring-batch/docs/3.0.x/reference/html/metaDataSchema.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Spring Batch Doc&lt;/a&gt; &lt;/span&gt; &lt;/p&gt;
+&lt;p&gt; &lt;span class=&apos;img_caption&apos;&gt;Source : &lt;a href=&quot;https://docs.spring.io/spring-batch/docs/3.0.x/reference/html/metaDataSchema.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Spring_Batch_Doc&lt;/a&gt; &lt;/span&gt; &lt;/p&gt;
 &lt;p&gt;해당 Table들은 Spring Batch 동작에 꼭 필요하며 &lt;code class=&quot;language-text&quot;&gt;H2 DB&lt;/code&gt;사용시 자동으로 생성되지만&lt;br&gt;
 그외 DB들은 직접 생성해 주어야합니다&lt;/p&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;DB DDL&lt;/code&gt; 쿼리는 org.springframework.batch.core에 포함되어 있고 탐색 및 schema 검색으로 확인할 수 있습니다&lt;/p&gt;
@@ -3718,14 +3850,14 @@ properties를 다음과 같이 지정하므로 모든 job이 실행되는 것을
 &lt;p&gt; &lt;span class=&apos;img_caption&apos;&gt;BATCH&lt;em&gt;JOB&lt;/em&gt;EXECUTION&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;이외의 Step과 관련된 Meta Table은 생략하겠습니다&lt;br&gt;
 Job과 비슷하므로 한번 실행해 보시면 바로 이해 가능하실껍니다  &lt;/p&gt;
-&lt;p&gt;추가적으로 Batch에서 Meta Table을 꼭 필요한 부분을 Spring의 DataSource 설정을 제외하므로 그냥 실행 가능합니다  &lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@EnableBatchProcessing&lt;/span&gt;
-&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@SpringBootApplication&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;exclude &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;DataSourceAutoConfiguration&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;  &lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BatchApplication&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-
-    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; args&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;token class-name&quot;&gt;SpringApplication&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;BatchApplication&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; args&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;추가적으로 Batch에서 Meta Table을 사용하지 않고 RunIdIncrementer을 설정해서 실행도 가능합니다  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Bean&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Job&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;autoIncrementJob&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; jobBuilderFactory&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;autoIncrementJob&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;incrementer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;RunIdIncrementer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;autoIncrementStep&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;⚠  &lt;span class=&apos;red_font&apos;&gt;하지만 이 방식은 기존의 Spring Batch을 상태관리의 장점을 지워버리므로 추천드리지 않습니다&lt;/span&gt;  &lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;spring-batch-flow&quot;&gt;&lt;a href=&quot;#spring-batch-flow&quot; aria-label=&quot;spring batch flow permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Spring Batch Flow&lt;/h2&gt;
