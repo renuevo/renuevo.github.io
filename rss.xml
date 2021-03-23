@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[renuevo blog]]></title><description><![CDATA[development]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 22 Mar 2021 16:33:38 GMT</lastBuildDate><item><title><![CDATA[[Spring] Spring Boot 2.3.x Dependency 업그레이드]]></title><description><![CDATA[Spring Boot 2.3.x 버젼 업그레이드 주의사항 해당 포스터는 회사에서 Spring Boot…]]></description><link>https://renuevo.github.io/spring/spring-version-upgrade/</link><guid isPermaLink="false">https://renuevo.github.io/spring/spring-version-upgrade/</guid><pubDate>Mon, 22 Mar 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;spring-boot-23x-버젼-업그레이드-주의사항&quot;&gt;&lt;a href=&quot;#spring-boot-23x-%EB%B2%84%EC%A0%BC-%EC%97%85%EA%B7%B8%EB%A0%88%EC%9D%B4%EB%93%9C-%EC%A3%BC%EC%9D%98%EC%82%AC%ED%95%AD&quot; aria-label=&quot;spring boot 23x 버젼 업그레이드 주의사항 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Spring Boot 2.3.x 버젼 업그레이드 주의사항&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[renuevo blog]]></title><description><![CDATA[development]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 23 Mar 2021 15:23:15 GMT</lastBuildDate><item><title><![CDATA[[Spring] Spring Boot 2.3.x Dependency 업그레이드]]></title><description><![CDATA[Spring Boot 2.3.x 버젼 업그레이드 주의사항 해당 포스터는 회사에서 Spring Boot…]]></description><link>https://renuevo.github.io/spring/spring-version-upgrade/</link><guid isPermaLink="false">https://renuevo.github.io/spring/spring-version-upgrade/</guid><pubDate>Mon, 22 Mar 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;spring-boot-23x-버젼-업그레이드-주의사항&quot;&gt;&lt;a href=&quot;#spring-boot-23x-%EB%B2%84%EC%A0%BC-%EC%97%85%EA%B7%B8%EB%A0%88%EC%9D%B4%EB%93%9C-%EC%A3%BC%EC%9D%98%EC%82%AC%ED%95%AD&quot; aria-label=&quot;spring boot 23x 버젼 업그레이드 주의사항 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Spring Boot 2.3.x 버젼 업그레이드 주의사항&lt;/h2&gt;
 &lt;p&gt;해당 포스터는 회사에서 Spring Boot 버젼 업데이트를 진행한 경험을 바탕으로 작성하였습니다&lt;br&gt;
 하나하나 모든 내용을 세세하게 작성하지 않고 문제가 발생한거 위주로 작성하였습니다 😓&lt;/p&gt;
 &lt;br/&gt;
@@ -130,8 +130,56 @@ Intellij : &lt;code class=&quot;language-text&quot;&gt;src/main/generated&lt;/co
     task &lt;span class=&quot;token function&quot;&gt;cleanGeneatedDir&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Delete&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 인텔리제이 annotation processor 가 생성한 Q클래스가 clean 태스크로 삭제되는 게 불편하다면 둘 중에 하나를 선택 &lt;/span&gt;
         delete &lt;span class=&quot;token function&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;src/main/generated&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;때문에 일반적으로는 Gradle로 설정하여 사용하는 방법을 추천드리며&lt;br&gt;
-보다 자세한 QueryDsl 설정은 👉 &lt;a href=&quot;http://honeymon.io/tech/2020/07/09/gradle-annotation-processor-with-querydsl.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;honeymon.io님의 블로그&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;때문에 일반적으로는 Gradle로 설정하여 사용하는 방법을 추천드리며 보다 자세한 QueryDsl 설정은 👉 &lt;a href=&quot;http://honeymon.io/tech/2020/07/09/gradle-annotation-processor-with-querydsl.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;honeymon.io님의 블로그&lt;/a&gt;  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;부가적인 설정으로 intellij로 build 이후 계속해서 프로젝트에 &lt;span class=&apos;red_font&apos;&gt;duplication class error&lt;/span&gt;가 발생 할 수 있습니다&lt;br&gt;
+실제로 프로젝트의 build를 살펴보면 다음과 같이 2개의 중복된 generated class가 생성된게 보입니다  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 474px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 82.27848101265823%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAQABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEDBP/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAcSkyhIP/8QAFBABAAAAAAAAAAAAAAAAAAAAIP/aAAgBAQABBQJf/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAIP/aAAgBAQAGPwJf/8QAGhAAAgIDAAAAAAAAAAAAAAAAAAERMVFxgf/aAAgBAQABPyFJQQiFgV2PZ0//2gAMAwEAAgADAAAAEBAP/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQMBAT8Qqv/EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAECAQE/EIj/xAAdEAEAAgEFAQAAAAAAAAAAAAABABGBITFBUWGR/9oACAEBAAE/EEVo0jzBPNLG4ZlhoRmU9/s//9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;intellij-auto-generated&quot;
+        title=&quot;intellij-auto-generated&quot;
+        src=&quot;/static/8c7dc29b2d2223386f3f704506d15d0e/8d2b4/intellij-generated-auto_LI.jpg&quot;
+        srcset=&quot;/static/8c7dc29b2d2223386f3f704506d15d0e/6f483/intellij-generated-auto_LI.jpg 173w,
+/static/8c7dc29b2d2223386f3f704506d15d0e/0fa0d/intellij-generated-auto_LI.jpg 345w,
+/static/8c7dc29b2d2223386f3f704506d15d0e/8d2b4/intellij-generated-auto_LI.jpg 474w&quot;
+        sizes=&quot;(max-width: 474px) 100vw, 474px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;
+&lt;span class=&apos;img_caption&apos;&gt;Querydsl Generated Class&lt;/span&gt;  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;generated 패키지의 class는 intellij 툴 자체에서 build하며 쓸데없이 class를 생성해서 만들어 집니다&lt;br&gt;
+때문에 아래와 같이 설정에서 auto build를 꺼주므로 duplication class가 생기는걸 방지 할 수 있습니다 🔧  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAQAF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAc+FCY//xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAEFAl//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAY/Al//xAAWEAEBAQAAAAAAAAAAAAAAAAABEBH/2gAIAQEAAT8hMpf/2gAMAwEAAgADAAAAEG8//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGhAAAgIDAAAAAAAAAAAAAAAAAAEQITFBgf/aAAgBAQABPxC556ON4as//9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;intellij-auto-build&quot;
+        title=&quot;intellij-auto-build&quot;
+        src=&quot;/static/54f0b5464fe0b64039b33a834636b3e8/8c996/disable-auto-build-setting_LI.jpg&quot;
+        srcset=&quot;/static/54f0b5464fe0b64039b33a834636b3e8/6f483/disable-auto-build-setting_LI.jpg 173w,
+/static/54f0b5464fe0b64039b33a834636b3e8/0fa0d/disable-auto-build-setting_LI.jpg 345w,
+/static/54f0b5464fe0b64039b33a834636b3e8/8c996/disable-auto-build-setting_LI.jpg 690w,
+/static/54f0b5464fe0b64039b33a834636b3e8/c8cd5/disable-auto-build-setting_LI.jpg 1035w,
+/static/54f0b5464fe0b64039b33a834636b3e8/313cc/disable-auto-build-setting_LI.jpg 1250w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;  &lt;/p&gt;
 &lt;hr&gt;
 &lt;br/&gt;
 &lt;h3 id=&quot;activeprofile의-변경&quot;&gt;&lt;a href=&quot;#activeprofile%EC%9D%98-%EB%B3%80%EA%B2%BD&quot; aria-label=&quot;activeprofile의 변경 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;ActiveProfile의 변경&lt;/h3&gt;
