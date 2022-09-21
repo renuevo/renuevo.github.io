@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[renuevo blog]]></title><description><![CDATA[development]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 15 Sep 2022 14:13:44 GMT</lastBuildDate><item><title><![CDATA[No title]]></title><description><![CDATA[🪃 Career Path name : 김덕화 email : renuevo0110@gmail.com phone : 010-2616-2505 position : Backend Engineer blog : https://renuevo.github.io…]]></description><link>https://renuevo.github.io/career-path/</link><guid isPermaLink="false">https://renuevo.github.io/career-path/</guid><content:encoded>&lt;h1 id=&quot;-career-path&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-career-path&quot; aria-label=&quot; career path permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🪃 Career Path&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[renuevo blog]]></title><description><![CDATA[development]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 21 Sep 2022 14:49:01 GMT</lastBuildDate><item><title><![CDATA[No title]]></title><description><![CDATA[🪃 Career Path name : 김덕화 email : renuevo0110@gmail.com phone : 010-2616-2505 position : Backend Engineer blog : https://renuevo.github.io…]]></description><link>https://renuevo.github.io/career-path/</link><guid isPermaLink="false">https://renuevo.github.io/career-path/</guid><content:encoded>&lt;h1 id=&quot;-career-path&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-career-path&quot; aria-label=&quot; career path permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🪃 Career Path&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;name&lt;/strong&gt; : 김덕화&lt;br&gt;
 &lt;strong&gt;email&lt;/strong&gt; : renuevo0110@gmail.com&lt;br&gt;
 &lt;strong&gt;phone&lt;/strong&gt; : 010-2616-2505&lt;br&gt;
@@ -171,10 +171,10 @@ c. &lt;a href=&quot;https://renuevo.github.io/spring/proxy/spring-proxy/#cglib&q
 &lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://renuevo.github.io/spring/proxy/spring-proxy-factory&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Spring의 프록시 생성 (ProxyBeanFactory)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://renuevo.github.io/spring/proxy/spring-proxy-factory&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Spring의 프록시 생성 (ProxyBeanFactory)&lt;/a&gt;  &lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;a. &lt;a href=&quot;https://renuevo.github.io/spring/proxy/spring-proxy-factory/#factory-bean&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;FactoryBean&lt;/a&gt;&lt;br&gt;
-b. &lt;a href=&quot;https://renuevo.github.io/spring/proxy/spring-proxy-factory/#proxyfactorybean&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;ProxyBeanFactory&lt;/a&gt;&lt;/p&gt;
+b. &lt;a href=&quot;https://renuevo.github.io/spring/proxy/spring-proxy-factory/#proxyfactorybean&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;ProxyBeanFactory&lt;/a&gt;  &lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;&quot;&gt;Spring Proxy의 빈 후처리기(BeanPostProcessor)&lt;/a&gt; 🚧 작성중  &lt;/li&gt;
@@ -474,6 +474,73 @@ AdvisedSupport에서는 타겟과 부가기능(Advisor, Advice)를 등록하는 
 &lt;br/&gt;
 &lt;br/&gt;
 &lt;h3 id=&quot;코드를-통해-proxyfactorybean-살펴보기--code&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%BD%94%EB%93%9C%EB%A5%BC-%ED%86%B5%ED%95%B4-proxyfactorybean-%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0--code&quot; aria-label=&quot;코드를 통해 proxyfactorybean 살펴보기  code permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;코드를 통해 ProxyFactoryBean 살펴보기 👉 &lt;a href=&quot;https://github.com/renuevo/spring-boot-kotlin-in-action/tree/master/spring-boot-aop-proxy-in-action&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Code&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;프록시의 구현은 순서는 4가지로 분류됩니다&lt;/strong&gt;  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Pointcut으로 대상 선정  &lt;/li&gt;
+&lt;li&gt;Advice를 통한 기능 구현  &lt;/li&gt;
+&lt;li&gt;Advisor로 Pointcut과 Advice를 묶기  &lt;/li&gt;
+&lt;li&gt;ProxyFactoryBean을 통한 Proxy 등록  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;이렇게 4개를 구현하게 되면 아래와 같은 flow를 통해 Proxy가 동작하게 됩니다  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 690px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 48.55491329479769%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAACxLAAAsSwGlPZapAAABAklEQVQoz4WSiYqAMAxE/f8vVBFEEcX7vo8uL1CpruwWYtNJOp2OtXzfV2EYqiAIZJ6mSTGu65Iwh8beuK4xLAiIcRxl3vf9k+Q8z08S8wBmiwSSeZ6FcFkWWR/HITnYMAxSX9dVcLOfGn03IR+ALMtUkiTS0Pe9KK6qStZRFAnWdZ3gbduqpmlUWZZiFeT3lfnoaxMUzcGmoihUnucP71CrbWJ+KDQ9oZHYtk3VdS1qyFGHYmrciHjvvRXqhd6IStu2leu6D295EY7jCKk+yNx//xQNYDYquB6+xXEsvpKnaXrn1LFCvwhTqfU+gedBaIyf4Xne7e1Xzy/CN/gX9l/PD5YXDSdL6CvrAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;AdvisedSupportProxy&quot;
+        title=&quot;AdvisedSupportProxy&quot;
+        src=&quot;/static/2cb8faa10f0e663237e4c49bf7e4a6ec/1e043/advised-support-proxy.png&quot;
+        srcset=&quot;/static/2cb8faa10f0e663237e4c49bf7e4a6ec/991de/advised-support-proxy.png 173w,
+/static/2cb8faa10f0e663237e4c49bf7e4a6ec/e4d6b/advised-support-proxy.png 345w,
+/static/2cb8faa10f0e663237e4c49bf7e4a6ec/1e043/advised-support-proxy.png 690w,
+/static/2cb8faa10f0e663237e4c49bf7e4a6ec/e3189/advised-support-proxy.png 1035w,
+/static/2cb8faa10f0e663237e4c49bf7e4a6ec/b1001/advised-support-proxy.png 1380w,
+/static/2cb8faa10f0e663237e4c49bf7e4a6ec/3620b/advised-support-proxy.png 3624w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;
+&lt;span class=&apos;img_caption&apos;&gt;Advised Support Proxy&lt;/span&gt;&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;먼저 구현해 줄것은 &lt;code class=&quot;language-text&quot;&gt;MethodInterceptor&lt;/code&gt;입니다&lt;br&gt;
+여기서 말씀드리는 MethodInterceptor는 앞서 프록시에서 구현했것과는 다른 인터페이스입니다  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;token namespace&quot;&gt;org&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;aopalliance&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;intercept&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@FunctionalInterface&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MethodInterceptor&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Interceptor&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token annotation punctuation&quot;&gt;@Nullable&lt;/span&gt;
+	&lt;span class=&quot;token class-name&quot;&gt;Object&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;invoke&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Nonnull&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MethodInvocation&lt;/span&gt; invocation&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Throwable&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+
+&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;token namespace&quot;&gt;org&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;springframework&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;cglib&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;proxy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MethodInterceptor&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Callback&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token class-name&quot;&gt;Object&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;intercept&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Object&lt;/span&gt; var1&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Method&lt;/span&gt; var2&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; var3&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MethodProxy&lt;/span&gt; var4&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Throwable&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;org.springframework.cglib.proxy.MethodInterceptor&lt;/code&gt;  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;프록시 구현에서 사용, Callback을 상속받는 인터페이스  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;org.aopalliance.intercept.MethodInterceptor&lt;/code&gt;  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;스프링 Advice를 상속하는 인터페이스  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;br/&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 690px; &quot;
@@ -497,7 +564,195 @@ AdvisedSupport에서는 타겟과 부가기능(Advisor, Advice)를 등록하는 
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
-    &lt;/span&gt;  &lt;/p&gt;
+    &lt;/span&gt;&lt;br&gt;
+&lt;span class=&apos;img_caption&apos;&gt;MethodInterceptor&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;MethodInterceptor는 Adivce 인터페이스를 상속받고 있습니다&lt;br&gt;
+ProxyBeanFactory에서 사용하는 MethodInterceptor는 org.aopalliance.intercept 패키지의 인터페이스를 사용합니다   &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;kotlin&quot;&gt;&lt;pre class=&quot;language-kotlin&quot;&gt;&lt;code class=&quot;language-kotlin&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; CustomAdvice &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; MethodInterceptor &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;val&lt;/span&gt; log &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; KotlinLogging&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;logger&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;invoke&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;invocation&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; MethodInvocation&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Any&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+        log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token string-literal singleline&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Proxy 부가기능&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; invocation&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;proceed&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;간단하게 MethodInterceptor의 기능으로 “Proxy 부가기능”이라고 출력하도록 작성하였습니다  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;이제 차례대로 프록시에서 사용할 빈으로 등록해 줍니다  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;kotlin&quot;&gt;&lt;pre class=&quot;language-kotlin&quot;&gt;&lt;code class=&quot;language-kotlin&quot;&gt;&lt;span class=&quot;token annotation builtin&quot;&gt;@Configuration&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; CustomAdvisorConfig &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+       &lt;span class=&quot;token annotation builtin&quot;&gt;@Bean&lt;/span&gt;
+ &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;   &lt;span class=&quot;token keyword&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;targetPointcut&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Pointcut &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;NameMatchMethodPointcut&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;apply&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;addMethodName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string-literal singleline&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;method*&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+   
+   
+       &lt;span class=&quot;token annotation builtin&quot;&gt;@Bean&lt;/span&gt;
+ &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;   &lt;span class=&quot;token keyword&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;customAdvice&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Advice &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;CustomAdvice&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+   
+   
+       &lt;span class=&quot;token annotation builtin&quot;&gt;@Bean&lt;/span&gt;
+ &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;   &lt;span class=&quot;token keyword&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;customAdvisor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Advisor &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;DefaultPointcutAdvisor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;targetPointcut&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;customAdvice&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+   
+   
+       &lt;span class=&quot;token annotation builtin&quot;&gt;@Bean&lt;/span&gt;
+ &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;   &lt;span class=&quot;token keyword&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;proxyFactoryBean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;ProxyFactoryBean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;apply&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;           &lt;span class=&quot;token function&quot;&gt;setTarget&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;ProxyFactoryBeanTarget&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;token operator&quot;&gt;-&gt;&lt;/span&gt; Target Class 지정&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;           &lt;span class=&quot;token function&quot;&gt;setInterceptorNames&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string-literal singleline&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;customAdvisor&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&gt;&lt;/span&gt; 이름을 통한 Advisor 지정&lt;/span&gt;       &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; ProxyFactoryBeanTarget &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;FactoryCglibService&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;span class=&apos;red_font&apos;&gt;(1)&lt;/span&gt; &lt;code class=&quot;language-text&quot;&gt;Pointcut을 통한 적용대상 구현&lt;/code&gt;  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;함수명이 이름이 “method”로 시작하는 메소드에 부가기능이 적용됩니다  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;span class=&apos;red_font&apos;&gt;(2)&lt;/span&gt; &lt;code class=&quot;language-text&quot;&gt;Advice를 통한 부가기능 구현&lt;/code&gt;  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;이전 MethodInterceptor를 상속받아 구현한 “Proxy 부가기능” 출력이 기능으로 들어갑니다  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;span class=&apos;red_font&apos;&gt;(3)&lt;/span&gt; &lt;code class=&quot;language-text&quot;&gt;Advisor를 통한 적용대상과 기능 묶기&lt;/code&gt;  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;위에서 선언된 Pointcut의 적용대상과 Advice의 기능을 묶어서 Proxy에 등록하도록 생성됩니다  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;span class=&apos;red_font&apos;&gt;(4)&lt;/span&gt; &lt;code class=&quot;language-text&quot;&gt;ProxyFactoryBean을 통한 Proxy 생성&lt;/code&gt;  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Target과 Adivsor를 등록하여 Target에 Proxy를 적용 시킵니다  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;br/&gt;
+&lt;p&gt;인터페이스를 활용하여 각각의 역할을 분리하고 기능을 정의하므로 OCP원칙의 맞는 개발을 할 수 있습니다&lt;br&gt;
+이렇게 인터페이스로 결합도를 낮추고 객체로 기능을 정의하고 포함시켜 코드를 재사용하는 방법을 &lt;strong&gt;합성(Composition)&lt;/strong&gt;이라고 합니다  &lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;span class=&apos;code_header&apos;&gt;프록시 확인 코드&lt;/span&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;kotlin&quot;&gt;&lt;pre class=&quot;language-kotlin&quot;&gt;&lt;code class=&quot;language-kotlin&quot;&gt;&lt;span class=&quot;token annotation builtin&quot;&gt;@SpringBootTest&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;internal&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;SpringProxyBeanFactoryTest&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;val&lt;/span&gt; factoryJdkProxyService&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; FactoryJdkProxyService&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;val&lt;/span&gt; factoryCglibService&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; FactoryCglibService&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;val&lt;/span&gt; proxyFactoryBean&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; ProxyFactoryBeanTarget
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;ShouldSpec&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;val&lt;/span&gt; log &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; KotlinLogging&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;logger&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token function&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string-literal singleline&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Proxy Bean Factory Test&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+        &lt;span class=&quot;token function&quot;&gt;should&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string-literal singleline&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Factory Proxy Test&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; factoryJdkProxyService&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;javaClass&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+            log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; factoryCglibService&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;javaClass&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+            log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; proxyFactoryBean&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;javaClass&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;token function&quot;&gt;should&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string-literal singleline&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Call Proxy Bean Factory Method&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            proxyFactoryBean&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;methodA&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+            proxyFactoryBean&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;methodB&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+            proxyFactoryBean&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;methodC&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;### Factory Proxy Test
+INFO 20788 --- [pool-1-thread-1] c.g.r.proxy.SpringProxyBeanFactoryTest   : class com.sun.proxy.$Proxy60
+INFO 20788 --- [pool-1-thread-1] c.g.r.proxy.SpringProxyBeanFactoryTest   : class com.github.renuevo.proxy.domain.factory.FactoryCglibService$$EnhancerBySpringCGLIB$$feeedfff
+INFO 20788 --- [pool-1-thread-1] c.g.r.proxy.SpringProxyBeanFactoryTest   : class com.github.renuevo.proxy.domain.factory.config.ProxyFactoryBeanTarget$$EnhancerBySpringCGLIB$$5eee0c36
+
+
+### Call Proxy Bean Factory Method
+INFO 18716 --- [         task-4] c.g.r.p.d.factory.config.CustomAdvice    : Proxy 부가기능
+INFO 18716 --- [         task-6] c.g.r.p.d.factory.config.CustomAdvice    : Proxy 부가기능
+INFO 18716 --- [         task-5] c.g.r.p.d.factory.config.CustomAdvice    : Proxy 부가기능
+INFO 18716 --- [         task-4] c.g.r.p.d.factory.FactoryCglibService    : I&apos;m A
+INFO 18716 --- [         task-5] c.g.r.p.d.factory.FactoryCglibService    : I&apos;m B
+INFO 18716 --- [         task-6] c.g.r.p.d.factory.FactoryCglibService    : I&apos;m C&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;가장 먼저 확인해 본것은 &lt;strong&gt;프록시 종류와 프록시 기능 동작&lt;/strong&gt; 여부입니다  &lt;/p&gt;
+&lt;p&gt;“Factory Proxy Test” 테스트에서 &lt;code class=&quot;language-text&quot;&gt;JDK Proxy, CGLIB, CGLIB&lt;/code&gt;으로 프록시가 생성된것을 확인할 수 있습니다&lt;/p&gt;
+&lt;p&gt;“Call Proxy Bean Factory Method” 테스트에서 async로 순서는 보장되지 않았지만 부가기능이 잘 찍히는걸 볼 수 있습니다  &lt;/p&gt;
+&lt;br/&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;kotlin&quot;&gt;&lt;pre class=&quot;language-kotlin&quot;&gt;&lt;code class=&quot;language-kotlin&quot;&gt;&lt;span class=&quot;token annotation builtin&quot;&gt;@SpringBootTest&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;internal&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;SpringProxyBeanFactoryTest&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;val&lt;/span&gt; customAdvisor&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Advisor
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;ShouldSpec&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;val&lt;/span&gt; log &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; KotlinLogging&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;logger&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token function&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string-literal singleline&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Proxy Bean Factory Test&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+        &lt;span class=&quot;token function&quot;&gt;should&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string-literal singleline&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;JDK Proxy Factory Test&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;val&lt;/span&gt; proxy &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;ProxyFactory&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;FactoryJdkProxyServiceImpl&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;apply&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;token function&quot;&gt;addAdvisor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;customAdvisor&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;proxy &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; FactoryJdkProxyService
+
+            log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; proxy&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;javaClass&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+            proxy&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;methodA&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+            proxy&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;methodB&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+            proxy&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;methodC&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;token function&quot;&gt;should&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string-literal singleline&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;CGlib Proxy Factory Test&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;val&lt;/span&gt; proxy &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;ProxyFactory&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;ProxyFactoryBeanTarget&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;apply&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                isProxyTargetClass &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+                &lt;span class=&quot;token function&quot;&gt;addAdvisor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;customAdvisor&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;proxy &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; ProxyFactoryBeanTarget
+
+            log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; proxy&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;javaClass&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+            proxy&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;methodA&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+            proxy&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;methodB&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+            proxy&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;methodC&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;token function&quot;&gt;should&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string-literal singleline&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Interface Target To CGLIB Proxy Test&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;val&lt;/span&gt; proxy &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;ProxyFactory&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;FactoryJdkProxyServiceImpl&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;apply&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                isProxyTargetClass &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+                &lt;span class=&quot;token function&quot;&gt;addAdvisor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;customAdvisor&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;proxy &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; FactoryJdkProxyService
+
+            log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; proxy&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;javaClass&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+            proxy&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;methodA&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+            proxy&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;methodB&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+            proxy&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;methodC&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;### JDK Proxy Factory Test
+INFO 13840 --- [pool-1-thread-1] c.g.r.proxy.SpringProxyBeanFactoryTest   : class com.sun.proxy.$Proxy60
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.factory.config.CustomAdvice    : Proxy 부가기능
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.f.FactoryJdkProxyServiceImpl   : I&apos;m A
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.factory.config.CustomAdvice    : Proxy 부가기능
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.f.FactoryJdkProxyServiceImpl   : I&apos;m B
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.factory.config.CustomAdvice    : Proxy 부가기능
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.f.FactoryJdkProxyServiceImpl   : I&apos;m C
+
+
+### CGlib Proxy Factory Test
+INFO 13840 --- [pool-1-thread-1] c.g.r.proxy.SpringProxyBeanFactoryTest   : class com.github.renuevo.proxy.domain.factory.config.ProxyFactoryBeanTarget$$EnhancerBySpringCGLIB$$a27f344b
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.factory.config.CustomAdvice    : Proxy 부가기능
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.factory.FactoryCglibService    : I&apos;m A
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.factory.config.CustomAdvice    : Proxy 부가기능
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.factory.FactoryCglibService    : I&apos;m B
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.factory.config.CustomAdvice    : Proxy 부가기능
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.factory.FactoryCglibService    : I&apos;m C
+
+
+### Interface Target To CGLIB Proxy Test
+INFO 13840 --- [pool-1-thread-1] c.g.r.proxy.SpringProxyBeanFactoryTest   : class com.github.renuevo.proxy.domain.factory.FactoryJdkProxyServiceImpl$$EnhancerBySpringCGLIB$$1187480c
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.factory.config.CustomAdvice    : Proxy 부가기능
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.f.FactoryJdkProxyServiceImpl   : I&apos;m A
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.factory.config.CustomAdvice    : Proxy 부가기능
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.f.FactoryJdkProxyServiceImpl   : I&apos;m B
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.factory.config.CustomAdvice    : Proxy 부가기능
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.f.FactoryJdkProxyServiceImpl   : I&apos;m C&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;마지막으로 ProxyFactory를 통해 임의로 프록시를 생성해서 확인해 보았습니다&lt;br&gt;
+인터페이스를 가지고 있다고 하더라도 &lt;code class=&quot;language-text&quot;&gt;isProxyTargetClass = true&lt;/code&gt;를 활용하면 CGLIB 프록시를 생성할 수 있는것 까지 확인할 수 있습니다  &lt;/p&gt;
+&lt;hr&gt;
 &lt;h2 id=&quot;관련-참고&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B4%80%EB%A0%A8-%EC%B0%B8%EA%B3%A0&quot; aria-label=&quot;관련 참고 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;관련 참고&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://yejun-the-developer.tistory.com/7&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;로키님 블로그&lt;/a&gt;&lt;br&gt;
 &lt;a href=&quot;https://jiwondev.tistory.com/152&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;JiwonDev님 블로그&lt;/a&gt;&lt;br&gt;
@@ -519,7 +774,7 @@ c. &lt;a href=&quot;https://renuevo.github.io/spring/proxy/spring-proxy/#cglib&q
 &lt;p&gt;&lt;a href=&quot;https://renuevo.github.io/spring/proxy/spring-proxy-factory&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Spring의 프록시 생성 (ProxyBeanFactory)&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;a. &lt;a href=&quot;https://renuevo.github.io/spring/proxy/spring-proxy-factory/#factory-bean&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;FactoryBean&lt;/a&gt;&lt;br&gt;
-b. &lt;a href=&quot;https://renuevo.github.io/spring/proxy/spring-proxy-factory/#proxyfactorybean&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;ProxyBeanFactory&lt;/a&gt;&lt;/p&gt;
+b. &lt;a href=&quot;https://renuevo.github.io/spring/proxy/spring-proxy-factory/#proxyfactorybean&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;ProxyBeanFactory&lt;/a&gt;  &lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;&quot;&gt;Spring Proxy의 빈 후처리기(BeanPostProcessor)&lt;/a&gt; 🚧 작성중&lt;/li&gt;
@@ -884,7 +1139,7 @@ filter를 통해 메서드별 interceptor를 컨트롤 가능하며 &lt;code cla
     &lt;span class=&quot;token keyword&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;methodC&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token string-literal singleline&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;I&apos;m C&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;span class=&apos;code_header&apos;&gt;&lt;strong&gt;Proxy Test Code&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&apos;code_header&apos;&gt;Proxy Test Code&lt;/span&gt;&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;kotlin&quot;&gt;&lt;pre class=&quot;language-kotlin&quot;&gt;&lt;code class=&quot;language-kotlin&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;internal&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; CglibTest &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;ShouldSpec&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
 
     &lt;span class=&quot;token function&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string-literal singleline&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Cglib Test&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
@@ -968,7 +1223,7 @@ filter를 통해 메서드별 interceptor를 컨트롤 가능하며 &lt;code cla
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;MethodProxy는 내부적으로 FastClassInfo를 처음 호출시에만 init()하여 보관하며 invoke를 호출합니다&lt;br&gt;
 FastClass의 invoke를 호출하여 기존 method invoke보다 빠른 함수 호출을 사용합니다  &lt;/p&gt;
-&lt;p&gt;&lt;span class=&apos;code_header&apos;&gt;&lt;strong&gt;Result&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&apos;code_header&apos;&gt;Result&lt;/span&gt;&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;INFO com.github.renuevo.proxy.TestCglibMethodInterceptor - interceptor number is 1
 INFO com.github.renuevo.proxy.domain.cglib.CglibService - I&apos;m A
 INFO com.github.renuevo.proxy.TestCglibMethodInterceptor - interceptor number is 0

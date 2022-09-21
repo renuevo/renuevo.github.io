@@ -48,7 +48,7 @@
         }
       }
     })
-  </script><link rel="preconnect" href="https://www.google-analytics.com"/><link rel="dns-prefetch" href="https://www.google-analytics.com"/><link rel="icon" href="/favicon-32x32.png?v=7de2c6419ac8527cc802fdc3ca98acd0" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=7de2c6419ac8527cc802fdc3ca98acd0"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=7de2c6419ac8527cc802fdc3ca98acd0"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=7de2c6419ac8527cc802fdc3ca98acd0"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=7de2c6419ac8527cc802fdc3ca98acd0"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=7de2c6419ac8527cc802fdc3ca98acd0"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=7de2c6419ac8527cc802fdc3ca98acd0"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=7de2c6419ac8527cc802fdc3ca98acd0"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=7de2c6419ac8527cc802fdc3ca98acd0"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">[Spring] Spring의 프록시 생성 (ProxyBeanFactory) | renuevo blog</title><meta data-react-helmet="true" name="description" content="Spring AOP에서 사용하는 Proxy 스프링에서 사용하는 프록시에 대해 알아볼 시간입니다 총 3편으로 나누어서 구성하였습니다   Spring Proxy의 JDK Dynamic Proxy와 CGLIB   a. Proxy 살펴보기 b. JDK Dynamic Proxy c. CGLIB   Spring의 프록시 생성 (ProxyBeanFactory) a. FactoryBean b. ProxyBeanFactory Spring Proxy의 빈 후처리기(BeanPostProcessor…"/><meta data-react-helmet="true" property="og:title" content="[Spring] Spring의 프록시 생성 (ProxyBeanFactory)"/><meta data-react-helmet="true" property="og:description" content="Spring AOP에서 사용하는 Proxy 스프링에서 사용하는 프록시에 대해 알아볼 시간입니다 총 3편으로 나누어서 구성하였습니다   Spring Proxy의 JDK Dynamic Proxy와 CGLIB   a. Proxy 살펴보기 b. JDK Dynamic Proxy c. CGLIB   Spring의 프록시 생성 (ProxyBeanFactory) a. FactoryBean b. ProxyBeanFactory Spring Proxy의 빈 후처리기(BeanPostProcessor…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="deokhwa kim"/><meta data-react-helmet="true" name="twitter:title" content="[Spring] Spring의 프록시 생성 (ProxyBeanFactory)"/><meta data-react-helmet="true" name="twitter:description" content="Spring AOP에서 사용하는 Proxy 스프링에서 사용하는 프록시에 대해 알아볼 시간입니다 총 3편으로 나누어서 구성하였습니다   Spring Proxy의 JDK Dynamic Proxy와 CGLIB   a. Proxy 살펴보기 b. JDK Dynamic Proxy c. CGLIB   Spring의 프록시 생성 (ProxyBeanFactory) a. FactoryBean b. ProxyBeanFactory Spring Proxy의 빈 후처리기(BeanPostProcessor…"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/webpack-runtime-53f17c0366b70a3c7944.js"/><link as="script" rel="preload" href="/framework-22d51f0f5ee9f1c9c6e1.js"/><link as="script" rel="preload" href="/app-0ffbcc7ef202640e0665.js"/><link as="script" rel="preload" href="/styles-0ec71dd62c66cb95665c.js"/><link as="script" rel="preload" href="/133dca110fad53aa1997b630637bbac3134a2d14-6773d60e9c473815aae2.js"/><link as="script" rel="preload" href="/d5d7a013bc6c1e2b6d7db819052c16d7efea5559-083ec6d0275215cf6002.js"/><link as="script" rel="preload" href="/cd7d5f864fc9e15ed8adef086269b0aeff617554-ab02fad506f3264bc782.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-746266ff970774ba4135.js"/><link as="fetch" rel="preload" href="/page-data\spring\proxy\spring-proxy-factory\page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3128451518.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/96099027.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data\app-data.json" crossorigin="anonymous"/></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="top"><a class="link" href="/">renuevo blog</a><a href="https://github.com/renuevo" class="github" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg></a></div><div style="margin-left:auto;margin-right:auto;padding:2.4375rem 1.21875rem" class="main-container"><div class="switch-container"><label for="normal-switch"><div style="position:relative;display:inline-block;text-align:left;opacity:1;direction:ltr;border-radius:12px;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s;touch-action:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none"><div class="react-switch-bg" style="height:24px;width:48px;margin:0;position:relative;background:#d9dfe2;border-radius:12px;cursor:pointer;-webkit-transition:background 0.25s;-moz-transition:background 0.25s;transition:background 0.25s"><div style="height:24px;width:26px;position:relative;opacity:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon checkedIcon">D</div></div><div style="height:24px;width:26px;position:absolute;opacity:1;right:0;top:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon uncheckedIcon">L</div></div></div><div class="react-switch-handle" style="height:22px;width:22px;background:#ffffff;display:inline-block;cursor:pointer;border-radius:50%;position:absolute;transform:translateX(1px);top:1px;outline:0;border:0;-webkit-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;-moz-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s"></div><input type="checkbox" role="switch" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px" id="normal-switch"/></div></label></div><h1>[Spring] Spring의 프록시 생성 (ProxyBeanFactory)</h1><p class="post-date">September 08, 2022</p><div><h2 id="spring-aop에서-사용하는-proxy" style="position:relative;"><a href="#spring-aop%EC%97%90%EC%84%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-proxy" aria-label="spring aop에서 사용하는 proxy permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Spring AOP에서 사용하는 Proxy</h2>
+  </script><link rel="preconnect" href="https://www.google-analytics.com"/><link rel="dns-prefetch" href="https://www.google-analytics.com"/><link rel="icon" href="/favicon-32x32.png?v=7de2c6419ac8527cc802fdc3ca98acd0" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=7de2c6419ac8527cc802fdc3ca98acd0"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=7de2c6419ac8527cc802fdc3ca98acd0"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=7de2c6419ac8527cc802fdc3ca98acd0"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=7de2c6419ac8527cc802fdc3ca98acd0"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=7de2c6419ac8527cc802fdc3ca98acd0"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=7de2c6419ac8527cc802fdc3ca98acd0"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=7de2c6419ac8527cc802fdc3ca98acd0"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=7de2c6419ac8527cc802fdc3ca98acd0"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">[Spring] Spring의 프록시 생성 (ProxyBeanFactory) | renuevo blog</title><meta data-react-helmet="true" name="description" content="Spring AOP에서 사용하는 Proxy 스프링에서 사용하는 프록시에 대해 알아볼 시간입니다 총 3편으로 나누어서 구성하였습니다   Spring Proxy의 JDK Dynamic Proxy와 CGLIB   a. Proxy 살펴보기 b. JDK Dynamic Proxy c. CGLIB   Spring의 프록시 생성 (ProxyBeanFactory)   a. FactoryBean b. ProxyBeanFactory   Spring Proxy의 빈 후처리기(BeanPostProcessor…"/><meta data-react-helmet="true" property="og:title" content="[Spring] Spring의 프록시 생성 (ProxyBeanFactory)"/><meta data-react-helmet="true" property="og:description" content="Spring AOP에서 사용하는 Proxy 스프링에서 사용하는 프록시에 대해 알아볼 시간입니다 총 3편으로 나누어서 구성하였습니다   Spring Proxy의 JDK Dynamic Proxy와 CGLIB   a. Proxy 살펴보기 b. JDK Dynamic Proxy c. CGLIB   Spring의 프록시 생성 (ProxyBeanFactory)   a. FactoryBean b. ProxyBeanFactory   Spring Proxy의 빈 후처리기(BeanPostProcessor…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="deokhwa kim"/><meta data-react-helmet="true" name="twitter:title" content="[Spring] Spring의 프록시 생성 (ProxyBeanFactory)"/><meta data-react-helmet="true" name="twitter:description" content="Spring AOP에서 사용하는 Proxy 스프링에서 사용하는 프록시에 대해 알아볼 시간입니다 총 3편으로 나누어서 구성하였습니다   Spring Proxy의 JDK Dynamic Proxy와 CGLIB   a. Proxy 살펴보기 b. JDK Dynamic Proxy c. CGLIB   Spring의 프록시 생성 (ProxyBeanFactory)   a. FactoryBean b. ProxyBeanFactory   Spring Proxy의 빈 후처리기(BeanPostProcessor…"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/webpack-runtime-53f17c0366b70a3c7944.js"/><link as="script" rel="preload" href="/framework-22d51f0f5ee9f1c9c6e1.js"/><link as="script" rel="preload" href="/app-0ffbcc7ef202640e0665.js"/><link as="script" rel="preload" href="/styles-0ec71dd62c66cb95665c.js"/><link as="script" rel="preload" href="/133dca110fad53aa1997b630637bbac3134a2d14-6773d60e9c473815aae2.js"/><link as="script" rel="preload" href="/d5d7a013bc6c1e2b6d7db819052c16d7efea5559-083ec6d0275215cf6002.js"/><link as="script" rel="preload" href="/cd7d5f864fc9e15ed8adef086269b0aeff617554-ab02fad506f3264bc782.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-746266ff970774ba4135.js"/><link as="fetch" rel="preload" href="/page-data\spring\proxy\spring-proxy-factory\page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3128451518.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/96099027.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data\app-data.json" crossorigin="anonymous"/></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="top"><a class="link" href="/">renuevo blog</a><a href="https://github.com/renuevo" class="github" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg></a></div><div style="margin-left:auto;margin-right:auto;padding:2.4375rem 1.21875rem" class="main-container"><div class="switch-container"><label for="normal-switch"><div style="position:relative;display:inline-block;text-align:left;opacity:1;direction:ltr;border-radius:12px;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s;touch-action:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none"><div class="react-switch-bg" style="height:24px;width:48px;margin:0;position:relative;background:#d9dfe2;border-radius:12px;cursor:pointer;-webkit-transition:background 0.25s;-moz-transition:background 0.25s;transition:background 0.25s"><div style="height:24px;width:26px;position:relative;opacity:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon checkedIcon">D</div></div><div style="height:24px;width:26px;position:absolute;opacity:1;right:0;top:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon uncheckedIcon">L</div></div></div><div class="react-switch-handle" style="height:22px;width:22px;background:#ffffff;display:inline-block;cursor:pointer;border-radius:50%;position:absolute;transform:translateX(1px);top:1px;outline:0;border:0;-webkit-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;-moz-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s"></div><input type="checkbox" role="switch" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px" id="normal-switch"/></div></label></div><h1>[Spring] Spring의 프록시 생성 (ProxyBeanFactory)</h1><p class="post-date">September 08, 2022</p><div><h2 id="spring-aop에서-사용하는-proxy" style="position:relative;"><a href="#spring-aop%EC%97%90%EC%84%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-proxy" aria-label="spring aop에서 사용하는 proxy permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Spring AOP에서 사용하는 Proxy</h2>
 <p><strong>스프링에서 사용하는 프록시에 대해 알아볼 시간입니다</strong></p>
 <p>총 3편으로 나누어서 구성하였습니다  </p>
 <ol>
@@ -61,10 +61,10 @@ c. <a href="https://renuevo.github.io/spring/proxy/spring-proxy/#cglib" target="
 </blockquote>
 </li>
 <li>
-<p><a href="https://renuevo.github.io/spring/proxy/spring-proxy-factory" target="_blank" rel="nofollow noopener noreferrer">Spring의 프록시 생성 (ProxyBeanFactory)</a></p>
+<p><a href="https://renuevo.github.io/spring/proxy/spring-proxy-factory" target="_blank" rel="nofollow noopener noreferrer">Spring의 프록시 생성 (ProxyBeanFactory)</a>  </p>
 <blockquote>
 <p>a. <a href="https://renuevo.github.io/spring/proxy/spring-proxy-factory/#factory-bean" target="_blank" rel="nofollow noopener noreferrer">FactoryBean</a><br>
-b. <a href="https://renuevo.github.io/spring/proxy/spring-proxy-factory/#proxyfactorybean" target="_blank" rel="nofollow noopener noreferrer">ProxyBeanFactory</a></p>
+b. <a href="https://renuevo.github.io/spring/proxy/spring-proxy-factory/#proxyfactorybean" target="_blank" rel="nofollow noopener noreferrer">ProxyBeanFactory</a>  </p>
 </blockquote>
 </li>
 <li><a href="">Spring Proxy의 빈 후처리기(BeanPostProcessor)</a> 🚧 작성중  </li>
@@ -364,6 +364,73 @@ AdvisedSupport에서는 타겟과 부가기능(Advisor, Advice)를 등록하는 
 <br/>
 <br/>
 <h3 id="코드를-통해-proxyfactorybean-살펴보기--code" style="position:relative;"><a href="#%EC%BD%94%EB%93%9C%EB%A5%BC-%ED%86%B5%ED%95%B4-proxyfactorybean-%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0--code" aria-label="코드를 통해 proxyfactorybean 살펴보기  code permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>코드를 통해 ProxyFactoryBean 살펴보기 👉 <a href="https://github.com/renuevo/spring-boot-kotlin-in-action/tree/master/spring-boot-aop-proxy-in-action" target="_blank" rel="nofollow noopener noreferrer">Code</a></h3>
+<p><strong>프록시의 구현은 순서는 4가지로 분류됩니다</strong>  </p>
+<ol>
+<li>Pointcut으로 대상 선정  </li>
+<li>Advice를 통한 기능 구현  </li>
+<li>Advisor로 Pointcut과 Advice를 묶기  </li>
+<li>ProxyFactoryBean을 통한 Proxy 등록  </li>
+</ol>
+<p>이렇게 4개를 구현하게 되면 아래와 같은 flow를 통해 Proxy가 동작하게 됩니다  </p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 690px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 48.55491329479769%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAACxLAAAsSwGlPZapAAABAklEQVQoz4WSiYqAMAxE/f8vVBFEEcX7vo8uL1CpruwWYtNJOp2OtXzfV2EYqiAIZJ6mSTGu65Iwh8beuK4xLAiIcRxl3vf9k+Q8z08S8wBmiwSSeZ6FcFkWWR/HITnYMAxSX9dVcLOfGn03IR+ALMtUkiTS0Pe9KK6qStZRFAnWdZ3gbduqpmlUWZZiFeT3lfnoaxMUzcGmoihUnucP71CrbWJ+KDQ9oZHYtk3VdS1qyFGHYmrciHjvvRXqhd6IStu2leu6D295EY7jCKk+yNx//xQNYDYquB6+xXEsvpKnaXrn1LFCvwhTqfU+gedBaIyf4Xne7e1Xzy/CN/gX9l/PD5YXDSdL6CvrAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="AdvisedSupportProxy"
+        title="AdvisedSupportProxy"
+        src="/static/2cb8faa10f0e663237e4c49bf7e4a6ec/1e043/advised-support-proxy.png"
+        srcset="/static/2cb8faa10f0e663237e4c49bf7e4a6ec/991de/advised-support-proxy.png 173w,
+/static/2cb8faa10f0e663237e4c49bf7e4a6ec/e4d6b/advised-support-proxy.png 345w,
+/static/2cb8faa10f0e663237e4c49bf7e4a6ec/1e043/advised-support-proxy.png 690w,
+/static/2cb8faa10f0e663237e4c49bf7e4a6ec/e3189/advised-support-proxy.png 1035w,
+/static/2cb8faa10f0e663237e4c49bf7e4a6ec/b1001/advised-support-proxy.png 1380w,
+/static/2cb8faa10f0e663237e4c49bf7e4a6ec/3620b/advised-support-proxy.png 3624w"
+        sizes="(max-width: 690px) 100vw, 690px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+    </span>
+<span class='img_caption'>Advised Support Proxy</span></p>
+<br/>
+<p>먼저 구현해 줄것은 <code class="language-text">MethodInterceptor</code>입니다<br>
+여기서 말씀드리는 MethodInterceptor는 앞서 프록시에서 구현했것과는 다른 인터페이스입니다  </p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">org<span class="token punctuation">.</span>aopalliance<span class="token punctuation">.</span>intercept</span><span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@FunctionalInterface</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">MethodInterceptor</span> <span class="token keyword">extends</span> <span class="token class-name">Interceptor</span> <span class="token punctuation">{</span>
+	<span class="token annotation punctuation">@Nullable</span>
+	<span class="token class-name">Object</span> <span class="token function">invoke</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Nonnull</span> <span class="token class-name">MethodInvocation</span> invocation<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Throwable</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+
+<span class="token keyword">package</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>cglib<span class="token punctuation">.</span>proxy</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">MethodInterceptor</span> <span class="token keyword">extends</span> <span class="token class-name">Callback</span> <span class="token punctuation">{</span>
+    <span class="token class-name">Object</span> <span class="token function">intercept</span><span class="token punctuation">(</span><span class="token class-name">Object</span> var1<span class="token punctuation">,</span> <span class="token class-name">Method</span> var2<span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> var3<span class="token punctuation">,</span> <span class="token class-name">MethodProxy</span> var4<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Throwable</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<ol>
+<li>
+<p><code class="language-text">org.springframework.cglib.proxy.MethodInterceptor</code>  </p>
+<blockquote>
+<p>프록시 구현에서 사용, Callback을 상속받는 인터페이스  </p>
+</blockquote>
+</li>
+<li>
+<p><code class="language-text">org.aopalliance.intercept.MethodInterceptor</code>  </p>
+<blockquote>
+<p>스프링 Advice를 상속하는 인터페이스  </p>
+</blockquote>
+</li>
+</ol>
+<br/>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 690px; "
@@ -387,7 +454,195 @@ AdvisedSupport에서는 타겟과 부가기능(Advisor, Advice)를 등록하는 
         style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
         loading="lazy"
       />
-    </span>  </p>
+    </span><br>
+<span class='img_caption'>MethodInterceptor</span></p>
+<p>MethodInterceptor는 Adivce 인터페이스를 상속받고 있습니다<br>
+ProxyBeanFactory에서 사용하는 MethodInterceptor는 org.aopalliance.intercept 패키지의 인터페이스를 사용합니다   </p>
+<div class="gatsby-highlight" data-language="kotlin"><pre class="language-kotlin"><code class="language-kotlin"><span class="token keyword">class</span> CustomAdvice <span class="token operator">:</span> MethodInterceptor <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">val</span> log <span class="token operator">=</span> KotlinLogging<span class="token punctuation">.</span><span class="token function">logger</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+
+    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">invoke</span><span class="token punctuation">(</span>invocation<span class="token operator">:</span> MethodInvocation<span class="token punctuation">)</span><span class="token operator">:</span> Any<span class="token operator">?</span> <span class="token punctuation">{</span>
+
+        log<span class="token punctuation">.</span><span class="token function">info</span> <span class="token punctuation">{</span> <span class="token string-literal singleline"><span class="token string">"Proxy 부가기능"</span></span> <span class="token punctuation">}</span>
+        
+        <span class="token keyword">return</span> invocation<span class="token punctuation">.</span><span class="token function">proceed</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>간단하게 MethodInterceptor의 기능으로 “Proxy 부가기능”이라고 출력하도록 작성하였습니다  </p>
+<br/>
+<p>이제 차례대로 프록시에서 사용할 빈으로 등록해 줍니다  </p>
+<div class="gatsby-highlight" data-language="kotlin"><pre class="language-kotlin"><code class="language-kotlin"><span class="token annotation builtin">@Configuration</span>
+<span class="token keyword">class</span> CustomAdvisorConfig <span class="token punctuation">{</span>
+
+       <span class="token annotation builtin">@Bean</span>
+ <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>   <span class="token keyword">fun</span> <span class="token function">targetPointcut</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> Pointcut <span class="token operator">=</span> <span class="token function">NameMatchMethodPointcut</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">apply</span> <span class="token punctuation">{</span> <span class="token function">addMethodName</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"method*"</span></span><span class="token punctuation">)</span> <span class="token punctuation">}</span>
+   
+   
+       <span class="token annotation builtin">@Bean</span>
+ <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>   <span class="token keyword">fun</span> <span class="token function">customAdvice</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> Advice <span class="token operator">=</span> <span class="token function">CustomAdvice</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+   
+   
+       <span class="token annotation builtin">@Bean</span>
+ <span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>   <span class="token keyword">fun</span> <span class="token function">customAdvisor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> Advisor <span class="token operator">=</span> <span class="token function">DefaultPointcutAdvisor</span><span class="token punctuation">(</span><span class="token function">targetPointcut</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">customAdvice</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+   
+   
+       <span class="token annotation builtin">@Bean</span>
+ <span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>   <span class="token keyword">fun</span> <span class="token function">proxyFactoryBean</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">ProxyFactoryBean</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">apply</span> <span class="token punctuation">{</span>
+<span class="gatsby-highlight-code-line">           <span class="token function">setTarget</span><span class="token punctuation">(</span><span class="token function">ProxyFactoryBeanTarget</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token operator">-></span> Target Class 지정</span><span class="gatsby-highlight-code-line">           <span class="token function">setInterceptorNames</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"customAdvisor"</span></span><span class="token punctuation">)</span> <span class="token operator">-></span> 이름을 통한 Advisor 지정</span>       <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> ProxyFactoryBeanTarget <span class="token operator">:</span> <span class="token function">FactoryCglibService</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre></div>
+<br/>
+<p><span class='red_font'>(1)</span> <code class="language-text">Pointcut을 통한 적용대상 구현</code>  </p>
+<blockquote>
+<p>함수명이 이름이 “method”로 시작하는 메소드에 부가기능이 적용됩니다  </p>
+</blockquote>
+<br/>
+<p><span class='red_font'>(2)</span> <code class="language-text">Advice를 통한 부가기능 구현</code>  </p>
+<blockquote>
+<p>이전 MethodInterceptor를 상속받아 구현한 “Proxy 부가기능” 출력이 기능으로 들어갑니다  </p>
+</blockquote>
+<br/>
+<p><span class='red_font'>(3)</span> <code class="language-text">Advisor를 통한 적용대상과 기능 묶기</code>  </p>
+<blockquote>
+<p>위에서 선언된 Pointcut의 적용대상과 Advice의 기능을 묶어서 Proxy에 등록하도록 생성됩니다  </p>
+</blockquote>
+<br/>
+<p><span class='red_font'>(4)</span> <code class="language-text">ProxyFactoryBean을 통한 Proxy 생성</code>  </p>
+<blockquote>
+<p>Target과 Adivsor를 등록하여 Target에 Proxy를 적용 시킵니다  </p>
+</blockquote>
+<br/>
+<p>인터페이스를 활용하여 각각의 역할을 분리하고 기능을 정의하므로 OCP원칙의 맞는 개발을 할 수 있습니다<br>
+이렇게 인터페이스로 결합도를 낮추고 객체로 기능을 정의하고 포함시켜 코드를 재사용하는 방법을 <strong>합성(Composition)</strong>이라고 합니다  </p>
+<br/>
+<p><span class='code_header'>프록시 확인 코드</span></p>
+<div class="gatsby-highlight" data-language="kotlin"><pre class="language-kotlin"><code class="language-kotlin"><span class="token annotation builtin">@SpringBootTest</span>
+<span class="token keyword">internal</span> <span class="token keyword">class</span> <span class="token function">SpringProxyBeanFactoryTest</span><span class="token punctuation">(</span>
+    <span class="token keyword">private</span> <span class="token keyword">val</span> factoryJdkProxyService<span class="token operator">:</span> FactoryJdkProxyService<span class="token punctuation">,</span>
+    <span class="token keyword">private</span> <span class="token keyword">val</span> factoryCglibService<span class="token operator">:</span> FactoryCglibService<span class="token punctuation">,</span>
+    <span class="token keyword">private</span> <span class="token keyword">val</span> proxyFactoryBean<span class="token operator">:</span> ProxyFactoryBeanTarget
+<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">ShouldSpec</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+    <span class="token keyword">val</span> log <span class="token operator">=</span> KotlinLogging<span class="token punctuation">.</span><span class="token function">logger</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+
+    <span class="token function">context</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Proxy Bean Factory Test"</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token function">should</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Factory Proxy Test"</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            log<span class="token punctuation">.</span><span class="token function">info</span> <span class="token punctuation">{</span> factoryJdkProxyService<span class="token punctuation">.</span>javaClass<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">}</span>
+            log<span class="token punctuation">.</span><span class="token function">info</span> <span class="token punctuation">{</span> factoryCglibService<span class="token punctuation">.</span>javaClass<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">}</span>
+            log<span class="token punctuation">.</span><span class="token function">info</span> <span class="token punctuation">{</span> proxyFactoryBean<span class="token punctuation">.</span>javaClass<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token function">should</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Call Proxy Bean Factory Method"</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            proxyFactoryBean<span class="token punctuation">.</span><span class="token function">methodA</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            proxyFactoryBean<span class="token punctuation">.</span><span class="token function">methodB</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            proxyFactoryBean<span class="token punctuation">.</span><span class="token function">methodC</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre></div>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">### Factory Proxy Test
+INFO 20788 --- [pool-1-thread-1] c.g.r.proxy.SpringProxyBeanFactoryTest   : class com.sun.proxy.$Proxy60
+INFO 20788 --- [pool-1-thread-1] c.g.r.proxy.SpringProxyBeanFactoryTest   : class com.github.renuevo.proxy.domain.factory.FactoryCglibService$$EnhancerBySpringCGLIB$$feeedfff
+INFO 20788 --- [pool-1-thread-1] c.g.r.proxy.SpringProxyBeanFactoryTest   : class com.github.renuevo.proxy.domain.factory.config.ProxyFactoryBeanTarget$$EnhancerBySpringCGLIB$$5eee0c36
+
+
+### Call Proxy Bean Factory Method
+INFO 18716 --- [         task-4] c.g.r.p.d.factory.config.CustomAdvice    : Proxy 부가기능
+INFO 18716 --- [         task-6] c.g.r.p.d.factory.config.CustomAdvice    : Proxy 부가기능
+INFO 18716 --- [         task-5] c.g.r.p.d.factory.config.CustomAdvice    : Proxy 부가기능
+INFO 18716 --- [         task-4] c.g.r.p.d.factory.FactoryCglibService    : I'm A
+INFO 18716 --- [         task-5] c.g.r.p.d.factory.FactoryCglibService    : I'm B
+INFO 18716 --- [         task-6] c.g.r.p.d.factory.FactoryCglibService    : I'm C</code></pre></div>
+<p>가장 먼저 확인해 본것은 <strong>프록시 종류와 프록시 기능 동작</strong> 여부입니다  </p>
+<p>“Factory Proxy Test” 테스트에서 <code class="language-text">JDK Proxy, CGLIB, CGLIB</code>으로 프록시가 생성된것을 확인할 수 있습니다</p>
+<p>“Call Proxy Bean Factory Method” 테스트에서 async로 순서는 보장되지 않았지만 부가기능이 잘 찍히는걸 볼 수 있습니다  </p>
+<br/>
+<div class="gatsby-highlight" data-language="kotlin"><pre class="language-kotlin"><code class="language-kotlin"><span class="token annotation builtin">@SpringBootTest</span>
+<span class="token keyword">internal</span> <span class="token keyword">class</span> <span class="token function">SpringProxyBeanFactoryTest</span><span class="token punctuation">(</span>
+    <span class="token keyword">private</span> <span class="token keyword">val</span> customAdvisor<span class="token operator">:</span> Advisor
+<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">ShouldSpec</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+    <span class="token keyword">val</span> log <span class="token operator">=</span> KotlinLogging<span class="token punctuation">.</span><span class="token function">logger</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+
+    <span class="token function">context</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Proxy Bean Factory Test"</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token function">should</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"JDK Proxy Factory Test"</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">val</span> proxy <span class="token operator">=</span> <span class="token function">ProxyFactory</span><span class="token punctuation">(</span><span class="token function">FactoryJdkProxyServiceImpl</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">apply</span> <span class="token punctuation">{</span>
+                <span class="token function">addAdvisor</span><span class="token punctuation">(</span>customAdvisor<span class="token punctuation">)</span>
+            <span class="token punctuation">}</span><span class="token punctuation">.</span>proxy <span class="token keyword">as</span> FactoryJdkProxyService
+
+            log<span class="token punctuation">.</span><span class="token function">info</span> <span class="token punctuation">{</span> proxy<span class="token punctuation">.</span>javaClass<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">}</span>
+
+            proxy<span class="token punctuation">.</span><span class="token function">methodA</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            proxy<span class="token punctuation">.</span><span class="token function">methodB</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            proxy<span class="token punctuation">.</span><span class="token function">methodC</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token function">should</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"CGlib Proxy Factory Test"</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">val</span> proxy <span class="token operator">=</span> <span class="token function">ProxyFactory</span><span class="token punctuation">(</span><span class="token function">ProxyFactoryBeanTarget</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">apply</span> <span class="token punctuation">{</span>
+                isProxyTargetClass <span class="token operator">=</span> <span class="token boolean">true</span>
+                <span class="token function">addAdvisor</span><span class="token punctuation">(</span>customAdvisor<span class="token punctuation">)</span>
+            <span class="token punctuation">}</span><span class="token punctuation">.</span>proxy <span class="token keyword">as</span> ProxyFactoryBeanTarget
+
+            log<span class="token punctuation">.</span><span class="token function">info</span> <span class="token punctuation">{</span> proxy<span class="token punctuation">.</span>javaClass<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">}</span>
+
+            proxy<span class="token punctuation">.</span><span class="token function">methodA</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            proxy<span class="token punctuation">.</span><span class="token function">methodB</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            proxy<span class="token punctuation">.</span><span class="token function">methodC</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token function">should</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"Interface Target To CGLIB Proxy Test"</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">val</span> proxy <span class="token operator">=</span> <span class="token function">ProxyFactory</span><span class="token punctuation">(</span><span class="token function">FactoryJdkProxyServiceImpl</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">apply</span> <span class="token punctuation">{</span>
+                isProxyTargetClass <span class="token operator">=</span> <span class="token boolean">true</span>
+                <span class="token function">addAdvisor</span><span class="token punctuation">(</span>customAdvisor<span class="token punctuation">)</span>
+            <span class="token punctuation">}</span><span class="token punctuation">.</span>proxy <span class="token keyword">as</span> FactoryJdkProxyService
+
+            log<span class="token punctuation">.</span><span class="token function">info</span> <span class="token punctuation">{</span> proxy<span class="token punctuation">.</span>javaClass<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">}</span>
+
+            proxy<span class="token punctuation">.</span><span class="token function">methodA</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            proxy<span class="token punctuation">.</span><span class="token function">methodB</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            proxy<span class="token punctuation">.</span><span class="token function">methodC</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre></div>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">### JDK Proxy Factory Test
+INFO 13840 --- [pool-1-thread-1] c.g.r.proxy.SpringProxyBeanFactoryTest   : class com.sun.proxy.$Proxy60
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.factory.config.CustomAdvice    : Proxy 부가기능
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.f.FactoryJdkProxyServiceImpl   : I'm A
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.factory.config.CustomAdvice    : Proxy 부가기능
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.f.FactoryJdkProxyServiceImpl   : I'm B
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.factory.config.CustomAdvice    : Proxy 부가기능
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.f.FactoryJdkProxyServiceImpl   : I'm C
+
+
+### CGlib Proxy Factory Test
+INFO 13840 --- [pool-1-thread-1] c.g.r.proxy.SpringProxyBeanFactoryTest   : class com.github.renuevo.proxy.domain.factory.config.ProxyFactoryBeanTarget$$EnhancerBySpringCGLIB$$a27f344b
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.factory.config.CustomAdvice    : Proxy 부가기능
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.factory.FactoryCglibService    : I'm A
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.factory.config.CustomAdvice    : Proxy 부가기능
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.factory.FactoryCglibService    : I'm B
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.factory.config.CustomAdvice    : Proxy 부가기능
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.factory.FactoryCglibService    : I'm C
+
+
+### Interface Target To CGLIB Proxy Test
+INFO 13840 --- [pool-1-thread-1] c.g.r.proxy.SpringProxyBeanFactoryTest   : class com.github.renuevo.proxy.domain.factory.FactoryJdkProxyServiceImpl$$EnhancerBySpringCGLIB$$1187480c
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.factory.config.CustomAdvice    : Proxy 부가기능
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.f.FactoryJdkProxyServiceImpl   : I'm A
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.factory.config.CustomAdvice    : Proxy 부가기능
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.f.FactoryJdkProxyServiceImpl   : I'm B
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.factory.config.CustomAdvice    : Proxy 부가기능
+INFO 13840 --- [pool-1-thread-1] c.g.r.p.d.f.FactoryJdkProxyServiceImpl   : I'm C</code></pre></div>
+<p>마지막으로 ProxyFactory를 통해 임의로 프록시를 생성해서 확인해 보았습니다<br>
+인터페이스를 가지고 있다고 하더라도 <code class="language-text">isProxyTargetClass = true</code>를 활용하면 CGLIB 프록시를 생성할 수 있는것 까지 확인할 수 있습니다  </p>
+<hr>
 <h2 id="관련-참고" style="position:relative;"><a href="#%EA%B4%80%EB%A0%A8-%EC%B0%B8%EA%B3%A0" aria-label="관련 참고 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>관련 참고</h2>
 <p><a href="https://yejun-the-developer.tistory.com/7" target="_blank" rel="nofollow noopener noreferrer">로키님 블로그</a><br>
 <a href="https://jiwondev.tistory.com/152" target="_blank" rel="nofollow noopener noreferrer">JiwonDev님 블로그</a><br>
