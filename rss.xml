@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[renuevo blog]]></title><description><![CDATA[development]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 21 Sep 2022 14:55:00 GMT</lastBuildDate><item><title><![CDATA[No title]]></title><description><![CDATA[🪃 Career Path name : 김덕화 email : renuevo0110@gmail.com phone : 010-2616-2505 position : Backend Engineer blog : https://renuevo.github.io…]]></description><link>https://renuevo.github.io/career-path/</link><guid isPermaLink="false">https://renuevo.github.io/career-path/</guid><content:encoded>&lt;h1 id=&quot;-career-path&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-career-path&quot; aria-label=&quot; career path permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🪃 Career Path&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[renuevo blog]]></title><description><![CDATA[development]]></description><link>https://renuevo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 19 Oct 2022 13:09:50 GMT</lastBuildDate><item><title><![CDATA[No title]]></title><description><![CDATA[🪃 Career Path name : 김덕화 email : renuevo0110@gmail.com phone : 010-2616-2505 position : Backend Engineer blog : https://renuevo.github.io…]]></description><link>https://renuevo.github.io/career-path/</link><guid isPermaLink="false">https://renuevo.github.io/career-path/</guid><content:encoded>&lt;h1 id=&quot;-career-path&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-career-path&quot; aria-label=&quot; career path permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🪃 Career Path&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;name&lt;/strong&gt; : 김덕화&lt;br&gt;
 &lt;strong&gt;email&lt;/strong&gt; : renuevo0110@gmail.com&lt;br&gt;
 &lt;strong&gt;phone&lt;/strong&gt; : 010-2616-2505&lt;br&gt;
@@ -158,7 +158,218 @@ spring java python elastic konan gitlab scikit-learn
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/renuevo/drcode&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;drcode&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/renuevo/drcode_kotlin&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;drcode-kotlin&lt;/a&gt;  &lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[Spring] Spring의 프록시 생성 (ProxyBeanFactory)]]></title><description><![CDATA[Spring AOP에서 사용하는 Proxy 스프링에서 사용하는 프록시에 대해 알아볼 시간입니다 총 3편으로 나누어서 구성하였습니다   Spring Proxy의 JDK Dynamic Proxy와 CGLIB   a. Proxy 살펴보기 b. JDK…]]></description><link>https://renuevo.github.io/spring/proxy/spring-proxy-factory/</link><guid isPermaLink="false">https://renuevo.github.io/spring/proxy/spring-proxy-factory/</guid><pubDate>Wed, 21 Sep 2022 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;spring-aop에서-사용하는-proxy&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#spring-aop%EC%97%90%EC%84%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-proxy&quot; aria-label=&quot;spring aop에서 사용하는 proxy permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Spring AOP에서 사용하는 Proxy&lt;/h2&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[about]]></title><description><![CDATA[🦆 My Profile  👨 Deokhwa Kim 🎂 31 age 👨‍💻 Backend Engineer 🌎 Line Corp 🪃 Career Path…]]></description><link>https://renuevo.github.io/resume-kr/</link><guid isPermaLink="false">https://renuevo.github.io/resume-kr/</guid><pubDate>Wed, 19 Oct 2022 21:59:00 GMT</pubDate><content:encoded>&lt;h1 id=&quot;-my-profile&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-my-profile&quot; aria-label=&quot; my profile permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🦆 My Profile&lt;/h1&gt;
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;figure style=&quot;margin: 0 auto; max-width:350px; width: 80%;&quot;&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 690px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75.14450867052024%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAEMklEQVQ4yw2UyVPTBxiGf/9Ae+nBQw+0Uw+tjlZqndIRrYO4VLFYhNEgCLJM2GSRKIlAUbaQCqQKgUqCYGSpEGUTJMiEpVgCTEFBCiEEQpAYtkBAxuPTHJ75Zp533ss333zC8/F12t0MTjmYnJ5nxf6ena1tLKYZ7LZFNtedbLu2cK6ts7GxiWnJRbPRwu3KTkpa/kHbO4TaMMnd1gmK2t4iGKaczMwv41i04VpbdZddLM7PYzXPsu5YZn15GZfTiXNllTU3O1ubfNjcYG7BTqm2nDOhPxNxK42Stteoe+0Ii2+NLI33s2waYvFNLwtj3ZgHW5n/V8/CaJd7drpzAza3t452826ij/eTAzhNw7gsoxTIc/AOCKT8aQdl+n6Elzo1o12PsAw0YDW2sGnqYctk4OPcANszfaxPGtixDOAy9+EY1zM31MZIr5aGBgX5BQkc8vbE89RBLksDyCxMQgjLFBOSKCI4KgiJLA6lKg/toxJq6+5TW6OgqaWIHHki165dISn9KoHxvxB0ww+fq97s9z3AZ199zjHRYb74cTdnIk4jnBZ7EXXjMrLSGDeRSArFpKsSkKljSC0L43pRKJfS/fBPPMmV3POk3IskVRlBfG4wCfJgbmqiiS8V4Rv1E2HZgQhZGan8WZGNtDCElFwR4TGBiDMCKKiL4zd1NCqdlLLWFG5ogslriEPTeJvK5gzUL6QkFFxkv88+wnL8ydRFc7s2BmHV8gbTcDd3lSlEpp/n7Hlf/AJ9EKWeJCjhOCqNhIz7Im6pQ1Hq4imuFpNfFYlcK0aSdYFor++5kuyDpEqErEKEsLJgYsVqYnZ6mLfjfZinhpieGKTjZTVP2v5Aq82jXC1BknuRQMkRLsUeIzjpBKHxvoSJz1Cdl0fanUSOXtjLuZBDCBv2ObaWbXxYtbPlcB/yeysut3PaZjCPD1F05xa5SfEY+5up1hVzSXaWE9HeeAcdRJwso6amG5VKy4Hj3+Dlvw/BaZtiyTyBfXaSNZuJzaUZFqbGePq8i6f6V5TVtZKcpeBZYz1sL2OdHeFFu4bYm1IUyjq0lc0UKLJJ+F3EufCjCH89KGHE0M6ksYdpowH79Aibjnn+7tajyJcTHhZOsTyPnhctKPKy+e5bT2JPnyI2JAqpJIfYqAT6O5+wMD1AtaoQob1Wje6hirGBLrqa6mnRVmCbGOaDY5bGylLS4qOxjht5pW/Cw8MDQRDw2LWLH/Z7EvDrVWoeVvFxbQHnO7N7ZRaEpf8GeaDIpKPmIc2VGh4XKlDnpGPU69A3VnE9LhKNSkmAvx+ffvIpvkcOUyrP4IEyn3t3i5l5PQJbS+w4zKxZ3c9hY36MzvoK7sluYqh/zEBTDQVpSfQ+0/K6t4VGjZLkiMvs/XI3h7282PP1HvKzZFSVF5OWmkhWupRWXR1DPR0Ymmv5H52OTPIkMzcOAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;profile&quot;
+        title=&quot;profile&quot;
+        src=&quot;/static/e647ff13e21c5e855d18c1818d88c0e8/1e043/resume-profile.png&quot;
+        srcset=&quot;/static/e647ff13e21c5e855d18c1818d88c0e8/991de/resume-profile.png 173w,
+/static/e647ff13e21c5e855d18c1818d88c0e8/e4d6b/resume-profile.png 345w,
+/static/e647ff13e21c5e855d18c1818d88c0e8/1e043/resume-profile.png 690w,
+/static/e647ff13e21c5e855d18c1818d88c0e8/e3189/resume-profile.png 1035w,
+/static/e647ff13e21c5e855d18c1818d88c0e8/b1001/resume-profile.png 1380w,
+/static/e647ff13e21c5e855d18c1818d88c0e8/07a9c/resume-profile.png 1440w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;/figure&gt; 
+&lt;p&gt;👨 Deokhwa Kim&lt;br&gt;
+🎂 31 age&lt;br&gt;
+👨‍💻 Backend Engineer&lt;br&gt;
+🌎 Line Corp&lt;/p&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;/div&gt;
+&lt;h1 id=&quot;-career-path&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-career-path&quot; aria-label=&quot; career path permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🪃 Career Path&lt;/h1&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 690px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.06936416184971%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAACxLAAAsSwGlPZapAAACEElEQVQoz2VT2W7bMBD0//9N31v0qSlaIEnRxGndOHJ8RJYsiZd4iRI1XdJO0IOAoCU5u5ydIRfOOUgp0fc9hBAwxuDfMc/z3/M/4hgj4jS9zRcJG0L4r0ikDe8H2hvfEq21b/vjOF7+A5q2y4TGMWAxEVAplQHBW3RdS4V8LsiFhNYCg2/QawNFnfhhgGQMgnNYo9FTrnWecBoD7S3OPURIJfPiRPQNATklpVanydMBmtgFjFOAIZYJlwiMYSBm55z0JfxipOBw7NCcGJxxYIwTG42OCwils74v+yvw7gDJaU6spVRoqc0kQVVVmW3TtpTLzhpyMkI4js5U0E7iuN0i8BqwMhvQs49QdoNav8AFA+0lbNDQxiLZoX1AVaxIGn9uWQeJor5DK44wvsfhaQ1Xb9GVO8SLCYrWN9USZVuAqQbGGVzdfsfN7TWeDgqrdUXKjeeCXDLSxsP0A5nCAdNBlY/4fL8id5M2EfMYwSqBk4sYKC6KAqe6wupxjW87AXs5ORe0TkGc9uitxmazxnP5QEyp+GEFL6oMNMajbmtUXY0P769RHk8o1o8khUOnDNyvZZZnkdxhXFHyGu+ubvDpR5kPKHcHNB2jSztmg9jLHvcPX7FbfcFPuUSz32J3OpKOBkGTkc+b14s9ZyfT6OlqKGKSRnpBrw/EEgvvHcxAJsQZLg7wVGi+vKJ4Aab4N+RpTWOww1fLAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;dev-profile&quot;
+        title=&quot;dev-profile&quot;
+        src=&quot;/static/3e2c470d4a4c655ca8608aad565aabfe/1e043/career_path.png&quot;
+        srcset=&quot;/static/3e2c470d4a4c655ca8608aad565aabfe/991de/career_path.png 173w,
+/static/3e2c470d4a4c655ca8608aad565aabfe/e4d6b/career_path.png 345w,
+/static/3e2c470d4a4c655ca8608aad565aabfe/1e043/career_path.png 690w,
+/static/3e2c470d4a4c655ca8608aad565aabfe/e3189/career_path.png 1035w,
+/static/3e2c470d4a4c655ca8608aad565aabfe/b1001/career_path.png 1380w,
+/static/3e2c470d4a4c655ca8608aad565aabfe/c841b/career_path.png 7680w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br/&gt;
+&lt;h2 id=&quot;카카오페이&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%8E%98%EC%9D%B4&quot; aria-label=&quot;카카오페이 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;💸카카오페이&lt;/h2&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td&gt;
+period
+&lt;/td&gt;
+&lt;td&gt;
+2020. 06 ~&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+team
+&lt;/td&gt;
+&lt;td&gt;
+결제클랜 - 비즈니스 서비스&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+tech
+&lt;/td&gt;
+&lt;td&gt;
+spring kotlin java mysql redis kafka github react
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;
+&lt;h3 id=&quot;멤버십-적립-스캐너-개발&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A9%A4%EB%B2%84%EC%8B%AD-%EC%A0%81%EB%A6%BD-%EC%8A%A4%EC%BA%90%EB%84%88-%EA%B0%9C%EB%B0%9C&quot; aria-label=&quot;멤버십 적립 스캐너 개발 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;멤버십 적립 스캐너 개발&lt;/h3&gt;
+&lt;p&gt;기기에 비즈니스앱을 설치하여 카카오페이 멤버십을 사용하는 서비스  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;카카오페이 계정 연동 신규 인증체계 설계 및 개발  &lt;/li&gt;
+&lt;li&gt;스캐너 기기관리와 신규 알림 서비스 개발   &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;br/&gt;
+&lt;h3 id=&quot;비즈니스앱-20-출시&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%EC%95%B1-20-%EC%B6%9C%EC%8B%9C&quot; aria-label=&quot;비즈니스앱 20 출시 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;비즈니스앱 2.0 출시&lt;/h3&gt;
+&lt;p&gt;매장의 카카오페이 가맹점, 카드결제, 현금결제, 배달앱등 다양한 매출을 통합적으로 지원하는 장부관리 서비스  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;매출정보 결제관리 및 알림 서비스 개발 (kafka, kpusher)  &lt;/li&gt;
+&lt;li&gt;매장정보와 직원관리 및 카카오페이 멤버십 서비스 설계 개발  &lt;/li&gt;
+&lt;li&gt;circuit breaker와 feign을 통해 계정, 정산, 매장, 결제등 다양한 플랫폼 연동  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;br/&gt;
+&lt;h3 id=&quot;모바일-지역화폐&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AA%A8%EB%B0%94%EC%9D%BC-%EC%A7%80%EC%97%AD%ED%99%94%ED%8F%90&quot; aria-label=&quot;모바일 지역화폐 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;모바일 지역화폐&lt;/h3&gt;
+&lt;p&gt;카카오페이를 통해 지역화폐를 사용할 수 있도록 지원하는 서비스  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;계정 인증 및 결제 키트 활성화 서비스  &lt;/li&gt;
+&lt;li&gt;오프라인 결제 조회 및 취소 서비스  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;br/&gt;
+&lt;h3 id=&quot;어드민-개발&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%96%B4%EB%93%9C%EB%AF%BC-%EA%B0%9C%EB%B0%9C&quot; aria-label=&quot;어드민 개발 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;어드민 개발&lt;/h3&gt;
+&lt;p&gt;비즈니스앱의 VOC 및 QA에 필요한 데이터 관리와 멤버십 심사 지원  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;react-admin로 프로젝트를 구축하여 생산성 높은 환경 구성  &lt;/li&gt;
+&lt;li&gt;계정계와 서비스를 express-proxy로 동시 연동한 보안 구성  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;br/&gt;
+&lt;h3 id=&quot;비즈니스앱-10-출시&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%EC%95%B1-10-%EC%B6%9C%EC%8B%9C&quot; aria-label=&quot;비즈니스앱 10 출시 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;비즈니스앱 1.0 출시&lt;/h3&gt;
+&lt;p&gt;소상공인을 지원하는 키트 결제관리 및 알림 서비스  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;spring-batch와 impala를 통한 리포트 배치 서비스 개발  &lt;/li&gt;
+&lt;li&gt;webflux 기반의 react 프로그래밍 개발  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;h2 id=&quot;사람인에이치알&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%82%AC%EB%9E%8C%EC%9D%B8%EC%97%90%EC%9D%B4%EC%B9%98%EC%95%8C&quot; aria-label=&quot;사람인에이치알 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🧑‍💼사람인에이치알&lt;/h2&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td&gt;
+period
+&lt;/td&gt;
+&lt;td&gt;
+2017. 01 ~ 2020. 06&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+team
+&lt;/td&gt;
+&lt;td&gt;
+사람인LAB - 빅데이터&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+tech
+&lt;/td&gt;
+&lt;td&gt;
+spring java python elastic konan gitlab scikit-learn  
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;
+&lt;h3 id=&quot;사람인-검색-시스템&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%82%AC%EB%9E%8C%EC%9D%B8-%EA%B2%80%EC%83%89-%EC%8B%9C%EC%8A%A4%ED%85%9C&quot; aria-label=&quot;사람인 검색 시스템 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;사람인 검색 시스템&lt;/h3&gt;
+&lt;p&gt;공고 및 기업 검색 API 시스템 개발  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;사용자 특성을 이용한 맞춤 검색 랭킹 지원 (지역, 직종, 경력등)  &lt;/li&gt;
+&lt;li&gt;기업 특성 분류 및 다양한 상세 검색 조건 개발  &lt;/li&gt;
+&lt;li&gt;브랜드 확대 자동완성 서비스 개발  &lt;/li&gt;
+&lt;li&gt;로그, 공고등 데이터를 활용한 LSA, Glove, Word2Vec등의 알고리즘 모델링으로 연관검색 서비스 개발  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;br/&gt;
+&lt;h3 id=&quot;연봉정보-서비스&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%97%B0%EB%B4%89%EC%A0%95%EB%B3%B4-%EC%84%9C%EB%B9%84%EC%8A%A4&quot; aria-label=&quot;연봉정보 서비스 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;연봉정보 서비스&lt;/h3&gt;
+&lt;p&gt;다양한 연봉정보로 모델링을 통한 40만 기업 연봉정보 추정시스템 개발  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;KCB, 국민연금, 이력서 데이터를 통한 데이터셋 구성  &lt;/li&gt;
+&lt;li&gt;기업정보의 특징 및 이용가능 데이터셋 생성 및 필터  &lt;/li&gt;
+&lt;li&gt;기계학습을 통한 연봉정보 모델링 구현 (XGboost, RandomForest)  &lt;/li&gt;
+&lt;li&gt;기업 연봉정보를 경력, 연차, 직종별로 추론하는 시스템 개발  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;br/&gt;
+&lt;h3 id=&quot;기업-큐레이션-및-트랜드-분석&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B8%B0%EC%97%85-%ED%81%90%EB%A0%88%EC%9D%B4%EC%85%98-%EB%B0%8F-%ED%8A%B8%EB%9E%9C%EB%93%9C-%EB%B6%84%EC%84%9D&quot; aria-label=&quot;기업 큐레이션 및 트랜드 분석 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;기업 큐레이션 및 트랜드 분석&lt;/h3&gt;
+&lt;p&gt;400만 기업의 특성을 활용한 큐레이션 서비스와 채용시장 트렌드 분석  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;22가지 특성으로 기업의 큐레이션 태그 산출과 검색 서비스 개발    &lt;/li&gt;
+&lt;li&gt;뉴스 데이터를 통해 기업의 트랜드 분석  &lt;/li&gt;
+&lt;li&gt;채용시장 데이터를 수집하여 내부분석 환경구성  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;br/&gt;
+&lt;h3 id=&quot;데이터-분석-서비스&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D-%EC%84%9C%EB%B9%84%EC%8A%A4&quot; aria-label=&quot;데이터 분석 서비스 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;데이터 분석 서비스&lt;/h3&gt;
+&lt;p&gt;이직 로드맵 서비스와 검색 tag 다이나믹 프라이싱 구성  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;경력사항과 기타 데이터를 활용한 이직 Flow 분석 시스템 개발  &lt;/li&gt;
+&lt;li&gt;데이터 정규화와 신뢰 가중치를 부여로 서비스 품질 향상  &lt;/li&gt;
+&lt;li&gt;유저 검색 및 노출 데이터를 분석한 검색 tag 가격 다변화  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;br/&gt;
+&lt;h2 id=&quot;communities&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#communities&quot; aria-label=&quot;communities permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🌐Communities&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Open Source&lt;/strong&gt;  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/r2dbc/r2dbc-h2&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;r2dbc-h2 contributor 참여&lt;/a&gt;  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Open Library&lt;/strong&gt;  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/renuevo/drcode&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;drcode&lt;/a&gt;  &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/renuevo/drcode_kotlin&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;drcode-kotlin&lt;/a&gt;  &lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[Spring] Spring의 프록시 생성 (ProxyBeanFactory)]]></title><description><![CDATA[Spring AOP에서 사용하는 Proxy 스프링에서 사용하는 프록시에 대해 알아볼 시간입니다 총 3편으로 나누어서 구성하였습니다   Spring Proxy의 JDK Dynamic Proxy와 CGLIB   a. Proxy 살펴보기 b. JDK…]]></description><link>https://renuevo.github.io/spring/proxy/spring-proxy-factory/</link><guid isPermaLink="false">https://renuevo.github.io/spring/proxy/spring-proxy-factory/</guid><pubDate>Thu, 08 Sep 2022 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;spring-aop에서-사용하는-proxy&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#spring-aop%EC%97%90%EC%84%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-proxy&quot; aria-label=&quot;spring aop에서 사용하는 proxy permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Spring AOP에서 사용하는 Proxy&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;스프링에서 사용하는 프록시에 대해 알아볼 시간입니다&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;총 3편으로 나누어서 구성하였습니다  &lt;/p&gt;
 &lt;ol&gt;
@@ -1974,215 +2185,7 @@ Linked List, Tree등의 자료구조를 사용하여 연결하여 삽입하는 �
 &lt;a href=&quot;https://d2.naver.com/helloworld/831311&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;네이버 D2 포스팅&lt;/a&gt;&lt;br&gt;
 &lt;a href=&quot;https://mangkyu.tistory.com/102&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;망나니개발자님 블로그&lt;/a&gt;&lt;br&gt;
 &lt;a href=&quot;https://velog.io/@alsgus92/ConcurrentHashMap%EC%9D%98-Thread-safe-%EC%9B%90%EB%A6%AC&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;alsgus92.log&lt;/a&gt;&lt;br&gt;
-&lt;a href=&quot;https://hongjw1938.tistory.com/17?category=884192&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;겐지충프로그래머님 블로그&lt;/a&gt;  &lt;/p&gt;</content:encoded></item><item><title><![CDATA[about]]></title><description><![CDATA[🦆 My Profile  👨 Deokhwa Kim 🎂 30 age 👨‍💻 Backend Engineer 💳 Kakaopay Corp 🪃 Career Path…]]></description><link>https://renuevo.github.io/resume-kr/</link><guid isPermaLink="false">https://renuevo.github.io/resume-kr/</guid><pubDate>Mon, 06 Jun 2022 20:17:00 GMT</pubDate><content:encoded>&lt;h1 id=&quot;-my-profile&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-my-profile&quot; aria-label=&quot; my profile permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🦆 My Profile&lt;/h1&gt;
-&lt;div style=&quot;text-align:center&quot;&gt;
-&lt;figure style=&quot;margin: 0 auto; max-width:200px; width: 80%;&quot;&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 460px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEz0lEQVQ4ywHEBDv7AH6fl5Slt2tgYj8wK1RFQYFiTK+Mba+ReLOXhLiejLyhjL6hisGjisCih7ydgquMdJl7ZauMc6SGb5Z7ZQB+mZCUqb2Rm6N9fXV0YmC4pJi4kXC7mn7AoYjFqI7LrJHQsJTSsZTUspXXtZjYtpfYtpjUtJfRsZXKrJEAgpSKjqW5l5+omLOgoJyg79rRyZpnzJ1p2Kx46r2H88qS882W8MeO88qR8cyS9NSc7MSP5r2L37eG1a6CAIyQmZSkup2jrpStnpKisNG+ttOlcMecbYZiRZdyT9u1g/fUmfnTkvfPkP/Xk+TFj+a/h/nOjuy+gei5fACvuMuyyeWlrMKbus2UqsPd09DTpnZtRi9IKRk6HxI0HhJfQirLpXP82Z771prz2bLz0KD50JP0zJPvw4sAnoyBpqCfoJeZvsvHqbjI49bYoXlkVTImTzEiPCUYOiQWLRQKZUYu/OKt++W0/eCs/dig/Nqk/eCt/dqnALGzv5CJi29dWqqkpoyFhtrP0V5NTS8hISgbGSIUDSgXDisYDjMZC9y5i//lrv3dqP/bpf7ZoP3Yof/cpwCptb3Z2d+Fe4TBx9CqrrjTxMQ9OD0iGx46LC9KMy1HLCBHKBpEJxfEnnTku4fkvIjmvovlu4bku4fswo8A2uXjxNXji4WRx9DVn6Cq2MvKfW1sknNwsIBy3KKMrHZhwYNglmE+VzsrXkM1Y0UzZUc1Y0cyZEgzYUczALjY9aKuv4B4hJaVmYWIk21kZolvbOq9sNGhl+6wmducgO+xi8WCV0AnGUIrGkgvHkYtHEUrG080H0QrGACsoqOLfXlKP0VCSmVPa49ucXl0Y2L8yr7ttqjdoIntpYL9v6CLXDwwHRJCKRgtGg86JBVAJRQ5IhJQLhoAcHF0T1RhTUpSc4GDbX6GfXh7iGlU0aie6baq0IV114tn255wYUUuKBoVPikcJRcPMiEUOCMUOyUWZUQnAEVJUD1ET1VbYZWqpHmKimReYHFUQJd1asGSicF2aMyAU7Z+SbqSYnhcQaF9VXxdO4NgPJRuQY5pQdalZwBaZHAwN0IVFiIiKTctKzFkUUY7MjRaQzu4loq1jXy9eUxnQSa6nHL80ZL/2Jv/3Jv91pf2zI7wxoX1zJAAYnB9GRohKyksLiUoPCwpQDArNCgrNx8YnnBXvp6RsoFkPykeMSEXQy0cTTYljnFR58SQ/dea8syQ+NGWAEU8PEw/OkU1MDcnJSUYGSEVFSgdHRYLCGtAJ7OKdHVaUw0IBhcNCRkODB0REBQJCDwqH7GPZPjPkfXNlQAnGhouHx0oGhgiFBMgFBMeFBMTDw0ICAkmDQ9CEhcRCAgQDQoXFBEZEhAhFhQeFRIgExAlEwutilz/4qAAKx4cIhYUGQ8NHBMRHBQUHBIQGhMRDQ4NGw0QQAgIGQ4LHRQTHRUTFhEOEg0LDgsJGxMOHhEOPCgatJhwABwRDRoQDBAJBg8LCRwWFiAVFBwREBQPDA4QEigMDB8PDR0TEhsSERoSEBUNCwkHCBMODB4TEBwQDCMTCwAZDgoRCQYLBgMJBgUbFBQfFBMZDw0UDgsVEREbDg4kFQ8eExAdExEeExEXDw4IBwcJCAoWEA4kGBEwHxTXF/+1PnzuWAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;profile&quot;
-        title=&quot;profile&quot;
-        src=&quot;/static/3fc5562e6ad25d80970b53e8e9afab0c/08a84/profile.png&quot;
-        srcset=&quot;/static/3fc5562e6ad25d80970b53e8e9afab0c/991de/profile.png 173w,
-/static/3fc5562e6ad25d80970b53e8e9afab0c/e4d6b/profile.png 345w,
-/static/3fc5562e6ad25d80970b53e8e9afab0c/08a84/profile.png 460w&quot;
-        sizes=&quot;(max-width: 460px) 100vw, 460px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;/figure&gt; 
-&lt;p&gt;👨 Deokhwa Kim&lt;br&gt;
-🎂 30 age&lt;br&gt;
-👨‍💻 Backend Engineer&lt;br&gt;
-💳 Kakaopay Corp&lt;/p&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;/div&gt;
-&lt;h1 id=&quot;-career-path&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-career-path&quot; aria-label=&quot; career path permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🪃 Career Path&lt;/h1&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 690px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.06936416184971%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAACxLAAAsSwGlPZapAAACEElEQVQoz2VT2W7bMBD0//9N31v0qSlaIEnRxGndOHJ8RJYsiZd4iRI1XdJO0IOAoCU5u5ydIRfOOUgp0fc9hBAwxuDfMc/z3/M/4hgj4jS9zRcJG0L4r0ikDe8H2hvfEq21b/vjOF7+A5q2y4TGMWAxEVAplQHBW3RdS4V8LsiFhNYCg2/QawNFnfhhgGQMgnNYo9FTrnWecBoD7S3OPURIJfPiRPQNATklpVanydMBmtgFjFOAIZYJlwiMYSBm55z0JfxipOBw7NCcGJxxYIwTG42OCwils74v+yvw7gDJaU6spVRoqc0kQVVVmW3TtpTLzhpyMkI4js5U0E7iuN0i8BqwMhvQs49QdoNav8AFA+0lbNDQxiLZoX1AVaxIGn9uWQeJor5DK44wvsfhaQ1Xb9GVO8SLCYrWN9USZVuAqQbGGVzdfsfN7TWeDgqrdUXKjeeCXDLSxsP0A5nCAdNBlY/4fL8id5M2EfMYwSqBk4sYKC6KAqe6wupxjW87AXs5ORe0TkGc9uitxmazxnP5QEyp+GEFL6oMNMajbmtUXY0P769RHk8o1o8khUOnDNyvZZZnkdxhXFHyGu+ubvDpR5kPKHcHNB2jSztmg9jLHvcPX7FbfcFPuUSz32J3OpKOBkGTkc+b14s9ZyfT6OlqKGKSRnpBrw/EEgvvHcxAJsQZLg7wVGi+vKJ4Aab4N+RpTWOww1fLAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;dev-profile&quot;
-        title=&quot;dev-profile&quot;
-        src=&quot;/static/3e2c470d4a4c655ca8608aad565aabfe/1e043/career_path.png&quot;
-        srcset=&quot;/static/3e2c470d4a4c655ca8608aad565aabfe/991de/career_path.png 173w,
-/static/3e2c470d4a4c655ca8608aad565aabfe/e4d6b/career_path.png 345w,
-/static/3e2c470d4a4c655ca8608aad565aabfe/1e043/career_path.png 690w,
-/static/3e2c470d4a4c655ca8608aad565aabfe/e3189/career_path.png 1035w,
-/static/3e2c470d4a4c655ca8608aad565aabfe/b1001/career_path.png 1380w,
-/static/3e2c470d4a4c655ca8608aad565aabfe/c841b/career_path.png 7680w&quot;
-        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;br/&gt;
-&lt;h2 id=&quot;카카오페이&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%8E%98%EC%9D%B4&quot; aria-label=&quot;카카오페이 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;💸카카오페이&lt;/h2&gt;
-&lt;table&gt;
-&lt;tr&gt;
-&lt;td&gt;
-period
-&lt;/td&gt;
-&lt;td&gt;
-2020. 06 ~&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-team
-&lt;/td&gt;
-&lt;td&gt;
-결제클랜 - 비즈니스 서비스&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-tech
-&lt;/td&gt;
-&lt;td&gt;
-spring kotlin java mysql redis kafka github react
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-&lt;br/&gt;
-&lt;h3 id=&quot;멤버십-적립-스캐너-개발&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A9%A4%EB%B2%84%EC%8B%AD-%EC%A0%81%EB%A6%BD-%EC%8A%A4%EC%BA%90%EB%84%88-%EA%B0%9C%EB%B0%9C&quot; aria-label=&quot;멤버십 적립 스캐너 개발 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;멤버십 적립 스캐너 개발&lt;/h3&gt;
-&lt;p&gt;기기에 비즈니스앱을 설치하여 카카오페이 멤버십을 사용하는 서비스  &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;카카오페이 계정 연동 신규 인증체계 설계 및 개발  &lt;/li&gt;
-&lt;li&gt;스캐너 기기관리와 신규 알림 서비스 개발   &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;br/&gt;
-&lt;h3 id=&quot;비즈니스앱-20-출시&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%EC%95%B1-20-%EC%B6%9C%EC%8B%9C&quot; aria-label=&quot;비즈니스앱 20 출시 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;비즈니스앱 2.0 출시&lt;/h3&gt;
-&lt;p&gt;매장의 카카오페이 가맹점, 카드결제, 현금결제, 배달앱등 다양한 매출을 통합적으로 지원하는 장부관리 서비스  &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;매출정보 결제관리 및 알림 서비스 개발 (kafka, kpusher)  &lt;/li&gt;
-&lt;li&gt;매장정보와 직원관리 및 카카오페이 멤버십 서비스 설계 개발  &lt;/li&gt;
-&lt;li&gt;circuit breaker와 feign을 통해 계정, 정산, 매장, 결제등 다양한 플랫폼 연동  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;br/&gt;
-&lt;h3 id=&quot;모바일-지역화폐&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AA%A8%EB%B0%94%EC%9D%BC-%EC%A7%80%EC%97%AD%ED%99%94%ED%8F%90&quot; aria-label=&quot;모바일 지역화폐 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;모바일 지역화폐&lt;/h3&gt;
-&lt;p&gt;카카오페이를 통해 지역화폐를 사용할 수 있도록 지원하는 서비스  &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;계정 인증 및 결제 키트 활성화 서비스  &lt;/li&gt;
-&lt;li&gt;오프라인 결제 조회 및 취소 서비스  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;br/&gt;
-&lt;h3 id=&quot;어드민-개발&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%96%B4%EB%93%9C%EB%AF%BC-%EA%B0%9C%EB%B0%9C&quot; aria-label=&quot;어드민 개발 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;어드민 개발&lt;/h3&gt;
-&lt;p&gt;비즈니스앱의 VOC 및 QA에 필요한 데이터 관리와 멤버십 심사 지원  &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;react-admin로 프로젝트를 구축하여 생산성 높은 환경 구성  &lt;/li&gt;
-&lt;li&gt;계정계와 서비스를 express-proxy로 동시 연동한 보안 구성  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;br/&gt;
-&lt;h3 id=&quot;비즈니스앱-10-출시&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%EC%95%B1-10-%EC%B6%9C%EC%8B%9C&quot; aria-label=&quot;비즈니스앱 10 출시 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;비즈니스앱 1.0 출시&lt;/h3&gt;
-&lt;p&gt;소상공인을 지원하는 키트 결제관리 및 알림 서비스  &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;spring-batch와 impala를 통한 리포트 배치 서비스 개발  &lt;/li&gt;
-&lt;li&gt;webflux 기반의 react 프로그래밍 개발  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;h2 id=&quot;사람인에이치알&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%82%AC%EB%9E%8C%EC%9D%B8%EC%97%90%EC%9D%B4%EC%B9%98%EC%95%8C&quot; aria-label=&quot;사람인에이치알 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🧑‍💼사람인에이치알&lt;/h2&gt;
-&lt;table&gt;
-&lt;tr&gt;
-&lt;td&gt;
-period
-&lt;/td&gt;
-&lt;td&gt;
-2017. 01 ~ 2020. 06&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-team
-&lt;/td&gt;
-&lt;td&gt;
-사람인LAB - 빅데이터&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-tech
-&lt;/td&gt;
-&lt;td&gt;
-spring java python elastic konan gitlab scikit-learn  
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-&lt;br/&gt;
-&lt;h3 id=&quot;사람인-검색-시스템&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%82%AC%EB%9E%8C%EC%9D%B8-%EA%B2%80%EC%83%89-%EC%8B%9C%EC%8A%A4%ED%85%9C&quot; aria-label=&quot;사람인 검색 시스템 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;사람인 검색 시스템&lt;/h3&gt;
-&lt;p&gt;공고 및 기업 검색 API 시스템 개발  &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;사용자 특성을 이용한 맞춤 검색 랭킹 지원 (지역, 직종, 경력등)  &lt;/li&gt;
-&lt;li&gt;기업 특성 분류 및 다양한 상세 검색 조건 개발  &lt;/li&gt;
-&lt;li&gt;브랜드 확대 자동완성 서비스 개발  &lt;/li&gt;
-&lt;li&gt;로그, 공고등 데이터를 활용한 LSA, Glove, Word2Vec등의 알고리즘 모델링으로 연관검색 서비스 개발  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;br/&gt;
-&lt;h3 id=&quot;연봉정보-서비스&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%97%B0%EB%B4%89%EC%A0%95%EB%B3%B4-%EC%84%9C%EB%B9%84%EC%8A%A4&quot; aria-label=&quot;연봉정보 서비스 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;연봉정보 서비스&lt;/h3&gt;
-&lt;p&gt;다양한 연봉정보로 모델링을 통한 40만 기업 연봉정보 추정시스템 개발  &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;KCB, 국민연금, 이력서 데이터를 통한 데이터셋 구성  &lt;/li&gt;
-&lt;li&gt;기업정보의 특징 및 이용가능 데이터셋 생성 및 필터  &lt;/li&gt;
-&lt;li&gt;기계학습을 통한 연봉정보 모델링 구현 (XGboost, RandomForest)  &lt;/li&gt;
-&lt;li&gt;기업 연봉정보를 경력, 연차, 직종별로 추론하는 시스템 개발  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;br/&gt;
-&lt;h3 id=&quot;기업-큐레이션-및-트랜드-분석&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B8%B0%EC%97%85-%ED%81%90%EB%A0%88%EC%9D%B4%EC%85%98-%EB%B0%8F-%ED%8A%B8%EB%9E%9C%EB%93%9C-%EB%B6%84%EC%84%9D&quot; aria-label=&quot;기업 큐레이션 및 트랜드 분석 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;기업 큐레이션 및 트랜드 분석&lt;/h3&gt;
-&lt;p&gt;400만 기업의 특성을 활용한 큐레이션 서비스와 채용시장 트렌드 분석  &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;22가지 특성으로 기업의 큐레이션 태그 산출과 검색 서비스 개발    &lt;/li&gt;
-&lt;li&gt;뉴스 데이터를 통해 기업의 트랜드 분석  &lt;/li&gt;
-&lt;li&gt;채용시장 데이터를 수집하여 내부분석 환경구성  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;br/&gt;
-&lt;h3 id=&quot;데이터-분석-서비스&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D-%EC%84%9C%EB%B9%84%EC%8A%A4&quot; aria-label=&quot;데이터 분석 서비스 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;데이터 분석 서비스&lt;/h3&gt;
-&lt;p&gt;이직 로드맵 서비스와 검색 tag 다이나믹 프라이싱 구성  &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;경력사항과 기타 데이터를 활용한 이직 Flow 분석 시스템 개발  &lt;/li&gt;
-&lt;li&gt;데이터 정규화와 신뢰 가중치를 부여로 서비스 품질 향상  &lt;/li&gt;
-&lt;li&gt;유저 검색 및 노출 데이터를 분석한 검색 tag 가격 다변화  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;br/&gt;
-&lt;h2 id=&quot;communities&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#communities&quot; aria-label=&quot;communities permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🌐Communities&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Open Source&lt;/strong&gt;  &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/r2dbc/r2dbc-h2&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;r2dbc-h2 contributor 참여&lt;/a&gt;  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Open Library&lt;/strong&gt;  &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/renuevo/drcode&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;drcode&lt;/a&gt;  &lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/renuevo/drcode_kotlin&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;drcode-kotlin&lt;/a&gt;  &lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[Spring] Spring Boot 2.3.x Dependency 업그레이드]]></title><description><![CDATA[Spring Boot 2.3.x 버젼 업그레이드 주의사항 해당 포스터는 회사에서 Spring Boot…]]></description><link>https://renuevo.github.io/spring/spring-version-upgrade/</link><guid isPermaLink="false">https://renuevo.github.io/spring/spring-version-upgrade/</guid><pubDate>Mon, 22 Mar 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;spring-boot-23x-버젼-업그레이드-주의사항&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#spring-boot-23x-%EB%B2%84%EC%A0%BC-%EC%97%85%EA%B7%B8%EB%A0%88%EC%9D%B4%EB%93%9C-%EC%A3%BC%EC%9D%98%EC%82%AC%ED%95%AD&quot; aria-label=&quot;spring boot 23x 버젼 업그레이드 주의사항 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Spring Boot 2.3.x 버젼 업그레이드 주의사항&lt;/h2&gt;
+&lt;a href=&quot;https://hongjw1938.tistory.com/17?category=884192&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;겐지충프로그래머님 블로그&lt;/a&gt;  &lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Spring] Spring Boot 2.3.x Dependency 업그레이드]]></title><description><![CDATA[Spring Boot 2.3.x 버젼 업그레이드 주의사항 해당 포스터는 회사에서 Spring Boot…]]></description><link>https://renuevo.github.io/spring/spring-version-upgrade/</link><guid isPermaLink="false">https://renuevo.github.io/spring/spring-version-upgrade/</guid><pubDate>Mon, 22 Mar 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;spring-boot-23x-버젼-업그레이드-주의사항&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#spring-boot-23x-%EB%B2%84%EC%A0%BC-%EC%97%85%EA%B7%B8%EB%A0%88%EC%9D%B4%EB%93%9C-%EC%A3%BC%EC%9D%98%EC%82%AC%ED%95%AD&quot; aria-label=&quot;spring boot 23x 버젼 업그레이드 주의사항 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Spring Boot 2.3.x 버젼 업그레이드 주의사항&lt;/h2&gt;
 &lt;p&gt;해당 포스터는 회사에서 Spring Boot 버젼 업데이트를 진행한 경험을 바탕으로 작성하였습니다&lt;br&gt;
 하나하나 모든 내용을 세세하게 작성하지 않고 문제가 발생한거 위주로 작성하였습니다 😓&lt;/p&gt;
 &lt;br/&gt;
